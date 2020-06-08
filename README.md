@@ -18,8 +18,9 @@ cd frontend
 npm ci
 ```
 | :exclamation:  Always use the command `npm ci` to install packages instead of `npm install` |
-| `npm install` should only be used when installing a new package to the project and the same must be mentioned clearly in the Pull Request |
 |---------------------------------------------------------------------------------------------|
+| `npm install` should only be used when installing a new package to the project and the same must be mentioned clearly in the Pull Request |
+
 
 3. Start the project
 ```
