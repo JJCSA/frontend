@@ -1,13 +1,12 @@
 import React from 'react';
-import AdminPanelSideBar from "../../components/adminPanelSideBar/AdminPanelSideBar";
 
 class AdminHomepage extends React.Component {
     render() {
         return (
-            <div classname="container">
-                <AdminPanelSideBar/>
+            <div>
+                <h1>Hello Admin!</h1>
             </div>
-        );
+        )
     }
 }
 
