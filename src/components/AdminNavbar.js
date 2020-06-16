@@ -14,11 +14,8 @@ class AdminNavbar extends Component {
                     <Navbar.Toggle />
                     <Navbar.Collapse>
                         <Nav>
-                            <LinkContainer to="/signup">
-                                <NavItem>Signup</NavItem>
-                            </LinkContainer>
-                            <LinkContainer to="/login">
-                                <NavItem>Login</NavItem>
+                            <LinkContainer to="/admin/manageUsers">
+                                <NavItem>Manage Users</NavItem>
                             </LinkContainer>
                         </Nav>
                     </Navbar.Collapse>
