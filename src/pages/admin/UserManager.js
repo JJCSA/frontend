@@ -1,50 +1,13 @@
 import React, { Component } from "react";
 import DataTable from "../../components/datatable/DataTable";
-import Avatar from "../../components/avatar/Avatar";
 import "./UserManager.scss";
-import { CustomDropdown, CustomTextBox } from '../../components';
+import { CustomDropdown, CustomTextBox} from '../../components';
 import * as Constants from "../../utils/constants";
-import deleteIcon from "../../assets/delete-icon.svg";
+import { deleteIcon } from "../../assets/index.js";
+import PhoneNumberFormatter from "../../components/phoneNumberFormatter/PhoneNumberFormatter";
+import StatusFormatter from "../../components/statusFormatter/StatusFormatter";
+import ImageFormatter from "../../components/imageFormatter/ImageFormatter";
 
-const phoneNumberFormatter = (cell) => {
-  // Ref https://stackoverflow.com/a/8358141
-  const cleaned = ("" + cell).replace(/\D/g, "");
-  const match = cleaned.match(/^(1|91|)?(\d{3})(\d{3})(\d{4})$/);
-  let formattedNumber = "" + cell;
-  if (match) {
-    const intlCode = match[1] ? `+${match[1]} ` : "";
-    formattedNumber = [
-      intlCode,
-      "(",
-      match[2],
-      ") ",
-      match[3],
-      "-",
-      match[4],
-    ].join("");
-  }
-  return <span>{formattedNumber}</span>;
-};
-
-const statusFormatter = (cell) => {
-  const statusClass =
-    "" + cell === "Pending"
-      ? "pendingStatusContainer"
-      : "approvedStatusContainer";
-  return (
-    <div className={statusClass}>
-      <span></span>
-      <span>{cell}</span>
-    </div>
-  );
-};
-
-const imageFormatter = (cell) => {
-  //ref https://stackoverflow.com/a/1443294
-  const imgLinkRegex = RegExp("(http(s?):)|([/|.|w|s])*.(?:jpg|gif|png)");
-  const validImg = imgLinkRegex.test(cell);
-  return <Avatar src={validImg ? cell : ""} />;
-};
 
 const tableColumns = [
   {
@@ -56,7 +19,7 @@ const tableColumns = [
     dataField: "image",
     text: "IMAGE",
     headerClasses: "tableHeader tableNarrowColumn",
-    formatter: imageFormatter,
+    formatter: ImageFormatter,
   },
   {
     dataField: "name",
@@ -80,14 +43,14 @@ const tableColumns = [
     dataField: "number",
     text: "NUMBER",
     headerClasses: "tableHeader",
-    formatter: phoneNumberFormatter,
+    formatter: PhoneNumberFormatter,
     sort: true,
   },
   {
     dataField: "status",
     text: "STATUS",
     headerClasses: "tableHeader",
-    formatter: statusFormatter,
+    formatter: StatusFormatter,
     sort: true,
   },
   {
@@ -121,6 +84,7 @@ class UserManager extends Component {
     this.handleSearchFilterChange = this.handleSearchFilterChange.bind(this);
     this.clearSearchFilters = this.clearSearchFilters.bind(this);
     this.renderUserTable = this.renderUserTable.bind(this);
+    this.updateUserData = this.updateUserData.bind(this);
   }
 
   componentDidMount() {
@@ -141,6 +105,34 @@ class UserManager extends Component {
           });
         }
       );
+  }
+
+  /**
+   * Function to update Userdata based on particular Id
+   * @param {User_id to update} user_id
+   * @param {Updated record value} updated_records
+   */
+
+  updateUserData(user_id, updated_record) {
+    let newusers = [...this.state.users]
+    let newfiltered_users = [...this.state.filteredUsers]
+
+    // Finding the element index of the user_id to update
+    const elementsIndexInFilteredUsers = this.state.filteredUsers.findIndex(element => element.user_id === user_id )
+    const elementsIndexInUsers = this.state.users.findIndex(element => element.user_id === user_id )
+
+    // Updating the array based on the status
+    if(updated_record.status === Constants.userStatus.APPROVED) {
+      newusers[elementsIndexInUsers] = {...newusers[elementsIndexInUsers], status: updated_record.status}
+      newfiltered_users[elementsIndexInFilteredUsers] = {...newfiltered_users[elementsIndexInFilteredUsers], status: updated_record.status}
+    } else {
+      newusers.splice(elementsIndexInUsers, 1)
+      newfiltered_users.splice(elementsIndexInFilteredUsers, 1)
+    }
+    this.setState({
+      users: newusers,
+      filteredUsers: newfiltered_users
+      });
   }
 
   /**
@@ -255,6 +247,7 @@ class UserManager extends Component {
           keyField="user_id"
           columns={tableColumns}
           data={this.state.filteredUsers}
+          updateUserData={this.updateUserData}
         />
       </div>
     );
