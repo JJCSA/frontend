@@ -122,6 +122,116 @@ const users = [
         "status": "Approved",
         "state": "Massachusetts",
         "city": "Boston"
+    },
+    {
+        "user_id": 6,
+        "image": "img",
+        "name": "Borat Beck",
+        "type": "User",
+        "email": "b@a.com",
+        "number": "8573139750",
+        "status": "Approved",
+        "state": "Massachusetts",
+        "city": "Boston"
+    },
+    {
+        "user_id": 7,
+        "image": "img",
+        "name": "Duck Beck",
+        "type": "User",
+        "email": "b@a.com",
+        "number": "8573139750",
+        "status": "Approved",
+        "state": "Massachusetts",
+        "city": "Boston"
+    },
+    {
+        "user_id": 8,
+        "image": "img",
+        "name": "Cat Beck",
+        "type": "User",
+        "email": "b@a.com",
+        "number": "8573139750",
+        "status": "Approved",
+        "state": "Illinois",
+        "city": "Chicago"
+    },
+    {
+        "user_id": 9,
+        "image": "img",
+        "name": "Suzanne Beck",
+        "type": "Admin",
+        "email": "Suzanne@beck.com",
+        "number": "8573149750",
+        "status": "Pending",
+        "state": "Maryland",
+        "city": "Baltimore"
+    },
+    {
+        "user_id": 10,
+        "image": "img",
+        "name": "Jack Beck",
+        "type": "User",
+        "email": "jack@a.com",
+        "number": "8573139750",
+        "status": "Approved",
+        "state": "Washington",
+        "city": "Seattle"
+    },
+    {
+        "user_id": 11,
+        "image": "img",
+        "name": "Zack Beck",
+        "type": "Admin",
+        "email": "b@a.com",
+        "number": "8573139750",
+        "status": "Approved",
+        "state": "New York",
+        "city": "New York City"
+    },
+    {
+        "user_id": 12,
+        "image": "img",
+        "name": "Kate Beck",
+        "type": "User",
+        "email": "kate@a.com",
+        "number": "8573139750",
+        "status": "Approved",
+        "state": "Texas",
+        "city": "Austin"
+    },
+    {
+        "user_id": 13,
+        "image": "img",
+        "name": "Haley Beck",
+        "type": "User",
+        "email": "haley@a.com",
+        "number": "8573139750",
+        "status": "Approved",
+        "state": "California",
+        "city": "San Diego"
+    },
+    {
+        "user_id": 14,
+        "image": "img",
+        "name": "Sai Beck",
+        "type": "Admin",
+        "email": "sai@a.com",
+        "number": "8573139750",
+        "status": "Approved",
+        "state": "Pennsylvania",
+        "city": "Scranton"
+    },
+    {
+        "user_id": 15,
+        "image": "img",
+        "name": "Jim Harper",
+        "type": "User",
+        "email": "jim@a.com",
+        "number": "8573139750",
+        "status": "Pending",
+        "state": "Floria",
+        "city": "Miami"
     }
 ];
 
