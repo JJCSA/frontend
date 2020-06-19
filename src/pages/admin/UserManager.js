@@ -175,39 +175,46 @@ const tableColumns = [
     {
         dataField: 'name',
         text: 'NAME',
-        headerClasses: 'tableHeader tableBroadColumn'
+        headerClasses: 'tableHeader tableBroadColumn',
+        sort: true
     },
     {
         dataField: 'type',
         text: 'TYPE',
-        headerClasses: 'tableHeader tableNarrowColumn'
+        headerClasses: 'tableHeader tableNarrowColumn',
+        sort: true
     },
     {
         dataField: 'email',
         text: 'EMAIL',
-        headerClasses: 'tableHeader tableBroadColumn'
+        headerClasses: 'tableHeader tableBroadColumn',
+        sort: true
     },
     {
         dataField: 'number',
         text: 'NUMBER',
         headerClasses: 'tableHeader',
-        formatter: phoneNumberFormatter
+        formatter: phoneNumberFormatter,
+        sort: true
     },
     {
         dataField: 'status',
         text: 'STATUS',
         headerClasses: 'tableHeader',
-        formatter: statusFormatter
+        formatter: statusFormatter,
+        sort: true
     },
     {
         dataField: 'state',
         text: 'STATE',
-        headerClasses: 'tableHeader'
+        headerClasses: 'tableHeader',
+        sort: true
     },
     {
         dataField: 'city',
         text: 'CITY',
-        headerClasses: 'tableHeader'
+        headerClasses: 'tableHeader',
+        sort: true
     },
 ];
 
