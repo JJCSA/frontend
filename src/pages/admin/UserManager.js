@@ -70,7 +70,7 @@ const tableColumns = [
 const users = [
     {
         "user_id": 1,
-        "image": "img",
+        "image": "https://www.nj.com/resizer/h8MrN0-Nw5dB5FOmMVGMmfVKFJo=/450x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg",
         "name": "Tejas Shah",
         "type": "Admin",
         "email": "a@a.com",
@@ -81,7 +81,7 @@ const users = [
     },
     {
         "user_id": 2,
-        "image": "img",
+        "image": "img.com",
         "name": "Alex Beck",
         "type": "User",
         "email": "b@a.com",
@@ -149,6 +149,17 @@ const statusFormatter = (cell) => {
     );
 }
 
+const imageFormatter = (cell) => {
+    //ref https://stackoverflow.com/a/1443294
+    const imgLinkRegex = RegExp('(http(s?):)|([/|.|w|s])*.(?:jpg|gif|png)');
+    const validImg = imgLinkRegex.test(cell);
+    return (
+        <Avatar 
+            src={validImg ? cell : ''}
+        />
+    )
+}
+
 const tableColumns = [
     {
         dataField: 'user_id',
@@ -158,7 +169,8 @@ const tableColumns = [
     {
         dataField: 'image',
         text: 'IMAGE',
-        headerClasses: 'tableHeader tableNarrowColumn'
+        headerClasses: 'tableHeader tableNarrowColumn',
+        formatter: imageFormatter
     },
     {
         dataField: 'name',
