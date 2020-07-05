@@ -5,7 +5,7 @@ import getHelp from "./images/getHelp.png"
 import planAndAdvice from "./images/planAndAdvice.png"
 
 export default class JJCMission extends Component{
-    reder(){
+    render(){
 
         return(
                 <div>

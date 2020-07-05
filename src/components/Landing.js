@@ -1,17 +1,34 @@
 import React, { Component } from 'react'
+// import aboutUs from "./images/aboutUs.png"
+
+import JJCMission from './JJCMission'
+import AboutUsHeading from './AboutUsHeading'
+import OngoingInitiativesHeading from './OngoingInitiativesHeading'
+import Ongoinginitiativescarousel from './Ongoinginitiativescarousel'
+import TestimonialsHeading from './TestimonialsHeading'
+import NewsUpdatesHeading from './NewsUpdatesHeading'
 
 class Landing extends Component {
   render() {
     return (
-      <div className="container">
-        <div className="jumbotron mt-5">
-          <div className="col-sm-8 mx-auto">
-            <h1 className="text-center">WELCOME</h1>
-          </div>
-        </div>
-      </div>
+      <div>
+
+      
+        <JJCMission/>
+        <AboutUsHeading/>
+
+
+
+        <OngoingInitiativesHeading/>
+        
+        <Ongoinginitiativescarousel/>
+        <TestimonialsHeading/>
+        <NewsUpdatesHeading/>
+      </div> 
     )
   }
 }
 
 export default Landing
+
+
