@@ -48,3 +48,18 @@
     }
 
 }
+
+.sizePerPage {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    color: #403F3F;
+    & input {
+        margin: 0px 5px;
+        padding: 0px 5px;
+        background: #FFFFFF;
+        border: 1px solid #E9EDF5;
+        box-sizing: border-box;
+        border-radius: 3px;
+    }
+}

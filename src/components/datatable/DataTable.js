@@ -18,7 +18,7 @@ class DataTable extends Component {
             currSizePerPage,
             onSizePerPageChange
           }) => (
-              <span>
+              <span className="sizePerPage">
                   Show
                     <input 
                         type="number"
