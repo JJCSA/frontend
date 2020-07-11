@@ -549,6 +549,7 @@ class UserManager extends Component {
         }
         this.updateSearchFilter = this.updateSearchFilter.bind(this);
         this.handleSearchFilterChange = this.handleSearchFilterChange.bind(this);
+        this.clearSearchFilters = this.clearSearchFilters.bind(this);
     };
 
     /**
@@ -570,9 +571,9 @@ class UserManager extends Component {
             const filteredUsers = this.state.users.filter((user) => {
                 const searchTextFilter = stateObj.searchText ?
                                             (
-                                                user.name.includes(stateObj.searchText)
-                                                    || user.email.includes(stateObj.searchText)
-                                                    || user.number.includes(stateObj.searchText)
+                                                user.name.toLowerCase().includes(stateObj.searchText.toLowerCase())
+                                                    || user.email.toLowerCase().includes(stateObj.searchText.toLowerCase())
+                                                    || user.number.toLowerCase().includes(stateObj.searchText.toLowerCase())
                                             )
                                             : true;
                 const userStatusFilter = stateObj.userStatusFilter ?
@@ -615,6 +616,19 @@ class UserManager extends Component {
         this.updateSearchFilter(event.target.value, event);
     }
 
+    /**
+     * Function to clear search filters
+     */
+    clearSearchFilters() {
+        this.setState({
+            filteredUsers: this.state.users,
+            searchText: '',
+            userStatusFilter: '',
+            locationFilter: '',
+            userTypeFilter: ''
+        });
+    }
+
     render() {
         return (
             <div className="pageContainer">
@@ -622,7 +636,8 @@ class UserManager extends Component {
                     <h4>User Manager</h4>
                 </div>
                 <div className="pageContent">
-                    <input value={this.state.searchTextFilter} label="searchText" onChange={this.handleSearchFilterChange} />
+                    <img src={deleteIcon} alt="Clear" onClick={this.clearSearchFilters} />
+                    <input value={this.state.searchText} label="searchText" onChange={this.handleSearchFilterChange} />
                     <DropdownButton 
                         title="Select Status" 
                         onSelect={this.updateSearchFilter}
