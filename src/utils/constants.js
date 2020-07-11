@@ -8,3 +8,4 @@ export const userStatus = {
     PENDING: 'Pending'
 };
 
+export const apiRootURL = "http://localhost:3000";
