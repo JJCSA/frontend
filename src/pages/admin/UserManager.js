@@ -280,6 +280,7 @@ class UserManager extends Component {
             userTypeFilter: ''
         }
         this.updateSearchFilter = this.updateSearchFilter.bind(this);
+        this.handleSearchFilterChange = this.handleSearchFilterChange.bind(this);
     };
 
     /**
@@ -299,26 +300,34 @@ class UserManager extends Component {
             // Apply the search filters to original users data
             // TODO: room for optimize by filtering on existing filtered data
             const filteredUsers = this.state.users.filter((user) => {
+                const searchTextFilter = stateObj.searchText ?
+                                            (
+                                                user.name.includes(stateObj.searchText)
+                                                    || user.email.includes(stateObj.searchText)
+                                                    || user.number.includes(stateObj.searchText)
+                                            )
+                                            : true;
+                const userStatusFilter = stateObj.userStatusFilter ?
+                                            (
+                                                user.status === stateObj.userStatusFilter
+                                            )
+                                            : true;
+                const locationFilter = stateObj.locationFilter ?
+                                            (
+                                                user.state === stateObj.locationFilter
+                                                    || user.city === stateObj.locationFilter
+                                            )
+                                            : true;
+                const userTypeFilter = stateObj.userTypeFilter ?
+                                            (
+                                                user.type === stateObj.userTypeFilter
+                                            )
+                                            : true;
                 return (
-                    (!stateObj.searchText
-                            && (
-                                user.name === stateObj.searchText
-                                    || user.email === stateObj.searchText
-                                    || user.number === stateObj.searchText
-                            ))
-                    || (!stateObj.userStatusFilter
-                                && (
-                                    user.status === stateObj.userStatusFilter
-                                ))
-                    || (!stateObj.locationFilter
-                                && (
-                                    user.state === stateObj.locationFilter
-                                        || user.city === stateObj.locationFilter
-                                ))
-                    || (!stateObj.userTypeFilter
-                                && (
-                                    user.type === stateObj.userTypeFilter
-                                ))
+                    searchTextFilter
+                    && userStatusFilter
+                    && locationFilter
+                    && userTypeFilter
                 );
             });
 
@@ -330,6 +339,14 @@ class UserManager extends Component {
 
     }
 
+    /**
+     * Function to handle text filter
+     * @param {The input element} event 
+     */
+    handleSearchFilterChange(event) {
+        this.updateSearchFilter(event.target.value, event);
+    }
+
     render() {
         return (
             <div className="pageContainer">
@@ -337,13 +354,17 @@ class UserManager extends Component {
                     <h4>User Manager</h4>
                 </div>
                 <div className="pageContent">
+                    <input value={this.state.searchTextFilter} label="searchText" onChange={this.handleSearchFilterChange} />
                     <DropdownButton 
                         title="Select Status" 
                         onSelect={this.updateSearchFilter}
                         id="userStatus"
                     >
-                        <Dropdown.Item eventKey="Approved" label="userStatusFilter">Approved</Dropdown.Item>
-                        <Dropdown.Item eventKey="Pending" label="userStatusFilter">Pending</Dropdown.Item>
+                        {
+                            Object.keys(Constants.userStatus).map((key, index) => 
+                                <Dropdown.Item key={index} eventKey={Constants.userStatus[key]} label="userStatusFilter">{Constants.userStatus[key]}</Dropdown.Item>
+                            )
+                        }
                     </DropdownButton>
                     <DropdownButton
                         title="Select User Type"

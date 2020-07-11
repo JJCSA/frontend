@@ -4,7 +4,7 @@ export const userTypes = {
 };
 
 export const userStatus = {
-    APPROVED: 'approved',
-    PENDING: 'pending'
+    APPROVED: 'Approved',
+    PENDING: 'Pending'
 };
 
