@@ -9,7 +9,7 @@ export const userStatus = {
     REJECTED: 'Rejected'
 };
 
-export const apiRootURL = "http://localhost:3001";
+export const apiRootURL = "http://localhost:3000";
 
 export const states = [
     "Alabama",
