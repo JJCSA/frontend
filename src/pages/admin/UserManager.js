@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import DataTable from '../../components/datatable/DataTable';
 import Avatar from '../../components/avatar/Avatar';
 import './UserManager.scss';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import * as Constants from '../../utils/constants';
 
 const users = [
     {
@@ -266,6 +269,66 @@ const tableColumns = [
 
 class UserManager extends Component {
 
+    constructor() {
+        super();
+        this.state = {
+            users: users,
+            filteredUsers: users,
+            searchText: '',
+            userStatusFilter: '',
+            locationFilter: '',
+            userTypeFilter: ''
+        }
+        this.updateSearchFilter = this.updateSearchFilter.bind(this);
+    };
+
+    /**
+     * Function to apply filter to user data
+     * @param {Value of Filter} filterValue 
+     * @param {Selected Event Object} event 
+     */
+    updateSearchFilter(filterValue, event) {
+        // Get Filter Type from the target's label attribute
+        const filterType = event.target.getAttribute('label');
+
+        // Update the state with the filter value before filtering the data
+        this.setState({
+            [filterType]: filterValue
+        }, () => {
+            const stateObj = {...this.state};
+            // Apply the search filters to original users data
+            // TODO: room for optimize by filtering on existing filtered data
+            const filteredUsers = this.state.users.filter((user) => {
+                return (
+                    (!stateObj.searchText
+                            && (
+                                user.name === stateObj.searchText
+                                    || user.email === stateObj.searchText
+                                    || user.number === stateObj.searchText
+                            ))
+                    || (!stateObj.userStatusFilter
+                                && (
+                                    user.status === stateObj.userStatusFilter
+                                ))
+                    || (!stateObj.locationFilter
+                                && (
+                                    user.state === stateObj.locationFilter
+                                        || user.city === stateObj.locationFilter
+                                ))
+                    || (!stateObj.userTypeFilter
+                                && (
+                                    user.type === stateObj.userTypeFilter
+                                ))
+                );
+            });
+
+            // Update the filtered data in the state
+            this.setState({
+                filteredUsers: filteredUsers
+            });
+        });
+
+    }
 
     render() {
         return (
@@ -274,10 +337,29 @@ class UserManager extends Component {
                     <h4>User Manager</h4>
                 </div>
                 <div className="pageContent">
+                    <DropdownButton 
+                        title="Select Status" 
+                        onSelect={this.updateSearchFilter}
+                        id="userStatus"
+                    >
+                        <Dropdown.Item eventKey="Approved" label="userStatusFilter">Approved</Dropdown.Item>
+                        <Dropdown.Item eventKey="Pending" label="userStatusFilter">Pending</Dropdown.Item>
+                    </DropdownButton>
+                    <DropdownButton
+                        title="Select User Type"
+                        onSelect={this.updateSearchFilter}
+                        id="userType"
+                    >
+                        {
+                            Object.keys(Constants.userTypes).map((key, index) => 
+                                <Dropdown.Item key={index} eventKey={Constants.userTypes[key]} label="userTypeFilter">{Constants.userTypes[key]}</Dropdown.Item>
+                            )
+                        }
+                    </DropdownButton>
                     <DataTable 
                         keyField="user_id"
                         columns={tableColumns} 
-                        data={users} 
+                        data={this.state.filteredUsers} 
                     />
                 </div>
                 
