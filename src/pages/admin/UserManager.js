@@ -664,7 +664,6 @@ class UserManager extends Component {
         <DropdownButton
           title="Select Status"
           onSelect={this.updateSearchFilter}
-          id="userStatus"
         >
           {Object.keys(Constants.userStatus).map((key, index) => (
             <Dropdown.Item
@@ -677,9 +676,22 @@ class UserManager extends Component {
           ))}
         </DropdownButton>
         <DropdownButton
+          title="Select Location"
+          onSelect={this.updateSearchFilter}
+        >
+          {Constants.states.map((state, index) => (
+            <Dropdown.Item
+              key={index}
+              eventKey={state}
+              label="locationFilter"
+            >
+              {state}
+            </Dropdown.Item>
+          ))}
+        </DropdownButton>
+        <DropdownButton
           title="Select User Type"
           onSelect={this.updateSearchFilter}
-          id="userType"
         >
           {Object.keys(Constants.userTypes).map((key, index) => (
             <Dropdown.Item
