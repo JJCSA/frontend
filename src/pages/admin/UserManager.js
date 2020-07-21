@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import DataTable from "../../components/datatable/DataTable";
 import Avatar from "../../components/avatar/Avatar";
 import "./UserManager.scss";
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
+import { CustomDropdown, CustomTextBox } from '../../components';
 import * as Constants from "../../utils/constants";
 import deleteIcon from "../../assets/delete-icon.svg";
 
@@ -224,54 +223,33 @@ class UserManager extends Component {
   renderUserTable() {
     return (
       <div className="pageContent">
-        <img src={deleteIcon} alt="Clear" onClick={this.clearSearchFilters} />
-        <input
-          value={this.state.searchText}
-          label="searchText"
-          onChange={this.handleSearchFilterChange}
-        />
-        <DropdownButton
-          title="Select Status"
-          onSelect={this.updateSearchFilter}
-        >
-          {Object.keys(Constants.userStatus).map((key, index) => (
-            <Dropdown.Item
-              key={index}
-              eventKey={Constants.userStatus[key]}
-              label="userStatusFilter"
-            >
-              {Constants.userStatus[key]}
-            </Dropdown.Item>
-          ))}
-        </DropdownButton>
-        <DropdownButton
-          title="Select Location"
-          onSelect={this.updateSearchFilter}
-        >
-          {Constants.states.map((state, index) => (
-            <Dropdown.Item
-              key={index}
-              eventKey={state}
-              label="locationFilter"
-            >
-              {state}
-            </Dropdown.Item>
-          ))}
-        </DropdownButton>
-        <DropdownButton
-          title="Select User Type"
-          onSelect={this.updateSearchFilter}
-        >
-          {Object.keys(Constants.userTypes).map((key, index) => (
-            <Dropdown.Item
-              key={index}
-              eventKey={Constants.userTypes[key]}
-              label="userTypeFilter"
-            >
-              {Constants.userTypes[key]}
-            </Dropdown.Item>
-          ))}
-        </DropdownButton>
+        <div className="tableFilterContainer">
+          <img src={deleteIcon} alt="Clear" onClick={this.clearSearchFilters} />
+          <CustomTextBox
+            value={this.state.searchText}
+            label="searchText"
+            onChange={this.handleSearchFilterChange}
+            placeholder="Search"
+          />
+          <CustomDropdown
+            values={Object.values(Constants.userStatus)}
+            title="Select Status"
+            onSelectCallback={this.updateSearchFilter}
+            itemLabel="userStatusFilter"
+          />
+          <CustomDropdown
+            values={Constants.states}
+            title="Select Location"
+            onSelectCallback={this.updateSearchFilter}
+            itemLabel="locationFilter"
+          />
+          <CustomDropdown
+            values={Object.values(Constants.userTypes)}
+            title="Select User Type"
+            onSelectCallback={this.updateSearchFilter}
+            itemLabel="userTypeFilter"
+          />
+        </div>
         <DataTable
           keyField="user_id"
           columns={tableColumns}
