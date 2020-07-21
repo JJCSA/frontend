@@ -1,19 +1,52 @@
 @import '../../utils/variables.scss';
 
-.inputContainer {
-    width: 280px;
+.dropdownToggle {
+    width: 200px;
     height: 40px;
+    border: 1px solid $whiteSmoke;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: $semiBold;
+    font-size: 14px;
+    color: $charcoalBlack;
+    background-color: white;
+    opacity: 0.4;
+    box-shadow: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    & input {
-        width: 100%;
-        height: 100%;
-        border: 1px solid $whiteSmoke;
-        box-sizing: border-box;
-        border-radius: 5px;
-        &::placeholder {
-            padding-left: 10px;
-            color: #403F3F;
-            opacity: 0.4;
-        }
+    &:active, &:hover, &:focus {
+        background-color: $white !important;
+        color: $charcoalBlack !important;
+        border: 1px solid $whiteSmoke !important;
+        box-shadow: none;
+    }
+}
+
+.dropdownMenu {
+    width: 200px;
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid $whiteSmoke;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: $semiBold;
+    font-size: $regularSize;
+    color: $charcoalBlack;
+    background-color: $white;
+}
+
+.dropdownItem {
+    opacity: 0.4;
+    padding-left: 12px;
+    
+    &:active, &:hover, &:focus {
+        background-color: $white !important;
+        color: $charcoalBlack !important;
+        border: 1px solid $whiteSmoke !important;
+        box-shadow: none;
     }
 }
