@@ -146,11 +146,9 @@ class UserManager extends Component {
   /**
    * Function to apply filter to user data
    * @param {Value of Filter} filterValue
-   * @param {Selected Event Object} event
+   * @param {Search Filter to apply search on} filterType
    */
-  updateSearchFilter(filterValue, event) {
-    // Get Filter Type from the target's label attribute
-    const filterType = event.target.getAttribute("label");
+  updateSearchFilter(filterValue, filterType) {
 
     // Update the state with the filter value before filtering the data
     this.setState(
@@ -204,7 +202,7 @@ class UserManager extends Component {
    * @param {The input element} event
    */
   handleSearchFilterChange(event) {
-    this.updateSearchFilter(event.target.value, event);
+    this.updateSearchFilter(event.target.value, 'searchText');
   }
 
   /**
@@ -235,19 +233,22 @@ class UserManager extends Component {
             values={Object.values(Constants.userStatus)}
             title="Select Status"
             onSelectCallback={this.updateSearchFilter}
-            itemLabel="userStatusFilter"
+            filterType="userStatusFilter"
+            selectedValue={this.state.userStatusFilter}
           />
           <CustomDropdown
             values={Constants.states}
             title="Select Location"
             onSelectCallback={this.updateSearchFilter}
-            itemLabel="locationFilter"
+            filterType="locationFilter"
+            selectedValue={this.state.locationFilter}
           />
           <CustomDropdown
             values={Object.values(Constants.userTypes)}
             title="Select User Type"
             onSelectCallback={this.updateSearchFilter}
-            itemLabel="userTypeFilter"
+            filterType="userTypeFilter"
+            selectedValue={this.state.userTypeFilter}
           />
         </div>
         <DataTable
