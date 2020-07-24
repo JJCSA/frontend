@@ -9,6 +9,7 @@
         box-sizing: border-box;
         border-radius: 5px;
         &::placeholder {
+            padding-left: 10px;
             color: #403F3F;
             opacity: 0.4;
         }
