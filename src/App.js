@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 
 import Navbar from './components/Navbar'
 import Landing from './components/Landing'
 import Login from './components/Login'
 import Register from './components/Register'
 import Profile from './components/Profile'
-import AdminPanel from './pages/AdminPanel'
+import AdminPanel from './pages/admin/AdminPanel'
 
 class App extends Component {
   render() {

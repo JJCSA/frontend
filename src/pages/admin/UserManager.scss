@@ -1,0 +1,113 @@
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    background: #E9EDF5;
+    font-family: 'Noto Sans';
+}
+
+.pageHeader{
+    height: 72px;
+    padding: 10px;
+    background: white;
+    padding: 10px 30px 10px 30px;
+
+    h4 {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 22px;
+        height: 100%;
+        margin: 0px;
+        vertical-align: middle;
+    }
+}
+
+.pageContent {
+    margin: 30px;
+    background: white;
+    border-radius: 5px;
+    padding: 5px 0px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.tableHeader {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    color: #7B889A;
+    width: 10%;
+    height: 72px;
+    border-top: none !important;
+    
+    vertical-align: middle !important;
+}
+
+.tableNarrowColumn {
+    width: 4.5%;
+}
+
+.tableBroadColumn {
+    width: 10%;
+}
+
+.pendingStatusContainer {
+    width: 107px;
+    height: 32px;
+    background: rgba(255, 64, 32, 0.1);
+    border-radius: 5px;
+    padding: 5px 0px 5px 15px;
+
+    span {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        color: #FF4020;
+    }
+
+    :nth-child(1) {
+        background-color: #FF4020;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 5px;
+    }
+}
+
+.approvedStatusContainer {
+    width: 120px;
+    height: 32px;
+    background: rgba(76, 181, 118, 0.1);
+    border-radius: 5px;
+    padding: 5px 0px 5px 15px;
+
+    span {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        color: #4CB576;
+    }
+
+    :nth-child(1) {
+        background-color: #4CB576;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 5px;
+    }
+}
+
+.tableFilterContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px;
+
+    
+}
