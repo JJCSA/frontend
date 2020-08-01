@@ -7,16 +7,16 @@ import OngoingInitiativesHeading from './OngoingInitiativesHeading'
 import Ongoinginitiativescarousel from './Ongoinginitiativescarousel'
 import TestimonialsHeading from './TestimonialsHeading'
 import NewsUpdatesHeading from './NewsUpdatesHeading'
-
+import AboutUs from './AboutUs'
 class Landing extends Component {
   render() {
     return (
-      <div>
+      <div >
 
       
         <JJCMission/>
         <AboutUsHeading/>
-
+        <AboutUs/>
 
 
         <OngoingInitiativesHeading/>

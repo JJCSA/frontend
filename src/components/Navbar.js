@@ -1,51 +1,26 @@
 import React, { Component } from 'react'
 //import { Link, withRouter } from 'react-router-dom'
 import {Link} from 'react-scroll'
-
+import "./navbarhoverstyle.css"
 
 class Navbar extends Component {
-  // logOut(e) {
-  //   e.preventDefault()
-  //   localStorage.removeItem('usertoken')
-  //   this.props.history.push(`/`)
-  // }
 
   render() {
-    //const ScrollLink = Scroll.ScrollLink
-    // const loginRegLink = (
-    //   <ul className="navbar-nav">
-    //     <li className="nav-item">
-    //       <Link to="/login" className="nav-link">
-    //         Login
-    //       </Link>
-    //     </li>
-    //      <li className="nav-item">
-    //       <Link to="/register" className="nav-link">
-    //         Register
-    //       </Link>
-    //     </li>
-    //   </ul>
-    // )
-
-    // const userLink = (
-    //   <ul className="navbar-nav">
-    //     <li className="nav-item">
-    //       <Link to="/profile" className="nav-link">
-    //         User
-    //       </Link>
-    //     </li>
-    //     <li className="nav-item">
-    //       <a href="" onClick={this.logOut.bind(this)} className="nav-link">
-    //         Logout
-    //       </a>
-    //     </li>
-    //   </ul>
-    // )
-
+    const login_button = {
+        // height: '40px',
+        backgroundColor:'#FF4020',
+        borderColor:'#FF4020'
+    }
+    const donate_button = {
+        // height: '40px',
+        borderColor:'#FF4020',
+        color:'#FF4020'
+    }
+   
     return (
-      <nav className="navbar navbar-light navbar-expand-sm rounded">
-          <a className="navbar-brand" href="#">
-              <img src="https://www.jainjagruti.com/images/logo_download.jpg" style={{width:'40px'}}></img>
+      <nav className="navbar navbar-light bg-light navbar-expand-sm rounded fixed-top position-sticky mb-2">
+          <a className="navbar-brand ml-sm-5 px-3" href="https://www.jainjagruti.com/">
+              <img src="https://www.jainjagruti.com/images/logo_download.jpg" alt="JJC logo" style={{width:'50px'}}></img>
           </a>
           <button
               className="navbar-toggler"
@@ -57,36 +32,37 @@ class Navbar extends Component {
               aria-label="Toggle navigation"
           ><span className="navbar-toggler-icon" />
           </button>
-          <div className="container">
+          
               
               <div className="collapse navbar-collapse" id="myTogglerNav">
-                  <div className="navbar-nav">
-                      <Link 
+                  <div className="navbar-nav mr-auto my-sm-2">
+                    <Link 
                           activeClass='active'
-                          className="nav-item nav-link"
-                          to="about-us" 
+                          className="nav-item nav-link active navbarhover px-3"
+                          to="summary-of qualification" 
                           spy={true} 
                           smooth={true} 
                           duration={1000}
-                      > About Us </Link> 
-                      <Link 
+                      > About Us </Link>
+                    <Link 
                           activeClass='active'
-                          className="nav-item nav-link"
+                          className="nav-item nav-link active navbarhover px-3"
                           to="our-initiatives" 
                           spy={true} 
                           smooth={true} 
                           duration={1000}
-                      > Ongoing Initiatives </Link> 
-                      <Link 
+                      > Ongoing Initiatives </Link>
+                    <Link 
                           activeClass='active'
-                          className="nav-item nav-link"
+                          className="nav-item nav-link active navbarhover px-3"
                           to="testimonials" 
                           spy={true} 
                           smooth={true} 
                           // offset={-70}
                           duration={1000}
-                      > Testimonials </Link>    
-                      <Link 
+                      > Testimonials </Link>
+
+                    {/* <a href="#">  <Link 
                           activeClass='active'
                           className="nav-item nav-link"
                           to="contact-us" 
@@ -94,23 +70,16 @@ class Navbar extends Component {
                           smooth={true} 
                           // offset={-70}
                           duration={1000}
-                      > Contact Us </Link> 
-                      <Link 
-                          activeClass='active'
-                          className="nav-item nav-link"
-                          to="contact-us" 
-                          spy={true} 
-                          smooth={true} 
-                          // offset={-70}
-                          duration={1000}
-                      > JJC Mumbai </Link>    
+                      > Contact Us </Link> </a> */}
+                      <a className=" jjclink my-2 px-3" href="https://www.jainjagruti.com/" target="_blank" rel="noopener noreferrer">JJC Mumbai</a>
                   </div>
-                  
+                        <form className="form-inline">
+                            <button className=" form-control btn btn-dark btn-block mr-sm-3" type="button" style={login_button}>Login</button>
+                            <button className=" form-control btn btn-light btn-block my-2 my-sm-0 mr-sm-5" type="button" style={donate_button}>Donate</button>
+                        </form>
               </div>
-              
-          </div>
-          <button className="btn btn-dark" type="button" style={{backgroundColor:'#FF4020', borderColor:'#FF4020'}}>Login</button>
-          <button className="btn btn-light" type="button" style={{borderColor:'#FF4020', color:'#FF4020'}}>Login</button>
+          
+          
       </nav>
     )
   }
