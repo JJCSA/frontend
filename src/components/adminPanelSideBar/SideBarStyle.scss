@@ -1,0 +1,99 @@
+// Your variable overrides 
+$sidebar-bg-color: #1E2350;
+$sidebar-width: 296px !default;
+$icon-bg-color: #1E2350 !default;
+$sidebar-color: white !default;
+
+
+@import '~react-pro-sidebar/dist/scss/styles.scss';
+
+.AdminSideBar .pro-sidebar .pro-menu .pro-menu-item{
+    font-family: 'Noto Sans';
+    font-size: 16px;
+    font-weight: 500;
+}
+.sideBarHeader {
+    width: 295px;
+    height: 72px;
+    //left: 0px;
+    //top: 0px;
+
+    /* White */
+
+    background: #FFFFFF;
+    /* Snow */
+
+    border: 1px solid #F6F6F6;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.AdminSideBar .pro-sidebar .pro-menu .pro-menu-item.pro-sub-menu > .pro-inner-item > .pro-arrow-wrapper 
+{
+    display: none;
+}
+
+.adminSidebarLogo
+{
+    position: absolute;
+    width: 66px;
+    height: 59px;
+    // left: 13px;
+    //top: 4px;
+}
+
+.AdminSideBar
+{
+    position: absolute;
+    width: 296px;
+    height: 900px;
+    left: -1px;
+    top: 0px;
+    
+    /* Platinum */
+    
+    background: #1E2350;
+}
+
+.adminSidebarMenuIcon
+{
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 250px;
+    top: 24px;
+}
+
+.adminSidebarLogoutIcon
+{
+    position: absolute;
+    margin-top:22px; ;
+    margin-left:32.8px ;
+    margin-bottom: 23px;
+    opacity: 0.7;
+
+}
+.adminSidebarFooter{
+    position: absolute;
+    width: 295px;
+    height: 42px;
+    left: 0px;
+    top: 837px;
+}
+.adminSidebarLogoutText{
+    position: absolute;
+    width: 54.63px;
+    //height: 22px;
+    left: 63.58px;
+    //top: 857px;
+
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    //line-height: 22px;
+    /* identical to box height */
+    /* White */
+    color: #FFFFFF;
+    opacity: 0.7;
+}
