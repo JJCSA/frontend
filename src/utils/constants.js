@@ -5,7 +5,8 @@ export const userTypes = {
 
 export const userStatus = {
     APPROVED: 'Approved',
-    PENDING: 'Pending'
+    PENDING: 'Pending',
+    REJECTED: 'Rejected'
 };
 
 export const apiRootURL = "http://localhost:3000";

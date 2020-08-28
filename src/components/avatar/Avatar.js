@@ -11,7 +11,7 @@ class Avatar extends Component {
         const imgSrc = this.props.src || defaultAvatar;
 
         return(
-            <div className="avatarContainer">
+            <div className={this.props.styleClass}>
                 <Image alt="userImage" src={imgSrc} roundedCircle />
             </div>
         )

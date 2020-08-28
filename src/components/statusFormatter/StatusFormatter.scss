@@ -1,0 +1,49 @@
+.pendingStatusContainer {
+    width: 107px;
+    height: 32px;
+    background: rgba(255, 64, 32, 0.1);
+    border-radius: 5px;
+    padding: 5px 0px 5px 15px;
+
+    span {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        color: #FF4020;
+    }
+
+    :nth-child(1) {
+        background-color: #FF4020;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 5px;
+    }
+}
+
+.approvedStatusContainer {
+    width: 120px;
+    height: 32px;
+    background: rgba(76, 181, 118, 0.1);
+    border-radius: 5px;
+    padding: 5px 0px 5px 15px;
+
+    span {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        color: #4CB576;
+    }
+
+    :nth-child(1) {
+        background-color: #4CB576;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 5px;
+    }
+}
