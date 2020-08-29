@@ -7,39 +7,42 @@
       "type": "Admin",
       "email": "a@a.com",
       "number": "+18573139750",
-      "status": "Approved",
+      "status": "Pending",
       "state": "Massachusetts",
       "city": "Boston",
-      "jain_community":"Sthanakwasi",
-      "preferred_contact_method":["Email", "Phone"],
-      "experience":[
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "Email",
+        "Phone"
+      ],
+      "experience": [
         {
-            "company_name":"Microsoft",
-            "role":"Software Engineer III",
-            "start_date":"05/30/2018",
-            "end_date":"05/30/2020"
-          },
-          {
-            "company_name":"Barclays",
-            "role":"Software Developer ",
-            "start_date":"05/30/2015",
-            "end_date":"05/30/2018"
-          }
-        ],
-      "education":[
-        {
-            "university_name":"University of Southern California",
-            "course":"Masters in Computer Science",
-            "start_date":"05/30/2018",
-            "end_date":"05/30/2020"
+          "company_name": "Microsoft",
+          "role": "Software Engineer III",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
         },
         {
-          "university_name":"VJTI",
-          "course":"BTech",
-          "start_date":"05/30/2015",
-          "end_date":"05/30/2018"
+          "company_name": "Barclays",
+          "role": "Software Developer ",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
         }
-        ]
+      ],
+      "education": [
+        {
+          "university_name": "University of Southern California",
+          "course": "Masters in Computer Science",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        },
+        {
+          "university_name": "VJTI",
+          "course": "BTech",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        }
+      ]
     },
     {
       "user_id": 2,
@@ -51,34 +54,39 @@
       "status": "Pending",
       "state": "Massachusetts",
       "city": "Boston",
-      "jain_community":"Sthanakwasi",
-      "preferred_contact_method":["Email", "Phone"],
-      "experience":[
-          {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2015",
-            "end_date":"05/30/2018"
-          }, {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2018",
-            "end_date":"05/30/2020"
-          }
-        ],
-      "education":[
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "Email",
+        "Phone"
+      ],
+      "experience": [
         {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2015",
-          "end_date":"05/30/2018"
-        }, {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2018",
-          "end_date":"05/30/2020"
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
         }
-        ]
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
     },
     {
       "user_id": 3,
@@ -87,37 +95,42 @@
       "type": "Admin",
       "email": "a@a.com",
       "number": "+918573139750",
-      "status": "Approved",
+      "status": "Pending",
       "state": "Massachusetts",
       "city": "Boston",
-      "jain_community":"Sthanakwasi",
-      "preferred_contact_method":["Email", "Phone"],
-      "experience":[
-          {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2015",
-            "end_date":"05/30/2018"
-          }, {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2018",
-            "end_date":"05/30/2020"
-          }
-        ],
-      "education":[
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "Email",
+        "Phone"
+      ],
+      "experience": [
         {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2015",
-          "end_date":"05/30/2018"
-        }, {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2018",
-          "end_date":"05/30/2020"
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
         }
-        ]
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
     },
     {
       "user_id": 4,
@@ -126,37 +139,42 @@
       "type": "User",
       "email": "b@a.com",
       "number": "8573139750",
-      "status": "Pending",
+      "status": "Approved",
       "state": "Massachusetts",
       "city": "Boston",
-      "jain_community":"Sthanakwasi",
-      "preferred_contact_method":["Email", "SMS"],
-      "experience":[
-          {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2015",
-            "end_date":"05/30/2018"
-          }, {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2018",
-            "end_date":"05/30/2020"
-          }
-        ],
-      "education":[
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "Email",
+        "SMS"
+      ],
+      "experience": [
         {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2015",
-          "end_date":"05/30/2018"
-        }, {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2018",
-          "end_date":"05/30/2020"
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
         }
-        ]
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
     },
     {
       "user_id": 5,
@@ -168,34 +186,39 @@
       "status": "Approved",
       "state": "Massachusetts",
       "city": "Boston",
-      "jain_community":"Sthanakwasi",
-      "preferred_contact_method":["SMS", "Phone"],
-      "experience":[
-          {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2015",
-            "end_date":"05/30/2018"
-          }, {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2018",
-            "end_date":"05/30/2020"
-          }
-        ],
-      "education":[
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "SMS",
+        "Phone"
+      ],
+      "experience": [
         {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2015",
-          "end_date":"05/30/2018"
-        }, {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2018",
-          "end_date":"05/30/2020"
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
         }
-        ]
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
     },
     {
       "user_id": 6,
@@ -204,37 +227,42 @@
       "type": "User",
       "email": "b@a.com",
       "number": "8573139750",
-      "status": "Approved",
+      "status": "Pending",
       "state": "Massachusetts",
       "city": "Boston",
-      "jain_community":"Sthanakwasi",
-      "preferred_contact_method":["Email", "Phone"],
-      "experience":[
-          {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2015",
-            "end_date":"05/30/2018"
-          }, {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2018",
-            "end_date":"05/30/2020"
-          }
-        ],
-      "education":[
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "Email",
+        "Phone"
+      ],
+      "experience": [
         {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2015",
-          "end_date":"05/30/2018"
-        }, {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2018",
-          "end_date":"05/30/2020"
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
         }
-        ]
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
     },
     {
       "user_id": 7,
@@ -246,34 +274,39 @@
       "status": "Approved",
       "state": "Massachusetts",
       "city": "Boston",
-      "jain_community":"Sthanakwasi",
-      "preferred_contact_method":["SMS", "Phone"],
-      "experience":[
-          {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2015",
-            "end_date":"05/30/2018"
-          }, {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2018",
-            "end_date":"05/30/2020"
-          }
-        ],
-      "education":[
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "SMS",
+        "Phone"
+      ],
+      "experience": [
         {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2015",
-          "end_date":"05/30/2018"
-        }, {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2018",
-          "end_date":"05/30/2020"
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
         }
-        ]
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
     },
     {
       "user_id": 8,
@@ -285,35 +318,39 @@
       "status": "Pending",
       "state": "Illinois",
       "city": "Chicago",
-      "jain_community":"Sthanakwasi",
-      "preferred_contact_method":["Email", "Phone"],
-      "experience":[
-          {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2015",
-            "end_date":"05/30/2018"
-          }, {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2018",
-            "end_date":"05/30/2020"
-          }
-        ],
-      "education":[
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "Email",
+        "Phone"
+      ],
+      "experience": [
         {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2015",
-          "end_date":"05/30/2018"
-        }, {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2018",
-          "end_date":"05/30/2020"
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
         }
-        ]
-
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
     },
     {
       "user_id": 9,
@@ -325,34 +362,39 @@
       "status": "Approved",
       "state": "Maryland",
       "city": "Baltimore",
-      "jain_community":"Sthanakwasi",
-      "preferred_contact_method":["Email", "Whatsapp"],
-      "experience":[
-          {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2015",
-            "end_date":"05/30/2018"
-          }, {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2018",
-            "end_date":"05/30/2020"
-          }
-        ],
-      "education":[
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "Email",
+        "Whatsapp"
+      ],
+      "experience": [
         {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2015",
-          "end_date":"05/30/2018"
-        }, {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2018",
-          "end_date":"05/30/2020"
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
         }
-        ]
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
     },
     {
       "user_id": 10,
@@ -364,34 +406,39 @@
       "status": "Approved",
       "state": "Washington",
       "city": "Seattle",
-      "jain_community":"Sthanakwasi",
-      "preferred_contact_method":["Email", "Phone"],
-      "experience":[
-          {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2015",
-            "end_date":"05/30/2018"
-          }, {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2018",
-            "end_date":"05/30/2020"
-          }
-        ],
-      "education":[
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "Email",
+        "Phone"
+      ],
+      "experience": [
         {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2015",
-          "end_date":"05/30/2018"
-        }, {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2018",
-          "end_date":"05/30/2020"
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
         }
-        ]
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
     },
     {
       "user_id": 11,
@@ -403,34 +450,39 @@
       "status": "Approved",
       "state": "New York",
       "city": "New York City",
-      "jain_community":"Sthanakwasi",
-      "preferred_contact_method":["Email", "Whatsapp"],
-      "experience":[
-          {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2015",
-            "end_date":"05/30/2018"
-          }, {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2018",
-            "end_date":"05/30/2020"
-          }
-        ],
-      "education":[
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "Email",
+        "Whatsapp"
+      ],
+      "experience": [
         {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2015",
-          "end_date":"05/30/2018"
-        }, {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2018",
-          "end_date":"05/30/2020"
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
         }
-        ]
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
     },
     {
       "user_id": 12,
@@ -442,34 +494,39 @@
       "status": "Approved",
       "state": "Texas",
       "city": "Austin",
-      "jain_community":"Sthanakwasi",
-      "preferred_contact_method":["Email", "Phone"],
-      "experience":[
-          {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2015",
-            "end_date":"05/30/2018"
-          }, {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2018",
-            "end_date":"05/30/2020"
-          }
-        ],
-      "education":[
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "Email",
+        "Phone"
+      ],
+      "experience": [
         {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2015",
-          "end_date":"05/30/2018"
-        }, {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2018",
-          "end_date":"05/30/2020"
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
         }
-        ]
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
     },
     {
       "user_id": 13,
@@ -481,34 +538,39 @@
       "status": "Approved",
       "state": "California",
       "city": "San Diego",
-      "jain_community":"Sthanakwasi",
-      "preferred_contact_method":["Whatsapp", "Phone"],
-      "experience":[
-          {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2015",
-            "end_date":"05/30/2018"
-          }, {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2018",
-            "end_date":"05/30/2020"
-          }
-        ],
-      "education":[
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "Whatsapp",
+        "Phone"
+      ],
+      "experience": [
         {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2015",
-          "end_date":"05/30/2018"
-        }, {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2018",
-          "end_date":"05/30/2020"
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
         }
-        ]
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
     },
     {
       "user_id": 14,
@@ -520,34 +582,39 @@
       "status": "Approved",
       "state": "Pennsylvania",
       "city": "Scranton",
-      "jain_community":"Sthanakwasi",
-      "preferred_contact_method":["Email", "Phone"],
-      "experience":[
-          {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2015",
-            "end_date":"05/30/2018"
-          }, {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2018",
-            "end_date":"05/30/2020"
-          }
-        ],
-      "education":[
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "Email",
+        "Phone"
+      ],
+      "experience": [
         {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2015",
-          "end_date":"05/30/2018"
-        }, {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2018",
-          "end_date":"05/30/2020"
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
         }
-        ]
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
     },
     {
       "user_id": 15,
@@ -559,34 +626,39 @@
       "status": "Pending",
       "state": "Floria",
       "city": "Miami",
-      "jain_community":"Sthanakwasi",
-      "preferred_contact_method":["Whatsapp", "Phone"],
-      "experience":[
-          {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2015",
-            "end_date":"05/30/2018"
-          }, {
-            "company_name":"Abc",
-            "role":"Abc",
-            "start_date":"05/30/2018",
-            "end_date":"05/30/2020"
-          }
-        ],
-      "education":[
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "Whatsapp",
+        "Phone"
+      ],
+      "experience": [
         {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2015",
-          "end_date":"05/30/2018"
-        }, {
-          "university_name":"Abc",
-          "course":"Abc",
-          "start_date":"05/30/2018",
-          "end_date":"05/30/2020"
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
         }
-        ]
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
     }
   ]
 }
