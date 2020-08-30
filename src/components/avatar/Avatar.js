@@ -5,20 +5,12 @@ import Image from 'react-bootstrap/Image';
 import defaultAvatar from '../../assets/images/avatar-default.webp';
 
 const Avatar = ({imgSrc=defaultAvatar, avatarSize="small"}) => {
-    if(avatarSize === "small"){
-        return (
-            <div className="smallavatarContainer">
-                <Image alt="userImage" src={imgSrc} roundedCircle />
-            </div>
-        )
-    } else {
-        return(
-            <div className="largeavatarContainer">
-                <Image alt="userImage" src={imgSrc} roundedCircle />
-            </div>
-        )
 
-    }
+    return(
+        <div className={avatarSize === "small" ? "smallavatarContainer" : "largeavatarContainer"}>
+            <Image alt="userImage" src={imgSrc} roundedCircle />
+        </div>
+    )
 }
 
 export default Avatar;
