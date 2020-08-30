@@ -22,7 +22,8 @@ class UserModal extends Component {
         super(props);
         this.state = {
             "status":"",
-            "rejectReason":""
+            "rejectReason":"",
+            "pendingAction":false
         }
         this.changeStatus = this.changeStatus.bind(this);
         this.setRejectReason = this.setRejectReason.bind(this);
@@ -30,7 +31,7 @@ class UserModal extends Component {
     }
 
     changeStatus(status) {
-        this.setState({"status":status});
+        this.setState({"status":status, "pendingAction":true});
         if(status === ACCEPT) {
             this.setState({"status":Constants.userStatus.APPROVED})
             this.setState({"rejectReason":""});
@@ -93,7 +94,7 @@ class UserModal extends Component {
                                         {StatusFormatter(this.props.data.status)}
                                     </div>        
                                 </Row>
-                            </Container>  
+                            </Container>
                         </Col>
 
                     </Row>
@@ -169,7 +170,7 @@ class UserModal extends Component {
                                     <form onSubmit={this.submitStatusUdate}>
                                         {this.state.status === Constants.userStatus.REJECTED && 
                                         <input type="text" value={this.state.rejectReason} className="form-control mt-2" placeholder="Reason for rejecting" onChange={this.setRejectReason} required/>}
-                                        <Button type="submit" variant="outline-primary" className="mt-1, Btn-submit">Submit Updates</Button>
+                                        {this.state.pendingAction && <Button type="submit" variant="outline-primary" className="mt-1, Btn-submit">Submit Updates</Button>}
                                     </form>
                             </div>
                         </Row>
