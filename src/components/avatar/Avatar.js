@@ -1,20 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Avatar.scss';
 import Image from 'react-bootstrap/Image';
 
 import defaultAvatar from '../../assets/images/avatar-default.webp';
 
-class Avatar extends Component {
-
-    render() {
-
-        const imgSrc = this.props.src || defaultAvatar;
-
-        return(
-            <div className={this.props.styleClass}>
+const Avatar = ({imgSrc=defaultAvatar, avatarSize="small"}) => {
+    if(avatarSize === "small"){
+        return (
+            <div className="smallavatarContainer">
                 <Image alt="userImage" src={imgSrc} roundedCircle />
             </div>
         )
+    } else {
+        return(
+            <div className="largeavatarContainer">
+                <Image alt="userImage" src={imgSrc} roundedCircle />
+            </div>
+        )
+
     }
 }
 

@@ -75,7 +75,7 @@ class UserModal extends Component {
                 <Container fluid={true}>
                     <Row>
                         <Col md={2} className="pl-0 pr-0 pt-1">
-                                <ImageFormatter cell={this.props.data.image} styleClass="largeavatarContainer"/>
+                                <ImageFormatter cell={this.props.data.image} avatarSize="large"/>
                         </Col>
                         <Col md={6} className="ml-2">
                             <Container fluid>
