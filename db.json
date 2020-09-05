@@ -1,0 +1,76 @@
+{
+  "jjcMissionCards": [
+    {
+      "id": 1,
+      "imagelink": "http://localhost:3001/assets/images/PlanandAdvise.svg",
+      "cardtitle": "Plan & Advice",
+      "cardtext": "GRE, TOEFL, Loan, Accomodation"
+
+    },
+    {
+      "id": 2,
+      "imagelink": "http://localhost:3001/assets/images/Connect.svg",
+      "cardtitle": "Connect",
+      "cardtext": "Find Alumni in your Course and Universities"
+    },
+    {
+      "id": 3,
+      "imagelink": "http://localhost:3001/assets/images/GetHelp.svg",
+      "cardtitle": "Get Help",
+      "cardtext": "Job Refferals, Resume Reviews, Cover letter tips"
+
+    },
+    {
+      "id":4,
+      "imagelink": "http://localhost:3001/assets/images/Engage.svg",
+      "cardtitle": "Engage",
+      "cardtext": "Find a community away from home!"
+
+    }
+  ],
+  "aboutus": {
+    "id": 1,
+    "imagelink": "http://localhost:3001/assets/images/aboutUs.png",
+    "cardtitle": "Jain Jagruti Centre. Not just a name. But an institution that stand as a symbol of philanthropic objectives and fulfillments for the Jain community, at large. Once an entertainment provider of various cultural programs for the community, today the organization proactively participates in driving serious and meaningful charitable activates, such as Refundable Education of Financial Assistance, Samuh Vivah, Medical Camps and Yuva Melas for needy members of the Jain community.",
+    "cardtext": "The original thought behind promoting Jain Jagruti Centre was to bring various sections and factions of Jains under one roof. Jain Jagruti Centre. Not just a name. But an institution that stand as a symbol of philanthropic objectives and fulfillments for the Jain community, at large. Once an entertainment provider of various cultural programs for the community, today the organization proactively participates in driving serious and meaningful charitable activates, such as Refundable Education of Financial Assistance, Samuh Vivah, Medical Camps and Yuva Melas for needy members of the Jain community."
+  },
+  "ongoingInitiatives": [
+    {
+      "id": 1,
+      "imagelink": "//placehold.it/600x400/000/fff?text=1",
+      "cardtitle": "Rental Assistance for Students during COVID-19 Pandemic"
+    },
+    {
+      "id": 2,
+      "imagelink": "//placehold.it/600x400/000/fff?text=2",
+      "cardtitle": "Food Assistance for Students during COVID-19 Pandemic"
+    },
+    {
+      "id": 3,
+      "imagelink": "//placehold.it/600x400/000/fff?text=3",
+      "cardtitle": "Housing Assistance for Students during COVID-19 Pandemic"
+    },
+    {
+      "id": 4,
+      "imagelink": "//placehold.it/600x400/000/fff?text=4",
+      "cardtitle": "Assistance for Students during COVID-19 Pandemic"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

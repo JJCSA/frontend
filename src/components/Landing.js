@@ -3,11 +3,15 @@ import React, { Component } from 'react'
 
 import JJCMission from './JJCMission'
 import AboutUsHeading from './AboutUsHeading'
-import OngoingInitiativesHeading from './OngoingInitiativesHeading'
-import Ongoinginitiativescarousel from './Ongoinginitiativescarousel'
-import TestimonialsHeading from './TestimonialsHeading'
-import NewsUpdatesHeading from './NewsUpdatesHeading'
 import AboutUs from './AboutUs'
+import OngoingInitiativesHeading from './OngoingInitiativesHeading'
+import OngoingInitiativesCarousel from './Ongoinginitiativescarousel'
+import TestimonialsHeading from './TestimonialsHeading'
+import TestimonialsCarousel from "./TestimonialsCarousel";
+import NewsUpdatesHeading from './NewsUpdatesHeading'
+import NewsUpdates from './NewsUpdates'
+import ContactUsHeading from "./ContactUsHeading";
+
 class Landing extends Component {
   render() {
     return (
@@ -21,9 +25,12 @@ class Landing extends Component {
 
         <OngoingInitiativesHeading/>
         
-        <Ongoinginitiativescarousel/>
+        <OngoingInitiativesCarousel/>
         <TestimonialsHeading/>
+        <TestimonialsCarousel/>
         <NewsUpdatesHeading/>
+        <NewsUpdates/>
+        <ContactUsHeading/>
       </div> 
     )
   }
