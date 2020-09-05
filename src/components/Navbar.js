@@ -20,7 +20,7 @@ class Navbar extends Component {
     return (
       <nav className="navbar navbar-light bg-light navbar-expand-sm rounded fixed-top position-sticky mb-2">
           <a className="navbar-brand ml-sm-5 px-3" href="https://www.jainjagruti.com/" target="_blank" rel="noopener noreferrer">
-              <img src="https://www.jainjagruti.com/images/logo_download.jpg" alt="JJC logo" style={{width:'70px'}}/>
+              <img src="http://localhost:3001/assets/images/jjc-logo.png" alt="JJC logo" style={{width:'70px'}}/>
           </a>
           <button
               className="navbar-toggler"

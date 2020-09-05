@@ -11,6 +11,7 @@ import TestimonialsCarousel from "./TestimonialsCarousel";
 import NewsUpdatesHeading from './NewsUpdatesHeading'
 import NewsUpdates from './NewsUpdates'
 import ContactUsHeading from "./ContactUsHeading";
+import ContactUs from './ContactUs'
 
 class Landing extends Component {
   render() {
@@ -31,6 +32,7 @@ class Landing extends Component {
         <NewsUpdatesHeading/>
         <NewsUpdates/>
         <ContactUsHeading/>
+        <ContactUs/>
       </div> 
     )
   }

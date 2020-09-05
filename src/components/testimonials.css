@@ -28,6 +28,8 @@ Attribution required
     .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item,
     .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item {
         transition: none;
+        margin-left: initial;
+        margin-right: initial;
     }
 
     .carousel-inner .carousel-item-next,
