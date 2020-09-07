@@ -5,9 +5,11 @@ import JJCMission from './JJCMission'
 import AboutUsHeading from './AboutUsHeading'
 import AboutUs from './AboutUs'
 import OngoingInitiativesHeading from './OngoingInitiativesHeading'
-import OngoingInitiativesCarousel from './Ongoinginitiativescarousel'
+// import OngoingInitiativesCarousel from './Ongoinginitiativescarousel'
+import OI from "./oi";
 import TestimonialsHeading from './TestimonialsHeading'
-import TestimonialsCarousel from "./TestimonialsCarousel";
+// import TestimonialsCarousel from "./TestimonialsCarousel";
+import TT from './tt'
 import NewsUpdatesHeading from './NewsUpdatesHeading'
 import NewsUpdates from './NewsUpdates'
 import ContactUsHeading from "./ContactUsHeading";
@@ -26,9 +28,11 @@ class Landing extends Component {
 
         <OngoingInitiativesHeading/>
         
-        <OngoingInitiativesCarousel/>
+        {/*<OngoingInitiativesCarousel/>*/}
+        <OI/>
         <TestimonialsHeading/>
-        <TestimonialsCarousel/>
+        {/*<TestimonialsCarousel/>*/}
+        <TT/>
         <NewsUpdatesHeading/>
         <NewsUpdates/>
         <ContactUsHeading/>

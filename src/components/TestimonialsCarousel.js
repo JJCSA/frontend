@@ -93,11 +93,11 @@ export default class TestimonialsCarousel extends Component{
                         {/*    <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>*/}
                         {/*</div>*/}
                     </div>
-                    <a className="carousel-control-prev" href="#testimonialcarouselExample" role="button" data-slide="prev">
+                    <a className="carousel-control-prev" href="#testimonialcarousel" role="button" data-slide="prev">
                         <i className="fa fa-chevron-left fa-lg text-muted"/>
                         <span className="sr-only">Previous</span>
                     </a>
-                    <a className="carousel-control-next" href="#testimonialcarouselExample" role="button"
+                    <a className="carousel-control-next" href="#testimonialcarousel" role="button"
                        data-slide="next">
                         <i className="fa fa-chevron-right fa-lg text-muted"/>
                         <span className="sr-only">Next</span>

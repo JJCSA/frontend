@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import './ongoinginitiatives.css'
 // import $ from "jquery"
 // import planAndAdvice from "./images/planAndAdvice.png"
-import $ from 'jquery'
+// import $ from 'jquery'
+import Carousel from 'react-elastic-carousel'
 export default class OngoingInitiativesCarousel extends Component{
 
     constructor(props) {
@@ -13,31 +14,31 @@ export default class OngoingInitiativesCarousel extends Component{
         // this.fetchInitiativesCard = this.fetchInitiativesCard.bind(this);
         // this.jqueryCarousel = this.jqueryCarousel.bind(this);
     }
-    componentDidMount() {
-        $(document).ready(function (){
-            $('#carouselExample').on('slide.bs.carousel', function (e){
-                let $e = $(e.relatedTarget);
-                let idx = $e.index();
-                let itemsPerSlide = 3;
-                let totalItems = $(".carousel-item").length;
-                if (idx >= totalItems - (itemsPerSlide - 1)) {
-                    let it = itemsPerSlide - (totalItems - idx);
-                    for (let i = 0; i < it; i++) {
-                        // append slides to end
-                        if (e.direction == "left") {
-                            $(".carousel-item")
-                                .eq(i)
-                                .appendTo(".carousel-inner");
-                        } else {
-                            $(".carousel-item")
-                                .eq(0)
-                                .appendTo($(this).find(".carousel-inner"));
-                        }
-                    }
-                }
-            });
-        });
-    }
+    // componentDidMount() {
+    //     $(document).ready(function (){
+    //         $('#carouselExample').on('slide.bs.carousel', function (e){
+    //             let $e = $(e.relatedTarget);
+    //             let idx = $e.index();
+    //             let itemsPerSlide = 3;
+    //             let totalItems = $(".carousel-item").length;
+    //             if (idx >= totalItems - (itemsPerSlide - 1)) {
+    //                 let it = itemsPerSlide - (totalItems - idx);
+    //                 for (let i = 0; i < it; i++) {
+    //                     // append slides to end
+    //                     if (e.direction == "left") {
+    //                         $(".carousel-item")
+    //                             .eq(i)
+    //                             .appendTo(".carousel-inner");
+    //                     } else {
+    //                         $(".carousel-item")
+    //                             .eq(0)
+    //                             .appendTo($(this).find(".carousel-inner"));
+    //                     }
+    //                 }
+    //             }
+    //         });
+    //     });
+    // }
 
     //
     // componentDidMount() {
@@ -75,7 +76,7 @@ export default class OngoingInitiativesCarousel extends Component{
             <div className="container-fluid " style={{background: "linear-gradient(180deg, #FBFBFB 0%, #F6F6F6 100%)"}}>
 
                 <div id="carouselExample" className="carousel slide " data-ride="carousel" >
-                    <div className="carousel-inner row w-100 pt-5" role="listbox">
+                    <div className="carousel-inner row w-100 pt-5">
 
                             <div className="carousel-item col-md-4 active">
                                 <div className="card mx-auto border-0 " style={{borderRadius:'8px'}} >

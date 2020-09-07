@@ -18,9 +18,9 @@ class Navbar extends Component {
         fontSize:'14px'
    }
     return (
-      <nav className="navbar navbar-light bg-light navbar-expand-sm rounded fixed-top position-sticky mb-2">
+      <nav className="navbar navbar-light bg-light navbar-expand-sm rounded fixed-top position-sticky">
           <a className="navbar-brand ml-sm-5 px-3" href="https://www.jainjagruti.com/" target="_blank" rel="noopener noreferrer">
-              <img src="http://localhost:3001/assets/images/jjc-logo.png" alt="JJC logo" style={{width:'70px'}}/>
+              <img src="http://localhost:3001/assets/images/jjc-logo.png" alt="JJC logo"/>
           </a>
           <button
               className="navbar-toggler"
@@ -56,6 +56,7 @@ class Navbar extends Component {
                           className="nav-item nav-link active navbarhover px-3"
                           to="our-initiatives"
                           spy={true}
+                        style={nav_heading}
                           smooth={true}
 
                           duration={1000}
@@ -71,6 +72,7 @@ class Navbar extends Component {
                           smooth={true} 
                           // offset={-70}
                           duration={1000}
+                        style={nav_heading}
                       > Testimonials </Link>
 
                       <Link
@@ -83,6 +85,7 @@ class Navbar extends Component {
                           spy={true}
                           smooth={true}
                           duration={1000}
+                          style={nav_heading}
                       > News Updates </Link>
 
                     <Link
@@ -95,6 +98,7 @@ class Navbar extends Component {
                           spy={true}
                           smooth={true}
                           duration={1000}
+                        style={nav_heading}
                       > Contact Us </Link>
                       <a className=" jjclink my-2 px-3" href="https://www.jainjagruti.com/" target="_blank" rel="noopener noreferrer">JJC Mumbai</a>
                   </div>
