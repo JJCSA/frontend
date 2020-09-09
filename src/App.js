@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import Navbar from './components/Navbar'
 import Landing from './components/Landing'
-import Login from './components/Login'
-import Register from './components/Register'
+import Login from './components/Login/Login'
+import Register from './components/Register/Register'
 import Profile from './components/Profile'
 import AdminPanel from './pages/AdminPanel'
 
