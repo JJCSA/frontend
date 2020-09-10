@@ -14,7 +14,7 @@ import NewsUpdatesHeading from './NewsUpdatesHeading'
 import NewsUpdates from './NewsUpdates'
 import ContactUsHeading from "./ContactUsHeading";
 import ContactUs from './ContactUs'
-
+import PageFooter from './PageFooter'
 class Landing extends Component {
   render() {
     return (
@@ -37,6 +37,7 @@ class Landing extends Component {
         <NewsUpdates/>
         <ContactUsHeading/>
         <ContactUs/>
+        <PageFooter/>
       </div> 
     )
   }

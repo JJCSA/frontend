@@ -51,7 +51,7 @@ class Navbar extends Component {
                     <Link
                         data-toggle="collapse"
                         data-target=".navbar-collapse.show"
-                        offset={-350}
+                        offset={-150}
                           activeClass='active'
                           className="nav-item nav-link active navbarhover px-3"
                           to="our-initiatives"
