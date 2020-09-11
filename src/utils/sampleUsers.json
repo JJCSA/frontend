@@ -1,169 +1,664 @@
 {
-    "users": [
+  "users": [
+    {
+      "user_id": 1,
+      "image": "https://www.nj.com/resizer/h8MrN0-Nw5dB5FOmMVGMmfVKFJo=/450x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg",
+      "name": "Tejas Shah",
+      "type": "Admin",
+      "email": "a@a.com",
+      "number": "+18573139750",
+      "status": "Pending",
+      "state": "Massachusetts",
+      "city": "Boston",
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "Email",
+        "Phone"
+      ],
+      "experience": [
         {
-            "user_id": 1,
-            "image": "https://www.nj.com/resizer/h8MrN0-Nw5dB5FOmMVGMmfVKFJo=/450x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg",
-            "name": "Tejas Shah",
-            "type": "Admin",
-            "email": "a@a.com",
-            "number": "+18573139750",
-            "status": "Pending",
-            "state": "Massachusetts",
-            "city": "Boston"
+          "company_name": "Microsoft",
+          "role": "Software Engineer III",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
         },
         {
-            "user_id": 2,
-            "image": "img.com",
-            "name": "Alex Beck",
-            "type": "User",
-            "email": "b@a.com",
-            "number": "+18573139750",
-            "status": "Pending",
-            "state": "Massachusetts",
-            "city": "Boston"
-        },
-        {
-            "user_id": 3,
-            "image": "img",
-            "name": "Tejas Shah",
-            "type": "Admin",
-            "email": "a@a.com",
-            "number": "+918573139750",
-            "status": "Pending",
-            "state": "Massachusetts",
-            "city": "Boston"
-        },
-        {
-            "user_id": 4,
-            "image": "img",
-            "name": "Alex Beck",
-            "type": "User",
-            "email": "b@a.com",
-            "number": "8573139750",
-            "status": "Pending",
-            "state": "Massachusetts",
-            "city": "Boston"
-        },
-        {
-            "user_id": 5,
-            "image": "img",
-            "name": "Alex Beck",
-            "type": "User",
-            "email": "b@a.com",
-            "number": "8573139750",
-            "status": "Approved",
-            "state": "Massachusetts",
-            "city": "Boston"
-        },
-        {
-            "user_id": 6,
-            "image": "img",
-            "name": "Borat Beck",
-            "type": "User",
-            "email": "b@a.com",
-            "number": "8573139750",
-            "status": "Approved",
-            "state": "Massachusetts",
-            "city": "Boston"
-        },
-        {
-            "user_id": 7,
-            "image": "img",
-            "name": "Duck Beck",
-            "type": "User",
-            "email": "b@a.com",
-            "number": "8573139750",
-            "status": "Approved",
-            "state": "Massachusetts",
-            "city": "Boston"
-        },
-        {
-            "user_id": 8,
-            "image": "img",
-            "name": "Cat Beck",
-            "type": "User",
-            "email": "b@a.com",
-            "number": "8573139750",
-            "status": "Approved",
-            "state": "Illinois",
-            "city": "Chicago"
-        },
-        {
-            "user_id": 9,
-            "image": "img",
-            "name": "Suzanne Beck",
-            "type": "Admin",
-            "email": "Suzanne@beck.com",
-            "number": "8573149750",
-            "status": "Pending",
-            "state": "Maryland",
-            "city": "Baltimore"
-        },
-        {
-            "user_id": 10,
-            "image": "img",
-            "name": "Jack Beck",
-            "type": "User",
-            "email": "jack@a.com",
-            "number": "8573139750",
-            "status": "Approved",
-            "state": "Washington",
-            "city": "Seattle"
-        },
-        {
-            "user_id": 11,
-            "image": "img",
-            "name": "Zack Beck",
-            "type": "Admin",
-            "email": "b@a.com",
-            "number": "8573139750",
-            "status": "Approved",
-            "state": "New York",
-            "city": "New York City"
-        },
-        {
-            "user_id": 12,
-            "image": "img",
-            "name": "Kate Beck",
-            "type": "User",
-            "email": "kate@a.com",
-            "number": "8573139750",
-            "status": "Approved",
-            "state": "Texas",
-            "city": "Austin"
-        },
-        {
-            "user_id": 13,
-            "image": "img",
-            "name": "Haley Beck",
-            "type": "User",
-            "email": "haley@a.com",
-            "number": "8573139750",
-            "status": "Approved",
-            "state": "California",
-            "city": "San Diego"
-        },
-        {
-            "user_id": 14,
-            "image": "img",
-            "name": "Sai Beck",
-            "type": "Admin",
-            "email": "sai@a.com",
-            "number": "8573139750",
-            "status": "Approved",
-            "state": "Pennsylvania",
-            "city": "Scranton"
-        },
-        {
-            "user_id": 15,
-            "image": "img",
-            "name": "Jim Harper",
-            "type": "User",
-            "email": "jim@a.com",
-            "number": "8573139750",
-            "status": "Pending",
-            "state": "Floria",
-            "city": "Miami"
+          "company_name": "Barclays",
+          "role": "Software Developer ",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
         }
-    ]
+      ],
+      "education": [
+        {
+          "university_name": "University of Southern California",
+          "course": "Masters in Computer Science",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        },
+        {
+          "university_name": "VJTI",
+          "course": "BTech",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        }
+      ]
+    },
+    {
+      "user_id": 2,
+      "image": "img.com",
+      "name": "Alex Beck",
+      "type": "User",
+      "email": "b@a.com",
+      "number": "+18573139750",
+      "status": "Pending",
+      "state": "Massachusetts",
+      "city": "Boston",
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "Email",
+        "Phone"
+      ],
+      "experience": [
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
+    },
+    {
+      "user_id": 3,
+      "image": "img",
+      "name": "Tejas Shah",
+      "type": "Admin",
+      "email": "a@a.com",
+      "number": "+918573139750",
+      "status": "Pending",
+      "state": "Massachusetts",
+      "city": "Boston",
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "Email",
+        "Phone"
+      ],
+      "experience": [
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
+    },
+    {
+      "user_id": 4,
+      "image": "img",
+      "name": "Alex Beck",
+      "type": "User",
+      "email": "b@a.com",
+      "number": "8573139750",
+      "status": "Approved",
+      "state": "Massachusetts",
+      "city": "Boston",
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "Email",
+        "SMS"
+      ],
+      "experience": [
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
+    },
+    {
+      "user_id": 5,
+      "image": "img",
+      "name": "Alex Beck",
+      "type": "User",
+      "email": "b@a.com",
+      "number": "8573139750",
+      "status": "Approved",
+      "state": "Massachusetts",
+      "city": "Boston",
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "SMS",
+        "Phone"
+      ],
+      "experience": [
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
+    },
+    {
+      "user_id": 6,
+      "image": "img",
+      "name": "Borat Beck",
+      "type": "User",
+      "email": "b@a.com",
+      "number": "8573139750",
+      "status": "Pending",
+      "state": "Massachusetts",
+      "city": "Boston",
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "Email",
+        "Phone"
+      ],
+      "experience": [
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
+    },
+    {
+      "user_id": 7,
+      "image": "img",
+      "name": "Duck Beck",
+      "type": "User",
+      "email": "b@a.com",
+      "number": "8573139750",
+      "status": "Approved",
+      "state": "Massachusetts",
+      "city": "Boston",
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "SMS",
+        "Phone"
+      ],
+      "experience": [
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
+    },
+    {
+      "user_id": 8,
+      "image": "img",
+      "name": "Cat Beck",
+      "type": "User",
+      "email": "b@a.com",
+      "number": "8573139750",
+      "status": "Pending",
+      "state": "Illinois",
+      "city": "Chicago",
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "Email",
+        "Phone"
+      ],
+      "experience": [
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
+    },
+    {
+      "user_id": 9,
+      "image": "img",
+      "name": "Suzanne Beck",
+      "type": "Admin",
+      "email": "Suzanne@beck.com",
+      "number": "8573149750",
+      "status": "Approved",
+      "state": "Maryland",
+      "city": "Baltimore",
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "Email",
+        "Whatsapp"
+      ],
+      "experience": [
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
+    },
+    {
+      "user_id": 10,
+      "image": "img",
+      "name": "Jack Beck",
+      "type": "User",
+      "email": "jack@a.com",
+      "number": "8573139750",
+      "status": "Approved",
+      "state": "Washington",
+      "city": "Seattle",
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "Email",
+        "Phone"
+      ],
+      "experience": [
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
+    },
+    {
+      "user_id": 11,
+      "image": "img",
+      "name": "Zack Beck",
+      "type": "Admin",
+      "email": "b@a.com",
+      "number": "8573139750",
+      "status": "Approved",
+      "state": "New York",
+      "city": "New York City",
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "Email",
+        "Whatsapp"
+      ],
+      "experience": [
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
+    },
+    {
+      "user_id": 12,
+      "image": "img",
+      "name": "Kate Beck",
+      "type": "User",
+      "email": "kate@a.com",
+      "number": "8573139750",
+      "status": "Approved",
+      "state": "Texas",
+      "city": "Austin",
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "Email",
+        "Phone"
+      ],
+      "experience": [
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
+    },
+    {
+      "user_id": 13,
+      "image": "img",
+      "name": "Haley Beck",
+      "type": "User",
+      "email": "haley@a.com",
+      "number": "8573139750",
+      "status": "Approved",
+      "state": "California",
+      "city": "San Diego",
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "Whatsapp",
+        "Phone"
+      ],
+      "experience": [
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
+    },
+    {
+      "user_id": 14,
+      "image": "img",
+      "name": "Sai Beck",
+      "type": "Admin",
+      "email": "sai@a.com",
+      "number": "8573139750",
+      "status": "Approved",
+      "state": "Pennsylvania",
+      "city": "Scranton",
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "Email",
+        "Phone"
+      ],
+      "experience": [
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
+    },
+    {
+      "user_id": 15,
+      "image": "img",
+      "name": "Jim Harper",
+      "type": "User",
+      "email": "jim@a.com",
+      "number": "8573139750",
+      "status": "Pending",
+      "state": "Floria",
+      "city": "Miami",
+      "jain_community": "Sthanakwasi",
+      "preferred_contact_method": [
+        "Whatsapp",
+        "Phone"
+      ],
+      "experience": [
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "company_name": "Abc",
+          "role": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ],
+      "education": [
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2015",
+          "end_date": "05/30/2018"
+        },
+        {
+          "university_name": "Abc",
+          "course": "Abc",
+          "start_date": "05/30/2018",
+          "end_date": "05/30/2020"
+        }
+      ]
+    }
+  ]
 }

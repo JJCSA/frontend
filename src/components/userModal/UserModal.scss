@@ -1,0 +1,62 @@
+.name-container {
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.Btn-reject {
+    background-color: rgba(255,64,32, 0.8)!important;
+    width:100%;
+  }
+  
+  .Btn-accept {
+    background-color: #4CB576!important;
+    margin-right: 10px;
+    width:100%;
+}
+
+.Btn-submit {
+    background-color: #1E2350;
+    margin-top:10px;
+    width:100%;
+    color:white;
+}
+
+.info-container {
+    width:100%;
+    background-color: #F6F6F6;
+}
+
+.divOutside {
+    border-bottom:1px rgba(0,0,0,0.1) solid;
+}
+
+.last {
+    border-bottom:0px;
+}
+
+.center-align {
+    text-align: center;
+}
+
+.remove-left-padding {
+    padding-left:0px;
+}
+
+.info-container-headers {
+    margin-left:2px;
+    font-family: 'Noto Sans';
+    color: #403F3F;
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.info-container-info {
+    margin-left:5px;
+    font-family: 'Noto Sans';
+    color: #403F3F;
+    font-weight: 500;
+    font-size: 16px;
+}
