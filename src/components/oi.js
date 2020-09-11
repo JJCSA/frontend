@@ -65,7 +65,7 @@ export default class OI extends Component{
                     <Card className="border-0 mx-4" style={card_css}>
                         <Card.Img style={card_image} variant="top" src="http://localhost:3001/assets/images/helpdesk.jpg"/>
                         <Card.Body>
-                            <Card.Title>HelpDesk - Job/Referal/Food</Card.Title>
+                            <Card.Title>HelpDesk - Job/Rental/Food</Card.Title>
                             <Card.Text style={card_text}>As the pandemic kicked in, a lot of our Jain students and professionals started facing difficulties to meet with their day to day needs. Individuals lost their jobs, could not find new jobs, faced difficulties to pay their rents and also it was not easy to go outside to buy groceries. Through this HelpDesk initiative, members from the USA and India contributed a capable amount due to which we were able to make this a success. We were able to help a total of 110 individuals for a total amount of approximately $21,000.
 
                             </Card.Text>

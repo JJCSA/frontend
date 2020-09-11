@@ -100,7 +100,7 @@ class Navbar extends Component {
                           duration={1000}
                         style={nav_heading}
                       > Contact Us </Link>
-                      <a className=" jjclink my-2 px-3" href="https://www.jainjagruti.com/" target="_blank" rel="noopener noreferrer">JJC Mumbai</a>
+                      <a className=" jjclink my-2 px-3" href="https://www.jainjagruti.com/" target="_blank" rel="noopener noreferrer">JJC Central Board</a>
                   </div>
                         <form className="form-inline">
                             <button className=" form-control btn btn-dark btn-block mr-sm-3" type="button" style={login_button}>Login</button>

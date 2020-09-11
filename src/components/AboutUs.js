@@ -31,11 +31,15 @@ export default class AboutUs extends Component {
             borderColor:'#FF4020',
             color:'#FF4020'
         }
+        const card_image = {
+            borderRadius:'12px',
+            height:'320px'
+        }
         return(
             <div className="card p-3 m-3 border-0 ">
                 <div className="row" key={aboutusdata.id}>
                     <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <img className="card-img" src="http://localhost:3001/assets/images/aboutUs.png" alt="About Us"/>
+                        <img style={card_image} className="card-img" src="http://localhost:3001/assets/images/JJC_MISSION.jpg" alt="About Us"/>
                     </div>  {/*  image col here */}
             
                     <div className="col-lg-8">
