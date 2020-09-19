@@ -2,18 +2,18 @@
 
 .tableRow {
     padding: 5px 0px;
-    color: #7B889A;
+    color: $grey;
     border-top: none;
     height: 72px;
 
     td {
-        border-top: 0.2px solid #B6C3D1;
+        border-top: 0.2px solid $lightGrey;
         vertical-align: middle;
     }
 }
 
 .tableRow:nth-last-child(1) td {
-    border-bottom: 0.2px solid #B6C3D1;
+    border-bottom: 0.2px solid $lightGrey;
 }
 
 .react-bootstrap-table-pagination {
@@ -32,8 +32,8 @@
         width: 9px;
         height: 19px;
         font-style: normal;
-        font-weight: 600;
-        font-size: 14px;
+        font-weight: $semiBold;
+        font-size: $regularSize;
         line-height: 19px;
         color: rgba(0, 0, 0, 0.2);
         display: inline-block;
@@ -46,26 +46,26 @@
         }
     }
     .active .page-link {
-        color: #403F3F;
+        color: $charcoalBlack;
         background-color: transparent;
         border: none;
-        font-weight: 600;
-        font-size: 14px;
+        font-weight: $semiBold;
+        font-size: $regularSize;
         line-height: 19px;
     }
 
 }
 
 .sizePerPage {
-    font-weight: 500;
-    font-size: 14px;
+    font-weight: $regular;
+    font-size: $regularSize;
     line-height: 19px;
-    color: #403F3F;
+    color: $charcoalBlack;
     & input {
         margin: 0px 5px;
         padding: 0px 5px;
-        background: #FFFFFF;
-        border: 1px solid #E9EDF5;
+        background: $white;
+        border: 1px solid $pageBackground;
         box-sizing: border-box;
         border-radius: 3px;
     }
