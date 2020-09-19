@@ -1,14 +1,15 @@
+@import '../../utils/variables.scss';
+
 .dropdownToggle {
     width: 200px;
     height: 40px;
-    border: 1px solid #F6F6F6;
+    border: 1px solid $whiteSmoke;
     box-sizing: border-box;
     border-radius: 5px;
-    font-family: Noto Sans;
     font-style: normal;
-    font-weight: 500;
+    font-weight: $semiBold;
     font-size: 14px;
-    color: #403F3F;
+    color: $charcoalBlack;
     background-color: white;
     opacity: 0.4;
     box-shadow: none;
@@ -17,9 +18,9 @@
     align-items: center;
 
     &:active, &:hover, &:focus {
-        background-color: white !important;
-        color: #403F3F !important;
-        border: 1px solid #F6F6F6 !important;
+        background-color: $white !important;
+        color: $charcoalBlack !important;
+        border: 1px solid $whiteSmoke !important;
         box-shadow: none;
     }
 }
@@ -28,15 +29,14 @@
     width: 200px;
     max-height: 400px;
     overflow-y: auto;
-    border: 1px solid #F6F6F6;
+    border: 1px solid $whiteSmoke;
     box-sizing: border-box;
     border-radius: 5px;
-    font-family: Noto Sans;
     font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    color: #403F3F;
-    background-color: white;
+    font-weight: $semiBold;
+    font-size: $regularSize;
+    color: $charcoalBlack;
+    background-color: $white;
 }
 
 .dropdownItem {
@@ -44,9 +44,9 @@
     padding-left: 12px;
     
     &:active, &:hover, &:focus {
-        background-color: white !important;
-        color: #403F3F !important;
-        border: 1px solid #F6F6F6 !important;
+        background-color: $white !important;
+        color: $charcoalBlack !important;
+        border: 1px solid $whiteSmoke !important;
         box-shadow: none;
     }
 }
