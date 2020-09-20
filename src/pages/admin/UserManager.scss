@@ -1,20 +1,21 @@
+@import '../../utils/variables.scss';
+
 .pageContainer {
     display: flex;
     flex-direction: column;
-    background: #E9EDF5;
-    font-family: 'Noto Sans';
+    background: $pageBackground;
 }
 
 .pageHeader{
     height: 72px;
     padding: 10px;
-    background: white;
+    background: $white;
     padding: 10px 30px 10px 30px;
 
     h4 {
         font-style: normal;
-        font-weight: bold;
-        font-size: 16px;
+        font-weight: $bold;
+        font-size: $titleSize;
         line-height: 22px;
         height: 100%;
         margin: 0px;
@@ -24,25 +25,24 @@
 
 .pageContent {
     margin: 30px;
-    background: white;
+    background: $white;
     border-radius: 5px;
     padding: 5px 0px;
     font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
+    font-weight: $regular;
+    font-size: $regularSize;
     line-height: 19px;
 }
 
 .tableHeader {
     font-style: normal;
-    font-weight: 600;
+    font-weight: $semiBold;
     font-size: 14px;
     line-height: 19px;
-    color: #7B889A;
+    color: $grey;
     width: 10%;
     height: 72px;
     border-top: none !important;
-    
     vertical-align: middle !important;
 }
 
@@ -58,6 +58,4 @@
     display: flex;
     justify-content: space-between;
     padding: 20px 20px;
-
-    
 }

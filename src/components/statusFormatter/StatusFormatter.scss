@@ -1,3 +1,5 @@
+@import '../../utils/variables.scss';
+
 .pendingStatusContainer {
     width: 107px;
     height: 32px;
@@ -7,14 +9,14 @@
 
     span {
         font-style: normal;
-        font-weight: 500;
-        font-size: 16px;
+        font-weight: $lightBold;
+        font-size: $regularSize;
         line-height: 22px;
-        color: #FF4020;
+        color: $red;
     }
 
     :nth-child(1) {
-        background-color: #FF4020;
+        background-color: $red;
         width: 8px;
         height: 8px;
         border-radius: 50%;
@@ -32,14 +34,14 @@
 
     span {
         font-style: normal;
-        font-weight: 500;
-        font-size: 16px;
+        font-weight: $lightBold;
+        font-size: $regularSize;
         line-height: 22px;
-        color: #4CB576;
+        color: $green;
     }
 
     :nth-child(1) {
-        background-color: #4CB576;
+        background-color: $green;
         width: 8px;
         height: 8px;
         border-radius: 50%;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import './App.scss';
 
 import Navbar from './components/Navbar'
 import Landing from './components/Landing'
