@@ -2,7 +2,7 @@ export { default as Avatar } from './avatar/Avatar';
 export { default as CustomDropdown } from './customDropdown/CustomDropdown';
 export { default as CustomTextBox} from './customTextBox/CustomTextBox';
 export { default as DataTable } from './datatable/DataTable';
-export { default as AdminNavbar } from './AdminNavbar';
+export { default as AdminNavbar } from './adminNavbar/AdminNavbar';
 export { default as Landing } from './Landing';
 export { default as Login } from './Login';
 export { default as Navbar } from './Navbar';
