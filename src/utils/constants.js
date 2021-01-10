@@ -9,6 +9,11 @@ export const userStatus = {
     REJECTED: 'Rejected'
 };
 
+export const formStatus = {
+    ACTIVE: 'Active',
+    CLOSED: 'Closed'
+};
+
 export const apiRootURL = "http://localhost:3001";
 
 export const states = [
