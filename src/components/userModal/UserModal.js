@@ -52,7 +52,7 @@ class UserModal extends Component {
                 console.log("Approved user_id:", this.props.data.user_id);
                 let copiedObject = JSON.parse(JSON.stringify(this.props.data))
                 copiedObject.status = this.state.status
-                axios.put(Constants.apiRootURL + '/users/' + this.props.data.user_id, copiedObject)
+                axios.put(Constants.apiRootURLUsers + '/users/' + this.props.data.user_id, copiedObject)
                 .then(response => response.data)
                 .then(result => this.props.onsubmitUpdate(result))
                 break;
@@ -60,7 +60,7 @@ class UserModal extends Component {
                 console.log("Deleting user_id:", this.props.data.user_id)
                 axios({
                     method: 'DELETE',
-                    url: Constants.apiRootURL + '/users/' + this.props.data.user_id
+                    url: Constants.apiRootURLUsers + '/users/' + this.props.data.user_id
                 })
                 .then(response => response.data)
                 .then(result => this.props.onsubmitUpdate(result));

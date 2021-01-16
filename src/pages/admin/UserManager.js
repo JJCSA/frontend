@@ -88,7 +88,7 @@ class UserManager extends Component {
   }
 
   componentDidMount() {
-    fetch(`${Constants.apiRootURL}/users`)
+    fetch(`${Constants.apiRootURLUsers}/users`)
       .then((res) => res.json())
       .then(
         (result) => {

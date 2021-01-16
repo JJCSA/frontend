@@ -1,3 +1,4 @@
+import './AdminNavbar.scss'
 import React , { Component } from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -13,9 +14,14 @@ class AdminNavbar extends Component {
                     </Navbar.Brand>
                     <Navbar.Toggle />
                     <Navbar.Collapse>
-                        <Nav>
+                        <Nav className="navbarNav">
                             <LinkContainer to="/admin/manageUsers">
                                 <NavItem>Manage Users</NavItem>
+                            </LinkContainer>
+                        </Nav>
+                        <Nav className="navbarNav">
+                            <LinkContainer to="/admin/manageForms">
+                                <NavItem>Manage Forms</NavItem>
                             </LinkContainer>
                         </Nav>
                     </Navbar.Collapse>
