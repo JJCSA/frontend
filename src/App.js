@@ -9,6 +9,7 @@ import Login from './components/Login/Login'
 import Register from './components/Register/Register'
 import Profile from './components/Profile'
 import AdminPanel from './pages/admin/AdminPanel'
+import Onboarding from './components/Onboarding/Onboarding';
 
 class App extends Component {
   render() {
@@ -24,6 +25,7 @@ class App extends Component {
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/profile" component={Profile} />
+                <Route exact path="/onboarding" component={Onboarding} />
               </div>
             </div>
           </Route>
