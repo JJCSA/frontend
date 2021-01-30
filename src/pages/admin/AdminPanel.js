@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AdminHomepage from './AdminHomepage';
-import AdminNavbar from '../../components/AdminNavbar';
+import AdminNavbar from '../../components/adminNavbar/AdminNavbar';
 import UserManager from './UserManager';
 
 class AdminPanel extends Component {
@@ -9,7 +9,7 @@ class AdminPanel extends Component {
         return (
             <div>
                 <Router>
-                    <AdminNavbar />
+                    <AdminNavbar username="User" />
                     <Switch>
                         <Route exact path="/admin" component={AdminHomepage} />
                         <Route path="/admin/manageUsers" component={UserManager} />
