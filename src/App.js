@@ -1,15 +1,15 @@
-import React, { Component } from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
-import './App.scss';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
+import "./App.scss";
 
-import Navbar from './components/Navbar'
-import Landing from './components/Landing'
-import Login from './components/Login/Login'
-import Register from './components/Register/Register'
-import Profile from './components/Profile'
-import AdminPanel from './pages/admin/AdminPanel'
-
+import Navbar from "./components/Navbar";
+import Landing from "./components/Landing";
+import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
+import Profile from "./components/Profile";
+import AdminPanel from "./pages/admin/AdminPanel";
+import LandingHomepage from "./pages/landingpage/LandingHomepage";
 class App extends Component {
   render() {
     return (
@@ -19,7 +19,7 @@ class App extends Component {
           <Route>
             <div className="App">
               <Navbar />
-              <Route exact path="/" component={Landing} />
+              <Route exact path="/" component={LandingHomepage} />
               <div className="container">
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/login" component={Login} />
@@ -29,8 +29,8 @@ class App extends Component {
           </Route>
         </Switch>
       </Router>
-    )
+    );
   }
 }
 
-export default App
+export default App;

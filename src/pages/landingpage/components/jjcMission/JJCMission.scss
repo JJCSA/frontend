@@ -1,0 +1,42 @@
+@import "../../../../utils/variables.scss";
+
+.mission-color {
+  background: linear-gradient(180deg, #2c5797 0%, #0f2d58 100%);
+}
+.mission-card {
+  border-radius: 8px;
+}
+.card_images {
+  width: 100%;
+  height: 7vw;
+  object-fit: contain;
+}
+.join-button {
+  color: $white;
+  background-color: $vividred;
+  border-radius: 8px;
+  &:hover {
+    background-color: $white;
+    color: $black;
+  }
+}
+.headtext {
+  font-size: $largeTitle;
+  color: white;
+  font-weight: $semiBold;
+  font-style: normal;
+  text-align: left;
+  padding-top: 96px;
+}
+.mission-text {
+  font-size: 12px;
+  font-weight: $semiBold;
+  font-style: normal;
+  text-align: center;
+}
+
+@media only screen and (min-width: 576px) {
+  #leftpad {
+    padding-left: 89px;
+  }
+}
