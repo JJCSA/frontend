@@ -10,6 +10,24 @@ import Register from './components/Register/Register'
 import Profile from './components/Profile'
 import AdminPanel from './pages/admin/AdminPanel'
 
+const PrivateRoute = (comProps) => {
+  const {
+    component: Component, requireLogin, isLoggedIn, ...rest
+  } = comProps;
+  return (
+    <Route
+      {...rest}
+      render={(routeProps) => {
+        const loggedInComponent = requireLogin ? <Component {...routeProps} /> : <Redirect to="/" />;
+        const loggedOutComponent = requireLogin ? <Redirect to="/login" /> : <Component {...routeProps} />;
+        return (
+          isLoggedIn ? loggedInComponent : loggedOutComponent
+        );
+      }}
+    />
+  );
+};
+
 class App extends Component {
   render() {
     return (
