@@ -26,8 +26,7 @@ class FormDataTable extends Component {
                     pagination
                     selectRow={selectRowProp}
                     scrollTop={ 'Bottom' }
-                    search={true}
-                    trClassName="tableRow"
+                    trClassName="formTableRow"
                 >
                     {
                         this.props.columns.map(formColumn => {
@@ -46,7 +45,7 @@ class FormDataTable extends Component {
                                             delay: 100, 
                                             options: formColumn.options
                                         } : 
-                                        null
+                                        { type: 'TextFilter' }
                                     }
                                 >
                                     {formColumn.dataField}
