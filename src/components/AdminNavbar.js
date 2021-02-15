@@ -11,12 +11,7 @@ class AdminNavbar extends Component {
         this.state = {
             expanded: false
         };
-        this.onToggle = this.onToggle.bind(this);
     }
-
-    onToggle = (expanded) => {
-        this.setState({ expanded: expanded });
-    };
 
     render() {
         return (
@@ -28,6 +23,9 @@ class AdminNavbar extends Component {
                     if (history.location.pathname !== to) {
                         history.push(to);
                     }
+                }}
+                onToggle={(expanded) => {
+                    this.setState({ expanded });
                 }}
             >
                 <SideNav.Toggle />
