@@ -2,16 +2,12 @@
 import './AdminNavbar.scss';
 import React , { Component } from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
-// import { Navbar, Nav, NavItem, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
-// import ImageFormatter from "../imageFormatter/ImageFormatter";
-// import {notificationIcon} from "../../assets/index.js";
 
 class AdminNavbar extends Component {
     
     render() {
-        // const dropdownName = "Hi, " + this.props.username;
         return (
             <div>
                 <Navbar variant="light">
