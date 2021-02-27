@@ -10,10 +10,10 @@ class AdminPanel extends Component {
             <div>
                 <Router>
                     <AdminNavbar />
-                    <Switch>
+                    <main>
                         <Route exact path="/admin" component={AdminHomepage} />
                         <Route path="/admin/manageUsers" component={UserManager} />
-                    </Switch>
+                    </main>
                 </Router>
             </div>
         )
