@@ -1,7 +1,7 @@
 import React from 'react';
-import './StatusFormatter.scss';
+import './UserStatusFormatter.scss';
 
-const StatusFormatter = (cell) => {
+const UserStatusFormatter = (cell) => {
     const statusClass =
       "" + cell === "Pending"
         ? "pendingStatusContainer"
@@ -14,4 +14,4 @@ const StatusFormatter = (cell) => {
     );
   };
 
-export default StatusFormatter;
+export default UserStatusFormatter;
