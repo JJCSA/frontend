@@ -9,9 +9,19 @@ export const userStatus = {
     REJECTED: 'Rejected'
 };
 
+<<<<<<< HEAD
 // export const apiRootURL = "http://localhost:3001";
 // export const apiRootURL = "http://localhost:9080/api/users/login";
 export const apiRootURL = "http://192.168.1.72:9080";
+=======
+export const formStatus = {
+    ACTIVE: 'Active',
+    CLOSED: 'Closed'
+};
+
+export const apiRootURL = "http://localhost:3000";
+export const apiRootURLForms = "http://localhost:4000";
+>>>>>>> 0bf0efef8a4c75f2117a988723a2842c0d64c6da
 
 export const states = [
     "Alabama",

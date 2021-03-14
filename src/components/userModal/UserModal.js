@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col';
 // import Form from 'react-bootstrap/Form';
 import {locationIcon, infoIcon, emailIcon, phoneIcon, caseIcon, bookIcon, tickIcon, communityIcon, attachmentIcon} from "../../assets/index.js";
 import ImageFormatter from "../imageFormatter/ImageFormatter";
-import StatusFormatter from "../statusFormatter/StatusFormatter";
+import UserStatusFormatter from "../userStatusFormatter/UserStatusFormatter";
 import CareerInfo from "../careerInfo/CareerInfo"
 import * as Constants from "../../utils/constants";
 import PhoneNumberFormatter from "../phoneNumberFormatter/PhoneNumberFormatter"
@@ -91,7 +91,7 @@ class UserModal extends Component {
                                 </Row>
                                 <Row>
                                     <div className="mt-1">
-                                        {StatusFormatter(this.props.data.status)}
+                                        {UserStatusFormatter(this.props.data.status)}
                                     </div>        
                                 </Row>
                             </Container>
