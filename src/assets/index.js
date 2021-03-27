@@ -16,3 +16,5 @@ export { default as jjcConnectIcon } from "./icons/jjc-connect-icon.svg";
 export { default as jjcHelpIcon } from "./icons/jjc-help-icon.svg";
 export { default as jjcEngageIcon } from "./icons/jjc-engage-icon.svg";
 export { default as jjcPlanIcon } from "./icons/jjc-plan-icon.svg";
+export { default as copyIcon } from "./icons/copy-icon.svg";
+export { default as viewIcon } from "./icons/view-icon.svg";

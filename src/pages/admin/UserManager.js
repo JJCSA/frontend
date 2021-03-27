@@ -5,7 +5,7 @@ import { CustomDropdown, CustomTextBox} from '../../components';
 import * as Constants from "../../utils/constants";
 import { deleteIcon } from "../../assets/index.js";
 import PhoneNumberFormatter from "../../components/phoneNumberFormatter/PhoneNumberFormatter";
-import StatusFormatter from "../../components/statusFormatter/StatusFormatter";
+import UserStatusFormatter from "../../components/userStatusFormatter/UserStatusFormatter";
 import ImageFormatter from "../../components/imageFormatter/ImageFormatter";
 
 
@@ -50,7 +50,7 @@ const tableColumns = [
     dataField: "status",
     text: "STATUS",
     headerClasses: "tableHeader",
-    formatter: StatusFormatter,
+    formatter: UserStatusFormatter,
     sort: true,
   },
   {
