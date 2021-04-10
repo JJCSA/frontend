@@ -36,12 +36,12 @@ import { config } from './utils/constants';
 function App() {
   const keycloak = new Keycloak({
     url: `${config.url.KEYCLOAK_BASE_URL}/auth`,
-    realm: "jjcsa-services",
-    clientId: "jjcsa",
+    realm: 'jjcsa-services',
+    clientId: 'jjcsa',
   });
   const initOptions = { pkceMethod: 'S256' };
 
-  const handleOnEvent = async (event, error) => {
+  const handleOnEvent = async (event) => {
     if (event === 'onAuthSuccess') {
       if (keycloak.authenticated) {
         // let response = await moviesApi.getUserExtrasMe(keycloak.token)
@@ -76,4 +76,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
