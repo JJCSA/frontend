@@ -3,7 +3,10 @@ import { useKeycloak } from '@react-keycloak/web';
 import { Route } from 'react-router-dom';
 
 function PrivateRoute({ component: Component, ...rest }) {
-  const { keycloak } = useKeycloak();
+  const { keycloak, initialized } = useKeycloak();
+  if (!initialized) {
+    return <div>Loading...</div>;
+  }
   return (
     <Route
       {...rest}
