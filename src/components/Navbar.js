@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 
 class Landing extends Component {
   logOut(e) {
-    e.preventDefault()
-    localStorage.removeItem('usertoken')
-    this.props.history.push(`/`)
+    e.preventDefault();
+    localStorage.removeItem('usertoken');
+    this.props.history.push('/');
   }
 
   render() {
@@ -22,7 +22,7 @@ class Landing extends Component {
           </Link>
         </li>
       </ul>
-    )
+    );
 
     const userLink = (
       <ul className="navbar-nav">
@@ -37,7 +37,7 @@ class Landing extends Component {
           </a>
         </li>
       </ul>
-    )
+    );
 
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark rounded">
@@ -67,8 +67,8 @@ class Landing extends Component {
           {localStorage.usertoken ? userLink : loginRegLink}
         </div>
       </nav>
-    )
+    );
   }
 }
 
-export default withRouter(Landing)
+export default withRouter(Landing);

@@ -1,8 +1,9 @@
-import React, { Component } from "react";
-import { Link } from "react-scroll";
-import { jjcIcon } from "../../assets/index";
+import React, { Component } from 'react';
+import { Link } from 'react-scroll';
+import { jjcIcon } from '../../assets/index';
 
-import "./LandingNavBar.scss";
+import './LandingNavBar.scss';
+
 class LandingNavBar extends Component {
   render() {
     return (
@@ -36,8 +37,8 @@ class LandingNavBar extends Component {
               activeClass="active"
               className="nav-item nav-link active navbarhover px-3"
               to="about-us"
-              spy={true}
-              smooth={true}
+              spy
+              smooth
               duration={1000}
             >
               About Us
@@ -49,8 +50,8 @@ class LandingNavBar extends Component {
               activeClass="active"
               className="nav-item nav-link active navbarhover px-3"
               to="our-initiatives"
-              spy={true}
-              smooth={true}
+              spy
+              smooth
               duration={1000}
             >
               Ongoing Initiatives
@@ -62,8 +63,8 @@ class LandingNavBar extends Component {
               activeClass="active"
               className="nav-item nav-link active navbarhover px-3"
               to="testimonials"
-              spy={true}
-              smooth={true}
+              spy
+              smooth
               // offset={-70}
               duration={1000}
             >
@@ -77,8 +78,8 @@ class LandingNavBar extends Component {
               activeClass="active"
               className="nav-item nav-link active navbarhover px-3"
               to="news-updates"
-              spy={true}
-              smooth={true}
+              spy
+              smooth
               duration={1000}
             >
               News Updates
@@ -91,8 +92,8 @@ class LandingNavBar extends Component {
               activeClass="active"
               className="nav-item nav-link active navbarhover px-3"
               to="contact-us"
-              spy={true}
-              smooth={true}
+              spy
+              smooth
               duration={1000}
             >
               Contact Us

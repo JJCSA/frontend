@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   jjcConnectIcon,
   jjcEngageIcon,
   jjcHelpIcon,
   jjcPlanIcon,
-} from "../../../../assets/index";
-import "./JJCMission.scss";
+} from '../../../../assets/index';
+import './JJCMission.scss';
 
 class JJCMission extends Component {
   render() {

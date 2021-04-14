@@ -1,13 +1,14 @@
-import React, { Component } from "react";
-import { emailIcon } from "../../../../assets/index";
-import "./ContactUs.scss";
+import React, { Component } from 'react';
+import { emailIcon } from '../../../../assets/index';
+import './ContactUs.scss';
+
 class ContactUs extends Component {
   render() {
     return (
       <div>
         <div className="text-center mt-5">
           <h4>Contact Us</h4>
-          <hr className="contact-us"></hr>
+          <hr className="contact-us" />
         </div>
         <div className="container">
           <div className="row">
@@ -54,7 +55,7 @@ class ContactUs extends Component {
                       className="form-control form-style"
                       id="message"
                       rows="5"
-                    ></textarea>
+                    />
                   </div>
                 </form>
               </div>

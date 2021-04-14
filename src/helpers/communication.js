@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 function getConfig(params = null) {
-  let config = {
+  const config = {
     headers: {
       'content-type': 'multipart/form-data',
     },

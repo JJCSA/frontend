@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import "./NewsFeed.scss";
+import React, { Component } from 'react';
+import './NewsFeed.scss';
 
 class NewsFeed extends Component {
   render() {
     return (
-      <div class="NEWSFEED">
+      <div className="NEWSFEED">
         <div className="text-center mt-5">
           <h4>News Feed</h4>
-          <hr className="news-feed"></hr>
+          <hr className="news-feed" />
         </div>
         <div className="container">
           <div className="row">
