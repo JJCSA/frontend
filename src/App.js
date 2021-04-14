@@ -7,7 +7,8 @@ import { ReactKeycloakProvider } from '@react-keycloak/web';
 import Keycloak from 'keycloak-js';
 
 import Navbar from './components/Navbar';
-import Landing from './components/Landing';
+// import Landing from './components/Landing';
+import Landing from './pages/landingpage/LandingHomepage';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Profile from './components/Profile';
