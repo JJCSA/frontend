@@ -1,18 +1,20 @@
 import axios from 'axios';
+import { config } from '../utils/constants';
 
-function getConfig(params = null) {
-  const config = {
+function getConfig(token = null, params = null) {
+  const conf = {
     headers: {
       'content-type': 'multipart/form-data',
+      Authorization: `Bearer ${token}`,
     },
   };
   if (params) {
-    config.params = params;
+    conf.params = params;
   }
-  return config;
+  return conf;
 }
 
-function sendPost(route, data = null) {
+function sendPost(route, token = null, data = null) {
   let formData = null;
   if (data) {
     if (data instanceof HTMLFormElement) formData = new FormData(data);
@@ -29,11 +31,11 @@ function sendPost(route, data = null) {
       });
     }
   }
-  return axios.post(process.env.REACT_APP_SERVER_ROOT + route, formData, getConfig());
+  return axios.post(config.url.API_BASE_URL + route, formData, getConfig(token));
 }
 
-function get(route, params = null) {
-  return axios.get(process.env.REACT_APP_SERVER_ROOT + route, getConfig(params));
+function get(route, token = null, params = null) {
+  return axios.get(config.url.API_BASE_URL + route, getConfig(token, params));
 }
 
 export default {

@@ -41,7 +41,7 @@ function App() {
     >
       <Router>
         <Navbar />
-        <div className="APP containter">
+        <div className="APP">
           <Switch>
             <Route exact path="/" component={Landing} />
             <Route path="/register" component={Register} />
