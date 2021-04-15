@@ -28,6 +28,7 @@ function App() {
     console.log(event, error);
     if (event === 'onAuthSuccess') {
       if (keycloak.authenticated) {
+        keycloak.loadUserInfo();
         console.log('Authenticated');
       }
     }
