@@ -89,10 +89,10 @@ class UserModal extends Component {
                   <div>
                     <img src={locationIcon} alt="Location" />
                     <span className="info-container-info">
-                          {this.props.data.city}
-                          ,
-{this.props.data.state}
-                        </span>
+                      {this.props.data.city}
+                      ,
+                      {this.props.data.state}
+                    </span>
                   </div>
                 </Row>
                 <Row>
@@ -134,62 +134,62 @@ class UserModal extends Component {
                 <Row>
                   <div className="info-container mt-1 rounded mb-3">
                     <div className="divOutside">
-                          <div className="mt-3 ml-2 mb-3">
-                              <img src={phoneIcon} alt="Info" />
-                              <span className="info-container-headers"> Preferred Method of Contact</span>
-                            </div>
-                        </div>
+                      <div className="mt-3 ml-2 mb-3">
+                        <img src={phoneIcon} alt="Info" />
+                        <span className="info-container-headers"> Preferred Method of Contact</span>
+                      </div>
+                    </div>
                     <div className="divOutside last">
-                          <div className="mt-3 ml-2 mb-3">
-                              {this.props.data.preferred_contact_method.map((method) => (
-                                  <>
-                                    <img src={tickIcon} alt="Tick" />
-                                    <span className="info-container-info">
-                {' '}
-                {method}
-              </span>
-                                    <span className="ml-4" />
-                                  </>
-                                ))}
-                            </div>
-                        </div>
+                      <div className="mt-3 ml-2 mb-3">
+                        {this.props.data.preferred_contact_method.map((method) => (
+                          <>
+                            <img src={tickIcon} alt="Tick" />
+                            <span className="info-container-info">
+                              {' '}
+                              {method}
+                            </span>
+                            <span className="ml-4" />
+                          </>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </Row>
                 <Row>
                   <div className="info-container mt-1 rounded mb-3">
                     <div className="divOutside">
-                          <div className="mt-3 ml-2 mb-3">
-                              <img src={communityIcon} alt="Community" />
-                              <span className="info-container-headers"> Jain Community</span>
-                            </div>
-                        </div>
+                      <div className="mt-3 ml-2 mb-3">
+                        <img src={communityIcon} alt="Community" />
+                        <span className="info-container-headers"> Jain Community</span>
+                      </div>
+                    </div>
                     <div className="divOutside last">
-                          <div className="mt-3 ml-2 mb-3">
-                              <span className="info-container-info">
-                                  {' '}
-                                  {this.props.data.jain_community}
-                                </span>
-                              <Button variant="outline-secondary" className="ml-4">
-                                  <>
-                                    <img src={attachmentIcon} alt="Attachment" />
-                                    <span className="info-container-info"> Certificate proof</span>
-                                  </>
-                                </Button>
-                            </div>
-                        </div>
+                      <div className="mt-3 ml-2 mb-3">
+                        <span className="info-container-info">
+                          {' '}
+                          {this.props.data.jain_community}
+                        </span>
+                        <Button variant="outline-secondary" className="ml-4">
+                          <>
+                            <img src={attachmentIcon} alt="Attachment" />
+                            <span className="info-container-info"> Certificate proof</span>
+                          </>
+                        </Button>
+                      </div>
+                    </div>
                   </div>
                 </Row>
                 <Row>
                   <div className="card border-0 info-container">
                     <ToggleButtonGroup type="radio" name="options" value={this.state.status} onChange={this.changeStatus}>
-                          <ToggleButton value={ACCEPT} className="Btn-accept rounded mb-0">Accept</ToggleButton>
-                          <ToggleButton value={REJECT} className="Btn-reject rounded mb-0">Reject</ToggleButton>
-                        </ToggleButtonGroup>
+                      <ToggleButton value={ACCEPT} className="Btn-accept rounded mb-0">Accept</ToggleButton>
+                      <ToggleButton value={REJECT} className="Btn-reject rounded mb-0">Reject</ToggleButton>
+                    </ToggleButtonGroup>
                     <form onSubmit={this.submitStatusUdate}>
-                          {this.state.status === Constants.userStatus.REJECTED
-                                        && <input type="text" value={this.state.rejectReason} className="form-control mt-2" placeholder="Reason for rejecting" onChange={this.setRejectReason} required />}
-                          {this.state.pendingAction && <Button type="submit" variant="outline-primary" className="mt-1, Btn-submit">Submit Updates</Button>}
-                        </form>
+                      {this.state.status === Constants.userStatus.REJECTED
+                                            && <input type="text" value={this.state.rejectReason} className="form-control mt-2" placeholder="Reason for rejecting" onChange={this.setRejectReason} required />}
+                      {this.state.pendingAction && <Button type="submit" variant="outline-primary" className="mt-1, Btn-submit">Submit Updates</Button>}
+                    </form>
                   </div>
                 </Row>
               </>
@@ -199,37 +199,37 @@ class UserModal extends Component {
                 <Row>
                   <Col md={6} style={{ paddingLeft: '0px' }}>
                     <div className="info-container rounded mb-3">
-                          <div id="Content1" className="divOutside">
-                              <div className="ml-2 mb-3" style={{ paddingTop: '10px' }}>
-                                    <img src={caseIcon} alt="Experience" />
-                                    <span className="info-container-headers"> Experience Details</span>
-                                  </div>
-                            </div>
-                          <div className="divOutside">
-                              <div className="mt-3 ml-2 mb-3">
-                                    {this.props.data.experience.map((experience_row, index) => (
-                                      <CareerInfo careerType="Experience" careerName={experience_row.company_name} careerDescription={experience_row.role} careerStart={experience_row.start_date} careerEnd={experience_row.end_date} />
-                                    ))}
-                                  </div>
-                            </div>
+                      <div id="Content1" className="divOutside">
+                        <div className="ml-2 mb-3" style={{ paddingTop: '10px' }}>
+                          <img src={caseIcon} alt="Experience" />
+                          <span className="info-container-headers"> Experience Details</span>
                         </div>
+                      </div>
+                      <div className="divOutside">
+                        <div className="mt-3 ml-2 mb-3">
+                          {this.props.data.experience.map((experience_row, index) => (
+                            <CareerInfo careerType="Experience" careerName={experience_row.company_name} careerDescription={experience_row.role} careerStart={experience_row.start_date} careerEnd={experience_row.end_date} />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </Col>
                   <Col md={6} style={{ paddingRight: '0px' }}>
                     <div className="info-container rounded mb-3">
-                          <div className="divOutside">
-                              <div className="ml-2 mb-3" style={{ paddingTop: '10px' }}>
-                                    <img src={bookIcon} alt="Education" />
-                                    <span className="info-container-headers"> Education Details</span>
-                                  </div>
-                            </div>
-                          <div className="divOutside">
-                              <div className="mt-3 ml-2 mb-3">
-                                    {this.props.data.education.map((education_row, index) => (
-                                      <CareerInfo careerType="Education" careerName={education_row.university_name} careerDescription={education_row.course} careerStart={education_row.start_date} careerEnd={education_row.end_date} />
-                                    ))}
-                                  </div>
-                            </div>
+                      <div className="divOutside">
+                        <div className="ml-2 mb-3" style={{ paddingTop: '10px' }}>
+                          <img src={bookIcon} alt="Education" />
+                          <span className="info-container-headers"> Education Details</span>
                         </div>
+                      </div>
+                      <div className="divOutside">
+                        <div className="mt-3 ml-2 mb-3">
+                          {this.props.data.education.map((education_row, index) => (
+                            <CareerInfo careerType="Education" careerName={education_row.university_name} careerDescription={education_row.course} careerStart={education_row.start_date} careerEnd={education_row.end_date} />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </Col>
                 </Row>
               </>
