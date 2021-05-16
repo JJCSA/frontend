@@ -14,7 +14,7 @@ function getConfig(token = null, params = null) {
   return conf;
 }
 
-function sendPost(route, token = null, data = null) {
+function sendPost(route, token = null, data = null, base = 'API_BASE_URL') {
   let formData = null;
   if (data) {
     if (data instanceof HTMLFormElement) formData = new FormData(data);
@@ -31,11 +31,11 @@ function sendPost(route, token = null, data = null) {
       });
     }
   }
-  return axios.post(config.url.API_BASE_URL + route, formData, getConfig(token));
+  return axios.post(config.url[base] + route, formData, getConfig(token));
 }
 
-function get(route, token = null, params = null) {
-  return axios.get(config.url.API_BASE_URL + route, getConfig(token, params));
+function get(route, token = null, params = null, base = 'API_BASE_URL') {
+  return axios.get(config.url[base] + route, getConfig(token, params));
 }
 
 export default {

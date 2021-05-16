@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
-import { useKeycloak } from '@react-keycloak/web';
 import Loader from '../helpers/Loader';
 
 function Profile() {
-  const { keycloak } = useKeycloak();
   const [userInfo, setUserInfo] = useState(null);
-  if (!userInfo) {
-    if (keycloak.userInfo) {
-      setUserInfo(keycloak.userInfo);
-    } else {
-      keycloak.loadUserInfo().then((user) => setUserInfo(user));
-    }
-    return <Loader />;
-  }
+  // if (!userInfo) {
+  //   if (keycloak.userInfo) {
+  //     setUserInfo(keycloak.userInfo);
+  //   } else {
+  //     keycloak.loadUserInfo().then((user) => setUserInfo(user));
+  //   }
+  //   return <Loader />;
+  // }
   return (
     <div className="PROFILE container">
       <div className="jumbotron mt-5">

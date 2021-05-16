@@ -1,22 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useKeycloak } from '@react-keycloak/web';
+import { useIsAuthenticated, useSignOut } from 'react-auth-kit';
 import './Navbar.scss';
 
 function Navbar() {
-  const { keycloak } = useKeycloak();
+  // const { keycloak } = useKeycloak();
+  const isAuthenticated = useIsAuthenticated();
+  const signOut = useSignOut();
 
   const loginRegLink = (
     <ul className="navbar-nav">
       <li className="nav-item">
-        <span role="button" tabIndex="-1" onClick={keycloak.login} className="nav-link">
+        <Link to="/login" className="nav-link">
           Login
-        </span>
+        </Link>
       </li>
       <li className="nav-item">
-        <span role="button" tabIndex="-1" onClick={keycloak.register} className="nav-link">
+        <Link to="/register" className="nav-link">
           Register
-        </span>
+        </Link>
       </li>
     </ul>
   );
@@ -29,7 +31,7 @@ function Navbar() {
         </Link>
       </li>
       <li className="nav-item">
-        <span role="button" tabIndex="-1" onClick={keycloak.logout} className="nav-link">
+        <span role="button" tabIndex="-1" onClick={signOut} className="nav-link">
           Logout
         </span>
       </li>
@@ -61,7 +63,7 @@ function Navbar() {
             </Link>
           </li>
         </ul>
-        {keycloak.authenticated ? userLink : loginRegLink}
+        {isAuthenticated() ? userLink : loginRegLink}
       </div>
     </nav>
   );
