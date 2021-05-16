@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import { login } from "./../UserFunctions";
-import "./Login.scss";
+import React, { Component } from 'react';
+import { login } from '../UserFunctions';
+import './Login.scss';
 
 class Login extends Component {
   constructor() {
     super();
     this.state = {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
       errors: {},
     };
 
@@ -18,6 +18,7 @@ class Login extends Component {
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
+
   onSubmit(e) {
     e.preventDefault();
 
@@ -28,7 +29,7 @@ class Login extends Component {
 
     login(user).then((res) => {
       if (res) {
-        this.props.history.push(`/profile`);
+        this.props.history.push('/profile');
       }
     });
   }
@@ -38,7 +39,7 @@ class Login extends Component {
       <div className="container-login">
         <style>
           {
-            "body { background: linear-gradient(180deg, #0F2D58 0%, #2C5797 55.91%); }"
+            'body { background: linear-gradient(180deg, #0F2D58 0%, #2C5797 55.91%); }'
           }
         </style>
         <div className="row">
@@ -76,10 +77,10 @@ class Login extends Component {
                 <div className="form-check ml-5">
                   <input
                     type="checkbox"
-                    class="form-check-input"
+                    className="form-check-input"
                     name="Rememberme"
                   />
-                  <label class="label mb-1" forHTML="Rememberme">
+                  <label className="label mb-1" forHTML="Rememberme">
                     Remember Me
                   </label>
                 </div>
@@ -90,7 +91,7 @@ class Login extends Component {
                 >
                   Login
                 </button>
-                <label class="member ml-5 mt-5">
+                <label className="member ml-5 mt-5">
                   Not a member yet?
                   <br />
                   This is a closed community.We will review all applications
