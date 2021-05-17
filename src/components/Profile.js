@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
-import Loader from '../helpers/Loader';
 
 function Profile() {
-  const [userInfo] = useState(null);
-  // if (!userInfo) {
-  //   if (keycloak.userInfo) {
-  //     setUserInfo(keycloak.userInfo);
-  //   } else {
-  //     keycloak.loadUserInfo().then((user) => setUserInfo(user));
-  //   }
-  //   return <Loader />;
-  // }
+  const [userInfo] = useState({
+    given_name: 'Temp Name',
+    family_name: 'Temp Name',
+    email: 'temp@email.com',
+  });
   return (
     <div className="PROFILE container">
       <div className="jumbotron mt-5">

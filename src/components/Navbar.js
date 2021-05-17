@@ -4,7 +4,6 @@ import { useIsAuthenticated, useSignOut } from 'react-auth-kit';
 import './Navbar.scss';
 
 function Navbar() {
-  // const { keycloak } = useKeycloak();
   const isAuthenticated = useIsAuthenticated();
   const signOut = useSignOut();
 

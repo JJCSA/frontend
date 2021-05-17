@@ -31,7 +31,14 @@ function sendPost(route, token = null, data = null, base = 'API_BASE_URL') {
       });
     }
   }
-  return axios.post(config.url[base] + route, formData, getConfig(token));
+  if (base === 'API_BASE_URL') {
+    return axios.post(config.url[base] + route, formData, getConfig(token));
+  }
+  const params = new URLSearchParams();
+  Array.from(formData.keys()).forEach((key) => {
+    params.append(key, formData.get(key));
+  });
+  return axios.post(config.url[base] + route, params);
 }
 
 function get(route, token = null, params = null, base = 'API_BASE_URL') {
