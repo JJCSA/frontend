@@ -1,7 +1,5 @@
 import React from 'react';
 
-const DateFormatter = (cell) => {
-    return <span>{cell}</span>;
-  };
+const DateFormatter = (cell) => <span>{cell}</span>;
 
 export default DateFormatter;
