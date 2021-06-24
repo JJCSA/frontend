@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link as HashLink } from 'react-scroll';
 import { Link } from 'react-router-dom';
 import { useIsAuthenticated, useSignOut } from 'react-auth-kit';
 import { jjcIcon, UserDropDownIcon } from '../assets/index';
 import './Navbar.scss';
 import Avatar from './avatar/Avatar';
-import { OverlayTrigger, Button, Popover } from 'react-bootstrap';
+import { OverlayTrigger, Popover } from 'react-bootstrap';
 
 // eslint-disable-next-line react/prop-types
 function Navbar() {
