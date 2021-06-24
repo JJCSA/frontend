@@ -1,19 +1,28 @@
 @import "../../utils/variables.scss";
 
+
+.login-button, .post-questions-button{
+  border-radius: 8px;
+  color: $white;
+  font-weight: $lightBold;
+}
+
 .donate-button {
   border: 1px solid $red;
   border-radius: 8px;
-  color: $vividred;
+  color: $red;
   background-color: $white;
   font-weight: $lightBold;
 }
 
 .login-button {
-  border: 1px solid $vividred;
-  border-radius: 8px;
-  color: $white;
-  background-color: $vividred;
-  font-weight: $lightBold;
+  border: 1px solid $red;
+  background-color: $red;
+}
+
+.post-questions-button{
+  border: 1px solid $darkBlue;
+  background-color: $darkBlue;
 }
 
 .navbar-brand img {
@@ -27,6 +36,7 @@
   font-weight: $lightBold;
   line-height: 19px;
 }
+
 .navbarhover:hover {
   cursor: pointer;
 }
@@ -38,7 +48,25 @@
   color: $black;
   text-decoration: none;
 }
+
 .jjclink {
   margin: auto;
   padding-left: 1rem !important;
+}
+
+.user-profile-dropdown-icon{
+  cursor: pointer;
+}
+
+.user-profile-dropdown-content > div{
+  font-size: medium;
+  cursor: pointer;
+}
+
+.user-profile-dropdown-content > div > a{
+  color: black;
+}
+
+.user-profile-dropdown-content > div:hover{
+  text-decoration: underline;
 }

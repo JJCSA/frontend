@@ -18,3 +18,4 @@ export { default as jjcEngageIcon } from './icons/jjc-engage-icon.svg';
 export { default as jjcPlanIcon } from './icons/jjc-plan-icon.svg';
 export { default as copyIcon } from './icons/copy-icon.svg';
 export { default as viewIcon } from './icons/view-icon.svg';
+export { default as UserDropDownIcon } from './icons/user-dropdown-icon.svg';

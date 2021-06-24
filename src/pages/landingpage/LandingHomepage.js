@@ -7,7 +7,7 @@ import JJCMission from './components/jjcMission/JJCMission';
 function LandingHomepage() {
   return (
     <div>
-      <LandingNavBar />
+      {/*<LandingNavBar />*/}
       <JJCMission />
       <NewsFeed />
       <ContactUs />
