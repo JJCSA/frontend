@@ -114,7 +114,6 @@ class AdminPanel extends Component {
             </Main>
           </div>
       )
-    }
+  }
 }
-
 export default withRouter(AdminPanel);

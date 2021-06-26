@@ -1,0 +1,44 @@
+@import "../../utils/variables.scss";
+
+.donate-button {
+  border: 1px solid $red;
+  border-radius: 8px;
+  color: $vividred;
+  background-color: $white;
+  font-weight: $lightBold;
+}
+
+.login-button {
+  border: 1px solid $vividred;
+  border-radius: 8px;
+  color: $white;
+  background-color: $vividred;
+  font-weight: $lightBold;
+}
+
+.navbar-brand img {
+  height: 80px;
+  /* put value of image height as your need */
+  float: left;
+}
+
+.navbarhover {
+  font-style: normal;
+  font-weight: $lightBold;
+  line-height: 19px;
+}
+.navbarhover:hover {
+  cursor: pointer;
+}
+
+.jjclink:hover,
+.jjclink:active,
+.jjclink:link,
+.jjclink:visited {
+  color: $black;
+  text-decoration: none;
+}
+.jjclink {
+  margin: auto;
+  padding-left: 1rem !important;
+}
