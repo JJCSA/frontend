@@ -8,16 +8,26 @@ import {
 } from '../../../../assets/index';
 import './JJCMission.scss';
 import ScrollAnimation from 'react-animate-on-scroll';
+import Typewriter from "typewriter-effect";
 
 function JJCMission() {
   return (
     <div id="jjc-mission">
       <div className="container-fluid mission-color" id="leftpad">
-        <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 headtext pb-5">
-          <ScrollAnimation animateIn='fadeInDown' duration={2}>
-            JJC Student Association is there to guide you throughout your
-            journey in the USA
-          </ScrollAnimation>
+        {/*<div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 headtext pb-5">*/}
+          <div className="headtext pb-5">
+          <Typewriter
+              options={{
+                delay: 60
+              }}
+              onInit={(typewriter)=> {
+                typewriter.typeString("JJC Student Association is there to guide you throughout your journey in the USA").start();
+              }}
+          />
+          {/*<ScrollAnimation animateIn='fadeInDown' duration={2}>*/}
+          {/*  JJC Student Association is there to guide you throughout your*/}
+          {/*  journey in the USA*/}
+          {/*</ScrollAnimation>*/}
         </div>
         <div className="row">
           <div className="col-sm-12 col-lg-2 ">

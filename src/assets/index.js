@@ -21,3 +21,10 @@ export { default as viewIcon } from './icons/view-icon.svg';
 export { default as UserDropDownIcon } from './icons/user-dropdown-icon.svg';
 export { default as NotificationIcon } from './icons/notification-icon.svg';
 export { default as LoginImage } from './icons/login-image.svg';
+export { default as barChartIcon } from './icons/bar-chart-icon.svg'
+export { default as userIcon } from './icons/user-icon.svg'
+export { default as newsIcon } from './icons/news-icon.svg'
+export { default as formIcon } from './icons/form-icon.svg'
+export { default as feedbackIcon } from './icons/feedback-icon.svg'
+export { default as socialMediaIcon } from './icons/social-media-icon.svg'
+export { default as forumIcon } from './icons/forum-icon.svg'

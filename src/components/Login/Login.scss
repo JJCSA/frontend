@@ -9,17 +9,17 @@
 }
 
 .login-box{
-  padding: 4rem 5rem;
+  padding: 10% 13%;
   background: $bgBlue;
 }
 
 .login-form{
-  padding: 2.5rem;
+  padding: 6%;
   border-radius: 5px;
   background: $white;
 }
 
-.form-control-email{
+.form-control-custom{
   border: none;
   background: #efefef;
 }
@@ -34,8 +34,8 @@
 .password-eye-icon{
   border: none;
   background: #efefef;
-  border-top-right-radius: 0.25rem !important;
-  border-bottom-right-radius: 0.25rem !important;
+  border-top-right-radius: 0.25% !important;
+  border-bottom-right-radius: 0.25% !important;
 }
 
 .image-col{

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import './App.scss';
 import './components/Footer/Footer';
 
@@ -14,6 +15,7 @@ import Register from './components/Register/Register';
 import Profile from './components/Profile';
 import AdminPanel from './pages/admin/AdminPanel';
 import Footer from "./components/Footer/Footer";
+import LandingHomepage from "./pages/landingpage/LandingHomepage";
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(true);
@@ -35,10 +37,11 @@ function App() {
         <div className="APP">
           <Switch>
             <Route exact path="/" component={Landing} />
+            <Route path="/landing-home" component={LandingHomepage} />
             <Route path="/register" component={() => <Register toggleNavbar={toggleNavbar} />} />
             <Route path="/login" component={() => <Login toggleNavbar={toggleNavbar} />} />
             <PrivateRoute path="/profile" component={Profile} loginPath="/login" />
-            <PrivateRoute path="/admin" component={AdminPanel} loginPath="/login" />
+            <PrivateRoute path="/admin" component={() => <AdminPanel toggleNavbar={toggleNavbar} />} loginPath="/login"/>
           </Switch>
         </div>
         <Footer />

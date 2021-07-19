@@ -45,7 +45,7 @@ function Login(props) {
                   Email
                   <span style={{ color: 'red' }}>*</span>
                 </Form.Label>
-                <Form.Control type="email" placeholder="" className="form-control-email" name="username"/>
+                <Form.Control type="email" placeholder="" className="form-control-custom" name="username"/>
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">
