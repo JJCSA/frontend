@@ -7,17 +7,21 @@ import {
   jjcPlanIcon,
 } from '../../../../assets/index';
 import './JJCMission.scss';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 function JJCMission() {
   return (
-    <div>
+    <div id="jjc-mission">
       <div className="container-fluid mission-color" id="leftpad">
         <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 headtext pb-5">
-          JJC Student Association is there to guide you throughout your
-          journey in the USA
+          <ScrollAnimation animateIn='fadeInDown' duration={2}>
+            JJC Student Association is there to guide you throughout your
+            journey in the USA
+          </ScrollAnimation>
         </div>
         <div className="row">
           <div className="col-sm-12 col-lg-2 ">
+            <ScrollAnimation animateIn="bounceIn" animateOut="bounceOut" duration={2}>
             <div className="card mb-5 mission-card">
               <img
                 className="card-img pt-4 card_images"
@@ -31,8 +35,10 @@ function JJCMission() {
                 </p>
               </div>
             </div>
+            </ScrollAnimation>
           </div>
           <div className="col-sm-12 col-lg-2 ">
+            <ScrollAnimation animateIn="bounceIn" animateOut="bounceOut" duration={2}>
             <div className="card mb-5 mission-card">
               <img
                 className="card-img pt-4 card_images"
@@ -46,8 +52,10 @@ function JJCMission() {
                 </p>
               </div>
             </div>
+            </ScrollAnimation>
           </div>
           <div className="col-sm-12 col-lg-2 ">
+            <ScrollAnimation animateIn="bounceIn" animateOut="bounceOut" duration={2}>
             <div className="card mb-5 mission-card">
               <img
                 className="card-img pt-4 card_images"
@@ -61,8 +69,10 @@ function JJCMission() {
                 </p>
               </div>
             </div>
+            </ScrollAnimation>
           </div>
           <div className="col-sm-12 col-lg-2 ">
+            <ScrollAnimation animateIn="bounceIn" animateOut="bounceOut" duration={2}>
             <div className="card mb-5 mission-card">
               <img
                 className="card-img pt-4 card_images"
@@ -76,6 +86,7 @@ function JJCMission() {
                 </p>
               </div>
             </div>
+            </ScrollAnimation>
           </div>
         </div>
         <form className="form-inline pb-5">

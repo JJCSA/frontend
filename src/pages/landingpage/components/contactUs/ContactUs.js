@@ -4,7 +4,7 @@ import './ContactUs.scss';
 
 function ContactUs() {
   return (
-    <div>
+    <div id="contact-us" className="CONTACTUS">
       <div className="text-center mt-5">
         <h4>Contact Us</h4>
         <hr className="contact-us" />

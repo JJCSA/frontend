@@ -1,16 +1,20 @@
 import React from 'react';
 import './NewsFeed.scss';
+import ScrollAnimation from "react-animate-on-scroll";
 
 function NewsFeed() {
   return (
-    <div className="NEWSFEED">
+    <div className="NEWSFEED" id="news-feed">
       <div className="text-center mt-5">
+        <ScrollAnimation animateIn="zoomIn" duration={2}>
         <h4>News Feed</h4>
+        </ScrollAnimation>
         <hr className="news-feed" />
       </div>
       <div className="container">
         <div className="row">
           <div className="col-md-6">
+            <ScrollAnimation animateIn='bounceInLeft' duration={2}>
             <div className="card news-card mb-3">
               <div className="row no-gutters">
                 <div className="col-md-4">
@@ -25,8 +29,10 @@ function NewsFeed() {
                 </div>
               </div>
             </div>
+            </ScrollAnimation>
           </div>
           <div className="col-md-6">
+            <ScrollAnimation animateIn='bounceInRight' duration={2}>
             <div className="card news-card mb-3">
               <div className="row no-gutters">
                 <div className="col-md-4">
@@ -41,8 +47,10 @@ function NewsFeed() {
                 </div>
               </div>
             </div>
+            </ScrollAnimation>
           </div>
           <div className="col-md-6">
+            <ScrollAnimation animateIn='bounceInLeft' duration={2}>
             <div className="card news-card mb-3">
               <div className="row no-gutters">
                 <div className="col-md-4">
@@ -57,6 +65,7 @@ function NewsFeed() {
                 </div>
               </div>
             </div>
+            </ScrollAnimation>
           </div>
         </div>
       </div>

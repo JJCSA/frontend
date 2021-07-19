@@ -1,0 +1,13 @@
+@import "../../utils/variables.scss";
+
+.leftSection{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.verticalLine{
+  border-left: 1px solid $lightGrey;
+  height: $logoHeight;
+}

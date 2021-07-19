@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component, useEffect} from 'react';
 import { register } from '../UserFunctions';
 import './Register.scss';
 
@@ -16,6 +16,14 @@ class Register extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
+
+  // componentDidMount() {
+  //   this.props.toggleNavbar(true);
+  // }
+  //
+  // componentWillUnmount() {
+  //   this.props.toggleNavbar(true);
+  // }
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });

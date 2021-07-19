@@ -1,0 +1,26 @@
+@import "../../utils/variables.scss";
+.footer-container{
+  background: $darkBlue;
+  color: $white;
+}
+
+.footer{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2rem;
+}
+
+.social-media-icons > *{
+  margin-right: 1rem;
+  color: $white;
+}
+
+.copyright{
+  font-size: x-small !important;
+}
+
+.copyright1{
+  font-size: small;
+  text-align: center;
+  padding-bottom: 1rem;
+}
