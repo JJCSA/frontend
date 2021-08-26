@@ -5,6 +5,7 @@ import { useAuthUser, useSignOut } from 'react-auth-kit';
 import { OverlayTrigger, Popover, Badge } from 'react-bootstrap';
 import { jjcIcon, UserDropDownIcon, NotificationIcon } from '../../assets/index';
 import Avatar from '../../components/avatar/Avatar';
+import {BsBell} from 'react-icons/bs';
 import './AdminNavbar.scss';
 
 function AdminNavbar() {
@@ -14,6 +15,8 @@ function AdminNavbar() {
     const popover = (
         <Popover>
             <Popover.Content className="user-profile-dropdown-content">
+                <div className="p-1" onClick={() => document.body.click()}><Link to="/">Home</Link></div>
+                <hr className="m-0" />
                 <div className="p-1" onClick={() => document.body.click()}><Link to="/profile">Profile</Link></div>
                 <hr className="m-0" />
                 <div className="p-1" onClick={signOut}>Logout</div>
@@ -25,7 +28,7 @@ function AdminNavbar() {
         <nav className="navbar navbar-light bg-light navbar-expand-sm rounded fixed-top position-sticky">
             <a
                 className="navbar-brand ml-sm-5 px-3"
-                href="/"
+                href="/admin"
                 target="_self"
                 rel="noopener noreferrer"
             >
@@ -44,44 +47,12 @@ function AdminNavbar() {
             </button>
 
             <div className="collapse navbar-collapse" id="myTogglerNav">
-                {/*<div className="navbar-nav mr-auto my-sm-2">*/}
-                {/*    <NavHashLink*/}
-                {/*        to="/#news-feed"*/}
-                {/*        smooth*/}
-                {/*        className="nav-item nav-link active navbarhover px-3"*/}
-                {/*        activeClassName="activeLink"*/}
-                {/*    >*/}
-                {/*        NewsFeed*/}
-                {/*    </NavHashLink>*/}
-                {/*    <NavHashLink*/}
-                {/*        to="/#news-feed"*/}
-                {/*        smooth*/}
-                {/*        className="nav-item nav-link active navbarhover px-3"*/}
-                {/*        activeClassName="activeLink"*/}
-                {/*    >*/}
-                {/*        Search Engine*/}
-                {/*    </NavHashLink>*/}
-                {/*    <NavHashLink*/}
-                {/*        to="/#news-feed"*/}
-                {/*        className="nav-item nav-link active navbarhover px-3"*/}
-                {/*        smooth*/}
-                {/*        activeClassName="activeLink"*/}
-                {/*    >*/}
-                {/*        Event Calendar*/}
-                {/*    </NavHashLink>*/}
-                {/*</div>*/}
-                <div className="leftSection">
-                    {/*<button*/}
-                    {/*    className="form-control btn btn-light btn-block mr-sm-5 post-questions-button"*/}
-                    {/*    type="button"*/}
-                    {/*>*/}
-                    {/*    Post Questions*/}
-                    {/*</button>*/}
+                <div className="left-section">
                     <div>
-                    <img src={NotificationIcon} alt="NotificationIcon" />
-                        <sup><Badge variant="danger">1</Badge></sup>
+                        <BsBell size="1.5em" color="#606060"/>
+                        <sup className="notification-number"><Badge pill variant="danger">10</Badge></sup>
                     </div>
-                    <div className="verticalLine mr-3 ml-3"></div>
+                    <div className="vertical-line mr-3 ml-3"></div>
                     <Avatar />
                     <h6 className="m-3">
                         Hi,

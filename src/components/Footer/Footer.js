@@ -1,12 +1,16 @@
 import React, {useState} from 'react';
-import './Footer.scss';
 import {ImFacebook, ImLinkedin2, ImTwitter, ImYoutube} from 'react-icons/im';
 import {GrInstagram} from 'react-icons/gr';
 import {BiCopyright} from 'react-icons/bi';
 import LandingHomepage from "../../pages/landingpage/LandingHomepage";
 import {NavHashLink} from "react-router-hash-link";
+import './Footer.scss';
 
 function Footer() {
+    const getCurrentYear = () => {
+        return new Date().getFullYear();
+    }
+
     return (
         <div className="footer-container">
         <div className="footer">
@@ -19,15 +23,15 @@ function Footer() {
                     JJC Central Board
                 </a>
             </div>
-            <div className="social-media-icons">
+        </div>
+        <div className="social-media-icons">
                <ImFacebook/>
                <GrInstagram/>
                <ImLinkedin2/>
                <ImTwitter/>
                <ImYoutube/>
             </div>
-        </div>
-            <div className="copyright1"><BiCopyright/>&nbsp;2020 Copyright reserved JJC Student Association USA</div>
+            <div className="copyright1"><BiCopyright/>&nbsp;{getCurrentYear()} Copyright reserved JJC Student Association USA</div>
         </div>
     );
 }

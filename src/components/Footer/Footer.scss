@@ -1,34 +1,40 @@
 @import "../../utils/variables.scss";
-.footer-container{
-  background: $darkBlue;
-  color: $white;
+.footer-container {
+  background: $whiteSmoke;
+  color: $black;
+  border-top: 1px solid $pageBackground;
 }
 
-.footer{
+.footer {
   display: flex;
   justify-content: space-evenly;
-  padding: 2rem;
+  padding: 1.5em;
 }
 
-.footer-link{
-  color: $white
+.footer-link {
+  color: $black;
 }
 
-.footer-link:hover{
-  color: $white
+.footer-link:hover {
+  color: $black;
 }
 
-.social-media-icons > *{
-  margin-right: 1rem;
-  color: $white;
+.social-media-icons > * {
+  margin-right: 2rem;
+  color: $black;
 }
 
-.copyright{
+.social-media-icons {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.copyright {
   font-size: x-small !important;
 }
 
-.copyright1{
+.copyright1 {
   font-size: small;
   text-align: center;
-  padding-bottom: 1rem;
+  padding: 0.5rem;
 }

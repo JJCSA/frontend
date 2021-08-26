@@ -14,6 +14,8 @@ function UserNavbar() {
   const popover = (
     <Popover>
       <Popover.Content className="user-profile-dropdown-content">
+        <div className="p-1" onClick={() => document.body.click()}><Link to="/admin">Admin</Link></div>
+        <hr className="m-0" />
         <div className="p-1" onClick={() => document.body.click()}><Link to="/profile">Profile</Link></div>
         <hr className="m-0" />
         <div className="p-1" onClick={signOut}>Logout</div>

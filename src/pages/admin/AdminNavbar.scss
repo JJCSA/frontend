@@ -1,13 +1,23 @@
 @import "../../utils/variables.scss";
 
-.leftSection{
+.navbar {
+  border-bottom: 1px solid $pageBackground;
+}
+
+.left-section {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   flex: 1;
 }
 
-.verticalLine{
+.vertical-line {
   border-left: 1px solid $lightGrey;
   height: $logoHeight;
+}
+
+.notification-number {
+  top: -1em;
+  left: -1em;
+  font-size: smaller;
 }

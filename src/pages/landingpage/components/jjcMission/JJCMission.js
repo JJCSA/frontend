@@ -21,7 +21,7 @@ function JJCMission() {
                 delay: 60
               }}
               onInit={(typewriter)=> {
-                typewriter.typeString("JJC Student Association is there to guide you throughout your journey in the USA").start();
+                typewriter.typeString("JJC STUDENT ASSOCIATION IS THERE TO GUIDE YOU THROUGHOUT YOUR JOURNEY IN THE USA").start();
               }}
           />
           {/*<ScrollAnimation animateIn='fadeInDown' duration={2}>*/}

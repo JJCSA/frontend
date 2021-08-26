@@ -19,9 +19,14 @@ import LandingHomepage from "./pages/landingpage/LandingHomepage";
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(true);
+  const [showFooter, setShowFooter] = useState(true);
 
   const toggleNavbar = (toggle) => {
     setShowNavbar(toggle);
+  }
+
+  const toggleFooter = (toggle) => {
+    setShowFooter(toggle);
   }
 
   return (
@@ -41,10 +46,10 @@ function App() {
             <Route path="/register" component={() => <Register toggleNavbar={toggleNavbar} />} />
             <Route path="/login" component={() => <Login toggleNavbar={toggleNavbar} />} />
             <PrivateRoute path="/profile" component={Profile} loginPath="/login" />
-            <PrivateRoute path="/admin" component={() => <AdminPanel toggleNavbar={toggleNavbar} />} loginPath="/login"/>
+            <PrivateRoute path="/admin" component={() => <AdminPanel toggleNavbar={toggleNavbar} toggleFooter={toggleFooter}/>} loginPath="/login"/>
           </Switch>
         </div>
-        <Footer />
+        {showFooter && <Footer />}
       </Router>
     </AuthProvider>
   );
