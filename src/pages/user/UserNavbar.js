@@ -20,14 +20,14 @@ function UserNavbar() {
                 <div className="user-dropdown">
                     <GoHome className="user-dropdown-icon"/>
                     <Link to="/admin">
-                        Admin
+                        <span onClick={() => document.body.click()}>Admin</span>
                     </Link>
                 </div>
                 <hr className="m-0" />
                 <div className="user-dropdown">
                     <CgProfile className="user-dropdown-icon"/>
                     <Link to="/profile">
-                        Profile
+                        <span onClick={() => document.body.click()}>Profile</span>
                     </Link>
                 </div>
                 <hr className="m-0" />
