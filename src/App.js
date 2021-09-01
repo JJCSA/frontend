@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import './App.scss';
 
 import { AuthProvider, PrivateRoute } from 'react-auth-kit';
