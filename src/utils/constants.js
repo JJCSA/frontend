@@ -73,14 +73,14 @@ export const states = [
 const prod = {
   url: {
     KEYCLOAK_BASE_URL: 'http://backend.jjcsausa.com:8080',
-    API_BASE_URL: 'http://backend.jjcsausa.com:9080',
+    API_BASE_URL: 'http://backend.jjcsausa.com:9080/api',
   },
 };
 
 const dev = {
   url: {
     KEYCLOAK_BASE_URL: 'http://backend.jjcsausa.com:8080',
-    API_BASE_URL: 'http://backend.jjcsausa.com:9080',
+    API_BASE_URL: 'http://backend.jjcsausa.com:9080/api',
   },
 };
 

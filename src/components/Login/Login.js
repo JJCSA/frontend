@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useSignIn, useIsAuthenticated } from 'react-auth-kit';
 import { Redirect, Link } from 'react-router-dom';
-import { login } from '../UserFunctions';
 import './Login.scss';
 import {
-  Form, Container, Col, Row, InputGroup
+  Form, Container, Col, Row, InputGroup,
 } from 'react-bootstrap';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
+import { login } from '../UserFunctions';
 
 function Login(props) {
   const isAuthenticated = useIsAuthenticated();
@@ -24,7 +24,7 @@ function Login(props) {
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
-  }
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -45,7 +45,7 @@ function Login(props) {
                   Email
                   <span style={{ color: 'red' }}>*</span>
                 </Form.Label>
-                <Form.Control type="email" placeholder="" className="form-control-custom" name="username"/>
+                <Form.Control type="email" placeholder="" className="form-control-custom" name="username" />
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">
@@ -57,21 +57,22 @@ function Login(props) {
                   Forgot Password?
                 </Form.Label>
                 <InputGroup>
-                  <Form.Control type={showPassword ? 'text' : 'password'} placeholder="" className="form-control-password" name="password"/>
+                  <Form.Control type={showPassword ? 'text' : 'password'} placeholder="" className="form-control-password" name="password" />
                   <InputGroup.Prepend className="password-eye-icon">
                     <InputGroup.Text className="password-eye-icon">{showPassword ? <BsEyeSlash onClick={handleShowPassword} /> : <BsEye onClick={handleShowPassword} />}</InputGroup.Text>
                   </InputGroup.Prepend>
                 </InputGroup>
               </Form.Group>
               <Form.Group controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Remember Me" name="Rememberme"/>
+                <Form.Check type="checkbox" label="Remember Me" name="Rememberme" />
               </Form.Group>
               <input type="hidden" name="grant_type" value="password" />
               <input type="hidden" name="client_id" value="jjcsa" />
               <button type="submit" className="btn submit-button">
                 Login
               </button>
-              <br /><br />
+              <br />
+              <br />
               <Form.Label style={{ margin: 0 }}>Not a member yet?</Form.Label>
               <Form.Label>This is a closed community. We will review all applications</Form.Label>
               <Link to="/register" className="btn register-button">
