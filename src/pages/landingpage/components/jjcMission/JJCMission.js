@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import {
   jjcConnectIcon,
@@ -100,13 +101,20 @@ function JJCMission() {
           </div>
         </div>
         <form className="form-inline pb-5">
-          <button
+        <Link
+            to="/register"
+            className="form-control btn btn-light btn-block mr-sm-3 login-button"
+          >
+            Join Student Association Now
+          </Link>
+          {/* <button
             href="#"
             className="form-control btn btn-dark btn-block join-button"
             type="button"
+            onClick={}
           >
             Join Student Association Now
-          </button>
+          </button> */}
         </form>
       </div>
     </div>
