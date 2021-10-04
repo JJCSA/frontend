@@ -4,7 +4,7 @@ import {
   Container, Form, Row, Col, InputGroup,
 } from 'react-bootstrap';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { register } from '../UserFunctions';
 
 function Register() {
@@ -16,24 +16,23 @@ function Register() {
     email: '',
     password: '',
     mobileNumber: '',
-    prefMethodOfContact: 'phone',
+    prefMethodOfContact: 'Email',
     jainCommunity: '',
   });
   const [showPassword, setShowPassword] = useState(false);
+  const history = useHistory();
 
   const handleChange = (ev) => {
     setFormData({
       ...formData,
       [ev.target.name]: ev.target.files ? ev.target.files[0] : ev.target.value,
     });
-    console.log(formData);
   };
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
     register(formData).then((res) => {
-      // this.props.history.push('/login');
-      console.log(res);
+      history.push('/login');
     });
   };
 
@@ -105,10 +104,9 @@ function Register() {
                   <span style={{ color: 'red' }}>*</span>
                 </Form.Label>
                 <Form.Group className="mb-3" controlId="formBasicRadio">
-                  <Form.Check inline id="phone-radio" type="radio" name="prefMethodOfContact" label="Phone Call" value="phone" checked={formData.prefMethodOfContact === 'phone'} onChange={handleChange} />
-                  <Form.Check inline id="call-radio" type="radio" name="prefMethodOfContact" label="Email" value="email" checked={formData.prefMethodOfContact === 'email'} onChange={handleChange} />
-                  <Form.Check inline id="whatsapp-radio" type="radio" name="prefMethodOfContact" label="WhatsApp" value="whatsapp" checked={formData.prefMethodOfContact === 'whatsapp'} onChange={handleChange} />
-                  <Form.Check inline id="sms-radio" type="radio" name="prefMethodOfContact" label="SMS Text" value="sms" checked={formData.prefMethodOfContact === 'sms'} onChange={handleChange} />
+                  <Form.Check inline id="call-radio" type="radio" name="prefMethodOfContact" label="Email" value="Email" checked={formData.prefMethodOfContact === 'Email'} onChange={handleChange} />
+                  <Form.Check inline id="whatsapp-radio" type="radio" name="prefMethodOfContact" label="WhatsApp" value="Whatsapp" checked={formData.prefMethodOfContact === 'Whatsapp'} onChange={handleChange} />
+                  <Form.Check inline id="sms-radio" type="radio" name="prefMethodOfContact" label="SMS Text" value="Message" checked={formData.prefMethodOfContact === 'Message'} onChange={handleChange} />
                 </Form.Group>
               </div>
 
@@ -133,8 +131,11 @@ function Register() {
               </Form.Group>
 
               <Form.Group controlId="formFile" className="mb-3">
-                <Form.Label>Upload a Profile Picture</Form.Label>
-                <Form.Control type="file" name="profPicture" onChange={handleChange} />
+                <Form.Label>
+                  Upload a Profile Picture
+                  <span style={{ color: 'red' }}>*</span>
+                </Form.Label>
+                <Form.Control type="file" name="profPicture" onChange={handleChange} required />
               </Form.Group>
               <br />
               <button type="submit" className="btn register-button">

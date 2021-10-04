@@ -6,9 +6,11 @@ function getConfig(token = null, params = null) {
     headers: {
       'content-type': 'multipart/form-data',
       'Access-Control-Allow-Origin': '*',
-      Authorization: `Bearer ${token}`,
     },
   };
+  if (token) {
+    conf.headers.Authorization = `Bearer ${token}`;
+  }
   if (params) {
     conf.params = params;
   }
