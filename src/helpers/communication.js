@@ -5,9 +5,12 @@ function getConfig(token = null, params = null) {
   const conf = {
     headers: {
       'content-type': 'multipart/form-data',
-      Authorization: `Bearer ${token}`,
+      'Access-Control-Allow-Origin': '*',
     },
   };
+  if (token) {
+    conf.headers.Authorization = `Bearer ${token}`;
+  }
   if (params) {
     conf.params = params;
   }
