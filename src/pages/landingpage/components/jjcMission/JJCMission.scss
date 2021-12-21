@@ -8,6 +8,7 @@
 .mission-card {
   border-radius: 8px;
   transition: transform .5s;
+  height: 220px !important;
 }
 
 .mission-card:hover{
@@ -48,5 +49,17 @@
 @media only screen and (min-width: 576px) {
   #leftpad {
     padding-left: 89px;
+  }
+}
+
+@media only screen and (min-width: 356px) and (max-width: 600px){
+  .card_images {
+    display: block !important;
+    width: 100% !important;
+    height: 29vw !important;
+  }
+
+  .mission-card {
+    max-height: 350px !important;
   }
 }
