@@ -70,17 +70,17 @@ export const states = [
   'Wyoming',
 ];
 
-const prod = {
+export const prod = {
   url: {
-    KEYCLOAK_BASE_URL: 'http://backend.jjcsausa.com:8080',
-    API_BASE_URL: 'http://backend.jjcsausa.com:9080/api',
+    KEYCLOAK_BASE_URL: 'http://backend.stage.jjcsausa.com:8080',
+    API_BASE_URL: 'http://backend.stage.jjcsausa.com:9080/api',
   },
 };
 
-const dev = {
+export const dev = {
   url: {
-    KEYCLOAK_BASE_URL: 'http://backend.jjcsausa.com:8080',
-    API_BASE_URL: 'http://backend.jjcsausa.com:9080/api',
+    KEYCLOAK_BASE_URL: 'http://keycloak:8080',
+    API_BASE_URL: 'http://localhost:9080/api',
   },
 };
 
