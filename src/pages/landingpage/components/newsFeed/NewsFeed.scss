@@ -1,0 +1,32 @@
+@import "../../../../utils/variables.scss";
+
+.NEWSFEED {
+  padding-top: 5em;
+  margin-top: -5em;
+
+  .news-feed {
+    border-color: $vividred;
+    width: 2rem;
+    margin-top: 0px;
+  }
+  .news-card {
+    border: unset;
+
+    .card-img {
+      height: 100%
+    }
+    .card-title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .card-text {
+      font-size: 14px;
+
+      &.read-more {
+        color: $vividred;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+  }
+}

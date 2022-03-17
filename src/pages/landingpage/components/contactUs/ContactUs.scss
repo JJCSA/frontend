@@ -1,0 +1,26 @@
+@import "../../../../utils/variables.scss";
+
+.CONTACTUS{
+  padding-top: 6em;
+  margin-top: -6em;
+}
+.contact-us {
+  border-color: $vividred;
+  width: 2rem;
+  margin-top: 0px;
+}
+.emailInfo {
+  color: $black;
+  margin-left: 5px;
+}
+.form-style {
+  border-radius: 8px;
+  background-color: #f6f6f6;
+}
+.button-style {
+  border: 1px solid $red;
+  border-radius: 8px;
+  color: $vividred;
+  background-color: $white;
+  font-weight: $lightBold;
+}

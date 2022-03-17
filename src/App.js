@@ -1,38 +1,58 @@
-import React, { Component } from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import React, {useState} from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import './App.scss';
+import './components/Footer/Footer';
 
-import Navbar from './components/Navbar'
-import Landing from './components/Landing'
-import Login from './components/Login/Login'
-import Register from './components/Register/Register'
-import Profile from './components/Profile'
-import AdminPanel from './pages/admin/AdminPanel'
-import Onboarding from './components/Onboarding/Onboarding';
+import { AuthProvider, PrivateRoute } from 'react-auth-kit';
 
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <Switch>
-          <Route path="/admin" component={AdminPanel} />
-          <Route>
-            <div className="App">
-              <Navbar />
-              <Route exact path="/" component={Landing} />
-              <div className="container">
-                <Route exact path="/register" component={Register} />
-                <Route exact path="/login" component={Login} />
-                <Route exact path="/profile" component={Profile} />
-                <Route exact path="/onboarding" component={Onboarding} />
-              </div>
-            </div>
-          </Route>
-        </Switch>
-      </Router>
-    )
+import Navbar from './components/Navbar';
+import Landing from './components/Landing';
+// import Landing from './pages/landingpage/LandingHomepage';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
+import Profile from './components/Profile';
+import AdminPanel from './pages/admin/AdminPanel';
+import Footer from "./components/Footer/Footer";
+import LandingHomepage from "./pages/landingpage/LandingHomepage";
+
+function App() {
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [showFooter, setShowFooter] = useState(true);
+
+  const toggleNavbar = (toggle) => {
+    setShowNavbar(toggle);
   }
+
+  const toggleFooter = (toggle) => {
+    setShowFooter(toggle);
+  }
+
+  return (
+    <AuthProvider
+      authType="cookie"
+      authName="_auth"
+      cookieDomain={window.location.hostname}
+      cookieSecure={window.location.protocol === 'https:'}
+      refreshToken
+    >
+      <Router>
+        {showNavbar && <Navbar />}
+        <div className="APP">
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route path="/landing-home" component={LandingHomepage} />
+            <Route path="/register" component={() => <Register toggleNavbar={toggleNavbar} />} />
+            <Route path="/login" component={() => <Login toggleNavbar={toggleNavbar} />} />
+            <PrivateRoute path="/profile" component={Profile} loginPath="/login" />
+            <PrivateRoute path="/admin" component={() => <AdminPanel toggleNavbar={toggleNavbar} toggleFooter={toggleFooter}/>} loginPath="/login"/>
+          </Switch>
+        </div>
+        {showFooter && <Footer />}
+      </Router>
+    </AuthProvider>
+  );
 }
 
-export default App
+export default App;

@@ -1,22 +1,26 @@
 //font
-$font: 'Noto Sans', sans-serif;
+$font: "Noto Sans", sans-serif;
+//$font: "Courier New";
 
 // colors
 $white: white;
 $black: black;
-$charcoalBlack: #403F3F;
-$green: #4CB576;
-$whiteSmoke: #F6F6F6;
-$grey: #7B889A;
-$lightGrey: #B6C3D1;
-$red: #FF4020;
-$darkBlue: #1E2350;
-$pageBackground: #E9EDF5;
+$charcoalBlack: #403f3f;
+$green: #4cb576;
+$whiteSmoke: #f6f6f6;
+$grey: #7b889a;
+$lightGrey: #b6c3d1;
+$red: #ff4020;
+$darkBlue: #1e2350;
+$pageBackground: #e9edf5;
+$vividred: #ff3c00;
+$bgBlue: #2c5797;
 
 // font sizes
 $largeTitle: 20px;
 $titleSize: 16px;
 $regularSize: 14px;
+$extaLargeTitle: 24px;
 
 // font-weight
 $regular: 400;
@@ -24,3 +28,6 @@ $lightBold: 500;
 $semiBold: 600;
 $bold: 700;
 $extraBold: 900;
+
+//height
+$logoHeight: 80px;

@@ -1,0 +1,23 @@
+@import "../../utils/variables.scss";
+
+.post-questions-button{
+  border: 1px solid $darkBlue;
+  background-color: $darkBlue;
+}
+
+.user-profile-dropdown-icon{
+  cursor: pointer;
+}
+
+.user-profile-dropdown-content > div{
+  font-size: medium;
+  cursor: pointer;
+}
+
+.user-profile-dropdown-content > div > a{
+  color: black;
+}
+
+.user-profile-dropdown-content > div:hover{
+  text-decoration: underline;
+}

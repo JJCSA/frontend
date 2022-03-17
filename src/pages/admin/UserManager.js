@@ -1,68 +1,67 @@
-import React, { Component } from "react";
-import DataTable from "../../components/datatable/DataTable";
-import "./UserManager.scss";
-import { CustomDropdown, CustomTextBox} from '../../components';
-import * as Constants from "../../utils/constants";
-import { deleteIcon } from "../../assets/index.js";
-import PhoneNumberFormatter from "../../components/phoneNumberFormatter/PhoneNumberFormatter";
-import StatusFormatter from "../../components/statusFormatter/StatusFormatter";
-import ImageFormatter from "../../components/imageFormatter/ImageFormatter";
-
+import React, { Component } from 'react';
+import DataTable from '../../components/datatable/DataTable';
+import './UserManager.scss';
+import { CustomDropdown, CustomTextBox } from '../../components';
+import * as Constants from '../../utils/constants';
+import { deleteIcon } from '../../assets/index.js';
+import PhoneNumberFormatter from '../../components/phoneNumberFormatter/PhoneNumberFormatter';
+import UserStatusFormatter from '../../components/userStatusFormatter/UserStatusFormatter';
+import ImageFormatter from '../../components/imageFormatter/ImageFormatter';
 
 const tableColumns = [
   {
-    dataField: "user_id",
-    text: "user_id",
+    dataField: 'user_id',
+    text: 'user_id',
     hidden: true,
   },
   {
-    dataField: "image",
-    text: "IMAGE",
-    headerClasses: "tableHeader tableNarrowColumn",
+    dataField: 'image',
+    text: 'IMAGE',
+    headerClasses: 'tableHeader tableNarrowColumn',
     formatter: ImageFormatter,
   },
   {
-    dataField: "name",
-    text: "NAME",
-    headerClasses: "tableHeader tableBroadColumn",
+    dataField: 'name',
+    text: 'NAME',
+    headerClasses: 'tableHeader tableBroadColumn',
     sort: true,
   },
   {
-    dataField: "type",
-    text: "TYPE",
-    headerClasses: "tableHeader tableNarrowColumn",
+    dataField: 'type',
+    text: 'TYPE',
+    headerClasses: 'tableHeader tableNarrowColumn',
     sort: true,
   },
   {
-    dataField: "email",
-    text: "EMAIL",
-    headerClasses: "tableHeader tableBroadColumn",
+    dataField: 'email',
+    text: 'EMAIL',
+    headerClasses: 'tableHeader tableBroadColumn',
     sort: true,
   },
   {
-    dataField: "number",
-    text: "NUMBER",
-    headerClasses: "tableHeader",
+    dataField: 'number',
+    text: 'NUMBER',
+    headerClasses: 'tableHeader',
     formatter: PhoneNumberFormatter,
     sort: true,
   },
   {
-    dataField: "status",
-    text: "STATUS",
-    headerClasses: "tableHeader",
-    formatter: StatusFormatter,
+    dataField: 'status',
+    text: 'STATUS',
+    headerClasses: 'tableHeader',
+    formatter: UserStatusFormatter,
     sort: true,
   },
   {
-    dataField: "state",
-    text: "STATE",
-    headerClasses: "tableHeader",
+    dataField: 'state',
+    text: 'STATE',
+    headerClasses: 'tableHeader',
     sort: true,
   },
   {
-    dataField: "city",
-    text: "CITY",
-    headerClasses: "tableHeader",
+    dataField: 'city',
+    text: 'CITY',
+    headerClasses: 'tableHeader',
     sort: true,
   },
 ];
@@ -73,12 +72,12 @@ class UserManager extends Component {
     this.state = {
       users: [],
       filteredUsers: [],
-      searchText: "",
-      userStatusFilter: "",
-      locationFilter: "",
-      userTypeFilter: "",
+      searchText: '',
+      userStatusFilter: '',
+      locationFilter: '',
+      userTypeFilter: '',
       fetchingUsers: true,
-      error: "",
+      error: '',
     };
     this.updateSearchFilter = this.updateSearchFilter.bind(this);
     this.handleSearchFilterChange = this.handleSearchFilterChange.bind(this);
@@ -103,7 +102,7 @@ class UserManager extends Component {
             fetchingUsers: false,
             error,
           });
-        }
+        },
       );
   }
 
@@ -114,25 +113,25 @@ class UserManager extends Component {
    */
 
   updateUserData(user_id, updated_record) {
-    let newusers = [...this.state.users]
-    let newfiltered_users = [...this.state.filteredUsers]
+    const newusers = [...this.state.users];
+    const newfiltered_users = [...this.state.filteredUsers];
 
     // Finding the element index of the user_id to update
-    const elementsIndexInFilteredUsers = this.state.filteredUsers.findIndex(element => element.user_id === user_id )
-    const elementsIndexInUsers = this.state.users.findIndex(element => element.user_id === user_id )
+    const elementsIndexInFilteredUsers = this.state.filteredUsers.findIndex((element) => element.user_id === user_id);
+    const elementsIndexInUsers = this.state.users.findIndex((element) => element.user_id === user_id);
 
     // Updating the array based on the status
-    if(updated_record.status === Constants.userStatus.APPROVED) {
-      newusers[elementsIndexInUsers] = {...newusers[elementsIndexInUsers], status: updated_record.status}
-      newfiltered_users[elementsIndexInFilteredUsers] = {...newfiltered_users[elementsIndexInFilteredUsers], status: updated_record.status}
+    if (updated_record.status === Constants.userStatus.APPROVED) {
+      newusers[elementsIndexInUsers] = { ...newusers[elementsIndexInUsers], status: updated_record.status };
+      newfiltered_users[elementsIndexInFilteredUsers] = { ...newfiltered_users[elementsIndexInFilteredUsers], status: updated_record.status };
     } else {
-      newusers.splice(elementsIndexInUsers, 1)
-      newfiltered_users.splice(elementsIndexInFilteredUsers, 1)
+      newusers.splice(elementsIndexInUsers, 1);
+      newfiltered_users.splice(elementsIndexInFilteredUsers, 1);
     }
     this.setState({
       users: newusers,
-      filteredUsers: newfiltered_users
-      });
+      filteredUsers: newfiltered_users,
+    });
   }
 
   /**
@@ -141,7 +140,6 @@ class UserManager extends Component {
    * @param {Search Filter to apply search on} filterType
    */
   updateSearchFilter(filterValue, filterType) {
-
     // Update the state with the filter value before filtering the data
     this.setState(
       {
@@ -154,12 +152,12 @@ class UserManager extends Component {
         const filteredUsers = this.state.users.filter((user) => {
           const searchTextFilter = stateObj.searchText
             ? user.name
+              .toLowerCase()
+              .includes(stateObj.searchText.toLowerCase())
+              || user.email
                 .toLowerCase()
-                .includes(stateObj.searchText.toLowerCase()) ||
-              user.email
-                .toLowerCase()
-                .includes(stateObj.searchText.toLowerCase()) ||
-              user.number
+                .includes(stateObj.searchText.toLowerCase())
+              || user.number
                 .toLowerCase()
                 .includes(stateObj.searchText.toLowerCase())
             : true;
@@ -167,25 +165,25 @@ class UserManager extends Component {
             ? user.status === stateObj.userStatusFilter
             : true;
           const locationFilter = stateObj.locationFilter
-            ? user.state === stateObj.locationFilter ||
-              user.city === stateObj.locationFilter
+            ? user.state === stateObj.locationFilter
+              || user.city === stateObj.locationFilter
             : true;
           const userTypeFilter = stateObj.userTypeFilter
             ? user.type === stateObj.userTypeFilter
             : true;
           return (
-            searchTextFilter &&
-            userStatusFilter &&
-            locationFilter &&
-            userTypeFilter
+            searchTextFilter
+            && userStatusFilter
+            && locationFilter
+            && userTypeFilter
           );
         });
 
         // Update the filtered data in the state
         this.setState({
-          filteredUsers: filteredUsers,
+          filteredUsers,
         });
-      }
+      },
     );
   }
 
@@ -203,10 +201,10 @@ class UserManager extends Component {
   clearSearchFilters() {
     this.setState({
       filteredUsers: this.state.users,
-      searchText: "",
-      userStatusFilter: "",
-      locationFilter: "",
-      userTypeFilter: "",
+      searchText: '',
+      userStatusFilter: '',
+      locationFilter: '',
+      userTypeFilter: '',
     });
   }
 
@@ -260,16 +258,14 @@ class UserManager extends Component {
           <h4>User Manager</h4>
         </div>
         {
-            this.state.error ? 
-                `${this.state.error}`
-                :
-                ''
+            this.state.error
+              ? `${this.state.error}`
+              : ''
         }
         {
-            this.state.fetchingUsers ?
-                "Fetching Users..."
-                :
-                this.renderUserTable()
+            this.state.fetchingUsers
+              ? 'Fetching Users...'
+              : this.renderUserTable()
         }
       </div>
     );
