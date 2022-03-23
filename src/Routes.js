@@ -1,0 +1,62 @@
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { PrivateRoute, useAuthUser } from 'react-auth-kit';
+
+import Navbar from './components/Navbar';
+import Landing from './components/Landing';
+// import Landing from './pages/landingpage/LandingHomepage';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
+import Profile from './components/Profile';
+import AdminPanel from './pages/admin/AdminPanel';
+import Footer from './components/Footer/Footer';
+import LandingHomepage from './pages/landingpage/LandingHomepage';
+import Onboarding from './components/Onboarding/Onboarding';
+
+function Routes() {
+  const authUser = useAuthUser()();
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [showFooter, setShowFooter] = useState(true);
+
+  const toggleNavbar = (toggle) => {
+    setShowNavbar(toggle);
+  };
+
+  const toggleFooter = (toggle) => {
+    setShowFooter(toggle);
+  };
+
+  let routes;
+
+  if (authUser && authUser.userStatus === 'NewUser') {
+    routes = (
+      <Switch>
+        <PrivateRoute exact path="/onboarding" component={Onboarding} loginPath="/login" />
+        <Route path="/" render={() => (<Redirect to="/onboarding" />)} />
+      </Switch>
+    );
+  } else {
+    routes = (
+      <Switch>
+        <Route exact path="/" component={Landing} />
+        <Route path="/landing-home" component={LandingHomepage} />
+        <Route path="/register" component={() => <Register toggleNavbar={toggleNavbar} />} />
+        <Route path="/login" component={() => <Login toggleNavbar={toggleNavbar} />} />
+        <PrivateRoute path="/profile" component={Profile} loginPath="/login" />
+        <PrivateRoute path="/admin" component={() => <AdminPanel toggleNavbar={toggleNavbar} toggleFooter={toggleFooter}/>} loginPath="/login"/>
+      </Switch>
+    );
+  }
+
+  return (
+    <Router>
+      {showNavbar && <Navbar />}
+      <div className="APP">
+        {routes}
+      </div>
+      {showFooter && <Footer />}
+    </Router>
+  );
+}
+
+export default Routes;

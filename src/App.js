@@ -1,34 +1,12 @@
-import React, {useState} from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React from 'react';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import './App.scss';
-import './components/Footer/Footer';
 
-import { AuthProvider, PrivateRoute } from 'react-auth-kit';
-
-import Navbar from './components/Navbar';
-import Landing from './components/Landing';
-// import Landing from './pages/landingpage/LandingHomepage';
-import Login from './components/Login/Login';
-import Register from './components/Register/Register';
-import Profile from './components/Profile';
-import AdminPanel from './pages/admin/AdminPanel';
-import Footer from "./components/Footer/Footer";
-import LandingHomepage from "./pages/landingpage/LandingHomepage";
+import { AuthProvider } from 'react-auth-kit';
+import Routes from './Routes';
 
 function App() {
-  const [showNavbar, setShowNavbar] = useState(true);
-  const [showFooter, setShowFooter] = useState(true);
-
-  const toggleNavbar = (toggle) => {
-    setShowNavbar(toggle);
-  }
-
-  const toggleFooter = (toggle) => {
-    setShowFooter(toggle);
-  }
-
   return (
     <AuthProvider
       authType="cookie"
@@ -37,20 +15,7 @@ function App() {
       cookieSecure={window.location.protocol === 'https:'}
       refreshToken
     >
-      <Router>
-        {showNavbar && <Navbar />}
-        <div className="APP">
-          <Switch>
-            <Route exact path="/" component={Landing} />
-            <Route path="/landing-home" component={LandingHomepage} />
-            <Route path="/register" component={() => <Register toggleNavbar={toggleNavbar} />} />
-            <Route path="/login" component={() => <Login toggleNavbar={toggleNavbar} />} />
-            <PrivateRoute path="/profile" component={Profile} loginPath="/login" />
-            <PrivateRoute path="/admin" component={() => <AdminPanel toggleNavbar={toggleNavbar} toggleFooter={toggleFooter}/>} loginPath="/login"/>
-          </Switch>
-        </div>
-        {showFooter && <Footer />}
-      </Router>
+      <Routes />
     </AuthProvider>
   );
 }

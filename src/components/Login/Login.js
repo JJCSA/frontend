@@ -29,8 +29,9 @@ function Login(props) {
   const onSubmit = (e) => {
     e.preventDefault();
     login(e.target).then((user) => {
-      console.log(user.userState);
       signIn(user);
+    }).catch((err) => {
+      console.log(err);
     });
   };
 
