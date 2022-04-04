@@ -1,8 +1,7 @@
-import axios from 'axios';
 import comm from '../helpers/communication';
 
 export const register = (formData) => new Promise((resolve, reject) => {
-  comm.sendPost('/users/register', null, {
+  comm.sendFormDataPost('/users/register', null, {
     jainProof: formData.jainProof,
     profPicture: formData.profPicture,
     newUser: JSON.stringify({
@@ -22,9 +21,9 @@ export const register = (formData) => new Promise((resolve, reject) => {
 });
 
 export const login = (form) => new Promise((resolve, reject) => {
-  comm.sendPost('/auth/realms/jjcsa-services/protocol/openid-connect/token', null, form, 'KEYCLOAK_BASE_URL').then(async (res) => {
-    const profile = await comm.get('/user/profile', res.data.access_token);
-    if (profile.data.userStatus === 'NewUser' || profile.data.userStatus === 'NewUser') {
+  comm.sendFormDataPost('/auth/realms/jjcsa-services/protocol/openid-connect/token', null, form, 'KEYCLOAK_BASE_URL').then(async (res) => {
+    const profile = await comm.get('/user/profile', `Bearer ${res.data.access_token}`);
+    if (profile.data.userStatus === 'NewUser' || profile.data.userStatus === 'Active') {
       resolve({
         token: res.data.access_token,
         expiresIn: res.data.expires_in,
@@ -40,15 +39,3 @@ export const login = (form) => new Promise((resolve, reject) => {
     reject(err);
   });
 });
-
-export const getProfile = (user) => axios
-  .get('users/profile', {
-    // headers: { Authorization: ` ${this.getToken()}` }
-  })
-  .then((response) => {
-    console.log(response);
-    return response.data;
-  })
-  .catch((err) => {
-    console.log(err);
-  });

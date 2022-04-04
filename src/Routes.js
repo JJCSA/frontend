@@ -39,11 +39,12 @@ function Routes() {
     routes = (
       <Switch>
         <Route exact path="/" component={Landing} />
-        <Route path="/landing-home" component={LandingHomepage} />
-        <Route path="/register" component={() => <Register toggleNavbar={toggleNavbar} />} />
-        <Route path="/login" component={() => <Login toggleNavbar={toggleNavbar} />} />
-        <PrivateRoute path="/profile" component={Profile} loginPath="/login" />
-        <PrivateRoute path="/admin" component={() => <AdminPanel toggleNavbar={toggleNavbar} toggleFooter={toggleFooter}/>} loginPath="/login"/>
+        <Route exact path="/landing-home" component={LandingHomepage} />
+        <Route exact path="/register" component={() => <Register toggleNavbar={toggleNavbar} />} />
+        <Route exact path="/login" component={() => <Login toggleNavbar={toggleNavbar} />} />
+        <PrivateRoute exact path="/profile" component={Profile} loginPath="/login" />
+        <PrivateRoute exact path="/admin" component={() => <AdminPanel toggleNavbar={toggleNavbar} toggleFooter={toggleFooter} />} loginPath="/login" />
+        <Route path="/" render={() => (<Redirect to="/" />)} />
       </Switch>
     );
   }
