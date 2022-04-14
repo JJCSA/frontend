@@ -9,7 +9,7 @@ function getConfig(token = null, params = null) {
     },
   };
   if (token) {
-    conf.headers.Authorization = `Bearer ${token}`;
+    conf.headers.Authorization = `${token}`;
   }
   if (params) {
     conf.params = params;

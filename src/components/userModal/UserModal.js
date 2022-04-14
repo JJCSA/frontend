@@ -78,7 +78,7 @@ class UserModal extends Component {
         <Container fluid>
           <Row>
             <Col md={2} className="pl-0 pr-0 pt-1">
-              <ImageFormatter cell={this.props.data.image} avatarSize="large" />
+              <ImageFormatter cell={this.props.data.profilePicture} avatarSize="large" />
             </Col>
             <Col md={6} className="ml-2">
               <Container fluid>
@@ -97,7 +97,7 @@ class UserModal extends Component {
                 </Row>
                 <Row>
                   <div className="mt-1">
-                    {UserStatusFormatter(this.props.data.status)}
+                    {UserStatusFormatter(this.props.data.userStatus)}
                   </div>
                 </Row>
               </Container>
@@ -122,13 +122,13 @@ class UserModal extends Component {
                   <img src={phoneIcon} alt="Phone" className="ml-5" />
                   <span className="info-container-info">
                     {' '}
-                    {PhoneNumberFormatter(this.props.data.number)}
+                    {PhoneNumberFormatter(this.props.data.mobileNumber)}
                   </span>
                 </div>
               </div>
             </div>
           </Row>
-          { this.props.data.status === Constants.userStatus.PENDING
+          { this.props.data.userStatus === Constants.userStatus.PENDING
             ? (
               <>
                 <Row>
@@ -141,16 +141,14 @@ class UserModal extends Component {
                     </div>
                     <div className="divOutside last">
                       <div className="mt-3 ml-2 mb-3">
-                        {this.props.data.preferred_contact_method.map((method) => (
                           <>
                             <img src={tickIcon} alt="Tick" />
                             <span className="info-container-info">
                               {' '}
-                              {method}
+                              {this.props.data.contactMethod}
                             </span>
                             <span className="ml-4" />
                           </>
-                        ))}
                       </div>
                     </div>
                   </div>
@@ -167,12 +165,17 @@ class UserModal extends Component {
                       <div className="mt-3 ml-2 mb-3">
                         <span className="info-container-info">
                           {' '}
-                          {this.props.data.jain_community}
+                          {this.props.data.communityName}
                         </span>
                         <Button variant="outline-secondary" className="ml-4">
                           <>
                             <img src={attachmentIcon} alt="Attachment" />
-                            <span className="info-container-info"> Certificate proof</span>
+                            <a
+                              href={this.props.data.communityDocumentURL}
+                              download
+                            >
+                              <span className="info-container-info"> Certificate proof</span>
+                            </a>
                           </>
                         </Button>
                       </div>
@@ -181,7 +184,7 @@ class UserModal extends Component {
                 </Row>
                 <Row>
                   <div className="card border-0 info-container">
-                    <ToggleButtonGroup type="radio" name="options" value={this.state.status} onChange={this.changeStatus}>
+                    <ToggleButtonGroup type="radio" name="options" value={this.state.userStatus} onChange={this.changeStatus}>
                       <ToggleButton value={ACCEPT} className="Btn-accept rounded mb-0">Accept</ToggleButton>
                       <ToggleButton value={REJECT} className="Btn-reject rounded mb-0">Reject</ToggleButton>
                     </ToggleButtonGroup>
@@ -207,7 +210,7 @@ class UserModal extends Component {
                       </div>
                       <div className="divOutside">
                         <div className="mt-3 ml-2 mb-3">
-                          {this.props.data.experience.map((experience_row, index) => (
+                          {this.props.data.workExperience.map((experience_row, index) => (
                             <CareerInfo careerType="Experience" careerName={experience_row.company_name} careerDescription={experience_row.role} careerStart={experience_row.start_date} careerEnd={experience_row.end_date} />
                           ))}
                         </div>
@@ -224,8 +227,8 @@ class UserModal extends Component {
                       </div>
                       <div className="divOutside">
                         <div className="mt-3 ml-2 mb-3">
-                          {this.props.data.education.map((education_row, index) => (
-                            <CareerInfo careerType="Education" careerName={education_row.university_name} careerDescription={education_row.course} careerStart={education_row.start_date} careerEnd={education_row.end_date} />
+                          {this.props.data.educationList.map((education_row, index) => (
+                            <CareerInfo careerType="Education" careerName={education_row.universityName} careerDescription={education_row.degree} careerStart={education_row.start_date} careerEnd={education_row.end_date} />
                           ))}
                         </div>
                       </div>

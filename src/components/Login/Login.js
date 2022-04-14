@@ -7,6 +7,7 @@ import {
 } from 'react-bootstrap';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import { login } from '../UserFunctions';
+import jwt_decode from "jwt-decode";
 
 function Login(props) {
   const isAuthenticated = useIsAuthenticated();
@@ -29,7 +30,8 @@ function Login(props) {
   const onSubmit = (e) => {
     e.preventDefault();
     login(e.target).then((user) => {
-      console.log(user.userState);
+      const decoded_user = jwt_decode(user.token);
+      user.authState.user = decoded_user;
       signIn(user);
     });
   };

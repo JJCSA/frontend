@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavHashLink } from 'react-router-hash-link';
 import { Link } from 'react-router-dom';
 import { useAuthUser, useSignOut } from 'react-auth-kit';
@@ -72,7 +72,7 @@ function AdminNavbar() {
                     <Avatar />
                     <h6 className="m-3">
                         Hi,
-                        {auth()?.user === undefined ? 'Dude' : auth().user}
+                        {auth()?.user === undefined ? 'Dude' : auth().user.name}
                     </h6>
                     <OverlayTrigger trigger="click" placement="bottom" overlay={userDropdown} rootClose>
                         <img src={UserDropDownIcon} alt="UserDropdownIcon" className="mr-sm-5 user-profile-dropdown-icon" />

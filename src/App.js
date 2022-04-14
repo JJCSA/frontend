@@ -16,6 +16,7 @@ import Profile from './components/Profile';
 import AdminPanel from './pages/admin/AdminPanel';
 import Footer from "./components/Footer/Footer";
 import LandingHomepage from "./pages/landingpage/LandingHomepage";
+import refreshApi from './helpers/RefreshToken';
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(true);
@@ -35,7 +36,7 @@ function App() {
       authName="_auth"
       cookieDomain={window.location.hostname}
       cookieSecure={window.location.protocol === 'https:'}
-      refreshToken
+      refresh={refreshApi}
     >
       <Router>
         {showNavbar && <Navbar />}
@@ -46,7 +47,7 @@ function App() {
             <Route path="/register" component={() => <Register toggleNavbar={toggleNavbar} />} />
             <Route path="/login" component={() => <Login toggleNavbar={toggleNavbar} />} />
             <PrivateRoute path="/profile" component={Profile} loginPath="/login" />
-            <PrivateRoute path="/admin" component={() => <AdminPanel toggleNavbar={toggleNavbar} toggleFooter={toggleFooter}/>} loginPath="/login"/>
+            <Route path="/admin" component={() => <AdminPanel toggleNavbar={toggleNavbar} toggleFooter={toggleFooter} />} loginPath="/login" />
           </Switch>
         </div>
         {showFooter && <Footer />}

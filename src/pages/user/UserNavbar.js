@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavHashLink } from 'react-router-hash-link';
 import { Link } from 'react-router-dom';
 import { useAuthUser, useSignOut } from 'react-auth-kit';
@@ -14,15 +14,23 @@ function UserNavbar() {
   const signOut = useSignOut();
   const auth = useAuthUser();
 
+  useEffect( () => {
+    console.log("user: ");
+    console.log(auth());
+    }, []);
+
   const userDropdown = (
     <Popover>
             <Popover.Content className="user-profile-dropdown-content">
-                <div className="user-dropdown">
-                    <GoHome className="user-dropdown-icon"/>
-                    <Link to="/admin">
-                        <span onClick={() => document.body.click()}>Admin</span>
-                    </Link>
-                </div>
+                {
+                  auth()?.user.resource_access.jjcsa.roles.includes("ADMIN") ?
+                    <div className="user-dropdown">
+                      <GoHome className="user-dropdown-icon"/>
+                      <Link to="/admin">
+                          <span onClick={() => document.body.click()}>Admin</span>
+                      </Link>
+                    </div>
+                  : ""}
                 <hr className="m-0" />
                 <div className="user-dropdown">
                     <CgProfile className="user-dropdown-icon"/>
@@ -32,7 +40,7 @@ function UserNavbar() {
                 </div>
                 <hr className="m-0" />
                 <div className="user-dropdown">
-                    <FiLogOut className="user-dropdown-icon"/> 
+                    <FiLogOut className="user-dropdown-icon"/>
                     <span onClick={signOut}>Logout</span>
                 </div>
             </Popover.Content>
@@ -98,7 +106,7 @@ function UserNavbar() {
           <Avatar />
           <h6 className="m-3">
             Hi,
-            {auth()?.user === undefined ? 'Dude' : auth().user}
+            {auth()?.user === undefined ? 'Dude' : auth().user.name}
           </h6>
           <OverlayTrigger trigger="click" placement="bottom" overlay={userDropdown} rootClose>
             <img src={UserDropDownIcon} alt="UserDropdownIcon" className="mr-sm-5 user-profile-dropdown-icon" />
