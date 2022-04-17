@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Country, State, City } from 'country-state-city';
 import { useAuthUser, useAuthHeader } from 'react-auth-kit';
 import comm from '../../helpers/communication';
+import GlobalContext from '../../store/GlobalContext';
 import './Onboarding.scss';
 import { ReactComponent as StudentLogo } from './student.svg';
 import { ReactComponent as GraduateLogo } from './graduate.svg';
@@ -9,9 +10,11 @@ import { ReactComponent as PrefessionalLogo } from './professional.svg';
 import { ReactComponent as EducationLogo } from './education.svg';
 
 function Onboarding() {
+  const { globalState, setGlobalState } = useContext(GlobalContext);
   const [formData, setFormData] = useState({
     ...useAuthUser()(),
-    userStatus: 'Active',
+    userStudent: true,
+    street: '',
     linkedinUrl: '',
     dateOfBirth: '',
     state: '',
@@ -19,7 +22,7 @@ function Onboarding() {
     zip: '',
     education: [{
       universityName: '',
-      gradMonth: 'January',
+      gradMonth: 0,
       gradYear: '',
       specialization: '',
       degree: '',
@@ -31,7 +34,6 @@ function Onboarding() {
       totalExp: '',
     }],
   });
-  const [status, setStatus] = useState('student');
   const [countryISO, setCountryISO] = useState('');
   const [step, setStep] = useState(1);
   const [progress, setProgress] = useState(50);
@@ -58,7 +60,18 @@ function Onboarding() {
       setStep(2);
       setProgress(100);
     } else {
-      comm.sendPut('/user/profile', token, formData);
+      const reqBody = {
+        ...formData,
+      };
+      if (reqBody.userStudent) {
+        reqBody.workExperience = [];
+      }
+      comm.sendPut('/user/profile', token, formData).then((newProfile) => {
+        setGlobalState({
+          ...globalState,
+          profile: newProfile,
+        });
+      });
     }
   };
   const handleBack = () => {
@@ -89,7 +102,12 @@ function Onboarding() {
           </div>
           <div className="form-row mt-2">
             <div className="col">
-              <input name="dateOfBirth" type="text" pattern="^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$" className="form-control" placeholder="DOB(MM/DD/YYYY) *" value={formData.dateOfBirth} onChange={handleInputChange} required />
+              <input name="dateOfBirth" type="text" className="form-control" placeholder="DOB *" value={formData.dateOfBirth} onChange={handleInputChange} onFocus={(ev) => { ev.currentTarget.type = 'date'; }} required />
+            </div>
+          </div>
+          <div className="form-row mt-2">
+            <div className="col">
+              <input name="street" type="text" className="form-control" placeholder="Street *" value={formData.street} onChange={handleInputChange} required />
             </div>
           </div>
           <div className="form-row mt-2">
@@ -125,16 +143,15 @@ function Onboarding() {
           </div>
         </div>
         <div className="col-md">
-          <input type="hidden" value={status} />
           <div>Select your current status *</div>
           <div className="row">
-            <div className={`col-md p-3 m-2 type-container text-center${status === 'student' ? ' active' : ''}`} onClick={() => setStatus('student')}>
+            <div className={`col-md p-3 m-2 type-container text-center${formData.userStudent ? ' active' : ''}`} role="button" tabIndex="0" onClick={() => handleInputChange({ target: { name: 'userStudent', value: true } })}>
               <StudentLogo className="type-logo" />
               <div>STUDENT</div>
             </div>
-            <div className={`col-md p-3 m-2 type-container text-center${status === 'graduate' ? ' active' : ''}`} onClick={() => setStatus('graduate')}>
+            <div className={`col-md p-3 m-2 type-container text-center${formData.userStudent ? '' : ' active'}`} role="button" tabIndex="0" onClick={() => handleInputChange({ target: { name: 'userStudent', value: false } })}>
               <GraduateLogo className="type-logo" />
-              <div>GRADUATE</div>
+              <div>PROFESSIONAL</div>
             </div>
           </div>
         </div>
@@ -153,20 +170,22 @@ function Onboarding() {
           <input name="education.0.degree" type="text" className="form-control mt-2" placeholder="Degree *" value={formData.education[0].degree} onChange={handleInputChange} required />
           <select name="education.0.gradMonth" className="custom-select mt-2" value={formData.education[0].gradMonth} onChange={handleInputChange} required>
             <option value="" disabled>City *</option>
-            {months.map((month) => (
-              <option key={month} value={month}>{month}</option>
+            {months.map((month, index) => (
+              <option key={month} value={index}>{month}</option>
             ))}
           </select>
           <input name="education.0.gradYear" type="number" className="form-control mt-2" placeholder="Grad Year *" value={formData.education[0].gradYear} onChange={handleInputChange} min="1900" max="2100" required />
         </div>
-        <div className="col-md text-center profession-container">
-          <h4>Professional details</h4>
-          <PrefessionalLogo className="type-logo mt-2" />
-          <input name="workExperience.0.companyName" type="text" className="form-control mt-2" placeholder="Company Name *" value={formData.workExperience[0].companyName} onChange={handleInputChange} required />
-          <input name="workExperience.0.role" type="text" className="form-control mt-2" placeholder="Role *" value={formData.workExperience[0].role} onChange={handleInputChange} required />
-          <input name="workExperience.0.location" type="text" className="form-control mt-2" placeholder="Location *" value={formData.workExperience[0].location} onChange={handleInputChange} required />
-          <input name="workExperience.0.totalExp" type="text" className="form-control mt-2" placeholder="Experience (years) *" value={formData.workExperience[0].totalExp} onChange={handleInputChange} required />
-        </div>
+        {!formData.userStudent && (
+          <div className="col-md text-center profession-container">
+            <h4>Professional details</h4>
+            <PrefessionalLogo className="type-logo mt-2" />
+            <input name="workExperience.0.companyName" type="text" className="form-control mt-2" placeholder="Company Name *" value={formData.workExperience[0].companyName} onChange={handleInputChange} required />
+            <input name="workExperience.0.role" type="text" className="form-control mt-2" placeholder="Role *" value={formData.workExperience[0].role} onChange={handleInputChange} required />
+            <input name="workExperience.0.location" type="text" className="form-control mt-2" placeholder="Location *" value={formData.workExperience[0].location} onChange={handleInputChange} required />
+            <input name="workExperience.0.totalExp" type="text" className="form-control mt-2" placeholder="Experience (years) *" value={formData.workExperience[0].totalExp} onChange={handleInputChange} required />
+          </div>
+        )}
       </div>
     </div>
   );
