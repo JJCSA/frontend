@@ -77,7 +77,7 @@ function UserNavbar() {
             className="nav-item nav-link active navbarhover px-3"
             activeClassName="activeLink"
           >
-            NewsFeed
+            News Feed
           </NavHashLink>
           <NavHashLink
             to="/#news-feed"
