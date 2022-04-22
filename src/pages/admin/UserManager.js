@@ -130,7 +130,7 @@ function UserManager() {
 
     // const userList = result;
     getUserData();
-  }, [auth]);
+  }, []);
 
   /**
    * Function to update Userdata based on particular Id

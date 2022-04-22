@@ -1,13 +1,12 @@
-import React, { Component, useState, useEffect } from 'react';
-import AdminHomepage from './AdminHomepage';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import UserManager from './UserManager';
 import { barChartIcon, userIcon, newsIcon, formIcon, feedbackIcon, socialMediaIcon, forumIcon } from "../../assets/index.js";
-import { Switch, Route, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import AdminNavbar from './AdminNavbar';
-import {BiCopyright} from 'react-icons/bi';
+import { BiCopyright } from 'react-icons/bi';
 import './AdminPanel.scss';
+import AdminRoutes from '../../routes/AdminRoutes';
 
 const Main = styled.main`
         position: relative;
@@ -20,16 +19,7 @@ function AdminPanel(props) {
     const [selected, setSelected] = useState('dashboard');
     const [expanded, setExpanded] = useState(false);
 
-    const renderMainPage = () => {
-        return (
-            <>
-                <Switch>
-                    <Route exact path="/admin/dashboard" component={AdminHomepage} />
-                    <Route path="/admin/manageUsers" component={UserManager} />
-                </Switch>
-            </>
-        )
-    };
+
 
     useEffect(() => {
         props.toggleNavbar(false);
@@ -125,10 +115,10 @@ function AdminPanel(props) {
                     </SideNav.Nav>
                 </SideNav>
                 <Main expanded={expanded}>
-                    {renderMainPage()}
+                    {AdminRoutes()}
                 </Main>
                 <div className="copyright-admin-footer"><BiCopyright/>&nbsp;
-                {getCurrentYear()} 
+                {getCurrentYear()}
                 Copyright reserved JJC Student Association USA</div>
             </div>
     )
