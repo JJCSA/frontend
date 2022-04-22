@@ -2,17 +2,17 @@ import React, { useContext, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { PrivateRoute } from 'react-auth-kit';
 
-import GlobalContext from './store/GlobalContext';
-import Navbar from './components/Navbar';
-import Landing from './components/Landing';
+import GlobalContext from '../store/GlobalContext';
+import Navbar from '../components/Navbar';
+import Landing from '../components/Landing';
 // import Landing from './pages/landingpage/LandingHomepage';
-import Login from './components/Login/Login';
-import Register from './components/Register/Register';
-import Profile from './components/Profile';
-import AdminPanel from './pages/admin/AdminPanel';
-import Footer from './components/Footer/Footer';
-import LandingHomepage from './pages/landingpage/LandingHomepage';
-import Onboarding from './components/Onboarding/Onboarding';
+import Login from '../components/Login/Login';
+import Register from '../components/Register/Register';
+import Profile from '../components/Profile';
+import AdminPanel from '../pages/admin/AdminPanel';
+import Footer from '../components/Footer/Footer';
+import LandingHomepage from '../pages/landingpage/LandingHomepage';
+import Onboarding from '../components/Onboarding/Onboarding';
 
 function Routes() {
   const authUser = useContext(GlobalContext).globalState.profile;
@@ -44,7 +44,7 @@ function Routes() {
         <Route exact path="/register" component={() => <Register toggleNavbar={toggleNavbar} />} />
         <Route exact path="/login" component={() => <Login toggleNavbar={toggleNavbar} />} />
         <PrivateRoute exact path="/profile" component={Profile} loginPath="/login" />
-        <PrivateRoute exact path="/admin" component={() => <AdminPanel toggleNavbar={toggleNavbar} toggleFooter={toggleFooter} />} loginPath="/login" />
+        <PrivateRoute path="/admin" component={() => <AdminPanel toggleNavbar={toggleNavbar} toggleFooter={toggleFooter} />} loginPath="/login" />
         <Route path="/" render={() => (<Redirect to="/" />)} />
       </Switch>
     );

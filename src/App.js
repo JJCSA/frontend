@@ -5,7 +5,7 @@ import './App.scss';
 
 import { AuthProvider } from 'react-auth-kit';
 import GlobalContext from './store/GlobalContext';
-import Routes from './Routes';
+import Routes from './routes/Routes';
 
 function App() {
   const [globalState, setGlobalState] = useState({ profile: {} });
