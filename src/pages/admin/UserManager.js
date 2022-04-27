@@ -167,15 +167,49 @@ function UserManager() {
   const updateSearchFilter = (filterValue, filterType) => {
     if (filterType === 'userStatusFilter') {
       setUserStatusFilter(filterValue);
+      console.log('Status Value',filterValue)
     } else if (filterType === 'locationFilter') {
       setLocationFilter(filterValue);
     } else if (filterType === 'userTypeFilter') {
       setUserTypeFilter(filterValue);
+    } else if (filterType === 'searchText') {
+      setSearchText(filterValue);
     }
+    console.log('Status Value',userStatusFilter)
+
+
+    const filteredList = users.filter((user) => {
+      console.log('User',user)
+      const searchTextFilter  = searchText
+        ? user.name
+          .toLowerCase()
+          .includes(searchText?.toLowerCase())
+          || user.email
+            .toLowerCase()
+            .includes(searchText?.toLowerCase())
+          || user.mobileNumber
+            .toLowerCase()
+            .includes(searchText?.toLowerCase())
+        : true;
+      const userStatus = userStatusFilter
+        ? user.userStatus === userStatusFilter
+        : true;
+      const location = locationFilter
+        ? user.state === locationFilter
+          || user.city === locationFilter
+        : true;
+      const userType = userTypeFilter
+        ? user.userRole === userTypeFilter
+        : true;
+        return (searchTextFilter && userStatus && location && userType)
+    });
+    setFilteredUsers(filteredList);
+
+
     // const stateObj = { ...this.state };
     // Apply the search filters to original users data
     // TODO: room for optimize by filtering on existing filtered data
-    const filteredUsersLocal = users.filter((user) => {
+    /* const filteredUsersLocal = users.filter((user) => {
       const searchTextFilter = searchText
         ? user.name
           .toLowerCase()
@@ -208,6 +242,7 @@ function UserManager() {
     // Update the filtered data in the state
     setFilteredUsers(filteredUsersLocal);
     // Update the state with the filter value before filtering the data
+    */
   };
 
   /**

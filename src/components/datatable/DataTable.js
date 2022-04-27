@@ -4,7 +4,12 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 import { Modal, Button } from 'react-bootstrap';
 import UserModal from '../userModal/UserModal';
 import './DataTable.scss';
-
+import { useState, useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
+import "react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css";
+import filterFactory, { textFilter } from "react-bootstrap-table2-filter";
+import "react-bootstrap-table2-filter/dist/react-bootstrap-table2-filter.min.css";
 class DataTable extends Component {
   constructor(props) {
     super(props);
@@ -86,6 +91,7 @@ class DataTable extends Component {
     return (
       <div>
         <BootstrapTable
+          bootstrap4
           keyField={this.props.keyField}
           data={this.props.data}
           columns={this.props.columns}
