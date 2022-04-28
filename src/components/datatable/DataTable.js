@@ -15,7 +15,7 @@ class DataTable extends Component {
     super(props);
     this.state = {
       sizePerPage: 10,
-      modalInfo: [],
+      modalInfo: {},
       showModal: false,
       show: false,
     };
@@ -26,7 +26,7 @@ class DataTable extends Component {
 
   updateUserTable(result) {
     this.handleClose();
-    this.props.updateUserData(this.state.modalInfo.user_id, result);
+    this.props.updateUserData(this.state.modalInfo.id, result);
   }
 
   handleClose() {
@@ -80,7 +80,7 @@ class DataTable extends Component {
     const ModalContent = () => (
       <Modal size="lg" show={this.state.show} onHide={this.handleClose} dialogClassName="my-modal">
         <Modal.Body>
-          <UserModal data={this.state.modalInfo} onsubmitUpdate={this.updateUserTable} />
+          <UserModal data={this.state.modalInfo} onsubmitUpdate={this.updateUserTable} token={this.props.token} />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={this.handleClose}> Close</Button>

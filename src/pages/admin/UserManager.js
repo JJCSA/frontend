@@ -13,14 +13,10 @@ import comm from '../../helpers/communication';
 function UserManager() {
   const [users, setUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
-  const [searchText, setSearchText] = useState('');
-  const [userStatusFilter, setUserStatusFilter] = useState('');
-  const [locationFilter, setLocationFilter] = useState('');
-  const [userTypeFilter, setUserTypeFilter] = useState('');
   const [fetchingUsers, setFetchingUsers] = useState(true);
   const [error, setError] = useState('');
-
-  const auth = useAuthHeader();
+  const [filters, setFilters] = useState({searchText:'',userStatusFilter:'',locationFilter:'',userTypeFilter:''})
+  const token = useAuthHeader()();
 
   const result = [
     {
@@ -117,7 +113,7 @@ function UserManager() {
 
   useEffect(() => {
     async function getUserData() {
-      const response = await comm.get('/admin/users', auth(), null);
+      const response = await comm.get('/admin/users', token, null);
       const userList = response.data;
       // console.log(userList);
       userList.map((user) => {
@@ -143,14 +139,14 @@ function UserManager() {
     const newfiltered_users = [...filteredUsers];
 
     // Finding the element index of the user_id to update
-    const elementsIndexInFilteredUsers = filteredUsers.findIndex((element) => element.user_id === user_id);
-    const elementsIndexInUsers = users.findIndex((element) => element.user_id === user_id);
+    const elementsIndexInFilteredUsers = filteredUsers.findIndex((element) => element.id === user_id);
+    const elementsIndexInUsers = users.findIndex((element) => element.id === user_id);
 
     // Updating the array based on the status
-    if (updated_record.status === Constants.userStatus.APPROVED) {
-      newusers[elementsIndexInUsers] = { ...newusers[elementsIndexInUsers], status: updated_record.status };
-      newfiltered_users[elementsIndexInFilteredUsers] = { ...newfiltered_users[elementsIndexInFilteredUsers], status: updated_record.status };
-    } else {
+    if (updated_record.userStatus === Constants.userStatus.NEWUSER) {
+      newusers[elementsIndexInUsers] = { ...newusers[elementsIndexInUsers], userStatus: updated_record.userStatus };
+      newfiltered_users[elementsIndexInFilteredUsers] = { ...newfiltered_users[elementsIndexInFilteredUsers], userStatus: updated_record.userStatus };
+    } else if(updated_record.userStatus === Constants.userStatus.REJECTED){
       newusers.splice(elementsIndexInUsers, 1);
       newfiltered_users.splice(elementsIndexInFilteredUsers, 1);
     }
@@ -165,86 +161,35 @@ function UserManager() {
    * @param {Search Filter to apply search on} filterType
    */
   const updateSearchFilter = (filterValue, filterType) => {
-    if (filterType === 'userStatusFilter') {
-      setUserStatusFilter(filterValue);
-      console.log('Status Value',filterValue)
-    } else if (filterType === 'locationFilter') {
-      setLocationFilter(filterValue);
-    } else if (filterType === 'userTypeFilter') {
-      setUserTypeFilter(filterValue);
-    } else if (filterType === 'searchText') {
-      setSearchText(filterValue);
-    }
-    console.log('Status Value',userStatusFilter)
-
-
-    const filteredList = users.filter((user) => {
-      console.log('User',user)
-      const searchTextFilter  = searchText
-        ? user.name
-          .toLowerCase()
-          .includes(searchText?.toLowerCase())
-          || user.email
-            .toLowerCase()
-            .includes(searchText?.toLowerCase())
-          || user.mobileNumber
-            .toLowerCase()
-            .includes(searchText?.toLowerCase())
-        : true;
-      const userStatus = userStatusFilter
-        ? user.userStatus === userStatusFilter
-        : true;
-      const location = locationFilter
-        ? user.state === locationFilter
-          || user.city === locationFilter
-        : true;
-      const userType = userTypeFilter
-        ? user.userRole === userTypeFilter
-        : true;
-        return (searchTextFilter && userStatus && location && userType)
-    });
-    setFilteredUsers(filteredList);
-
-
-    // const stateObj = { ...this.state };
-    // Apply the search filters to original users data
-    // TODO: room for optimize by filtering on existing filtered data
-    /* const filteredUsersLocal = users.filter((user) => {
-      const searchTextFilter = searchText
-        ? user.name
-          .toLowerCase()
-          .includes(searchText.toLowerCase())
-              || user.email
-                .toLowerCase()
-                .includes(searchText.toLowerCase())
-              || user.number
-                .toLowerCase()
-                .includes(searchText.toLowerCase())
-        : true;
-      const userStatusFilterLocal = userStatusFilter
-        ? user.status === userStatusFilter
-        : true;
-      const locationFilterLocal = locationFilter
-        ? user.state === locationFilter
-              || user.city === locationFilter
-        : true;
-      const userTypeFilterLocal = userTypeFilter
-        ? user.type === userTypeFilter
-        : true;
-
-      setSearchText(searchTextFilter);
-      setUserStatusFilter(userStatusFilterLocal);
-      setLocationFilter(locationFilterLocal);
-      setUserTypeFilter(userTypeFilterLocal);
-
-    });
-
-    // Update the filtered data in the state
-    setFilteredUsers(filteredUsersLocal);
-    // Update the state with the filter value before filtering the data
-    */
+    setFilters({...filters,[filterType]: filterValue})
   };
-
+useEffect(()=>{
+  const filteredList = users.filter((user) => {
+    const searchTextFilter  = filters.searchText
+      ? user.name
+        .toLowerCase()
+        .includes(filters.searchText?.toLowerCase())
+        || user.email
+          .toLowerCase()
+          .includes(filters.searchText?.toLowerCase())
+        || user.mobileNumber
+          .toLowerCase()
+          .includes(filters.searchText?.toLowerCase())
+      : true;
+    const userStatus = filters.userStatusFilter
+      ? user.userStatus === filters.userStatusFilter
+      : true;
+    const location = filters.locationFilter
+      ? user.state === filters.locationFilter
+        || user.city === filters.locationFilter
+      : true;
+    const userType = filters.userTypeFilter
+      ? user.userRole === filters.userTypeFilter
+      : true;
+      return (searchTextFilter && userStatus && location && userType)
+  });
+  setFilteredUsers(filteredList);
+},[filters])
   /**
    * Function to handle text filter
    * @param {The input element} event
@@ -257,11 +202,9 @@ function UserManager() {
    * Function to clear search filters
    */
   const clearSearchFilters = () => {
+
     setFilteredUsers(users);
-    setSearchText('');
-    setUserStatusFilter('');
-    setLocationFilter('');
-    setUserTypeFilter('');
+    setFilters({searchText:'',userStatusFilter:'',locationFilter:'',userTypeFilter:''});
   };
 
   const renderUserTable = () => (
@@ -269,7 +212,7 @@ function UserManager() {
       <div className="tableFilterContainer">
         <img src={deleteIcon} alt="Clear" onClick={clearSearchFilters} />
         <CustomTextBox
-          value={searchText}
+          value={filters.searchText}
           label="searchText"
           onChange={handleSearchFilterChange}
           placeholder="Search"
@@ -279,21 +222,21 @@ function UserManager() {
           title="Select Status"
           onSelectCallback={updateSearchFilter}
           filterType="userStatusFilter"
-          selectedValue={userStatusFilter}
+          selectedValue={filters.userStatusFilter}
         />
         <CustomDropdown
           values={Constants.states}
           title="Select Location"
           onSelectCallback={updateSearchFilter}
           filterType="locationFilter"
-          selectedValue={locationFilter}
+          selectedValue={filters.locationFilter}
         />
         <CustomDropdown
           values={Object.values(Constants.userTypes)}
           title="Select User Type"
           onSelectCallback={updateSearchFilter}
           filterType="userTypeFilter"
-          selectedValue={userTypeFilter}
+          selectedValue={filters.userTypeFilter}
         />
       </div>
       <DataTable
@@ -301,6 +244,7 @@ function UserManager() {
         columns={tableColumns}
         data={filteredUsers}
         updateUserData={updateUserData}
+        token={token}
       />
     </div>
   );

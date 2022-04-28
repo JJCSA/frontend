@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-// import { Button } from "react-bootstrap";
+import { useAuthHeader } from 'react-auth-kit';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-// import Form from 'react-bootstrap/Form';
 import { ToggleButton, ToggleButtonGroup, Button } from 'react-bootstrap';
 import {
   locationIcon, infoIcon, emailIcon, phoneIcon, caseIcon, bookIcon, tickIcon, communityIcon, attachmentIcon,
-} from '../../assets/index.js';
+} from '../../assets/index';
 import ImageFormatter from '../imageFormatter/ImageFormatter';
 import UserStatusFormatter from '../userStatusFormatter/UserStatusFormatter';
 import CareerInfo from '../careerInfo/CareerInfo';
 import * as Constants from '../../utils/constants';
 import PhoneNumberFormatter from '../phoneNumberFormatter/PhoneNumberFormatter';
 import './UserModal.scss';
+import comm from '../../helpers/communication';
 
 const ACCEPT = 'Accept';
 const REJECT = 'Reject';
@@ -29,13 +28,13 @@ class UserModal extends Component {
     };
     this.changeStatus = this.changeStatus.bind(this);
     this.setRejectReason = this.setRejectReason.bind(this);
-    this.submitStatusUdate = this.submitStatusUdate.bind(this);
+    this.submitStatusUpdate = this.submitStatusUpdate.bind(this);
   }
 
   changeStatus(status) {
     this.setState({ status, pendingAction: true });
     if (status === ACCEPT) {
-      this.setState({ status: Constants.userStatus.APPROVED });
+      this.setState({ status: Constants.userStatus.NEWUSER });
       this.setState({ rejectReason: '' });
     } else {
       this.setState({ status: Constants.userStatus.REJECTED });
@@ -46,30 +45,14 @@ class UserModal extends Component {
     this.setState({ rejectReason: e.target.value });
   }
 
-  submitStatusUdate(e) {
+  async submitStatusUpdate(e) {
     e.preventDefault();
-
-    switch (this.state.status) {
-      case Constants.userStatus.APPROVED:
-        console.log('Approved user_id:', this.props.data.user_id);
-        const copiedObject = JSON.parse(JSON.stringify(this.props.data));
-        copiedObject.status = this.state.status;
-        axios.put(`${Constants.apiRootURL}/users/${this.props.data.user_id}`, copiedObject)
-          .then((response) => response.data)
-          .then((result) => this.props.onsubmitUpdate(result));
-        break;
-      case Constants.userStatus.REJECTED:
-        console.log('Deleting user_id:', this.props.data.user_id);
-        axios({
-          method: 'DELETE',
-          url: `${Constants.apiRootURL}/users/${this.props.data.user_id}`,
-        })
-          .then((response) => response.data)
-          .then((result) => this.props.onsubmitUpdate(result));
-        break;
-      default:
-        alert('Please choose a valid option');
-    }
+    const params = {
+          userId:this.props.data.id,
+          status:this.state.status
+        }
+        const response = await comm.sendPut('/admin/users/status', this.props.token, null,params);
+        this.props.onsubmitUpdate({...this.props.data,userStatus:this.state.status});
   }
 
   render() {
@@ -184,15 +167,17 @@ class UserModal extends Component {
                 </Row>
                 <Row>
                   <div className="card border-0 info-container">
-                    <ToggleButtonGroup type="radio" name="options" value={this.state.userStatus} onChange={this.changeStatus}>
+                    <ToggleButtonGroup type="radio" name="options" value={this.state.status} onChange={this.changeStatus}>
                       <ToggleButton value={ACCEPT} className="Btn-accept rounded mb-0">Accept</ToggleButton>
                       <ToggleButton value={REJECT} className="Btn-reject rounded mb-0">Reject</ToggleButton>
                     </ToggleButtonGroup>
-                    <form onSubmit={this.submitStatusUdate}>
+                    {/* <form onSubmit={this.submitStatusUpdate}> */}
+                    <div>
                       {this.state.status === Constants.userStatus.REJECTED
                                             && <input type="text" value={this.state.rejectReason} className="form-control mt-2" placeholder="Reason for rejecting" onChange={this.setRejectReason} required />}
-                      {this.state.pendingAction && <Button type="submit" variant="outline-primary" className="mt-1, Btn-submit">Submit Updates</Button>}
-                    </form>
+                      {this.state.pendingAction && <Button type="submit" variant="outline-primary" className="mt-1, Btn-submit" onClick={this.submitStatusUpdate}>Submit Updates</Button>}
+                    </div>
+                    {/* </form> */}
                   </div>
                 </Row>
               </>

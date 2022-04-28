@@ -57,8 +57,8 @@ function sendPost(route, token = null, data = null, base = 'API_BASE_URL') {
   return axios.post(config.url[base] + route, data, getConfig(token));
 }
 
-function sendPut(route, token = null, data = null, base = 'API_BASE_URL') {
-  return axios.put(config.url[base] + route, data, getConfig(token));
+function sendPut(route, token = null, data = null, params = null, base = 'API_BASE_URL') {
+  return axios.put(config.url[base] + route, data, getConfig(token, params));
 }
 
 function get(route, token = null, params = null, base = 'API_BASE_URL') {

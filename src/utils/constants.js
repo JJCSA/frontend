@@ -1,7 +1,7 @@
 export const userTypes = {
-  USER: 'User',
-  ADMIN: 'Admin',
-  SUPERADMIN: 'SuperAdmin',
+  USER: 'USER',
+  ADMIN: 'ADMIN',
+  SUPERADMIN: 'SUPERADMIN',
 };
 
 export const userStatus = {
