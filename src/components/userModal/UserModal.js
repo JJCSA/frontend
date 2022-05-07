@@ -61,7 +61,7 @@ class UserModal extends Component {
         <Container fluid>
           <Row>
             <Col md={2} className="pl-0 pr-0 pt-1">
-              <ImageFormatter cell={this.props.data.profilePicture} avatarSize="large" />
+              <ImageFormatter cell={"https://console-jjc-newsletter-file.s3.amazonaws.com/April+2021.jpg"} avatarSize="large" />
             </Col>
             <Col md={6} className="ml-2">
               <Container fluid>
@@ -155,7 +155,8 @@ class UserModal extends Component {
                             <img src={attachmentIcon} alt="Attachment" />
                             <a
                               href={this.props.data.communityDocumentURL}
-                              download
+                              target="_blank"
+                              rel="noreferrer"
                             >
                               <span className="info-container-info"> Certificate proof</span>
                             </a>
