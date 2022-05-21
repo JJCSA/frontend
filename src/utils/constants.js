@@ -72,25 +72,15 @@ export const states = [
 
 export const prod = {
   url: {
-<<<<<<< HEAD
-    KEYCLOAK_BASE_URL: 'http://backend.jjcsausa.com:8080',
-    API_BASE_URL: 'http://backend.jjcsausa.com:9080/api',
-=======
     KEYCLOAK_BASE_URL: 'http://backend.stage.jjcsausa.com:8080',
     API_BASE_URL: 'http://backend.stage.jjcsausa.com:9080/api',
->>>>>>> 3a27472e328e7382dc762f2580f690ab5bae4e84
   },
 };
 
 export const dev = {
   url: {
-<<<<<<< HEAD
-    KEYCLOAK_BASE_URL: 'http://backend.jjcsausa.com:8080',
-    API_BASE_URL: 'http://backend.jjcsausa.com:9080/api',
-=======
     KEYCLOAK_BASE_URL: 'http://keycloak:8080',
     API_BASE_URL: 'http://localhost:9080/api',
->>>>>>> 3a27472e328e7382dc762f2580f690ab5bae4e84
   },
 };
 

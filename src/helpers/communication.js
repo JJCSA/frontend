@@ -1,15 +1,15 @@
 import axios from 'axios';
 import { config } from '../utils/constants';
 
-function getConfig(token = null, params = null) {
+function getConfig(token = null, params = null, content = 'application/json') {
   const conf = {
     headers: {
-      'content-type': 'multipart/form-data',
+      'content-type': content,
       'Access-Control-Allow-Origin': '*',
     },
   };
   if (token) {
-    conf.headers.Authorization = `Bearer ${token}`;
+    conf.headers.Authorization = `${token}`;
   }
   if (params) {
     conf.params = params;
@@ -17,7 +17,7 @@ function getConfig(token = null, params = null) {
   return conf;
 }
 
-function sendPost(route, token = null, data = null, base = 'API_BASE_URL') {
+function buildData(data) {
   let formData = null;
   if (data) {
     if (data instanceof HTMLFormElement) formData = new FormData(data);
@@ -26,7 +26,11 @@ function sendPost(route, token = null, data = null, base = 'API_BASE_URL') {
       Object.entries(data).forEach(([key, value]) => {
         if (Array.isArray(value)) {
           value.forEach((arrVal) => {
-            formData.append(`${key}[]`, arrVal);
+            if (['number', 'string'].includes(typeof arrVal)) {
+              formData.append(`${key}[]`, arrVal);
+            } else {
+              formData.append(`${key}[]`, JSON.stringify(arrVal));
+            }
           });
         } else {
           formData.append(key, value);
@@ -34,8 +38,13 @@ function sendPost(route, token = null, data = null, base = 'API_BASE_URL') {
       });
     }
   }
+  return formData;
+}
+
+function sendFormDataPost(route, token = null, data = null, base = 'API_BASE_URL') {
+  const formData = buildData(data);
   if (base === 'API_BASE_URL') {
-    return axios.post(config.url[base] + route, formData, getConfig(token));
+    return axios.post(config.url[base] + route, formData, getConfig(token, null, 'multipart/form-data'));
   }
   const params = new URLSearchParams();
   Array.from(formData.keys()).forEach((key) => {
@@ -44,10 +53,18 @@ function sendPost(route, token = null, data = null, base = 'API_BASE_URL') {
   return axios.post(config.url[base] + route, params);
 }
 
+function sendPost(route, token = null, data = null, base = 'API_BASE_URL') {
+  return axios.post(config.url[base] + route, data, getConfig(token));
+}
+
+function sendPut(route, token = null, data = null, base = 'API_BASE_URL') {
+  return axios.put(config.url[base] + route, data, getConfig(token));
+}
+
 function get(route, token = null, params = null, base = 'API_BASE_URL') {
   return axios.get(config.url[base] + route, getConfig(token, params));
 }
 
 export default {
-  sendPost, get,
+  sendFormDataPost, get, sendPut, sendPost,
 };

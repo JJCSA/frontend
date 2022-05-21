@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useSignIn, useIsAuthenticated } from 'react-auth-kit';
 import { Redirect, Link } from 'react-router-dom';
 import './Login.scss';
@@ -6,19 +6,14 @@ import {
   Form, Container, Col, Row, InputGroup,
 } from 'react-bootstrap';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
+import GlobalContext from '../../store/GlobalContext';
 import { login } from '../UserFunctions';
 
-function Login(props) {
+function Login() {
+  const { globalState, setGlobalState } = useContext(GlobalContext);
   const isAuthenticated = useIsAuthenticated();
   const signIn = useSignIn();
   const [showPassword, setShowPassword] = useState(false);
-
-  // useEffect(() => {
-  //   props.toggleNavbar(true);
-  //   return () => {
-  //     props.toggleNavbar(true);
-  //   };
-  // }, [props]);
 
   if (isAuthenticated()) return (<Redirect to="/" />);
 
@@ -29,8 +24,13 @@ function Login(props) {
   const onSubmit = (e) => {
     e.preventDefault();
     login(e.target).then((user) => {
-      console.log(user.userState);
       signIn(user);
+      setGlobalState({
+        ...globalState,
+        profile: user.authState,
+      });
+    }).catch((err) => {
+      console.log(err);
     });
   };
 
