@@ -108,7 +108,7 @@ dist
 
 
 ### AWS ###
-# *.sh
-# good-R53-ResourceRecordSet.json
-# R53-ResourceRecordSet.json
+*.sh
+good-R53-ResourceRecordSet.json
+R53-ResourceRecordSet-frontend.json
 ### AWS ###
