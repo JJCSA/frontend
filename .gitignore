@@ -105,3 +105,10 @@ dist
 
 .DS_Store
 .idea/
+
+
+### AWS ###
+*.sh
+good-R53-ResourceRecordSet.json
+R53-ResourceRecordSet-frontend.json
+### AWS ###
