@@ -20,6 +20,7 @@ function Register() {
     jainCommunity: '',
   });
   const [showPassword, setShowPassword] = useState(false);
+  const [showError, setShowError] = useState(false);
   const history = useHistory();
 
   const handleChange = (ev) => {
@@ -31,9 +32,9 @@ function Register() {
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
-    register(formData).then((res) => {
+    register(formData).then(() => {
       history.push('/login');
-    });
+    }).catch(() => setShowError(true));
   };
 
   return (
@@ -51,6 +52,7 @@ function Register() {
         <Col className="register-col">
           <div className="register-box">
             <Form className="register-form" onSubmit={handleSubmit}>
+              {showError && (<div className="error">Registration error, please check details and try again.</div>)}
               <Row>
                 <Form.Group as={Col}>
                   <Form.Label>
@@ -95,7 +97,7 @@ function Register() {
                   Mobile Number
                   <span style={{ color: 'red' }}>*</span>
                 </Form.Label>
-                <Form.Control type="tel" placeholder="" pattern="+[0-9]{3}[0-9]{3}-[0-9]{2}-[0-9]{3}" name="mobileNumber" value={formData.mobileNumber} onChange={handleChange} required className="form-control-custom" />
+                <Form.Control type="tel" placeholder="Enter US phone number" pattern="^(\+0?1\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$" name="mobileNumber" value={formData.mobileNumber} onChange={handleChange} required className="form-control-custom" />
               </Form.Group>
 
               <div className="mb-3">
