@@ -4,7 +4,7 @@ import {
   Container, Form, Row, Col, InputGroup,
 } from 'react-bootstrap';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { register } from '../UserFunctions';
 
 function Register() {
@@ -21,7 +21,7 @@ function Register() {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [showError, setShowError] = useState(false);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleChange = (ev) => {
     setFormData({
@@ -33,7 +33,7 @@ function Register() {
   const handleSubmit = (ev) => {
     ev.preventDefault();
     register(formData).then(() => {
-      history.push('/login');
+      navigate('/login');
     }).catch(() => setShowError(true));
   };
 

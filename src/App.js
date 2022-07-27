@@ -17,7 +17,6 @@ function App() {
         authName="_auth"
         cookieDomain={window.location.hostname}
         cookieSecure={window.location.protocol === 'https:'}
-        refreshToken
       >
         <Routes />
       </AuthProvider>

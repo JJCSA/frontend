@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import { PrivateRoute } from 'react-auth-kit';
+import { BrowserRouter as Router, Routes as Switch, Route, Navigate } from 'react-router-dom';
+import { RequireAuth } from 'react-auth-kit';
 
 import GlobalContext from './store/GlobalContext';
 import Navbar from './components/Navbar';
@@ -32,20 +32,20 @@ function Routes() {
   if (authUser && authUser.userStatus === 'NewUser') {
     routes = (
       <Switch>
-        <PrivateRoute exact path="/onboarding" component={Onboarding} loginPath="/login" />
-        <Route path="/" render={() => (<Redirect to="/onboarding" />)} />
+        <Route path="/onboarding" element={<RequireAuth loginPath="/login"><Onboarding /></RequireAuth>} />
+        <Route path="*" element={<Navigate to="/onboarding" replace />} />
       </Switch>
     );
   } else {
     routes = (
       <Switch>
-        <Route exact path="/" component={Landing} />
-        <Route exact path="/landing-home" component={LandingHomepage} />
-        <Route exact path="/register" component={() => <Register toggleNavbar={toggleNavbar} />} />
-        <Route exact path="/login" component={() => <Login toggleNavbar={toggleNavbar} />} />
-        <PrivateRoute exact path="/profile" component={Profile} loginPath="/login" />
-        <PrivateRoute exact path="/admin" component={() => <AdminPanel toggleNavbar={toggleNavbar} toggleFooter={toggleFooter} />} loginPath="/login" />
-        <Route path="/" render={() => (<Redirect to="/" />)} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/landing-home" element={<LandingHomepage />} />
+        <Route path="/register" element={<Register toggleNavbar={toggleNavbar} />} />
+        <Route path="/login" element={<Login toggleNavbar={toggleNavbar} />} />
+        <Route path="/profile" element={<RequireAuth loginPath="/login"><Profile /></RequireAuth>} />
+        <Route path="/admin" element={<RequireAuth loginPath="/login"><AdminPanel toggleNavbar={toggleNavbar} toggleFooter={toggleFooter} /></RequireAuth>} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Switch>
     );
   }

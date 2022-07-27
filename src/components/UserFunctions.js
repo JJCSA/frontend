@@ -29,8 +29,8 @@ export const login = (form) => new Promise((resolve, reject) => {
         expiresIn: res.data.expires_in,
         tokenType: res.data.token_type,
         authState: profile.data,
-        refreshToken: res.data.refresh_token,
-        refreshTokenExpireIn: res.data.refresh_expires_in,
+        // refreshToken: res.data.refresh_token,
+        // refreshTokenExpireIn: res.data.refresh_expires_in,
       });
     } else {
       reject(new Error('Profile not active. Please contact admin.'));
