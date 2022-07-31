@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { BrowserRouter as Router, Routes as Switch, Route, Navigate } from 'react-router-dom';
-import { RequireAuth, useIsAuthenticated, useAuthHeader } from 'react-auth-kit';
+import { RequireAuth, useIsAuthenticated, useAuthHeader, useSignOut } from 'react-auth-kit';
 
 import GlobalContext from './store/GlobalContext';
 import Navbar from './components/Navbar';
@@ -21,6 +21,7 @@ function Routes() {
   const authUser = globalState.profile;
   const isAuthenticated = useIsAuthenticated()();
   const authToken = useAuthHeader()();
+  const signOutFunc = useSignOut();
   const [showNavbar, setShowNavbar] = useState(true);
   const [showFooter, setShowFooter] = useState(true);
 
@@ -38,6 +39,8 @@ function Routes() {
         ...globalState,
         profile: profile.data,
       });
+    }).catch(() => {
+      signOutFunc();
     });
     return (<Loader />);
   }

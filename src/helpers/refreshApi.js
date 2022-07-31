@@ -15,8 +15,8 @@ const refreshApi = createRefresh({
       newAuthTokenExpireIn: data.expires_in,
       newRefreshToken: data.refresh_token,
       newRefreshTokenExpiresIn: data.refresh_expires_in,
-    })).catch((e) => {
-      console.error(e);
+    })).catch(() => {
+      window.location.reload();
       return {
         isSuccess: false, // For unsuccessful network request isSuccess is false
       };
