@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { BrowserRouter as Router, Routes as Switch, Route, Navigate } from 'react-router-dom';
-import { RequireAuth } from 'react-auth-kit';
+import { RequireAuth, useIsAuthenticated, useAuthHeader } from 'react-auth-kit';
 
 import GlobalContext from './store/GlobalContext';
 import Navbar from './components/Navbar';
@@ -13,9 +13,14 @@ import AdminPanel from './pages/admin/AdminPanel';
 import Footer from './components/Footer/Footer';
 import LandingHomepage from './pages/landingpage/LandingHomepage';
 import Onboarding from './components/Onboarding/Onboarding';
+import { getProfile } from './components/UserFunctions';
+import Loader from './helpers/Loader';
 
 function Routes() {
-  const authUser = useContext(GlobalContext).globalState.profile;
+  const { globalState, setGlobalState } = useContext(GlobalContext);
+  const authUser = globalState.profile;
+  const isAuthenticated = useIsAuthenticated()();
+  const authToken = useAuthHeader()();
   const [showNavbar, setShowNavbar] = useState(true);
   const [showFooter, setShowFooter] = useState(true);
 
@@ -26,6 +31,16 @@ function Routes() {
   const toggleFooter = (toggle) => {
     setShowFooter(toggle);
   };
+
+  if (isAuthenticated && !authUser) {
+    getProfile(authToken).then((profile) => {
+      setGlobalState({
+        ...globalState,
+        profile: profile.data,
+      });
+    });
+    return (<Loader />);
+  }
 
   let routes;
 

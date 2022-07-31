@@ -9,7 +9,7 @@ import GlobalContext from './store/GlobalContext';
 import Routes from './Routes';
 
 function App() {
-  const [globalState, setGlobalState] = useState({ profile: {} });
+  const [globalState, setGlobalState] = useState({ profile: null });
 
   return (
     <GlobalContext.Provider value={{ globalState, setGlobalState }}>
