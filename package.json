@@ -10,7 +10,7 @@
     "country-state-city": "^3.0.1",
     "is-core-module": "^2.2.0",
     "jwt-decode": "^2.2.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "react": "^16.5.2",
     "react-animate-on-scroll": "^2.1.5",
     "react-auth-kit": "^2.1.0",
