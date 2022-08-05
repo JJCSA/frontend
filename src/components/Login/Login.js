@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useSignIn, useIsAuthenticated } from 'react-auth-kit';
-import { Redirect, Link } from 'react-router-dom';
+import { Navigate, Link } from 'react-router-dom';
 import './Login.scss';
 import {
   Form, Container, Col, Row, InputGroup,
@@ -15,7 +15,7 @@ function Login() {
   const signIn = useSignIn();
   const [showPassword, setShowPassword] = useState(false);
 
-  if (isAuthenticated()) return (<Redirect to="/" />);
+  if (isAuthenticated()) return (<Navigate to="/" replace />);
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);

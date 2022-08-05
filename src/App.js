@@ -4,11 +4,12 @@ import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import './App.scss';
 
 import { AuthProvider } from 'react-auth-kit';
+import refreshApi from './helpers/refreshApi';
 import GlobalContext from './store/GlobalContext';
 import Routes from './Routes';
 
 function App() {
-  const [globalState, setGlobalState] = useState({ profile: {} });
+  const [globalState, setGlobalState] = useState({ profile: null });
 
   return (
     <GlobalContext.Provider value={{ globalState, setGlobalState }}>
@@ -17,7 +18,7 @@ function App() {
         authName="_auth"
         cookieDomain={window.location.hostname}
         cookieSecure={window.location.protocol === 'https:'}
-        refreshToken
+        refresh={refreshApi}
       >
         <Routes />
       </AuthProvider>

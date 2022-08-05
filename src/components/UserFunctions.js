@@ -20,9 +20,11 @@ export const register = (formData) => new Promise((resolve, reject) => {
   });
 });
 
+export const getProfile = (accessToken) => comm.get('/user/profile', accessToken);
+
 export const login = (form) => new Promise((resolve, reject) => {
   comm.sendFormDataPost('/auth/realms/jjcsa-services/protocol/openid-connect/token', null, form, 'KEYCLOAK_BASE_URL').then(async (res) => {
-    const profile = await comm.get('/user/profile', `Bearer ${res.data.access_token}`);
+    const profile = await getProfile(`Bearer ${res.data.access_token}`);
     if (profile.data.userStatus === 'NewUser' || profile.data.userStatus === 'Active') {
       resolve({
         token: res.data.access_token,

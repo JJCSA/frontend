@@ -3,7 +3,7 @@ import AdminHomepage from './AdminHomepage';
 import styled from 'styled-components';
 import UserManager from './UserManager';
 import { barChartIcon, userIcon, newsIcon, formIcon, feedbackIcon, socialMediaIcon, forumIcon } from "../../assets/index.js";
-import { Switch, Route, withRouter } from 'react-router-dom';
+import { Routes as Switch, Route, useNavigate } from 'react-router-dom';
 import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import AdminNavbar from './AdminNavbar';
 import {BiCopyright} from 'react-icons/bi';
@@ -17,6 +17,7 @@ const Main = styled.main`
     `;
 
 function AdminPanel(props) {
+    const navigate = useNavigate();
     const [selected, setSelected] = useState('dashboard');
     const [expanded, setExpanded] = useState(false);
 
@@ -42,12 +43,9 @@ function AdminPanel(props) {
     }, [props]);
 
     const onSelect = (selected) => {
-        const { history } = props;
         setSelected(selected);
         const to = '/admin/' + selected;
-        if (history.location.pathname !== to) {
-            history.push(to);
-        }
+        navigate(to);
     };
 
     const onToggle = (expanded) => {
@@ -135,4 +133,4 @@ function AdminPanel(props) {
 
 }
 
-export default withRouter(AdminPanel);
+export default AdminPanel;
