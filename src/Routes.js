@@ -62,7 +62,7 @@ function Routes() {
         <Route path="/register" element={<Register toggleNavbar={toggleNavbar} />} />
         <Route path="/login" element={<Login toggleNavbar={toggleNavbar} />} />
         <Route path="/profile" element={<RequireAuth loginPath="/login"><Profile /></RequireAuth>} />
-        <Route path="/admin" element={<RequireAuth loginPath="/login"><AdminPanel toggleNavbar={toggleNavbar} toggleFooter={toggleFooter} /></RequireAuth>} />
+        <Route path="/admin/*" element={<RequireAuth loginPath="/login"><AdminPanel toggleNavbar={toggleNavbar} toggleFooter={toggleFooter} /></RequireAuth>} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Switch>
     );
