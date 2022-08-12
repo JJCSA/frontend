@@ -14,6 +14,14 @@ cd frontend
 ```
 
 2. Install the NPM dependencies
+
+:warning: **Make sure you have node version 14.17.0**, that's the version node-sass v 4.14.1 is supported with
+If using nvm, run:
+```
+nvm install 14.17.0
+nvm use 14.17.0
+```
+
 ```
 npm ci
 ```
