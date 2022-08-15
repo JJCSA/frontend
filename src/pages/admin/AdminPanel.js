@@ -24,13 +24,9 @@ function AdminPanel(props) {
   const [expanded, setExpanded] = useState(false);
 
   const onSelect = (selected) => {
-    //const { history } = props;
     setSelected(selected);
     const to = '/admin/' + selected;
     navigate(to);
-    // if (history.location.pathname !== to) {
-    //   history.push(to);
-    // }
   };
 
   useEffect(() => {
