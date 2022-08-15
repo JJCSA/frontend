@@ -3,15 +3,13 @@
 .dropdownToggle {
     width: 200px;
     height: 40px;
-    border: 1px solid $whiteSmoke;
+    border: 1px solid $slateGrey;
     box-sizing: border-box;
     border-radius: 5px;
     font-style: normal;
-    font-weight: $semiBold;
     font-size: 14px;
-    color: $charcoalBlack;
+    color: $slateGrey;
     background-color: white;
-    opacity: 0.4;
     box-shadow: none;
     display: flex;
     justify-content: space-between;
@@ -19,10 +17,20 @@
 
     &:active, &:hover, &:focus {
         background-color: $white !important;
-        color: $charcoalBlack !important;
-        border: 1px solid $whiteSmoke !important;
+        color: $slateGrey !important;
+        border: 2px solid $slateGrey !important;
         box-shadow: none;
+        outline: none;
     }
+}
+
+.btn-primary.dropdown-toggle {
+    background-color: $white !important;
+    border-color: $slateGrey !important;
+}
+.btn-primary.dropdown-toggle:focus{
+    background-color: $white !important;
+    box-shadow: none !important;
 }
 
 .dropdownMenu {
@@ -42,11 +50,14 @@
 .dropdownItem {
     opacity: 0.4;
     padding-left: 12px;
-    
+    font-weight: $semiBold;
+
     &:active, &:hover, &:focus {
         background-color: $white !important;
-        color: $charcoalBlack !important;
-        border: 1px solid $whiteSmoke !important;
+        color: $slateGrey !important;
+        // border: 1px solid $whiteSmoke !important;
         box-shadow: none;
+        font-weight: $bold !important;
+        opacity: 100% !important;
     }
 }

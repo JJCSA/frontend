@@ -76,7 +76,7 @@ function AdminPanel(props) {
               User Manager
             </NavText>
           </NavItem>
-          <NavItem eventKey="manageNews">
+          {/* <NavItem eventKey="manageNews">
             <NavIcon>
               <img src={newsIcon} alt="news" />
             </NavIcon>
@@ -115,7 +115,7 @@ function AdminPanel(props) {
             <NavText className="side-navbar-option">
               Forum Manager
             </NavText>
-          </NavItem>
+          </NavItem> */}
         </SideNav.Nav>
       </SideNav>
       <Main expanded={expanded}>

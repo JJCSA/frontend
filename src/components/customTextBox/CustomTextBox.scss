@@ -7,13 +7,17 @@
     & input {
         width: 100%;
         height: 100%;
-        border: 1px solid $whiteSmoke;
+        border: 1px solid $slateGrey;
         box-sizing: border-box;
         border-radius: 5px;
+        padding: 10px;
         &::placeholder {
             padding-left: 10px;
-            color: $charcoalBlack;
-            opacity: 0.4;
+            color: $lightGrey;
+        }
+        &:focus {
+            outline: none;
+            border: 2px solid $slateGrey;
         }
     }
 }
