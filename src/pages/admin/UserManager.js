@@ -9,6 +9,8 @@ import PhoneNumberFormatter from '../../components/phoneNumberFormatter/PhoneNum
 import UserStatusFormatter from '../../components/userStatusFormatter/UserStatusFormatter';
 import ImageFormatter from '../../components/imageFormatter/ImageFormatter';
 import comm from '../../helpers/communication';
+import Avatar from '../../components/avatar/Avatar';
+
 
 function UserManager() {
   const [users, setUsers] = useState([]);
@@ -18,41 +20,12 @@ function UserManager() {
   const [filters, setFilters] = useState({searchText:'',userStatusFilter:'',locationFilter:'',userTypeFilter:''})
   const token = useAuthHeader()();
 
-  const result = [
-    {
-      id: '580995e0-15c2-496e-8695-a693218e6845',
-      email: 't5@gmail.com',
-      educationList: [],
-      workExperience: [],
-      lastUpdatedDate: null,
-      approvedDate: null,
-      firstName: 'Tejas',
-      middleName: null,
-      lastName: 'Shah',
-      mobileNumber: '123456789',
-      contactMethod: 'Email',
-      communityName: 'xyz',
-      communityDocumentURL: '/tmp/jjcsaTmpDir307165195660106183/580995e0-15c2-496e-8695-a693218e6845/COMMUNITY_DOCUMENT.jpeg',
-      userStatus: 'Pending',
-      street: null,
-      city: 'Canton',
-      state: 'MI',
-      zip: null,
-      dateOfBirth: null,
-      profilePicture: '/tmp/jjcsaTmpDir5756097402098462741/580995e0-15c2-496e-8695-a693218e6845/PROFILE_PICTURE.jpeg',
-      socialMediaPlatform: null,
-      volunteeringInterest: null,
-      loanTaken: false,
-      loanOrganization: null,
-      linkedinUrl: null,
-      description: null,
-      contactShared: false,
-      country: null,
-      userStudent: true,
-      userRole: 'ADMIN',
-    },
-  ];
-
+  const ImageFormatter = (cell ,row) => {
+    const imgLinkRegex = RegExp('(http(s?):)|([/|.|w|s])*.(?:jpg|gif|png)');
+    console.log(cell);
+    const validImg = imgLinkRegex.test(cell);
+    return <Avatar imgSrc={validImg ? cell : ''} avatarSize='small' />;
+  }
   const tableColumns = [
     {
       dataField: 'id',
@@ -113,10 +86,8 @@ function UserManager() {
 
   useEffect(() => {
     async function getUserData() {
-      console.log('Token',token)
       const response = await comm.get('/admin/users', token, null);
       const userList = response.data;
-      // console.log(userList);
       userList.map((user) => {
         user.name = `${user.firstName} ${user.lastName}`;
       });
@@ -254,7 +225,6 @@ useEffect(()=>{
     <div className="pageContainer">
       <div className="pageHeader">
         <h4>User Manager</h4>
-        <h5>Hellooooo</h5>
       </div>
       {
           error

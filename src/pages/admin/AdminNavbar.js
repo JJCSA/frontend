@@ -69,7 +69,7 @@ function AdminNavbar() {
             <sup className="notification-number"><Badge pill variant="danger">10</Badge></sup>
           </div>
           <div className="vertical-line mr-3 ml-3" />
-          <Avatar />
+          <Avatar imgSrc={Object.keys(globalState.profile).length > 0 ? globalState.profile.profilePicture : ''} />
           <h6 className="m-3">
             Hi,
             {Object.keys(globalState.profile).length > 0 ? globalState.profile.firstName : ''}
