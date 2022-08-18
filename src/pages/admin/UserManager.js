@@ -22,7 +22,6 @@ function UserManager() {
 
   const ImageFormatter = (cell ,row) => {
     const imgLinkRegex = RegExp('(http(s?):)|([/|.|w|s])*.(?:jpg|gif|png)');
-    console.log(cell);
     const validImg = imgLinkRegex.test(cell);
     return <Avatar imgSrc={validImg ? cell : ''} avatarSize='small' />;
   }
