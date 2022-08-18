@@ -15,7 +15,7 @@ const Main = styled.main`
         position: relative;
         //overflow: scroll;
         transition: all .15s;
-        margin-left: ${props => (props.expanded ? 240 : 64)}px;
+        margin-left: ${(props) => (props.expanded ? 240 : 64)}px;
     `;
 
 function AdminPanel(props) {
@@ -43,7 +43,6 @@ function AdminPanel(props) {
     };
   }, [props]);
 
-
   const onToggle = (expanded) => {
     setExpanded(expanded);
   };
@@ -52,7 +51,7 @@ function AdminPanel(props) {
     return new Date().getFullYear();
   };
 
-  return(
+  return (
     <div>
       <AdminNavbar />
       <SideNav
