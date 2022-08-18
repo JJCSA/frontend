@@ -4,9 +4,10 @@ export const userTypes = {
 };
 
 export const userStatus = {
-  APPROVED: 'Approved',
+  NEWUSER: 'NewUser',
   PENDING: 'Pending',
   REJECTED: 'Rejected',
+  ACTIVE: 'Active',
 };
 
 export const formStatus = {
