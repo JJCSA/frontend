@@ -16,7 +16,6 @@ import comm from '../../helpers/communication';
 
 const ACCEPT = 'Accept';
 const REJECT = 'Reject';
-
 class UserModal extends Component {
   constructor(props) {
     super(props);
@@ -28,6 +27,7 @@ class UserModal extends Component {
     this.changeStatus = this.changeStatus.bind(this);
     this.setRejectReason = this.setRejectReason.bind(this);
     this.submitStatusUpdate = this.submitStatusUpdate.bind(this);
+    this.getCommunityProof = this.getCommunityProof.bind(this);
   }
 
   changeStatus(status) {
@@ -50,15 +50,20 @@ class UserModal extends Component {
       userId: this.props.data.id,
       status: this.state.status,
     };
-    const response = await comm.sendPut('/admin/users/status', this.props.token, null, params);
+    const response = await comm.sendPut('/admin/users/status', this.props.token, params, null);
     this.props.onsubmitUpdate({ ...this.props.data, userStatus: this.state.status });
+  }
+
+  async getCommunityProof(e) {
+    e.preventDefault();
+    const response = await comm.get(`/admin/users/${this.props.data.id}/communityProof`, this.props.token, null);
+    window.open(response.data, '_blank');
   }
 
   render() {
     return (
       <div className="modal-user">
         <Container fluid>
-          {console.log(this.props.data)}
           <Row>
             <Col md={2} className="pl-0 pr-0 pt-1">
               <ImageFormatter cell={this.props.data.profilePicture} avatarSize="large" />
@@ -117,61 +122,52 @@ class UserModal extends Component {
               </div>
             </div>
           </Row>
+          <Row>
+            <div className="info-container mt-1 rounded mb-3">
+              <div className="divOutside">
+                <div className="mt-3 ml-2 mb-3">
+                  <img src={phoneIcon} alt="Info" />
+                  <span className="info-container-headers"> Preferred Method of Contact</span>
+                </div>
+              </div>
+              <div className="divOutside last">
+                <div className="mt-3 ml-2 mb-3">
+                  <>
+                    <img src={tickIcon} alt="Tick" />
+                    <span className="info-container-info">
+                      {' '}
+                      {this.props.data.contactMethod}
+                    </span>
+                    <span className="ml-4" />
+                  </>
+                </div>
+              </div>
+            </div>
+          </Row>
+          <Row>
+            <div className="info-container mt-1 rounded mb-3">
+              <div className="divOutside">
+                <div className="mt-3 ml-2 mb-3">
+                  <img src={communityIcon} alt="Community" />
+                  <span className="info-container-headers"> Jain Community</span>
+                </div>
+              </div>
+              <div className="divOutside last">
+                <div className="mt-3 ml-2 mb-3">
+                  <span className="info-container-info">
+                    {' '}
+                  {this.props.data.communityName}
+                  </span>
+                  <Button variant="outline-secondary" className="ml-4" onClick={this.getCommunityProof}>
+                    <span className="info-container-info"> Certificate proof</span>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </Row>
           { this.props.data.userStatus === Constants.userStatus.PENDING
             ? (
               <>
-                <Row>
-                  <div className="info-container mt-1 rounded mb-3">
-                    <div className="divOutside">
-                      <div className="mt-3 ml-2 mb-3">
-                        <img src={phoneIcon} alt="Info" />
-                        <span className="info-container-headers"> Preferred Method of Contact</span>
-                      </div>
-                    </div>
-                    <div className="divOutside last">
-                      <div className="mt-3 ml-2 mb-3">
-                        <>
-                          <img src={tickIcon} alt="Tick" />
-                          <span className="info-container-info">
-                            {' '}
-                            {this.props.data.contactMethod}
-                          </span>
-                          <span className="ml-4" />
-                        </>
-                      </div>
-                    </div>
-                  </div>
-                </Row>
-                <Row>
-                  <div className="info-container mt-1 rounded mb-3">
-                    <div className="divOutside">
-                      <div className="mt-3 ml-2 mb-3">
-                        <img src={communityIcon} alt="Community" />
-                        <span className="info-container-headers"> Jain Community</span>
-                      </div>
-                    </div>
-                    <div className="divOutside last">
-                      <div className="mt-3 ml-2 mb-3">
-                        <span className="info-container-info">
-                          {' '}
-                          {this.props.data.communityName}
-                        </span>
-                        <Button variant="outline-secondary" className="ml-4">
-                          <>
-                            <img src={attachmentIcon} alt="Attachment" />
-                            <a
-                              href={this.props.data.communityDocumentURL}
-                              target="_blank"
-                              rel="noreferrer"
-                            >
-                              <span className="info-container-info"> Certificate proof</span>
-                            </a>
-                          </>
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </Row>
                 <Row>
                   <div className="card border-0 info-container">
                     <ToggleButtonGroup type="radio" name="options" value={this.state.status} onChange={this.changeStatus}>
