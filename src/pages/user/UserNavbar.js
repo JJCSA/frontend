@@ -13,7 +13,7 @@ import GlobalContext from '../../store/GlobalContext';
 
 function UserNavbar() {
   const signOut = useSignOut();
-  const { globalState, setGlobalState } = useContext(GlobalContext);
+  const { globalState } = useContext(GlobalContext);
 
   const userDropdown = (
     <Popover>
