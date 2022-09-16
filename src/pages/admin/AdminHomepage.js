@@ -4,7 +4,7 @@ function AdminHomepage() {
   return (
     <div className="pageContainer">
       <div className="pageHeader">
-        <h4>Dashboard</h4>
+        <h4>Admin Dashboard</h4>
       </div>
     </div>
   );
