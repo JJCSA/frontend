@@ -24,13 +24,9 @@ function AdminPanel(props) {
   const [expanded, setExpanded] = useState(false);
 
   const onSelect = (selected) => {
-    //const { history } = props;
     setSelected(selected);
     const to = '/admin/' + selected;
     navigate(to);
-    // if (history.location.pathname !== to) {
-    //   history.push(to);
-    // }
   };
 
   useEffect(() => {
@@ -75,46 +71,6 @@ function AdminPanel(props) {
               User Manager
             </NavText>
           </NavItem>
-          {/* <NavItem eventKey="manageNews">
-            <NavIcon>
-              <img src={newsIcon} alt="news" />
-            </NavIcon>
-            <NavText className="side-navbar-option" title="News Manager">
-              News Manager
-            </NavText>
-          </NavItem>
-          <NavItem eventKey="manageForms">
-            <NavIcon>
-              <img src={formIcon} alt="form" />
-            </NavIcon>
-            <NavText className="side-navbar-option" title="Form Manager">
-              Form Manager
-            </NavText>
-          </NavItem>
-          <NavItem eventKey="feedbackManager">
-            <NavIcon>
-              <img src={feedbackIcon} alt="feedback" />
-            </NavIcon>
-            <NavText className="side-navbar-option" title="Feedback Manager">
-              Feedback Manager
-            </NavText>
-          </NavItem>
-          <NavItem eventKey="socialMediaManager">
-            <NavIcon>
-              <img src={socialMediaIcon} alt="feedback" />
-            </NavIcon>
-            <NavText className="side-navbar-option" title="Social Media Manager">
-              Social Media Manager
-            </NavText>
-          </NavItem>
-          <NavItem eventKey="forumManager">
-            <NavIcon>
-              <img src={forumIcon} alt="forum" />
-            </NavIcon>
-            <NavText className="side-navbar-option">
-              Forum Manager
-            </NavText>
-          </NavItem> */}
         </SideNav.Nav>
       </SideNav>
       <Main expanded={expanded}>

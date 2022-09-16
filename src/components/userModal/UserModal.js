@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { ToggleButton, ToggleButtonGroup, Button } from 'react-bootstrap';
 import {
-  locationIcon, infoIcon, emailIcon, phoneIcon, caseIcon, bookIcon, tickIcon, communityIcon, attachmentIcon,
+  locationIcon, infoIcon, emailIcon, phoneIcon, caseIcon, bookIcon, tickIcon, communityIcon, attachmentIcon, AdminIcon
 } from '../../assets/index';
 import ImageFormatter from '../imageFormatter/ImageFormatter';
 import UserStatusFormatter from '../userStatusFormatter/UserStatusFormatter';
@@ -28,6 +28,27 @@ class UserModal extends Component {
     this.setRejectReason = this.setRejectReason.bind(this);
     this.submitStatusUpdate = this.submitStatusUpdate.bind(this);
     this.getCommunityProof = this.getCommunityProof.bind(this);
+    this.updateUserRole = this.updateUserRole.bind(this);
+  }
+
+  setRejectReason(e) {
+    this.setState({ rejectReason: e.target.value });
+  }
+
+  async getCommunityProof(e) {
+    e.preventDefault();
+    const response = await comm.get(`/admin/users/${this.props.data.id}/communityProof`, this.props.token, null);
+    window.open(response.data, '_blank');
+  }
+
+  async submitStatusUpdate(e) {
+    e.preventDefault();
+    const params = {
+      userId: this.props.data.id,
+      status: this.state.status,
+    };
+    const response = await comm.sendPut('/admin/users/status', this.props.token, params);
+    this.props.onsubmitUpdate({ ...this.props.data, userStatus: this.state.status });
   }
 
   changeStatus(status) {
@@ -40,24 +61,12 @@ class UserModal extends Component {
     }
   }
 
-  setRejectReason(e) {
-    this.setState({ rejectReason: e.target.value });
-  }
-
-  async submitStatusUpdate(e) {
-    e.preventDefault();
-    const params = {
-      userId: this.props.data.id,
-      status: this.state.status,
-    };
-    const response = await comm.sendPut('/admin/users/status', this.props.token, params, null);
-    this.props.onsubmitUpdate({ ...this.props.data, userStatus: this.state.status });
-  }
-
-  async getCommunityProof(e) {
-    e.preventDefault();
-    const response = await comm.get(`/admin/users/${this.props.data.id}/communityProof`, this.props.token, null);
-    window.open(response.data, '_blank');
+  async updateUserRole(e) {
+    // const params = {
+    //   userId: this.props.data.id,
+    //   status: this.state.status,
+    // };
+    console.log(this.props.data.userRole);
   }
 
   render() {
@@ -159,7 +168,7 @@ class UserModal extends Component {
                   {this.props.data.communityName}
                   </span>
                   <Button variant="outline-secondary" className="ml-4" onClick={this.getCommunityProof}>
-                    <span className="info-container-info"> Certificate proof</span>
+                  <span className="info-container-info"><img src={attachmentIcon} alt="attachment"/> Certificate proof</span>
                   </Button>
                 </div>
               </div>
@@ -223,6 +232,23 @@ class UserModal extends Component {
                     </div>
                   </Col>
                 </Row>
+                {(this.props.data.userStatus === Constants.userStatus.ACTIVE) && (this.props.data.userRole === Constants.userTypes.SUPERADMIN) ? (
+                  <Row>
+                    <div className="info-container mt-1 rounded mb-3">
+                      <div className="divOutside">
+                        <div className="mt-3 ml-2 mb-3">
+                          <img src={AdminIcon} alt="Info" />
+                          <span className="info-container-headers"> Assign Admin Role</span>
+                          <input type="checkbox" className="admin-checkbox" onChange={this.updateUserRole} />
+                        </div>
+                      </div>
+                    </div>
+                  </Row>
+                )
+                  : (
+                    <>
+                    </>
+                  )}
               </>
             ) }
         </Container>

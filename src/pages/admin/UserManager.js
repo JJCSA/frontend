@@ -94,8 +94,6 @@ function UserManager() {
       setFilteredUsers(userList);
       setFetchingUsers(false);
     }
-
-    // const userList = result;
     getUserData();
   }, []);
 
