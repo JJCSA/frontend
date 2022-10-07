@@ -1,12 +1,14 @@
 export const userTypes = {
   USER: 'User',
   ADMIN: 'Admin',
+  SUPERADMIN: 'SUPER_ADMIN',
 };
 
 export const userStatus = {
-  APPROVED: 'Approved',
+  NEWUSER: 'NewUser',
   PENDING: 'Pending',
   REJECTED: 'Rejected',
+  ACTIVE: 'Active',
 };
 
 export const formStatus = {

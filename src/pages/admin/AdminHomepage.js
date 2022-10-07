@@ -2,30 +2,10 @@ import React from 'react';
 
 function AdminHomepage() {
   return (
-    <div>
-      <h1>Hello Admin!</h1>
-      <h1>Hello Admin!</h1>
-      <h1>Hello Admin!</h1>
-      <h1>Hello Admin!</h1>
-      <h1>Hello Admin!</h1>
-      <h1>Hello Admin!</h1>
-      <h1>Hello Admin!</h1>
-      <h1>Hello Admin!</h1>
-      <h1>Hello Admin!</h1>
-      <h1>Hello Admin!</h1>
-      <h1>Hello Admin!</h1>
-      <h1>Hello Admin!</h1>
-      <h1>Hello Admin!</h1>
-      <h1>Hello Admin!</h1>
-      <h1>Hello Admin!</h1>
-      <h1>Hello Admin!</h1>
-      <h1>Hello Admin!</h1>
-      <h1>Hello Admin!</h1>
-      <h1>Hello Admin!</h1>
-      <h1>Hello Admin!</h1>
-      <h1>Hello Admin!</h1>
-      <h1>Hello Admin!</h1>
-      <h1>Hello Admin!</h1>
+    <div className="pageContainer">
+      <div className="pageHeader">
+        <h4>Admin Dashboard</h4>
+      </div>
     </div>
   );
 }

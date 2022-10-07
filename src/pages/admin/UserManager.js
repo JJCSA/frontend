@@ -1,110 +1,101 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useAuthHeader } from 'react-auth-kit';
 import DataTable from '../../components/datatable/DataTable';
 import './UserManager.scss';
 import { CustomDropdown, CustomTextBox } from '../../components';
 import * as Constants from '../../utils/constants';
-import { deleteIcon } from '../../assets/index.js';
+import { deleteIcon } from '../../assets/index';
 import PhoneNumberFormatter from '../../components/phoneNumberFormatter/PhoneNumberFormatter';
 import UserStatusFormatter from '../../components/userStatusFormatter/UserStatusFormatter';
 import ImageFormatter from '../../components/imageFormatter/ImageFormatter';
+import comm from '../../helpers/communication';
+import Avatar from '../../components/avatar/Avatar';
 
-const tableColumns = [
-  {
-    dataField: 'user_id',
-    text: 'user_id',
-    hidden: true,
-  },
-  {
-    dataField: 'image',
-    text: 'IMAGE',
-    headerClasses: 'tableHeader tableNarrowColumn',
-    formatter: ImageFormatter,
-  },
-  {
-    dataField: 'name',
-    text: 'NAME',
-    headerClasses: 'tableHeader tableBroadColumn',
-    sort: true,
-  },
-  {
-    dataField: 'type',
-    text: 'TYPE',
-    headerClasses: 'tableHeader tableNarrowColumn',
-    sort: true,
-  },
-  {
-    dataField: 'email',
-    text: 'EMAIL',
-    headerClasses: 'tableHeader tableBroadColumn',
-    sort: true,
-  },
-  {
-    dataField: 'number',
-    text: 'NUMBER',
-    headerClasses: 'tableHeader',
-    formatter: PhoneNumberFormatter,
-    sort: true,
-  },
-  {
-    dataField: 'status',
-    text: 'STATUS',
-    headerClasses: 'tableHeader',
-    formatter: UserStatusFormatter,
-    sort: true,
-  },
-  {
-    dataField: 'state',
-    text: 'STATE',
-    headerClasses: 'tableHeader',
-    sort: true,
-  },
-  {
-    dataField: 'city',
-    text: 'CITY',
-    headerClasses: 'tableHeader',
-    sort: true,
-  },
-];
 
-class UserManager extends Component {
-  constructor() {
-    super();
-    this.state = {
-      users: [],
-      filteredUsers: [],
-      searchText: '',
-      userStatusFilter: '',
-      locationFilter: '',
-      userTypeFilter: '',
-      fetchingUsers: true,
-      error: '',
-    };
-    this.updateSearchFilter = this.updateSearchFilter.bind(this);
-    this.handleSearchFilterChange = this.handleSearchFilterChange.bind(this);
-    this.clearSearchFilters = this.clearSearchFilters.bind(this);
-    this.renderUserTable = this.renderUserTable.bind(this);
-    this.updateUserData = this.updateUserData.bind(this);
+function UserManager() {
+  const [users, setUsers] = useState([]);
+  const [filteredUsers, setFilteredUsers] = useState([]);
+  const [fetchingUsers, setFetchingUsers] = useState(true);
+  const [error, setError] = useState('');
+  const [filters, setFilters] = useState({searchText:'',userStatusFilter:'',locationFilter:'',userTypeFilter:''})
+  const token = useAuthHeader()();
+
+  const ImageFormatter = (cell ,row) => {
+    const imgLinkRegex = RegExp('(http(s?):)|([/|.|w|s])*.(?:jpg|gif|png)');
+    const validImg = imgLinkRegex.test(cell);
+    return <Avatar imgSrc={validImg ? cell : ''} avatarSize='small' />;
   }
+  const tableColumns = [
+    {
+      dataField: 'id',
+      text: 'id',
+      hidden: true,
+    },
+    {
+      dataField: 'profilePicture',
+      text: 'PROFILE',
+      headerClasses: 'tableHeader tableNarrowColumn',
+      formatter: ImageFormatter,
+    },
+    {
+      dataField: 'name',
+      text: 'NAME',
+      headerClasses: 'tableHeader tableNarrowColumn',
+      sort: true,
+    },
+    {
+      dataField: 'userRole',
+      text: 'ROLE',
+      headerClasses: 'tableHeader tableNarrowColumn',
+      sort: true,
+    },
+    {
+      dataField: 'email',
+      text: 'EMAIL',
+      headerClasses: 'tableHeader tableBroadColumn',
+      sort: true,
+    },
+    {
+      dataField: 'mobileNumber',
+      text: 'NUMBER',
+      headerClasses: 'tableHeader',
+      formatter: PhoneNumberFormatter,
+      sort: true,
+    },
+    {
+      dataField: 'userStatus',
+      text: 'STATUS',
+      headerClasses: 'tableHeader tableNarrowColumn',
+      formatter: UserStatusFormatter,
+      sort: true,
+    },
+    {
+      dataField: 'state',
+      text: 'STATE',
+      headerClasses: 'tableHeader tableNarrowColumn',
+      sort: true,
+    },
+    {
+      dataField: 'city',
+      text: 'CITY',
+      headerClasses: 'tableHeader tableNarrowColumn',
+      sort: true,
+    },
+  ];
 
-  componentDidMount() {
-    fetch(`${Constants.apiRootURL}/users`)
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            users: result,
-            filteredUsers: result,
-            fetchingUsers: false,
-          });
-        },
-        (error) => {
-          this.setState({
-            fetchingUsers: false,
-            error,
-          });
-        },
-      );
-  }
+  useEffect(() => {
+    async function getUserData() {
+      const response = await comm.get('/admin/users', token, null);
+      const userList = response.data;
+      userList.map((user) => {
+        user.name = `${user.firstName} ${user.lastName}`;
+      });
+      setUsers(userList);
+      setFilteredUsers(userList);
+      setFetchingUsers(false);
+    }
+    getUserData();
+  }, []);
 
   /**
    * Function to update Userdata based on particular Id
@@ -112,164 +103,138 @@ class UserManager extends Component {
    * @param {Updated record value} updated_records
    */
 
-  updateUserData(user_id, updated_record) {
-    const newusers = [...this.state.users];
-    const newfiltered_users = [...this.state.filteredUsers];
+  const updateUserData = (user_id, updated_record) => {
+    const newusers = [...users];
+    const newfiltered_users = [...filteredUsers];
 
     // Finding the element index of the user_id to update
-    const elementsIndexInFilteredUsers = this.state.filteredUsers.findIndex((element) => element.user_id === user_id);
-    const elementsIndexInUsers = this.state.users.findIndex((element) => element.user_id === user_id);
+    const elementsIndexInFilteredUsers = filteredUsers.findIndex((element) => element.id === user_id);
+    const elementsIndexInUsers = users.findIndex((element) => element.id === user_id);
 
     // Updating the array based on the status
-    if (updated_record.status === Constants.userStatus.APPROVED) {
-      newusers[elementsIndexInUsers] = { ...newusers[elementsIndexInUsers], status: updated_record.status };
-      newfiltered_users[elementsIndexInFilteredUsers] = { ...newfiltered_users[elementsIndexInFilteredUsers], status: updated_record.status };
-    } else {
+    if (updated_record.userStatus === Constants.userStatus.NEWUSER) {
+      newusers[elementsIndexInUsers] = { ...newusers[elementsIndexInUsers], userStatus: updated_record.userStatus };
+      newfiltered_users[elementsIndexInFilteredUsers] = { ...newfiltered_users[elementsIndexInFilteredUsers], userStatus: updated_record.userStatus };
+    } else if(updated_record.userStatus === Constants.userStatus.REJECTED){
       newusers.splice(elementsIndexInUsers, 1);
       newfiltered_users.splice(elementsIndexInFilteredUsers, 1);
     }
-    this.setState({
-      users: newusers,
-      filteredUsers: newfiltered_users,
-    });
-  }
+
+    setUsers(newusers);
+    setFilteredUsers(newfiltered_users);
+  };
 
   /**
    * Function to apply filter to user data
    * @param {Value of Filter} filterValue
    * @param {Search Filter to apply search on} filterType
    */
-  updateSearchFilter(filterValue, filterType) {
-    // Update the state with the filter value before filtering the data
-    this.setState(
-      {
-        [filterType]: filterValue,
-      },
-      () => {
-        const stateObj = { ...this.state };
-        // Apply the search filters to original users data
-        // TODO: room for optimize by filtering on existing filtered data
-        const filteredUsers = this.state.users.filter((user) => {
-          const searchTextFilter = stateObj.searchText
-            ? user.name
-              .toLowerCase()
-              .includes(stateObj.searchText.toLowerCase())
-              || user.email
-                .toLowerCase()
-                .includes(stateObj.searchText.toLowerCase())
-              || user.number
-                .toLowerCase()
-                .includes(stateObj.searchText.toLowerCase())
-            : true;
-          const userStatusFilter = stateObj.userStatusFilter
-            ? user.status === stateObj.userStatusFilter
-            : true;
-          const locationFilter = stateObj.locationFilter
-            ? user.state === stateObj.locationFilter
-              || user.city === stateObj.locationFilter
-            : true;
-          const userTypeFilter = stateObj.userTypeFilter
-            ? user.type === stateObj.userTypeFilter
-            : true;
-          return (
-            searchTextFilter
-            && userStatusFilter
-            && locationFilter
-            && userTypeFilter
-          );
-        });
-
-        // Update the filtered data in the state
-        this.setState({
-          filteredUsers,
-        });
-      },
-    );
-  }
-
+  const updateSearchFilter = (filterValue, filterType) => {
+    setFilters({...filters,[filterType]: filterValue})
+  };
+useEffect(()=>{
+  const filteredList = users.filter((user) => {
+    const searchTextFilter  = filters.searchText
+      ? user.name
+        .toLowerCase()
+        .includes(filters.searchText?.toLowerCase())
+        || user.email
+          .toLowerCase()
+          .includes(filters.searchText?.toLowerCase())
+        || user.mobileNumber
+          .toLowerCase()
+          .includes(filters.searchText?.toLowerCase())
+      : true;
+    const userStatus = filters.userStatusFilter
+      ? user.userStatus === filters.userStatusFilter
+      : true;
+    const location = filters.locationFilter
+      ? user.state === filters.locationFilter
+        || user.city === filters.locationFilter
+      : true;
+    const userType = filters.userTypeFilter
+      ? user.userRole === filters.userTypeFilter
+      : true;
+      return (searchTextFilter && userStatus && location && userType)
+  });
+  setFilteredUsers(filteredList);
+},[filters])
   /**
    * Function to handle text filter
    * @param {The input element} event
    */
-  handleSearchFilterChange(event) {
-    this.updateSearchFilter(event.target.value, 'searchText');
-  }
+  const handleSearchFilterChange = (event) => {
+    updateSearchFilter(event.target.value, 'searchText');
+  };
 
   /**
    * Function to clear search filters
    */
-  clearSearchFilters() {
-    this.setState({
-      filteredUsers: this.state.users,
-      searchText: '',
-      userStatusFilter: '',
-      locationFilter: '',
-      userTypeFilter: '',
-    });
-  }
+  const clearSearchFilters = () => {
 
-  renderUserTable() {
-    return (
-      <div className="pageContent">
-        <div className="tableFilterContainer">
-          <img src={deleteIcon} alt="Clear" onClick={this.clearSearchFilters} />
-          <CustomTextBox
-            value={this.state.searchText}
-            label="searchText"
-            onChange={this.handleSearchFilterChange}
-            placeholder="Search"
-          />
-          <CustomDropdown
-            values={Object.values(Constants.userStatus)}
-            title="Select Status"
-            onSelectCallback={this.updateSearchFilter}
-            filterType="userStatusFilter"
-            selectedValue={this.state.userStatusFilter}
-          />
-          <CustomDropdown
-            values={Constants.states}
-            title="Select Location"
-            onSelectCallback={this.updateSearchFilter}
-            filterType="locationFilter"
-            selectedValue={this.state.locationFilter}
-          />
-          <CustomDropdown
-            values={Object.values(Constants.userTypes)}
-            title="Select User Type"
-            onSelectCallback={this.updateSearchFilter}
-            filterType="userTypeFilter"
-            selectedValue={this.state.userTypeFilter}
-          />
-        </div>
-        <DataTable
-          keyField="user_id"
-          columns={tableColumns}
-          data={this.state.filteredUsers}
-          updateUserData={this.updateUserData}
+    setFilteredUsers(users);
+    setFilters({searchText:'',userStatusFilter:'',locationFilter:'',userTypeFilter:''});
+  };
+
+  const renderUserTable = () => (
+    <div className="pageContent">
+      <div className="tableFilterContainer">
+        <img src={deleteIcon} alt="Clear" onClick={clearSearchFilters} />
+        <CustomTextBox
+          value={filters.searchText}
+          label="searchText"
+          onChange={handleSearchFilterChange}
+          placeholder="Search"
+        />
+        <CustomDropdown
+          values={Object.values(Constants.userStatus)}
+          title="Select Status"
+          onSelectCallback={updateSearchFilter}
+          filterType="userStatusFilter"
+          selectedValue={filters.userStatusFilter}
+        />
+        <CustomDropdown
+          values={Constants.states}
+          title="Select Location"
+          onSelectCallback={updateSearchFilter}
+          filterType="locationFilter"
+          selectedValue={filters.locationFilter}
+        />
+        <CustomDropdown
+          values={Object.values(Constants.userTypes)}
+          title="Select User Type"
+          onSelectCallback={updateSearchFilter}
+          filterType="userTypeFilter"
+          selectedValue={filters.userTypeFilter}
         />
       </div>
-    );
-  }
+      <DataTable
+        keyField="user_id"
+        columns={tableColumns}
+        data={filteredUsers}
+        updateUserData={updateUserData}
+        token={token}
+      />
+    </div>
+  );
 
-  render() {
-    return (
-      <div className="pageContainer">
-        <div className="pageHeader">
-          <h4>User Manager</h4>
-        </div>
-        {
-            this.state.error
-              ? `${this.state.error}`
-              : ''
-        }
-        {
-            this.state.fetchingUsers
-              ? 'Fetching Users...'
-              : this.renderUserTable()
-        }
+  return (
+    <div className="pageContainer">
+      <div className="pageHeader">
+        <h4>User Manager</h4>
       </div>
-    );
-  }
+      {
+          error
+            ? `${error}`
+            : ''
+      }
+      {
+          fetchingUsers
+            ? 'Fetching Users...'
+            : renderUserTable()
+      }
+    </div>
+  );
 }
 
 export default UserManager;

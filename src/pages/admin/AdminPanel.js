@@ -15,7 +15,7 @@ const Main = styled.main`
         position: relative;
         //overflow: scroll;
         transition: all .15s;
-        margin-left: ${props => (props.expanded ? 240 : 64)}px;
+        margin-left: ${(props) => (props.expanded ? 240 : 64)}px;
     `;
 
 function AdminPanel(props) {
@@ -39,7 +39,6 @@ function AdminPanel(props) {
     };
   }, [props]);
 
-
   const onToggle = (expanded) => {
     setExpanded(expanded);
   };
@@ -48,7 +47,7 @@ function AdminPanel(props) {
     return new Date().getFullYear();
   };
 
-  return(
+  return (
     <div>
       <AdminNavbar />
       <SideNav
@@ -70,46 +69,6 @@ function AdminPanel(props) {
             </NavIcon>
             <NavText className="side-navbar-option" title="User Manager">
               User Manager
-            </NavText>
-          </NavItem>
-          <NavItem eventKey="manageNews">
-            <NavIcon>
-              <img src={newsIcon} alt="news" />
-            </NavIcon>
-            <NavText className="side-navbar-option" title="News Manager">
-              News Manager
-            </NavText>
-          </NavItem>
-          <NavItem eventKey="manageForms">
-            <NavIcon>
-              <img src={formIcon} alt="form" />
-            </NavIcon>
-            <NavText className="side-navbar-option" title="Form Manager">
-              Form Manager
-            </NavText>
-          </NavItem>
-          <NavItem eventKey="feedbackManager">
-            <NavIcon>
-              <img src={feedbackIcon} alt="feedback" />
-            </NavIcon>
-            <NavText className="side-navbar-option" title="Feedback Manager">
-              Feedback Manager
-            </NavText>
-          </NavItem>
-          <NavItem eventKey="socialMediaManager">
-            <NavIcon>
-              <img src={socialMediaIcon} alt="feedback" />
-            </NavIcon>
-            <NavText className="side-navbar-option" title="Social Media Manager">
-              Social Media Manager
-            </NavText>
-          </NavItem>
-          <NavItem eventKey="forumManager">
-            <NavIcon>
-              <img src={forumIcon} alt="forum" />
-            </NavIcon>
-            <NavText className="side-navbar-option">
-              Forum Manager
             </NavText>
           </NavItem>
         </SideNav.Nav>

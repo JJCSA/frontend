@@ -4,13 +4,17 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 import { Modal, Button } from 'react-bootstrap';
 import UserModal from '../userModal/UserModal';
 import './DataTable.scss';
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import 'react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css';
+import 'react-bootstrap-table2-filter/dist/react-bootstrap-table2-filter.min.css';
+
 
 class DataTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
       sizePerPage: 10,
-      modalInfo: [],
+      modalInfo: {},
       showModal: false,
       show: false,
     };
@@ -21,7 +25,7 @@ class DataTable extends Component {
 
   updateUserTable(result) {
     this.handleClose();
-    this.props.updateUserData(this.state.modalInfo.user_id, result);
+    this.props.updateUserData(this.state.modalInfo.id, result);
   }
 
   handleClose() {
@@ -75,7 +79,7 @@ class DataTable extends Component {
     const ModalContent = () => (
       <Modal size="lg" show={this.state.show} onHide={this.handleClose} dialogClassName="my-modal">
         <Modal.Body>
-          <UserModal data={this.state.modalInfo} onsubmitUpdate={this.updateUserTable} />
+          <UserModal data={this.state.modalInfo} onsubmitUpdate={this.updateUserTable} token={this.props.token} />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={this.handleClose}> Close</Button>
@@ -86,6 +90,7 @@ class DataTable extends Component {
     return (
       <div>
         <BootstrapTable
+          bootstrap4
           keyField={this.props.keyField}
           data={this.props.data}
           columns={this.props.columns}

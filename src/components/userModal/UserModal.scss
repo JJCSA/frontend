@@ -10,8 +10,8 @@
     background-color: rgba(255,64,32, 0.8)!important;
     width:100%;
   }
-  
-  .Btn-accept {
+
+.Btn-accept {
     background-color: $green!important;
     margin-right: 10px;
     width:100%;
@@ -58,4 +58,27 @@
     color: $charcoalBlack;
     font-weight: $lightBold;
     font-size: $titleSize;
+}
+.admin-checkbox{
+  transform: scale(1.25);
+  margin-left: 10px;
+}
+.admin-checkbox:after {
+    content: " ";
+    background-color: #4CB576 !important;
+    color: #fff;
+    display: inline-block;
+    visibility: visible;
+    padding: 0px 3px;
+    border-radius: 3px;
+}
+.admin-checkbox:checked:after {
+    content: "\2714";
+    border-radius: 3px;
+    height: 13px;
+    display: block;
+    width: 14px;
+    text-align: center;
+    font-size: 9px;
+    color: white;
 }

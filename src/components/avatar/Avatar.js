@@ -4,9 +4,9 @@ import Image from 'react-bootstrap/Image';
 
 import defaultAvatar from '../../assets/images/avatar-default.webp';
 
-const Avatar = ({ imgSrc = defaultAvatar, avatarSize = 'small' }) => (
+const Avatar = ({ imgSrc, avatarSize = 'small' }) => (
   <div className={avatarSize === 'small' ? 'smallavatarContainer' : 'largeavatarContainer'}>
-    <Image alt="userImage" src={imgSrc} roundedCircle />
+    <Image alt="userImage" src={imgSrc || defaultAvatar} roundedCircle />
   </div>
 );
 
