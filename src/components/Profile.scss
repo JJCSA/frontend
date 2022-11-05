@@ -1,0 +1,31 @@
+.PROFILE.container {
+  padding: 24px;
+
+  .profile-image-container {
+    .profile-image {
+      height: 108px;
+      width: 108px;
+    }
+  }
+
+  .form-control, .custom-select {
+    margin-bottom: 16px;
+  }
+
+  .save-button {
+    margin-top: 8px;
+    width: 156px;
+    background: #1E2350;
+    color: white;
+    border: none;
+  }
+
+  .reset-button {
+    margin-top: 8px;
+    width: 156px;
+    background: #E5E9F2;
+    margin-left: 8px;
+    color: black;
+    border: none;
+  }
+}

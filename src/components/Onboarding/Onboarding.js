@@ -66,10 +66,10 @@ function Onboarding() {
       if (reqBody.userStudent) {
         reqBody.workExperience = [];
       }
-      comm.sendPut('/user/profile', token, formData).then((newProfile) => {
+      comm.sendPut('/user/profile', token, reqBody).then((newProfile) => {
         setGlobalState({
           ...globalState,
-          profile: newProfile,
+          profile: newProfile.data,
         });
       });
     }
@@ -112,7 +112,7 @@ function Onboarding() {
           </div>
           <div className="form-row mt-2">
             <div className="col">
-              <select className="custom-select" value={countryISO} onChange={(event) => { setCountryISO(event.target.value); handleInputChange({ target: { name: 'state', value: '' } }, { target: { name: 'city', value: '' } }); }} required>
+              <select name="country" className="custom-select" value={countryISO} onChange={(event) => { setCountryISO(event.target.value); handleInputChange(event, { target: { name: 'state', value: '' } }, { target: { name: 'city', value: '' } }); }} required>
                 <option value="" disabled>Country *</option>
                 {Country.getAllCountries().map((country) => (
                   <option key={country.isoCode} value={country.isoCode}>{country.name}</option>
@@ -169,7 +169,7 @@ function Onboarding() {
           <input name="education.0.specialization" type="text" className="form-control mt-2" placeholder="Specialization *" value={formData.education[0].specialization} onChange={handleInputChange} required />
           <input name="education.0.degree" type="text" className="form-control mt-2" placeholder="Degree *" value={formData.education[0].degree} onChange={handleInputChange} required />
           <select name="education.0.gradMonth" className="custom-select mt-2" value={formData.education[0].gradMonth} onChange={handleInputChange} required>
-            <option value="" disabled>City *</option>
+            <option value="" disabled>Grad Month *</option>
             {months.map((month, index) => (
               <option key={month} value={index}>{month}</option>
             ))}
