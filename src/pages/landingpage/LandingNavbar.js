@@ -37,6 +37,26 @@ function LandingNavbar() {
           >
             JJC Mission
           </NavHashLink>
+
+          <NavHashLink
+            className="nav-item nav-link active navbarhover px-3"
+            to="/#about-us"
+            smooth
+            activeClassName="activeLink"
+          >
+            About Us
+          </NavHashLink>
+
+          <NavHashLink
+            className="nav-item nav-link active navbarhover px-3"
+            to="/#mission-vision"
+            smooth
+            activeClassName="activeLink"
+          >
+            VISION AND MISSION
+          </NavHashLink>
+
+
           {/*<NavHashLink*/}
           {/*  className="nav-item nav-link active navbarhover px-3"*/}
           {/*  to="/#about-us"*/}
@@ -53,6 +73,7 @@ function LandingNavbar() {
           {/*>*/}
           {/*  Ongoing Projects*/}
           {/*</NavHashLink>*/}
+
           <NavHashLink
             className="nav-item nav-link active navbarhover px-3"
             to="/#news-feed"
@@ -61,6 +82,7 @@ function LandingNavbar() {
           >
             News Updates
           </NavHashLink>
+          
           <NavHashLink
             className="nav-item nav-link active navbarhover px-3"
             to="/#contact-us"
@@ -69,6 +91,7 @@ function LandingNavbar() {
           >
             Contact Us
           </NavHashLink>
+          
           <a
             className=" jjclink"
             href="https://www.jainjagruti.com/"
