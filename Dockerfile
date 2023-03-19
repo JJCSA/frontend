@@ -18,7 +18,7 @@ WORKDIR /app
 COPY package*.json /app/
 
 # Install the NPM dependencies
-RUN npm ci
+RUN npm install
 
 # Copy ALL files from current directory to working directory in image
 COPY ./ /app/
