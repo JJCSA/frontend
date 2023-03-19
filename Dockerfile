@@ -5,7 +5,7 @@ ARG ARCH=
 # 2) nginx stage to serve frontend assets
 
 # Name the node stage "BUILDER"
-FROM ${ARCH}/node:10 as BUILDER
+FROM ${ARCH}/node:14 as BUILDER
 
 ARG npm_config_loglevel=error
 
