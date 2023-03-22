@@ -6,8 +6,8 @@ import './App.scss';
 import { AuthProvider } from 'react-auth-kit';
 import refreshApi from './helpers/refreshApi';
 import GlobalContext from './store/GlobalContext';
-import Routes from './Routes';
-<h1>React Responsive - a guide</h1>;
+import Routes from './Routes'; 
+<h1>React Responsive - a guide</h1>
 
 //Reponsive
 import { useMediaQuery } from "react-responsive";
