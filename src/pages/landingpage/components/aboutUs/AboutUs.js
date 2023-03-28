@@ -4,7 +4,7 @@ import './AboutUs.scss';
 
 const AboutUs = () => {
   return (
-    //main mission & Vision
+    <div className='AboutUsPage'> 
     <div id="about-us" className="AboutUS">
         <p className='content'>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin accumsan risus et porta sagittis.
@@ -28,6 +28,7 @@ const AboutUs = () => {
           <hr className="about-us" />
         </div>
 
+    </div>
     </div>
      
      );

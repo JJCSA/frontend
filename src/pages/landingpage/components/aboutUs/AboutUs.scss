@@ -1,5 +1,7 @@
 @import "../../../../utils/variables.scss";
 
+.AboutUsPage{
+
 .AboutUS
 {
     border-radius: [object Object]px;
@@ -96,44 +98,7 @@
     width: 2rem;
     margin-top: -2px;
   }
-// .knowMoreBox
-// {
-//     position: absolute;
-//     width: 112px;
-//     height: 48px;
-//     left: 560px;
-//     top: 300px;
-    
-//     background: #FFFFFF;
-//     border: 1px solid #FF3E06;
-//     border-radius: 8px;
 
-// }
-
-
-// .bitmapImage
-// {
-//     position: absolute;
-//     width: 795px;
-//     height: 355px;
-//     left: 42px;
-//     top: 800px;
-//     background: url(../../../../assets/images/Bitmap.png);
-//     border-radius: 0px;
-// }
-
-// .maskImage
-// {
-//     /* Mask */
-
-//     position: absolute;
-//     width: 624px;
-//     height: 341px;
-//     left: 84px;
-//     top: 804px;
-    
-//     background: #D8D8D8;
-//     border-radius: 8px;
-// }
+}
 
 
