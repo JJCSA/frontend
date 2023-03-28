@@ -13,6 +13,7 @@ import * as Constants from '../../utils/constants';
 import PhoneNumberFormatter from '../phoneNumberFormatter/PhoneNumberFormatter';
 import './UserModal.scss';
 import comm from '../../helpers/communication';
+import GlobalContext  from '../../../src/store/GlobalContext'
 
 const ACCEPT = 'Accept';
 const REJECT = 'Reject';
@@ -23,6 +24,7 @@ class UserModal extends Component {
       status: '',
       rejectReason: '',
       pendingAction: false,
+      isAdmin: this.props.data.userRole === 'ADMIN' ? true : false
     };
     this.changeStatus = this.changeStatus.bind(this);
     this.setRejectReason = this.setRejectReason.bind(this);
@@ -31,8 +33,10 @@ class UserModal extends Component {
     this.updateUserRole = this.updateUserRole.bind(this);
   }
 
+  static contextType = GlobalContext;
+
   setRejectReason(e) {
-    this.setState({ rejectReason: e.target.value });
+    this.setState({...this.state, rejectReason: e.target.value });
   }
 
   async getCommunityProof(e) {
@@ -52,24 +56,26 @@ class UserModal extends Component {
   }
 
   changeStatus(status) {
-    this.setState({ status, pendingAction: true });
+    this.setState({...this.state, status, pendingAction: true });
     if (status === ACCEPT) {
-      this.setState({ status: Constants.userStatus.NEWUSER });
-      this.setState({ rejectReason: '' });
+      this.setState({...this.state, status: Constants.userStatus.NEWUSER });
+      this.setState({...this.state, rejectReason: '' });
     } else {
-      this.setState({ status: Constants.userStatus.REJECTED });
+      this.setState({...this.state, status: Constants.userStatus.REJECTED });
     }
   }
 
-  async updateUserRole(e) {
-    // const params = {
-    //   userId: this.props.data.id,
-    //   status: this.state.status,
-    // };
-    console.log(this.props.data.userRole);
+  updateUserRole(e) {
+    e.preventDefault();
+    console.log("State before:", this.state);
+     this.setState({...this.state, isAdmin: !this.state.isAdmin }, () => {
+      console.log("State updated:", this.state);
+      // console.log("this.props.data.userRole: ", this.props.data.userRole === 'ADMIN' ? true : false);
+    });
   }
 
   render() {
+    const globalState = this.context;
     return (
       <div className="modal-user">
         <Container fluid>
@@ -232,14 +238,14 @@ class UserModal extends Component {
                     </div>
                   </Col>
                 </Row>
-                {(this.props.data.userStatus === Constants.userStatus.ACTIVE) && (this.props.data.userRole === Constants.userTypes.SUPERADMIN) ? (
+                {(this.props.data.userStatus === Constants.userStatus.ACTIVE) && (this.props.data.userRole !== Constants.userTypes.SUPERADMIN) && (globalState.globalState.profile.userRole === Constants.userTypes.SUPERADMIN) ? (
                   <Row>
                     <div className="info-container mt-1 rounded mb-3">
                       <div className="divOutside">
                         <div className="mt-3 ml-2 mb-3">
                           <img src={AdminIcon} alt="Info" />
                           <span className="info-container-headers"> Assign Admin Role</span>
-                          <input type="checkbox" className="admin-checkbox" onChange={this.updateUserRole} />
+                          <input type="checkbox" checked={this.state.isAdmin} className="admin-checkbox" onChange={(e) => this.updateUserRole(e)}  />
                         </div>
                       </div>
                     </div>
@@ -249,12 +255,38 @@ class UserModal extends Component {
                     <>
                     </>
                   )}
+                {/* {this.props.data.userRole === 'ADMIN' ? true : false !== this.state.isAdmin ?
+                <div className='row info-container' style={{ border: '1px solid #ccc', borderRadius: '4px', padding: '10px', backgroundColor: '#f7f7f7' }}>
+                  <span className="info-container-headers"> Are you sure you want to continue? </span>
+                  <button style={{
+                    marginLeft: '8px',
+                    marginRight: '8px',
+                    padding: '8px 16px',
+                    backgroundColor: '#4CAF50',
+                    color: 'white',
+                    borderRadius: '4px',
+                    border: 'none',
+                    cursor: 'pointer',
+                    fontSize: '16px'
+                  }} onClick={() => console.log("Yes button clicked")}>Yes</button>
+                  <button style={{
+                    padding: '8px 16px',
+                    backgroundColor: '#f44336',
+                    color: 'white',
+                    borderRadius: '4px',
+                    border: 'none',
+                    cursor: 'pointer',
+                    fontSize: '16px'
+                  }} onClick={() => console.log("No button clicked")}>No</button>
+                </div> : "" } */}
               </>
-            ) }
+            )}
         </Container>
       </div>
     );
   }
 }
+
+UserModal.contextType = GlobalContext;
 
 export default UserModal;
