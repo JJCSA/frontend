@@ -12,12 +12,6 @@ const AboutUs = () => {
         mollis dolor. Sed aliquam velit ac elit commodo tincidunt. Suspendisse egestas erat quam, id
         </p>
         <div className='aboutUsImage'>
-          {/* <div className='bitmapImage'>
-
-          </div>
-          <div className='maskImage'>
-
-          </div> */}
           
         </div>
         <div className='knowMoreBox'>
