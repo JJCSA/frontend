@@ -118,6 +118,11 @@ function UserManager() {
     } else if(updated_record.userStatus === Constants.userStatus.REJECTED){
       newusers.splice(elementsIndexInUsers, 1);
       newfiltered_users.splice(elementsIndexInFilteredUsers, 1);
+      
+      //Updating UserRole by SuperAdmin if the user is Active
+    } else if (updated_record.userStatus === Constants.userStatus.ACTIVE) {
+      newusers[elementsIndexInUsers] = { ...newusers[elementsIndexInUsers], userRole: updated_record.userRole };
+      newfiltered_users[elementsIndexInFilteredUsers] = { ...newfiltered_users[elementsIndexInFilteredUsers], userRole: updated_record.userRole };
     }
 
     setUsers(newusers);
