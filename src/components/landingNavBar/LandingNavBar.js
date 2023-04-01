@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { Link as HashLink } from 'react-scroll';
-import { Link } from 'react-router-dom';
-import { useIsAuthenticated, useSignOut } from 'react-auth-kit';
-import { jjcIcon, UserDropDownIcon } from '../../assets/index';
+import React from 'react';
+import {Link as HashLink} from 'react-scroll';
+import {Link} from 'react-router-dom';
+import {useIsAuthenticated, useSignOut} from 'react-auth-kit';
+import {jjcIcon, UserDropDownIcon} from '../../assets/index';
 import './LandingNavBar.scss';
 import Avatar from '../avatar/Avatar';
-import { OverlayTrigger, Button, Popover } from 'react-bootstrap';
+import {OverlayTrigger, Popover} from 'react-bootstrap';
 
 // eslint-disable-next-line react/prop-types
 function LandingNavBar() {
@@ -71,7 +71,7 @@ function LandingNavBar() {
             to="testimonials"
             spy
             smooth
-                        // offset={-70}
+            // offset={-70}
             duration={1000}
           >
             Testimonials
@@ -134,9 +134,13 @@ function LandingNavBar() {
   const popover = (
     <Popover>
       <Popover.Content className="user-profile-dropdown-content">
-        <div className="p-1"><Link to="/profile">Profile</Link></div>
-        <hr className="m-0"/>
-        <div className="p-1" onClick={signOut}>Logout</div>
+        <div className="p-1">
+          <Link to="/profile">Profile</Link>
+        </div>
+        <hr className="m-0" />
+        <div className="p-1" onClick={signOut}>
+          Logout
+        </div>
       </Popover.Content>
     </Popover>
   );
@@ -216,15 +220,17 @@ function LandingNavBar() {
           <Avatar />
           <h6 className="m-3">Hi, Test</h6>
           <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
-            <img src={UserDropDownIcon} alt="UserDropdownIcon" className="mr-sm-5 user-profile-dropdown-icon"/>
+            <img
+              src={UserDropDownIcon}
+              alt="UserDropdownIcon"
+              className="mr-sm-5 user-profile-dropdown-icon"
+            />
           </OverlayTrigger>
         </form>
       </div>
     </nav>
   );
 
-  return (
-    <>{isAuthenticated() ? userNavbar : landingNavbar}</>
-  );
+  return <>{isAuthenticated() ? userNavbar : landingNavbar}</>;
 }
 export default LandingNavBar;

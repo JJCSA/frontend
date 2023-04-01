@@ -1,29 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { BiCopyright } from 'react-icons/bi';
-import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
+import React, {useState, useEffect} from 'react';
+import {BiCopyright} from 'react-icons/bi';
+import SideNav, {NavItem, NavIcon, NavText} from '@trendmicro/react-sidenav';
 import styled from 'styled-components';
-import { Routes as Switch, Route, useNavigate, Outlet } from 'react-router-dom';
-import AdminHomepage from './AdminHomepage';
-import UserManager from './UserManager';
-import {
-  barChartIcon, userIcon, newsIcon, formIcon, feedbackIcon, socialMediaIcon, forumIcon
-} from '../../assets/index';
+import {useNavigate, Outlet} from 'react-router-dom';
+import {barChartIcon, userIcon} from '../../assets/index';
 import AdminNavbar from './AdminNavbar';
 import './AdminPanel.scss';
 
 const Main = styled.main`
-        position: relative;
-        //overflow: scroll;
-        transition: all .15s;
-        margin-left: ${(props) => (props.expanded ? 240 : 64)}px;
-    `;
+  position: relative;
+  //overflow: scroll;
+  transition: all 0.15s;
+  margin-left: ${props => (props.expanded ? 240 : 64)}px;
+`;
 
 function AdminPanel(props) {
   const navigate = useNavigate();
   const [selected, setSelected] = useState('dashboard');
   const [expanded, setExpanded] = useState(false);
 
-  const onSelect = (selected) => {
+  const onSelect = selected => {
     setSelected(selected);
     const to = '/admin/' + selected;
     navigate(to);
@@ -39,7 +35,7 @@ function AdminPanel(props) {
     };
   }, [props]);
 
-  const onToggle = (expanded) => {
+  const onToggle = expanded => {
     setExpanded(expanded);
   };
 
@@ -52,7 +48,9 @@ function AdminPanel(props) {
       <AdminNavbar />
       <SideNav
         className="side-navbar-custom"
-        onSelect={onSelect} onToggle={onToggle}>
+        onSelect={onSelect}
+        onToggle={onToggle}
+      >
         <SideNav.Toggle />
         <SideNav.Nav selected={selected}>
           <NavItem eventKey="dashboard">
