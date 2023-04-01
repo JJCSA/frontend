@@ -42,7 +42,7 @@ const UserModal = (props) => {
     const params = {
       userId: props.data.id,
       status,
-    };  
+    };
     const response = await comm.sendPut('/admin/users/status', props.token, params);
     props.onsubmitUpdate({ ...props.data, userStatus: status });
   };
@@ -53,10 +53,24 @@ const UserModal = (props) => {
     window.open(response.data, '_blank');
   };
 
-  const updateUserRole = (e) => {
-    e.preventDefault();
-    console.log('State before:', isAdmin);
-    setIsAdmin(e.target.checked);
+  const updateUserRole = async (e) => {
+    if (e === 'no') {
+      setIsAdmin(props.data.userRole === 'ADMIN')
+    }
+    else if (e === 'yes') {
+      if (props.data.userRole === 'ADMIN') {
+        await comm.sendDelete(`/super-admin/user/${props.data.id}/role/ADMIN`, props.token, '').then(() => {
+          props.onsubmitUpdate({ ...props.data, userRole: 'USER' });
+        })
+      } else {
+        const params = {
+          "role": "ADMIN"
+        };
+        await comm.sendPost(`/super-admin/user/${props.data.id}/role`, props.token, params).then(() => {
+          props.onsubmitUpdate({ ...props.data, userRole: 'ADMIN' });
+        })
+      }
+    }
   };
 
   return (
@@ -234,36 +248,18 @@ const UserModal = (props) => {
                             type="checkbox"
                             checked={isAdmin}
                             className="admin-checkbox"
-                            onChange={updateUserRole}
+                            onChange={(e) => setIsAdmin(e.target.checked)}
                           /> </div>
                       </div>
                     </div>
                   </Row>
                 )}
-              {/* {props.data.userRole === 'ADMIN' ? true : false !== isAdmin ?
-            <div className='row info-container' style={{ border: '1px solid #ccc', borderRadius: '4px', padding: '10px', backgroundColor: '#f7f7f7' }}>
-              <span className="info-container-headers"> Are you sure you want to continue? </span>
-              <button style={{
-                marginLeft: '8px',
-                marginRight: '8px',
-                padding: '8px 16px',
-                backgroundColor: '#4CAF50',
-                color: 'white',
-                borderRadius: '4px',
-                border: 'none',
-                cursor: 'pointer',
-                fontSize: '16px'
-              }} onClick={() => console.log("Yes button clicked")}>Yes</button>
-              <button style={{
-                padding: '8px 16px',
-                backgroundColor: '#f44336',
-                color: 'white',
-                borderRadius: '4px',
-                border: 'none',
-                cursor: 'pointer',
-                fontSize: '16px'
-              }} onClick={() => console.log("No button clicked")}>No</button>
-            </div> : "" } */}
+              {props.data.userRole === 'ADMIN' !== isAdmin ?
+                <div className='row info-container' style={{ border: '1px solid #ccc', borderRadius: '4px', padding: '10px', backgroundColor: '#f7f7f7' }}>
+                  <span className="info-container-headers"> Are you sure you want to continue? </span>
+                  <button className='yes-button' onClick={() => updateUserRole("yes")}>Yes</button>
+                  <button className='no-button' onClick={() => updateUserRole("no")}>No</button>
+                </div> : ""}
             </>
           )}
       </Container>
