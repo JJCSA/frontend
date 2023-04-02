@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react';
-import {BiCopyright} from 'react-icons/bi';
-import SideNav, {NavItem, NavIcon, NavText} from '@trendmicro/react-sidenav';
+import React, { useState, useEffect } from 'react';
+import { BiCopyright } from 'react-icons/bi';
+import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import styled from 'styled-components';
-import {useNavigate, Outlet} from 'react-router-dom';
-import {barChartIcon, userIcon} from '../../assets/index';
+import { useNavigate, Outlet } from 'react-router-dom';
+import { barChartIcon, userIcon } from '../../assets/index';
 import AdminNavbar from './AdminNavbar';
 import './AdminPanel.scss';
 
