@@ -1,11 +1,11 @@
 import React from 'react';
 import './AboutUs.scss';
+import withResponsive from '../../../responsive/withResponsive';
 
 
 const AboutUs = () => {
   return (
     <div className='AboutUsPage'> 
-    //checking
     <div id="about-us" className="AboutUS">
         <p className='content'>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin accumsan risus et porta sagittis.
@@ -36,4 +36,4 @@ const AboutUs = () => {
    
 }
 
-export default AboutUs;
+export default  withResponsive(AboutUs);

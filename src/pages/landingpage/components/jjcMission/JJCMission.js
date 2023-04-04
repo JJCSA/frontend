@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import withResponsive from "../../../responsive/withResponsive";
 
 import {
   jjcConnectIcon,
@@ -142,4 +143,4 @@ function JJCMission() {
     </div>
   );
 }
-export default JJCMission;
+export default withResponsive(JJCMission);

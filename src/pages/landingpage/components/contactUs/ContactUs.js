@@ -1,6 +1,7 @@
 import React from 'react';
 import { emailIcon } from '../../../../assets/index';
 import './ContactUs.scss';
+import withResponsive from '../../../responsive/withResponsive';
 
 function ContactUs() {
   return (
@@ -70,4 +71,4 @@ function ContactUs() {
   );
 }
 
-export default ContactUs;
+export default withResponsive(ContactUs);

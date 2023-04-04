@@ -1,5 +1,6 @@
 import React from 'react';
 import './MissionVision.scss';
+import withResponsive from '../../../responsive/withResponsive';
 
 
 const MissionVision = () => {
@@ -55,4 +56,4 @@ const MissionVision = () => {
   );
 }
 
-export default MissionVision;
+export default withResponsive(MissionVision);
