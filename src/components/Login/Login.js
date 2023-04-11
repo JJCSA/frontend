@@ -15,9 +15,9 @@ function Login() {
   const isAuthenticated = useIsAuthenticated();
   const signIn = useSignIn();
   const [showPassword, setShowPassword] = useState(false);
-  if (isAuthenticated()) return (<Navigate to="/" replace />);
-  
   const showNotification = useNotification();
+  
+  if (isAuthenticated()) return (<Navigate to="/" replace />);
   
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -33,7 +33,7 @@ function Login() {
       });
       showNotification('Login successful!', 'success');
     }).catch((err) => {
-      showNotification('Login Failed!', 'error');
+      showNotification(err?.response?.data?.error_description ? err?.response?.data?.error_description : "Login Failed!" , 'error');
       console.log(err);
     });
   };
