@@ -8,15 +8,17 @@ import {
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import GlobalContext from '../../store/GlobalContext';
 import { login } from '../UserFunctions';
+import { useNotification } from '../../utils/toast';
 
 function Login() {
   const { globalState, setGlobalState } = useContext(GlobalContext);
   const isAuthenticated = useIsAuthenticated();
   const signIn = useSignIn();
   const [showPassword, setShowPassword] = useState(false);
-
   if (isAuthenticated()) return (<Navigate to="/" replace />);
-
+  
+  const showNotification = useNotification();
+  
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
@@ -29,7 +31,9 @@ function Login() {
         ...globalState,
         profile: user.authState,
       });
+      showNotification('Login successful!', 'success');
     }).catch((err) => {
+      showNotification('Login Failed!', 'error');
       console.log(err);
     });
   };

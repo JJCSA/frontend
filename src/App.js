@@ -7,12 +7,14 @@ import { AuthProvider } from 'react-auth-kit';
 import refreshApi from './helpers/refreshApi';
 import GlobalContext from './store/GlobalContext';
 import Routes from './Routes';
+import NotificationProvider from './utils/toast';
 
 function App() {
   const [globalState, setGlobalState] = useState({ profile: null });
 
   return (
     <GlobalContext.Provider value={{ globalState, setGlobalState }}>
+      <NotificationProvider>
       <AuthProvider
         authType="cookie"
         authName="_auth"
@@ -22,6 +24,7 @@ function App() {
       >
         <Routes />
       </AuthProvider>
+      </NotificationProvider>
     </GlobalContext.Provider>
   );
 }
