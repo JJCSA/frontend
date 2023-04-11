@@ -65,6 +65,10 @@ function get(route, token = null, params = null, base = 'API_BASE_URL') {
   return axios.get(config.url[base] + route, getConfig(token, params));
 }
 
+function sendDelete(route, token = null, params = null, base = 'API_BASE_URL') {
+  return axios.delete(config.url[base] + route, getConfig(token, params));
+}
+
 export default {
-  sendFormDataPost, get, sendPut, sendPost,
+  sendFormDataPost, get, sendPut, sendPost, sendDelete
 };
