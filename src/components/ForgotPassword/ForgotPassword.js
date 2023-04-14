@@ -4,6 +4,7 @@ import
 {
   Form, Col, Row,
 } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const ForgotPassword = () => (
   <Row className="FORGOT-PASSWORD">
@@ -34,9 +35,11 @@ const ForgotPassword = () => (
               {/* button box */}
               <div className="button-box">
                 {/* button label */}
-                <button type="submit" className="submit-button">
-                  Send Email
-                </button>
+                <Link to="/ForgotPasswordMessage">
+                  <button type="submit" className="submit-button">
+                    Send Email
+                  </button>
+                </Link>
               </div>
             </div>
           </Form>
