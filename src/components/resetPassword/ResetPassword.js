@@ -54,7 +54,7 @@ const ResetPassword = () => (
               </div>
 
               <div className='button-box'>
-                <Link to="/Landing">
+                <Link to="/Login">
                   <button type="submit" className="submit-button">
                     Reset Password
                   </button>
