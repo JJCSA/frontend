@@ -1,3 +1,5 @@
+import { formIcon } from '../assets';
+
 export { default as Avatar } from './avatar/Avatar';
 export { default as CustomDropdown } from './customDropdown/CustomDropdown';
 export { default as CustomTextBox } from './customTextBox/CustomTextBox';
@@ -9,3 +11,5 @@ export { default as Profle } from './Profile';
 export { default as Register } from './Register/Register';
 export { default as UserModal } from './userModal/UserModal';
 export { default as forgotPassword } from './forgotPassword/ForgotPassword';
+export {default as PrivacyPolicy} from './PrivacyPolicy/PrivacyPolicy';
+export { default as TermAndCondition} from './TermAndCondition/TermAndCondition';
