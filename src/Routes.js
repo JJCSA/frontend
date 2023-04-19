@@ -18,6 +18,8 @@ import Loader from './helpers/Loader';
 import AdminHomepage from './pages/admin/AdminHomepage';
 import UserManager from './pages/admin/UserManager';
 import ForgotPassword from './components/forgotPassword/ForgotPassword';
+import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
+import TermAndCondition from './components/TermAndCondition/TermAndCondition'; 
 
 function Routes() {
   const { globalState, setGlobalState } = useContext(GlobalContext);
@@ -58,11 +60,14 @@ function Routes() {
       </Switch>
     );
   } else {
+    const newLocal = "/PrivacyPolicy";
     routes = (
       <Switch>
         <Route path="/" element={<Landing />} />
         <Route path="/landing-home" element={<LandingHomepage />} />
         <Route path="/register" element={<Register toggleNavbar={toggleNavbar} />} />
+        <Route path="/PrivacyPolicy" element={<PrivacyPolicy toggleNavbar={toggleNavbar} />} />
+        <Route path="/TermAndCondition" element={<TermAndCondition toggleNavbar={toggleNavbar} />} />
         <Route path="/ForgotPassword" element={<ForgotPassword toggleNavbar={toggleNavbar} />} />
         <Route path="/login" element={<Login toggleNavbar={toggleNavbar} />} />
         <Route path="/profile" element={<RequireAuth loginPath="/login"><Profile /></RequireAuth>} />
