@@ -8,6 +8,7 @@ function LandingHomepage() {
   return (
     <div>
       <JJCMission />
+      <MissionVision />
       <NewsFeed />
       <ContactUs />
     </div>
