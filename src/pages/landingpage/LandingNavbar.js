@@ -38,42 +38,40 @@ function LandingNavbar() {
             JJC Mission
           </NavHashLink>
 
-          <NavHashLink>
+          <NavHashLink
             className="nav-item nav-link active navbarhover px-3"
-            to="/#about-us" 
+            to="/#about-us"
             smooth
             activeClassName="activeLink"
           >
-             About Us
-          </NavHashLink>
-          
+            About Us
           </NavHashLink>
 
           {/* mission vission */}
-          <NavHashLink>
+          <NavHashLink
             className="nav-item nav-link active navbarhover px-3"
-            to="/#mission-vision" 
+            to="/#mission-vision"
             smooth
             activeClassName="activeLink"
           >
             Vision and Mission
           </NavHashLink>
-          {/*<NavHashLink*/}
-          {/*  className="nav-item nav-link active navbarhover px-3"*/}
-          {/*  to="/#about-us"*/}
-          {/*  smooth*/}
-          {/*  activeClassName="activeLink"*/}
-          {/*>*/}
-          {/*  About Us*/}
-          {/*</NavHashLink>*/}
-          {/*<NavHashLink*/}
-          {/*  className="nav-item nav-link active navbarhover px-3"*/}
-          {/*  to="/#our-initiatives"*/}
-          {/*  smooth*/}
-          {/*  activeClassName="activeLink"*/}
-          {/*>*/}
-          {/*  Ongoing Projects*/}
-          {/*</NavHashLink>*/}
+          {/* <NavHashLink */}
+          {/*  className="nav-item nav-link active navbarhover px-3" */}
+          {/*  to="/#about-us" */}
+          {/*  smooth */}
+          {/*  activeClassName="activeLink" */}
+          {/* > */}
+          {/*  About Us */}
+          {/* </NavHashLink> */}
+          {/* <NavHashLink */}
+          {/*  className="nav-item nav-link active navbarhover px-3" */}
+          {/*  to="/#our-initiatives" */}
+          {/*  smooth */}
+          {/*  activeClassName="activeLink" */}
+          {/* > */}
+          {/*  Ongoing Projects */}
+          {/* </NavHashLink> */}
           <NavHashLink
             className="nav-item nav-link active navbarhover px-3"
             to="/#news-feed"
@@ -90,7 +88,7 @@ function LandingNavbar() {
           >
             Contact Us
           </NavHashLink>
-          
+
           <a
             className=" jjclink"
             href="https://www.jainjagruti.com/"
@@ -107,12 +105,12 @@ function LandingNavbar() {
           >
             Login
           </Link>
-          {/*<Link*/}
-          {/*  to="/"*/}
-          {/*  className="form-control btn btn-light btn-block my-2 my-sm-0 mr-sm-5 donate-button"*/}
-          {/*>*/}
-          {/*  Donate*/}
-          {/*</Link>*/}
+          {/* <Link */}
+          {/*  to="/" */}
+          {/*  className="form-control btn btn-light btn-block my-2 my-sm-0 mr-sm-5 donate-button" */}
+          {/* > */}
+          {/*  Donate */}
+          {/* </Link> */}
         </form>
       </div>
     </nav>

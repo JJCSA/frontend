@@ -5,7 +5,7 @@ import './AboutUs.scss';
 const AboutUs = () => {
   return (
     <div className='AboutUsPage'> 
-    //checking
+    {/* checking */}
     <div id="about-us" className="AboutUS">
         <p className='content'>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin accumsan risus et porta sagittis.
