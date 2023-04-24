@@ -38,8 +38,7 @@ function LandingNavbar() {
             JJC Mission
           </NavHashLink>
 
-          {/* About US */}
-          <NavHashLink
+          <NavHashLink>
             className="nav-item nav-link active navbarhover px-3"
             to="/#about-us" 
             smooth
@@ -47,9 +46,11 @@ function LandingNavbar() {
           >
              About Us
           </NavHashLink>
+          
+          </NavHashLink>
 
           {/* mission vission */}
-          <NavHashLink
+          <NavHashLink>
             className="nav-item nav-link active navbarhover px-3"
             to="/#mission-vision" 
             smooth

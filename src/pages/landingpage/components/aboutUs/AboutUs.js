@@ -13,7 +13,7 @@ const AboutUs = () => {
         mollis dolor. Sed aliquam velit ac elit commodo tincidunt. Suspendisse egestas erat quam, id
         </p>
         <div className='aboutUsImage'>
-          
+
         </div>
         <div className='knowMoreBox'>
           <button type="button" className='knowMore'>Know More</button> 
@@ -31,9 +31,9 @@ const AboutUs = () => {
 
     </div>
     </div>
-     
+
      );
-   
+
 }
 
 export default AboutUs;
