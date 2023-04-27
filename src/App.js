@@ -7,7 +7,6 @@ import { AuthProvider } from "react-auth-kit";
 import refreshApi from "./helpers/refreshApi";
 import GlobalContext from "./store/GlobalContext";
 import Routes from "./Routes";
-// import NotificationProvider from "./utils/Toast";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function App() {
@@ -15,7 +14,6 @@ function App() {
 
   return (
     <GlobalContext.Provider value={{ globalState, setGlobalState }}>
-      {/* <NotificationProvider> */}
       <ToastContainer
         position="top-center"
         autoClose={2000}
@@ -33,7 +31,6 @@ function App() {
       >
         <Routes />
       </AuthProvider>
-      {/* </NotificationProvider> */}
     </GlobalContext.Provider>
   );
 }

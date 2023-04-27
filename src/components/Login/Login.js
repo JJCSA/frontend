@@ -6,7 +6,6 @@ import { Form, Container, Col, Row, InputGroup } from "react-bootstrap";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 import GlobalContext from "../../store/GlobalContext";
 import { login } from "../UserFunctions";
-// import { useNotification } from "../../utils/Toast";
 import { toast } from "react-toastify";
 
 function Login() {
@@ -14,7 +13,6 @@ function Login() {
   const isAuthenticated = useIsAuthenticated();
   const signIn = useSignIn();
   const [showPassword, setShowPassword] = useState(false);
-  // const showNotification = useNotification();
 
   if (isAuthenticated()) return <Navigate to="/" replace />;
 
@@ -32,7 +30,6 @@ function Login() {
           profile: user.authState,
         });
         toast.success("Login successful!");
-        // showNotification("Login successful!", "success");
       })
       .catch((err) => {
         toast.error(
@@ -40,12 +37,6 @@ function Login() {
             ? err?.response?.data?.error_description
             : "Login Failed!"
         );
-        // showNotification(
-        //   err?.response?.data?.error_description
-        //     ? err?.response?.data?.error_description
-        //     : "Login Failed!",
-        //   "error"
-        // );
         console.log(err);
       });
   };

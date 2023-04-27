@@ -16,6 +16,7 @@ export const register = (formData) => new Promise((resolve, reject) => {
   }).then((res) => {
     resolve(res);
   }).catch((err) => {
+    reject(err);
     console.log(err);
   });
 });
