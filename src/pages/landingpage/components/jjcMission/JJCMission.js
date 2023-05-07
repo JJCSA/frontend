@@ -17,12 +17,17 @@ function JJCMission() {
         <div className="headtext pb-5">
           <Typewriter
             options={{
-              delay: 60,
+              delay: 120,
+              strings: [
+                'JJC USA IS THERE TO GUIDE YOU THROUGHOUT YOUR JOURNEY IN THE USA',
+              ],
+              loop: true,
+              autoStart: true,
             }}
             onInit={typewriter => {
               typewriter
                 .typeString(
-                  'JJC STUDENT ASSOCIATION IS THERE TO GUIDE YOU THROUGHOUT YOUR JOURNEY IN THE USA'
+                  'JJC USA IS THERE TO GUIDE YOU THROUGHOUT YOUR JOURNEY IN THE USA'
                 )
                 .callFunction(state => {
                   state.elements.cursor.setAttribute('hidden', 'hidden');
@@ -33,7 +38,7 @@ function JJCMission() {
           />
         </div>
         <div className="card-deck">
-          <div className="col-sm-12 col-md-6 col-lg-2 mb-5">
+          <div className="col-sm-12 col-md-6 col-lg-3 mb-5">
             <ScrollAnimation
               animateIn="bounceIn"
               animateOut="bounceOut"
@@ -56,7 +61,7 @@ function JJCMission() {
               </div>
             </ScrollAnimation>
           </div>
-          <div className="col-sm-12 col-md-6 col-lg-2 mb-5">
+          <div className="col-sm-12 col-md-6 col-lg-3 mb-5">
             <ScrollAnimation
               animateIn="bounceIn"
               animateOut="bounceOut"
@@ -78,7 +83,7 @@ function JJCMission() {
               </div>
             </ScrollAnimation>
           </div>
-          <div className="col-sm-12 col-md-6 col-lg-2 mb-5">
+          <div className="col-sm-12 col-md-6 col-lg-3 mb-5">
             <ScrollAnimation
               animateIn="bounceIn"
               animateOut="bounceOut"
@@ -101,7 +106,7 @@ function JJCMission() {
               </div>
             </ScrollAnimation>
           </div>
-          <div className="col-sm-12 col-md-6 col-lg-2 mb-5">
+          <div className="col-sm-12 col-md-6 col-lg-3 mb-5">
             <ScrollAnimation
               animateIn="bounceIn"
               animateOut="bounceOut"
@@ -127,18 +132,10 @@ function JJCMission() {
         <form className="form-inline pb-5">
           <Link
             to="/register"
-            className="form-control btn btn-light btn-block mr-sm-3 login-button"
+            className="form-control btn btn-light btn-block mx-auto login-button"
           >
-            Join Student Association Now
+            JOIN JJC USA NOW
           </Link>
-          {/* <button
-            href="#"
-            className="form-control btn btn-dark btn-block join-button"
-            type="button"
-            onClick={}
-          >
-            Join Student Association Now
-          </button> */}
         </form>
       </div>
     </div>
