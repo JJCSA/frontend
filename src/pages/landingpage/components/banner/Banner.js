@@ -4,9 +4,11 @@ import './Banner.scss';
 
 function Banner() {
   return (
-    <div className="BANNER">
-      <div className="container-fluid top-banner">
-        <img src={BannerImage} alt="banner" />
+    <div id="home">
+      <div className="BANNER">
+        <div className="container-fluid top-banner">
+          <img src={BannerImage} alt="banner" />
+        </div>
       </div>
     </div>
   );
