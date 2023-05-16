@@ -38,6 +38,15 @@ function LandingNavbar() {
             JJC Mission
           </NavHashLink>
 
+          {/* About US */}
+          <NavHashLink
+            className="nav-item nav-link active navbarhover px-3"
+            to="/#about-us" 
+            smooth
+            activeClassName="activeLink"
+          >
+             About Us
+
           {/* mission vission */}
           <NavHashLink
             className="nav-item nav-link active navbarhover px-3"
@@ -47,23 +56,6 @@ function LandingNavbar() {
           >
             Vision and Mission
           </NavHashLink>
-
-          {/*<NavHashLink*/}
-          {/*  className="nav-item nav-link active navbarhover px-3"*/}
-          {/*  to="/#about-us"*/}
-          {/*  smooth*/}
-          {/*  activeClassName="activeLink"*/}
-          {/*>*/}
-          {/*  About Us*/}
-          {/*</NavHashLink>*/}
-          {/*<NavHashLink*/}
-          {/*  className="nav-item nav-link active navbarhover px-3"*/}
-          {/*  to="/#our-initiatives"*/}
-          {/*  smooth*/}
-          {/*  activeClassName="activeLink"*/}
-          {/*>*/}
-          {/*  Ongoing Projects*/}
-          {/*</NavHashLink>*/}
           <NavHashLink
             className="nav-item nav-link active navbarhover px-3"
             to="/#news-feed"
@@ -96,12 +88,6 @@ function LandingNavbar() {
           >
             Login
           </Link>
-          {/*<Link*/}
-          {/*  to="/"*/}
-          {/*  className="form-control btn btn-light btn-block my-2 my-sm-0 mr-sm-5 donate-button"*/}
-          {/*>*/}
-          {/*  Donate*/}
-          {/*</Link>*/}
         </form>
       </div>
     </nav>
