@@ -1,8 +1,8 @@
 import React from 'react';
-import {ImFacebook, ImLinkedin2, ImTwitter, ImYoutube} from 'react-icons/im';
-import {GrInstagram} from 'react-icons/gr';
-import {BiCopyright} from 'react-icons/bi';
-import {NavHashLink} from 'react-router-hash-link';
+import { ImFacebook, ImLinkedin2, ImTwitter, ImYoutube } from 'react-icons/im';
+import { GrInstagram } from 'react-icons/gr';
+import { BiCopyright } from 'react-icons/bi';
+import { NavHashLink } from 'react-router-hash-link';
 import './Footer.scss';
 
 function Footer() {
@@ -14,7 +14,7 @@ function Footer() {
     <div className="footer-container">
       <div className="footer">
         <NavHashLink
-          to="/"
+          to="/landing-home#home"
           smooth
           className="footer-link"
           activeClassName="activeLink"

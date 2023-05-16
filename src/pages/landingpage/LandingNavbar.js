@@ -31,6 +31,14 @@ function LandingNavbar() {
         <div className="navbar-nav mr-auto my-sm-2">
           <NavHashLink
             className="nav-item nav-link active navbarhover px-3"
+            to="/#home"
+            smooth
+            activeClassName="activeLink"
+          >
+            Home
+          </NavHashLink>
+          <NavHashLink
+            className="nav-item nav-link active navbarhover px-3"
             to="/#jjc-mission"
             smooth
             activeClassName="activeLink"
