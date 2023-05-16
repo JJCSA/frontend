@@ -1,14 +1,18 @@
 @import "../../../../utils/variables.scss";
 
 .mission-color {
-  background: linear-gradient(180deg, #2c5797 0%, #0f2d58 100%);
   padding-top: 6em;
-  margin-top: -6em;
+  margin-top: 1rem;
 }
 .mission-card {
   border-radius: 8px;
   transition: transform .5s;
+<<<<<<< HEAD
   height: 220px !important;
+=======
+  background: #2c5797;
+  color: white;
+>>>>>>> 25707d8 (Banner (#128))
 }
 
 .mission-card:hover{
@@ -33,11 +37,10 @@
 }
 .headtext {
   font-size: $largeTitle;
-  color: white;
+  color: black;
   font-weight: $semiBold;
   font-style: normal;
-  text-align: left;
-  padding-top: 96px;
+  text-align: center;
 }
 .mission-text {
   font-size: 12px;

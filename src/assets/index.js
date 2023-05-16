@@ -29,3 +29,7 @@ export { default as feedbackIcon } from './icons/feedback-icon.svg';
 export { default as socialMediaIcon } from './icons/social-media-icon.svg';
 export { default as forumIcon } from './icons/forum-icon.svg';
 export { default as AdminIcon } from './icons/admin-icon.svg';
+<<<<<<< HEAD
+=======
+export { default as BannerImage } from './images/together.png';
+>>>>>>> 25707d8 (Banner (#128))
