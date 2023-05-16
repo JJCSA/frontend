@@ -1,13 +1,12 @@
-import React, { useContext, useState } from 'react';
-import { useSignIn, useIsAuthenticated } from 'react-auth-kit';
-import { Navigate, Link } from 'react-router-dom';
-import './Login.scss';
-import {
-  Form, Container, Col, Row, InputGroup,
-} from 'react-bootstrap';
-import { BsEye, BsEyeSlash } from 'react-icons/bs';
-import GlobalContext from '../../store/GlobalContext';
-import { login } from '../UserFunctions';
+import React, { useContext, useState } from "react";
+import { useSignIn, useIsAuthenticated } from "react-auth-kit";
+import { Navigate, Link } from "react-router-dom";
+import "./Login.scss";
+import { Form, Container, Col, Row, InputGroup } from "react-bootstrap";
+import { BsEye, BsEyeSlash } from "react-icons/bs";
+import GlobalContext from "../../store/GlobalContext";
+import { login } from "../UserFunctions";
+import { toast } from "react-toastify";
 
 function Login() {
   const { globalState, setGlobalState } = useContext(GlobalContext);
@@ -15,7 +14,7 @@ function Login() {
   const signIn = useSignIn();
   const [showPassword, setShowPassword] = useState(false);
 
-  if (isAuthenticated()) return (<Navigate to="/" replace />);
+  if (isAuthenticated()) return <Navigate to="/" replace />;
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -23,15 +22,23 @@ function Login() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    login(e.target).then((user) => {
-      signIn(user);
-      setGlobalState({
-        ...globalState,
-        profile: user.authState,
+    login(e.target)
+      .then((user) => {
+        signIn(user);
+        setGlobalState({
+          ...globalState,
+          profile: user.authState,
+        });
+        toast.success("Login successful!");
+      })
+      .catch((err) => {
+        toast.error(
+          err?.response?.data?.error_description
+            ? err?.response?.data?.error_description
+            : "Login Failed!"
+        );
+        console.log(err);
       });
-    }).catch((err) => {
-      console.log(err);
-    });
   };
 
   return (
@@ -43,28 +50,50 @@ function Login() {
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>
                   Email
-                  <span style={{ color: 'red' }}>*</span>
+                  <span style={{ color: "red" }}>*</span>
                 </Form.Label>
-                <Form.Control type="email" placeholder="" className="form-control-custom" name="username" />
+                <Form.Control
+                  type="email"
+                  placeholder=""
+                  className="form-control-custom"
+                  name="username"
+                />
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">
                 <Form.Label>
                   Password
-                  <span style={{ color: 'red' }}>*</span>
+                  <span style={{ color: "red" }}>*</span>
                 </Form.Label>
+                <Form.Label style={{ color: "red", float: "right" }}>
+                  Forgot Password?
                 <Form.Label style={{ color: 'red', float: 'right' }}>
                   <a href="/forgotPassword">Forgot Password?</a>
                 </Form.Label>
                 <InputGroup>
-                  <Form.Control type={showPassword ? 'text' : 'password'} placeholder="" className="form-control-password" name="password" />
+                  <Form.Control
+                    type={showPassword ? "text" : "password"}
+                    placeholder=""
+                    className="form-control-password"
+                    name="password"
+                  />
                   <InputGroup.Prepend className="password-eye-icon">
-                    <InputGroup.Text className="password-eye-icon">{showPassword ? <BsEyeSlash onClick={handleShowPassword} /> : <BsEye onClick={handleShowPassword} />}</InputGroup.Text>
+                    <InputGroup.Text className="password-eye-icon">
+                      {showPassword ? (
+                        <BsEyeSlash onClick={handleShowPassword} />
+                      ) : (
+                        <BsEye onClick={handleShowPassword} />
+                      )}
+                    </InputGroup.Text>
                   </InputGroup.Prepend>
                 </InputGroup>
               </Form.Group>
               <Form.Group controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Remember Me" name="Rememberme" />
+                <Form.Check
+                  type="checkbox"
+                  label="Remember Me"
+                  name="Rememberme"
+                />
               </Form.Group>
               <input type="hidden" name="grant_type" value="password" />
               <input type="hidden" name="client_id" value="jjcsa" />
@@ -74,7 +103,9 @@ function Login() {
               <br />
               <br />
               <Form.Label style={{ margin: 0 }}>Not a member yet?</Form.Label>
-              <Form.Label>This is a closed community. We will review all applications</Form.Label>
+              <Form.Label>
+                This is a closed community. We will review all applications
+              </Form.Label>
               <Link to="/register" className="btn register-button">
                 New User Registration
               </Link>
@@ -86,80 +117,6 @@ function Login() {
         </Col>
       </Row>
     </Container>
-  // <div className="container-login">
-  //   <style>
-  //     {
-  //       'body { background: linear-gradient(180deg, #0F2D58 0%, #2C5797 55.91%); }'
-  //     }
-  //   </style>
-  //   <div className="row">
-  //     <div className="col-md-6 mt-5 mx-auto">
-  //       <h1 className="header">Login to your account</h1>
-  //       <fieldset className="fieldset">
-  //         <form onSubmit={onSubmit}>
-  //           <div className="form-group mt-5 ml-5">
-  //             <span className="label required">
-  //               Email
-  //             </span>
-  //             <input
-  //               type="email"
-  //               className="form-control form-input input-sm"
-  //               name="username"
-  //               required
-  //             />
-  //           </div>
-  //           <div className="form-group ml-5">
-  //             <span className="label required mr-5">
-  //               Password
-  //             </span>
-  //             <span className="forgotpwd col-sm-7 ml-4 text-right">
-  //               Forgot Password?
-  //             </span>
-  //             <input
-  //               type="password"
-  //               className="form-control form-input input-sm"
-  //               name="password"
-  //               required
-  //             />
-  //           </div>
-  //           <div className="form-check ml-5">
-  //             <input
-  //               type="checkbox"
-  //               className="form-check-input"
-  //               name="Rememberme"
-  //             />
-  //             <span className="label mb-1">
-  //               Remember Me
-  //             </span>
-  //           </div>
-  //           <input type="hidden" name="grant_type" value="password" />
-  //           <input type="hidden" name="client_id" value="jjcsa" />
-  //
-  //           <button
-  //             type="submit"
-  //             className="btn btn-lg btn-block btnLogin w-75 label ml-5 mt-3 mb-1"
-  //           >
-  //             Login
-  //           </button>
-  //           <div className="member ml-5 mt-5">
-  //             Not a member yet?
-  //             <br />
-  //             This is a closed community.We will review all applications
-  //           </div>
-  //
-  //           <Link to="/register">
-  //             <button
-  //               type="button"
-  //               className="btn btn-lg btn-block btnSignUp w-75 label ml-5 mt-3 mb-3"
-  //             >
-  //               New User Registration
-  //             </button>
-  //           </Link>
-  //         </form>
-  //       </fieldset>
-  //     </div>
-  //   </div>
-  // </div>
   );
 }
 
