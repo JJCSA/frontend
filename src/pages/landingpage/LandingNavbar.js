@@ -37,7 +37,6 @@ function LandingNavbar() {
           >
             JJC Mission
           </NavHashLink>
-
           {/* About US */}
           <NavHashLink
             className="nav-item nav-link active navbarhover px-3"
@@ -72,14 +71,14 @@ function LandingNavbar() {
           >
             Contact Us
           </NavHashLink>
-          <a
-            className=" jjclink"
-            href="https://www.jainjagruti.com/"
+          <NavHashLink
+            className="nav-item nav-link active navbarhover px-3"
+            to="https://www.jainjagruti.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
             JJC Central Board
-          </a>
+          </NavHashLink>
         </div>
         <form className="form-inline">
           <Link

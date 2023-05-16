@@ -14,7 +14,8 @@ import GlobalContext from '../../store/GlobalContext';
 function AdminNavbar() {
   const signOut = useSignOut();
   const { globalState } = useContext(GlobalContext);
-  let profile = Object.keys(globalState.profile).length > 0 ? globalState.profile : '';
+  let profile =
+    Object.keys(globalState.profile).length > 0 ? globalState.profile : '';
 
   const userDropdown = (
     <Popover>
@@ -67,7 +68,11 @@ function AdminNavbar() {
         <div className="left-section">
           <div>
             <BsBell size="1.5em" color="#606060" />
-            <sup className="notification-number"><Badge pill variant="danger">10</Badge></sup>
+            <sup className="notification-number">
+              <Badge pill variant="danger">
+                10
+              </Badge>
+            </sup>
           </div>
           <div className="vertical-line mr-3 ml-3" />
           <Avatar imgSrc={profile.profilePicture || ''} />
@@ -75,8 +80,17 @@ function AdminNavbar() {
             Hi,
             {profile.firstName || ''}
           </h6>
-          <OverlayTrigger trigger="click" placement="bottom" overlay={userDropdown} rootClose>
-            <img src={UserDropDownIcon} alt="UserDropdownIcon" className="mr-sm-5 user-profile-dropdown-icon" />
+          <OverlayTrigger
+            trigger="click"
+            placement="bottom"
+            overlay={userDropdown}
+            rootClose
+          >
+            <img
+              src={UserDropDownIcon}
+              alt="UserDropdownIcon"
+              className="mr-sm-5 user-profile-dropdown-icon"
+            />
           </OverlayTrigger>
         </div>
       </div>
