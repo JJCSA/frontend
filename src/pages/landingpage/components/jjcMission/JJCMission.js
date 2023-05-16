@@ -1,76 +1,76 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './JJCMission.scss';
+import ScrollAnimation from 'react-animate-on-scroll';
+import Typewriter from 'typewriter-effect';
 import {
   jjcConnectIcon,
   jjcEngageIcon,
   jjcHelpIcon,
   jjcPlanIcon,
-} from "../../../../assets/index";
-import "./JJCMission.scss";
-import ScrollAnimation from "react-animate-on-scroll";
-import Typewriter from "typewriter-effect";
+} from '../../../../assets/index';
 
 function JJCMission() {
   return (
     <div id="jjc-mission">
       <div className="container-fluid mission-color" id="leftpad">
-        {/* <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 headtext pb-5"> */}
         <div className="headtext pb-5">
           <Typewriter
             options={{
               delay: 60,
             }}
-            onInit={(typewriter) => {
+            onInit={typewriter => {
               typewriter
                 .typeString(
-                  "JJC STUDENT ASSOCIATION IS THERE TO GUIDE YOU THROUGHOUT YOUR JOURNEY IN THE USA"
+                  'JJC STUDENT ASSOCIATION IS THERE TO GUIDE YOU THROUGHOUT YOUR JOURNEY IN THE USA'
                 )
+                .callFunction(state => {
+                  state.elements.cursor.setAttribute('hidden', 'hidden');
+                  typewriter.stop();
+                })
                 .start();
             }}
           />
-          {/* <ScrollAnimation animateIn='fadeInDown' duration={2}> */}
-          {/*  JJC Student Association is there to guide you throughout your */}
-          {/*  journey in the USA */}
-          {/* </ScrollAnimation> */}
         </div>
-        <div className="row">
-          <div className="col-sm-12 col-lg-2 ">
+        <div className="card-deck">
+          <div className="col-sm-12 col-md-6 col-lg-2 mb-5">
             <ScrollAnimation
               animateIn="bounceIn"
               animateOut="bounceOut"
               duration={2}
             >
-              <div className="card mb-5 mission-card h-100">
+              <div className="card mission-card h-100">
                 <img
-                  className="card-img pt-4 card_images"
+                  className="card-img-top pt-4 card_images"
                   src={jjcConnectIcon}
                   alt="Connect Alumni"
                 />
                 <div className="card-body text-center">
                   <h5 className="card-title">Connect</h5>
-                  <p className="card-text mission-text">
-                    To connect Jain Students across the USA
+                  <p className="card-text">
+                    To connect Jain Student&apos;s / Alumni&apos;s across USA{' '}
+                    <br />
+                    <br />
                   </p>
                 </div>
               </div>
             </ScrollAnimation>
           </div>
-          <div className="col-sm-12 col-lg-2 ">
+          <div className="col-sm-12 col-md-6 col-lg-2 mb-5">
             <ScrollAnimation
               animateIn="bounceIn"
               animateOut="bounceOut"
               duration={2}
             >
-              <div className="card mb-5 mission-card">
+              <div className="card mission-card h-100">
                 <img
-                  className="card-img pt-4 card_images"
+                  className="card-img-top pt-4 card_images"
                   src={jjcPlanIcon}
-                  alt="Connect Alumni"
+                  alt="empower"
                 />
                 <div className="card-body text-center">
-                  <h5 className="card-title">Empower </h5>
-                  <p className="card-text mission-text">
+                  <h5 className="card-title">Empower</h5>
+                  <p className="card-text">
                     To empower fellow jains and prepare them for future
                     challenges
                   </p>
@@ -78,42 +78,44 @@ function JJCMission() {
               </div>
             </ScrollAnimation>
           </div>
-          <div className="col-sm-12 col-lg-2 ">
+          <div className="col-sm-12 col-md-6 col-lg-2 mb-5">
             <ScrollAnimation
               animateIn="bounceIn"
               animateOut="bounceOut"
               duration={2}
             >
-              <div className="card mb-5 mission-card">
+              <div className="card mission-card h-100">
                 <img
-                  className="card-img pt-4 card_images"
+                  className="card-img-top pt-4 card_images"
                   src={jjcEngageIcon}
-                  alt="Connect Alumni"
+                  alt="mentor"
                 />
                 <div className="card-body text-center">
                   <h5 className="card-title">Mentor</h5>
-                  <p className="card-text mission-text">
+                  <p className="card-text">
                     To mentor each other and achieve mutual growth
+                    <br />
+                    <br />
                   </p>
                 </div>
               </div>
             </ScrollAnimation>
           </div>
-          <div className="col-sm-12 col-lg-2 ">
+          <div className="col-sm-12 col-md-6 col-lg-2 mb-5">
             <ScrollAnimation
               animateIn="bounceIn"
               animateOut="bounceOut"
               duration={2}
             >
-              <div className="card mb-5 mission-card">
+              <div className="card mission-card h-100">
                 <img
-                  className="card-img pt-4 card_images"
+                  className="card-img-top pt-4 card_images"
                   src={jjcHelpIcon}
-                  alt="Connect Alumni"
+                  alt="assist"
                 />
                 <div className="card-body text-center">
                   <h5 className="card-title">Assist</h5>
-                  <p className="card-text mission-text">
+                  <p className="card-text">
                     To assist students in their personal and professional lives
                     while in USA
                   </p>
