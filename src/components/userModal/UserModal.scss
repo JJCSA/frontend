@@ -84,6 +84,11 @@
 }
 
 .confirmation_popup {
+    border: '1px solid #ccc'; 
+    border-radius: '4px'; 
+    padding: '10px';
+    background-color: '#f7f7f7';
+
     .yes-button {
         margin-left: 8px;
         margin-right: 8px;
