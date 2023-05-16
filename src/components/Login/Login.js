@@ -54,7 +54,7 @@ function Login() {
                   <span style={{ color: 'red' }}>*</span>
                 </Form.Label>
                 <Form.Label style={{ color: 'red', float: 'right' }}>
-                  Forgot Password?
+                  <a href="/forgotPassword">Forgot Password?</a>
                 </Form.Label>
                 <InputGroup>
                   <Form.Control type={showPassword ? 'text' : 'password'} placeholder="" className="form-control-password" name="password" />
