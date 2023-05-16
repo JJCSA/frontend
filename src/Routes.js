@@ -17,7 +17,7 @@ import Navbar from './components/Navbar';
 import Landing from './components/Landing';
 // import Landing from './pages/landingpage/LandingHomepage';
 import Login from './components/login/Login';
-import Register from './components/register/Register';
+import Register from './components/Register/Register';
 import Profile from './components/Profile';
 import AdminPanel from './pages/admin/AdminPanel';
 import Footer from './components/footer/Footer';
@@ -28,6 +28,8 @@ import Loader from './helpers/Loader';
 import AdminHomepage from './pages/admin/AdminHomepage';
 import UserManager from './pages/admin/UserManager';
 import ForgotPassword from './components/forgotPassword/ForgotPassword';
+import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
+import TermAndCondition from './components/TermAndCondition/TermAndCondition';
 
 function Routes() {
   const { globalState, setGlobalState } = useContext(GlobalContext);
@@ -85,6 +87,8 @@ function Routes() {
           path="/register"
           element={<Register toggleNavbar={toggleNavbar} />}
         />
+        <Route path="/PrivacyPolicy" element={<PrivacyPolicy toggleNavbar={toggleNavbar} />} />
+        <Route path="/TermAndCondition" element={<TermAndCondition toggleNavbar={toggleNavbar} />} />
         <Route path="/login" element={<Login toggleNavbar={toggleNavbar} />} />
         <Route
           path="/profile"
@@ -105,13 +109,13 @@ function Routes() {
             </RequireAuth>
           }
         >
-        <Route path="/forgotPassword" element={<ForgotPassword toggleNavbar={toggleNavbar} />} />
-        <Route path="/profile" element={<RequireAuth loginPath="/login"><Profile /></RequireAuth>} />
-        <Route path="/admin/" element={<RequireAuth loginPath="/login"><AdminPanel toggleNavbar={toggleNavbar} toggleFooter={toggleFooter} /></RequireAuth>}>
-          <Route path="dashboard" element={<AdminHomepage />} />
-          <Route path="manageUsers" element={<UserManager />} />
-        </Route>
-        <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="/forgotPassword" element={<ForgotPassword toggleNavbar={toggleNavbar} />} />
+          <Route path="/profile" element={<RequireAuth loginPath="/login"><Profile /></RequireAuth>} />
+          <Route path="/admin/" element={<RequireAuth loginPath="/login"><AdminPanel toggleNavbar={toggleNavbar} toggleFooter={toggleFooter} /></RequireAuth>}>
+            <Route path="dashboard" element={<AdminHomepage />} />
+            <Route path="manageUsers" element={<UserManager />} />
+          </Route>
+          <Route path="*" element={<Navigate to="/" replace />} />
       </Switch>
     );
   }

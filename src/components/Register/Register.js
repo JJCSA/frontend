@@ -6,7 +6,6 @@ import {
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router-dom';
 import { register } from '../UserFunctions';
-import { toast } from "react-toastify";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -22,6 +21,7 @@ function Register() {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [showError, setShowError] = useState(false);
+  const [agree, setAgree] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (ev) => {
@@ -34,17 +34,22 @@ function Register() {
   const handleSubmit = (ev) => {
     ev.preventDefault();
     register(formData).then(() => {
-      toast.success("Registration successful!");
       navigate('/login');
-    }).catch((err) => {
-      toast.error(
-        err?.response?.data?.error_description
-          ? err?.response?.data?.error_description
-          : "Registration Failed!"
-      );
-      setShowError(true)
-    });
+    }).catch(() => setShowError(true));
   };
+
+  const checkboxHandler = () => {
+    // if agree === true, it will be set to false
+    // if agree === false, it will be set to true
+    setAgree(!agree);
+    // Don't miss the exclamation mark
+  }
+
+  // When the button is clicked
+  const btnHandler = () => {
+    alert('The buttion is clickable!');
+  };
+
 
   return (
     <Container fluid className="register-container">
@@ -148,10 +153,26 @@ function Register() {
                 </Form.Label>
                 <Form.Control type="file" name="profPicture" onChange={handleChange} required />
               </Form.Group>
-              <br />
+              {/* Terms & Conditions  */}
+              <div className='T&C'>
+                <div className='container'>
+                  <div>
+                    <input type="checkbox" id="agree" onChange={checkboxHandler} />
+                    <label htmlFor="agree"> By creating an account, you agree to <b> our <a href="/TermAndCondition" target="_blank">Terms & Condition </a> and <a href="/PrivacyPolicy" target="_blank">Privacy Policy.</a></b></label>
+                  </div>
+                  <br />
+                  <button type="submit" disabled={!agree} onClick={btnHandler} className="btn register-button" >
+                    Submit
+                  </button>
+
+                </div>
+
+              </div>
+
+              {/* <br />
               <button type="submit" className="btn register-button">
                 Submit
-              </button>
+              </button> */}
 
             </Form>
           </div>
