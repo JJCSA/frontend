@@ -1,6 +1,6 @@
-import React, {useContext, useState} from 'react';
-import {Country, State, City} from 'country-state-city';
-import {useAuthUser, useAuthHeader} from 'react-auth-kit';
+import React, { useContext, useState } from 'react';
+import { Country, State, City } from 'country-state-city';
+import { useAuthUser, useAuthHeader } from 'react-auth-kit';
 import comm from '../../helpers/communication';
 import GlobalContext from '../../store/GlobalContext';
 import './Onboarding.scss';
@@ -12,7 +12,7 @@ import {
 } from '../../assets/index';
 
 function Onboarding() {
-  const {globalState, setGlobalState} = useContext(GlobalContext);
+  const { globalState, setGlobalState } = useContext(GlobalContext);
   const [formData, setFormData] = useState({
     ...useAuthUser()(),
     userStudent: true,
@@ -59,7 +59,7 @@ function Onboarding() {
     'December',
   ];
   const handleInputChange = (...events) => {
-    const newState = {...formData};
+    const newState = { ...formData };
     events.forEach(ev => {
       const attributes = ev.target.name.split('.');
       let newStateProperty = newState;
@@ -191,8 +191,8 @@ function Onboarding() {
                   setCountryISO(event.target.value);
                   handleInputChange(
                     event,
-                    {target: {name: 'state', value: ''}},
-                    {target: {name: 'city', value: ''}}
+                    { target: { name: 'state', value: '' } },
+                    { target: { name: 'city', value: '' } }
                   );
                 }}
                 required
@@ -213,7 +213,9 @@ function Onboarding() {
                 className="custom-select"
                 value={formData.state}
                 onChange={event => {
-                  handleInputChange(event, {target: {name: 'city', value: ''}});
+                  handleInputChange(event, {
+                    target: { name: 'city', value: '' },
+                  });
                 }}
                 required
               >
@@ -272,7 +274,9 @@ function Onboarding() {
               role="button"
               tabIndex="0"
               onClick={() =>
-                handleInputChange({target: {name: 'userStudent', value: true}})
+                handleInputChange({
+                  target: { name: 'userStudent', value: true },
+                })
               }
             >
               <StudentLogo className="type-logo" />
@@ -285,7 +289,9 @@ function Onboarding() {
               role="button"
               tabIndex="0"
               onClick={() =>
-                handleInputChange({target: {name: 'userStudent', value: false}})
+                handleInputChange({
+                  target: { name: 'userStudent', value: false },
+                })
               }
             >
               <GraduateLogo className="type-logo" />
@@ -419,7 +425,7 @@ function Onboarding() {
           <div className="progress">
             <div
               className="progress-bar bg-success"
-              style={{width: `${progress}%`}}
+              style={{ width: `${progress}%` }}
               role="progressbar"
               aria-valuenow={progress}
               aria-valuemin="0"
