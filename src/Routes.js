@@ -18,6 +18,7 @@ import Loader from './helpers/Loader';
 import AdminHomepage from './pages/admin/AdminHomepage';
 import UserManager from './pages/admin/UserManager';
 import ForgotPassword from './components/forgotPassword/ForgotPassword';
+import ForgotPasswordMessage from './components/forgotPasswordMessage/ForgotPasswordMessage';
 
 function Routes() {
   const { globalState, setGlobalState } = useContext(GlobalContext);
@@ -65,6 +66,8 @@ function Routes() {
         <Route path="/register" element={<Register toggleNavbar={toggleNavbar} />} />
         <Route path="/login" element={<Login toggleNavbar={toggleNavbar} />} />
         <Route path="/forgotPassword" element={<ForgotPassword toggleNavbar={toggleNavbar} />} />
+        <Route path="/ForgotPassword" element={<ForgotPassword toggleNavbar={toggleNavbar} />} />
+        <Route path="/ForgotPasswordMessage" element={<ForgotPasswordMessage toggleNavbar={toggleNavbar} />} />
         <Route path="/profile" element={<RequireAuth loginPath="/login"><Profile /></RequireAuth>} />
         <Route path="/admin/" element={<RequireAuth loginPath="/login"><AdminPanel toggleNavbar={toggleNavbar} toggleFooter={toggleFooter} /></RequireAuth>}>
           <Route path="dashboard" element={<AdminHomepage />} />

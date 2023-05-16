@@ -26,7 +26,7 @@ const ForgotPasswordMessage = () => (
 {/* {          <p className='message-content-1'>
 
             Did not receive an email? <u> <a href="/forgotPassword"> Resend Email </a> </u>
-          </p>} */}
+</p>} */}
         </div>
 
         <div className='message-outside-container-2'>
