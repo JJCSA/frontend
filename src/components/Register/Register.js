@@ -6,6 +6,7 @@ import {
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router-dom';
 import { register } from '../UserFunctions';
+import { toast } from "react-toastify";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -33,8 +34,16 @@ function Register() {
   const handleSubmit = (ev) => {
     ev.preventDefault();
     register(formData).then(() => {
+      toast.success("Registration successful!");
       navigate('/login');
-    }).catch(() => setShowError(true));
+    }).catch((err) => {
+      toast.error(
+        err?.response?.data?.error_description
+          ? err?.response?.data?.error_description
+          : "Registration Failed!"
+      );
+      setShowError(true)
+    });
   };
 
   return (
