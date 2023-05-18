@@ -1,9 +1,6 @@
 import React from 'react';
 import './ForgotPassword.scss';
-import
-{
-  Form, Col, Row,
-} from 'react-bootstrap';
+import { Form, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const ForgotPassword = () => (
@@ -15,8 +12,8 @@ const ForgotPassword = () => (
         </div>
         <div className="forgot-password-content">
           <p>
-            Enter the email address you used to create the account.
-            We will email you the instructions to reset your password.
+            Enter the email address you used to create the account. We will
+            email you the instructions to reset your password.
           </p>
         </div>
         {/* outline box layout */}
@@ -29,7 +26,12 @@ const ForgotPassword = () => (
                 <span style={{ color: 'red' }}>*</span>
               </Form.Label>
               {/* inline box layout */}
-              <Form.Control type="email" placeholder="" className="inlinebox" name="username" />
+              <Form.Control
+                type="email"
+                placeholder=""
+                className="inlinebox"
+                name="username"
+              />
             </Form.Group>
             <div>
               {/* button box */}
