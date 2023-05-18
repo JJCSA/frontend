@@ -41,7 +41,11 @@ function Onboarding() {
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   const handleInputChange = (...events) => {
     const newState = { ...formData };
+<<<<<<< HEAD
     events.forEach((ev) => {
+=======
+    events.forEach(ev => {
+>>>>>>> 8c01972 (Fixed issue (#129))
       const attributes = ev.target.name.split('.');
       let newStateProperty = newState;
       attributes.forEach((attribute, index) => {
@@ -112,18 +116,63 @@ function Onboarding() {
           </div>
           <div className="form-row mt-2">
             <div className="col">
+<<<<<<< HEAD
               <select name="country" className="custom-select" value={countryISO} onChange={(event) => { setCountryISO(event.target.value); handleInputChange(event, { target: { name: 'state', value: '' } }, { target: { name: 'city', value: '' } }); }} required>
                 <option value="" disabled>Country *</option>
                 {Country.getAllCountries().map((country) => (
                   <option key={country.isoCode} value={country.isoCode}>{country.name}</option>
+=======
+              <select
+                name="country"
+                className="custom-select"
+                value={countryISO}
+                onChange={event => {
+                  setCountryISO(event.target.value);
+                  handleInputChange(
+                    event,
+                    { target: { name: 'state', value: '' } },
+                    { target: { name: 'city', value: '' } }
+                  );
+                }}
+                required
+              >
+                <option value="" disabled>
+                  Country *
+                </option>
+                {Country.getAllCountries().map(country => (
+                  <option key={country.isoCode} value={country.isoCode}>
+                    {country.name}
+                  </option>
+>>>>>>> 8c01972 (Fixed issue (#129))
                 ))}
               </select>
             </div>
             <div className="col">
+<<<<<<< HEAD
               <select name="state" className="custom-select" value={formData.state} onChange={(event) => { handleInputChange(event, { target: { name: 'city', value: '' } }); }} required>
                 <option value="" disabled>State *</option>
                 {State.getStatesOfCountry(countryISO).map((state) => (
                   <option key={state.isoCode} value={state.isoCode}>{state.name}</option>
+=======
+              <select
+                name="state"
+                className="custom-select"
+                value={formData.state}
+                onChange={event => {
+                  handleInputChange(event, {
+                    target: { name: 'city', value: '' },
+                  });
+                }}
+                required
+              >
+                <option value="" disabled>
+                  State *
+                </option>
+                {State.getStatesOfCountry(countryISO).map(state => (
+                  <option key={state.isoCode} value={state.isoCode}>
+                    {state.name}
+                  </option>
+>>>>>>> 8c01972 (Fixed issue (#129))
                 ))}
               </select>
             </div>
@@ -145,11 +194,41 @@ function Onboarding() {
         <div className="col-md">
           <div>Select your current status *</div>
           <div className="row">
+<<<<<<< HEAD
             <div className={`col-md p-3 m-2 type-container text-center${formData.userStudent ? ' active' : ''}`} role="button" tabIndex="0" onClick={() => handleInputChange({ target: { name: 'userStudent', value: true } })}>
               <StudentLogo className="type-logo" />
               <div>STUDENT</div>
             </div>
             <div className={`col-md p-3 m-2 type-container text-center${formData.userStudent ? '' : ' active'}`} role="button" tabIndex="0" onClick={() => handleInputChange({ target: { name: 'userStudent', value: false } })}>
+=======
+            <div
+              className={`col-md p-3 m-2 type-container text-center${
+                formData.userStudent ? ' active' : ''
+              }`}
+              role="button"
+              tabIndex="0"
+              onClick={() =>
+                handleInputChange({
+                  target: { name: 'userStudent', value: true },
+                })
+              }
+            >
+              <StudentLogo className="type-logo" />
+              <div>STUDENT</div>
+            </div>
+            <div
+              className={`col-md p-3 m-2 type-container text-center${
+                formData.userStudent ? '' : ' active'
+              }`}
+              role="button"
+              tabIndex="0"
+              onClick={() =>
+                handleInputChange({
+                  target: { name: 'userStudent', value: false },
+                })
+              }
+            >
+>>>>>>> 8c01972 (Fixed issue (#129))
               <GraduateLogo className="type-logo" />
               <div>PROFESSIONAL</div>
             </div>
@@ -199,7 +278,18 @@ function Onboarding() {
         </div>
         <div className="d-inline-block w-25 align-middle float-right">
           <div className="progress">
+<<<<<<< HEAD
             <div className="progress-bar bg-success" style={{ width: `${progress}%` }} role="progressbar" aria-valuenow={progress} aria-valuemin="0" aria-valuemax="100">{`${progress}%`}</div>
+=======
+            <div
+              className="progress-bar bg-success"
+              style={{ width: `${progress}%` }}
+              role="progressbar"
+              aria-valuenow={progress}
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >{`${progress}%`}</div>
+>>>>>>> 8c01972 (Fixed issue (#129))
           </div>
           <small className="progress-label text-muted">Profile Progress</small>
         </div>

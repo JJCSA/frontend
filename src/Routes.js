@@ -65,7 +65,6 @@ function Routes() {
         <Route path="/landing-home" element={<LandingHomepage />} />
         <Route path="/register" element={<Register toggleNavbar={toggleNavbar} />} />
         <Route path="/login" element={<Login toggleNavbar={toggleNavbar} />} />
-        <Route path="/forgotPassword" element={<ForgotPassword toggleNavbar={toggleNavbar} />} />
         <Route path="/ForgotPassword" element={<ForgotPassword toggleNavbar={toggleNavbar} />} />
         <Route path="/ForgotPasswordMessage" element={<ForgotPasswordMessage toggleNavbar={toggleNavbar} />} />
         <Route path="/profile" element={<RequireAuth loginPath="/login"><Profile /></RequireAuth>} />

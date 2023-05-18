@@ -45,6 +45,7 @@ function LandingNavbar() {
           >
             JJC Mission
           </NavHashLink>
+<<<<<<< HEAD
           {/*<NavHashLink*/}
           {/*  className="nav-item nav-link active navbarhover px-3"*/}
           {/*  to="/#about-us"*/}
@@ -61,6 +62,26 @@ function LandingNavbar() {
           {/*>*/}
           {/*  Ongoing Projects*/}
           {/*</NavHashLink>*/}
+=======
+          {/* About US */}
+          <NavHashLink
+            className="nav-item nav-link active navbarhover px-3"
+            to="/#about-us"
+            smooth
+            activeClassName="activeLink"
+          >
+            About Us
+          </NavHashLink>
+          {/* mission vission */}
+          <NavHashLink
+            className="nav-item nav-link active navbarhover px-3"
+            to="/#mission-vision"
+            smooth
+            activeClassName="activeLink"
+          >
+            Vision and Mission
+          </NavHashLink>
+>>>>>>> 8c01972 (Fixed issue (#129))
           <NavHashLink
             className="nav-item nav-link active navbarhover px-3"
             to="/#news-feed"
