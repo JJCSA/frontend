@@ -5,6 +5,7 @@ import JJCMission from './components/jjcMission/JJCMission';
 import Banner from './components/banner/Banner';
 import AboutUs from './components/aboutUs/AboutUs';
 import MissionVision from './components/missionVision/MissionVision';
+import Timeline from './components/timeline/Timeline';
 
 function LandingHomepage() {
   return (
@@ -12,6 +13,7 @@ function LandingHomepage() {
       <Banner />
       <JJCMission />
       <AboutUs />
+      <Timeline />
       <MissionVision />
       <NewsFeed />
       <ContactUs />
