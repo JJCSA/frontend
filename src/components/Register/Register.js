@@ -6,9 +6,8 @@ import * as Yup from 'yup';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router-dom';
 import { register } from '../UserFunctions';
-
-const phoneRegExp =
-  /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 const registrationSchema = Yup.object().shape({
   firstName: Yup.string().required('First Name is required'),
@@ -17,11 +16,11 @@ const registrationSchema = Yup.object().shape({
     .email('Invalid email address')
     .required('Email is required'),
   password: Yup.string().required('Password is required'),
-  mobileNumber: Yup.string()
-    .matches(phoneRegExp, 'Phone number is not valid')
-    .min(10, 'Too short')
-    .max(10, 'Too long')
-    .required('Mobile Number is required'),
+  passwordConfirmation: Yup.string().oneOf(
+    [Yup.ref('password'), null],
+    'Passwords must match'
+  ),
+  mobileNumber: Yup.string().required('Mobile Number is required'),
   prefMethodOfContact: Yup.string().required(
     'Preferred Method of Contact is required'
   ),
@@ -38,6 +37,7 @@ function Register() {
     lastName: '',
     email: '',
     password: '',
+    passwordConfirmation: '',
     mobileNumber: '',
     prefMethodOfContact: 'Email',
     jainCommunity: '',
@@ -48,6 +48,7 @@ function Register() {
   const navigate = useNavigate();
 
   const handleSubmit = (values, { setSubmitting }) => {
+    delete values.passwordConfirmation;
     register(values)
       .then(() => {
         navigate('/login');
@@ -90,6 +91,7 @@ function Register() {
                 handleChange,
                 handleBlur,
                 isSubmitting,
+                setFieldValue,
               }) => (
                 <FormikForm className="register-form">
                   {showError && (
@@ -190,21 +192,56 @@ function Register() {
                       </Form.Control.Feedback>
                     </InputGroup>
                   </Form.Group>
+                  <Form.Group controlId="formBasicPassword">
+                    <Form.Label>
+                      Confirm Password
+                      <span style={{ color: 'red' }}>*</span>
+                    </Form.Label>
+                    <InputGroup>
+                      <Form.Control
+                        type={showPassword ? 'text' : 'password'}
+                        placeholder=""
+                        name="passwordConfirmation"
+                        value={values.passwordConfirmation}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        isInvalid={
+                          touched.passwordConfirmation &&
+                          errors.passwordConfirmation
+                        }
+                        className="form-control-password"
+                      />
+                      <InputGroup.Prepend className="password-eye-icon">
+                        <InputGroup.Text className="password-eye-icon">
+                          {showPassword ? (
+                            <BsEyeSlash
+                              onClick={() => setShowPassword(false)}
+                            />
+                          ) : (
+                            <BsEye onClick={() => setShowPassword(true)} />
+                          )}
+                        </InputGroup.Text>
+                      </InputGroup.Prepend>
+                      <Form.Control.Feedback type="invalid">
+                        {errors.passwordConfirmation}
+                      </Form.Control.Feedback>
+                    </InputGroup>
+                  </Form.Group>
 
                   <Form.Group>
                     <Form.Label>
                       Mobile Number
                       <span style={{ color: 'red' }}>*</span>
                     </Form.Label>
-                    <Form.Control
-                      type="tel"
-                      placeholder="Enter US phone number"
-                      name="mobileNumber"
+                    <PhoneInput
+                      country={'us'}
                       value={values.mobileNumber}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
+                      onChange={phone => {
+                        setFieldValue('mobileNumber', phone);
+                        console.log(values);
+                      }}
                       isInvalid={touched.mobileNumber && errors.mobileNumber}
-                      className="form-control-custom"
+                      // className="form-control-custom"
                     />
                     <Form.Control.Feedback type="invalid">
                       {errors.mobileNumber}
@@ -283,19 +320,17 @@ function Register() {
                     <Form.Control
                       type="file"
                       name="jainProof"
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      isInvalid={touched.jainProof && errors.jainProof}
+                      onChange={e =>
+                        setFieldValue('jainProof', e.currentTarget.files[0])
+                      }
+                      required
                     />
                     <Form.Text className="text-muted">
                       This is a certificate that shows you are a Jain. If you
-                      are not aware of this, please ask your parents. Your
-                      application will be rejected if you don't upload an
+                      are not aware of this please ask your parents. Your
+                      application will be rejected if you don’t upload an
                       appropriate document.
                     </Form.Text>
-                    <Form.Control.Feedback type="invalid">
-                      {errors.jainProof}
-                    </Form.Control.Feedback>
                   </Form.Group>
 
                   <Form.Group controlId="formFile" className="mb-3">
@@ -306,13 +341,11 @@ function Register() {
                     <Form.Control
                       type="file"
                       name="profPicture"
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      isInvalid={touched.profPicture && errors.profPicture}
+                      onChange={e =>
+                        setFieldValue('profPicture', e.currentTarget.files[0])
+                      }
+                      required
                     />
-                    <Form.Control.Feedback type="invalid">
-                      {errors.profPicture}
-                    </Form.Control.Feedback>
                   </Form.Group>
                   <br />
                   <button
