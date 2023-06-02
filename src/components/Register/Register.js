@@ -237,8 +237,7 @@ function Register() {
                       country={'us'}
                       value={values.mobileNumber}
                       onChange={phone => {
-                        setFieldValue('mobileNumber', phone);
-                        console.log(values);
+                        setFieldValue('mobileNumber', `+${phone}`);
                       }}
                       isInvalid={touched.mobileNumber && errors.mobileNumber}
                       // className="form-control-custom"
