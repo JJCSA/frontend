@@ -6,6 +6,7 @@ import Banner from './components/banner/Banner';
 import AboutUs from './components/aboutUs/AboutUs';
 import MissionVision from './components/missionVision/MissionVision';
 import Timeline from './components/timeline/Timeline';
+import Testimonial from './components/testimonial/Testimonial';
 
 function LandingHomepage() {
   return (
@@ -16,6 +17,7 @@ function LandingHomepage() {
       <Timeline />
       <MissionVision />
       <NewsFeed />
+      <Testimonial />
       <ContactUs />
     </div>
   );

@@ -1,0 +1,31 @@
+@import "../../../../utils/variables.scss";
+
+.TESTIMONIAL{
+    padding-top: 6em;
+    margin-top: -6em;
+  .testimonial {
+    border-color: $vividred;
+    width: 2rem;
+    margin-top: 0px;
+  }
+  .slick-slide img {
+    margin: auto;
+  }
+  .slick-prev::before{
+    color: black;
+    margin-right: 30px;
+  }
+  .slick-next::before{
+    color: black;
+  }
+  .quote {
+        font-size: 18px;
+        font-style: italic;
+        margin-bottom: 10px;
+      }
+    
+      .author {
+        font-size: 14px;
+      }
+}
+
