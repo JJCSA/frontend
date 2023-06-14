@@ -34,3 +34,8 @@ export { default as StudentLogo } from './icons/student.svg';
 export { default as GraduateLogo } from './icons/graduate.svg';
 export { default as ProfessionalLogo } from './icons/professional.svg';
 export { default as EducationLogo } from './icons/education.svg';
+export { default as AboutUs } from './images/AboutUs.png';
+export { default as regionalContact } from './icons/user-location-pin.svg';
+export { default as linkedIn } from './icons/linkedin-icon.svg';
+export { default as specialization } from './icons/study-field.svg';
+export { default as universityDegree } from './icons/university-degree.svg';
