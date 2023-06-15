@@ -104,10 +104,30 @@ function Routes() {
               />
             </RequireAuth>
           }
+        />
+        <Route
+          path="/forgotPassword"
+          element={<ForgotPassword toggleNavbar={toggleNavbar} />}
+        />
+        <Route
+          path="/profile"
+          element={
+            <RequireAuth loginPath="/login">
+              <Profile />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/admin/"
+          element={
+            <RequireAuth loginPath="/login">
+              <AdminPanel
+                toggleNavbar={toggleNavbar}
+                toggleFooter={toggleFooter}
+              />
+            </RequireAuth>
+          }
         >
-        <Route path="/forgotPassword" element={<ForgotPassword toggleNavbar={toggleNavbar} />} />
-        <Route path="/profile" element={<RequireAuth loginPath="/login"><Profile /></RequireAuth>} />
-        <Route path="/admin/" element={<RequireAuth loginPath="/login"><AdminPanel toggleNavbar={toggleNavbar} toggleFooter={toggleFooter} /></RequireAuth>}>
           <Route path="dashboard" element={<AdminHomepage />} />
           <Route path="manageUsers" element={<UserManager />} />
         </Route>

@@ -1,12 +1,12 @@
-import React, { useContext, useState } from "react";
-import { useSignIn, useIsAuthenticated } from "react-auth-kit";
-import { Navigate, Link } from "react-router-dom";
-import "./Login.scss";
-import { Form, Container, Col, Row, InputGroup } from "react-bootstrap";
-import { BsEye, BsEyeSlash } from "react-icons/bs";
-import GlobalContext from "../../store/GlobalContext";
-import { login } from "../UserFunctions";
-import { toast } from "react-toastify";
+import React, { useContext, useState } from 'react';
+import { useSignIn, useIsAuthenticated } from 'react-auth-kit';
+import { Navigate, Link } from 'react-router-dom';
+import './Login.scss';
+import { Form, Container, Col, Row, InputGroup } from 'react-bootstrap';
+import { BsEye, BsEyeSlash } from 'react-icons/bs';
+import GlobalContext from '../../store/GlobalContext';
+import { login } from '../UserFunctions';
+import { toast } from 'react-toastify';
 
 function Login() {
   const { globalState, setGlobalState } = useContext(GlobalContext);
@@ -20,22 +20,22 @@ function Login() {
     setShowPassword(!showPassword);
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = e => {
     e.preventDefault();
     login(e.target)
-      .then((user) => {
+      .then(user => {
         signIn(user);
         setGlobalState({
           ...globalState,
           profile: user.authState,
         });
-        toast.success("Login successful!");
+        toast.success('Login successful!');
       })
-      .catch((err) => {
+      .catch(err => {
         toast.error(
           err?.response?.data?.error_description
             ? err?.response?.data?.error_description
-            : "Login Failed!"
+            : 'Login Failed!'
         );
         console.log(err);
       });
@@ -50,7 +50,7 @@ function Login() {
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>
                   Email
-                  <span style={{ color: "red" }}>*</span>
+                  <span style={{ color: 'red' }}>*</span>
                 </Form.Label>
                 <Form.Control
                   type="email"
@@ -63,16 +63,14 @@ function Login() {
               <Form.Group controlId="formBasicPassword">
                 <Form.Label>
                   Password
-                  <span style={{ color: "red" }}>*</span>
+                  <span style={{ color: 'red' }}>*</span>
                 </Form.Label>
-                <Form.Label style={{ color: "red", float: "right" }}>
-                  Forgot Password?
                 <Form.Label style={{ color: 'red', float: 'right' }}>
                   <a href="/forgotPassword">Forgot Password?</a>
                 </Form.Label>
                 <InputGroup>
                   <Form.Control
-                    type={showPassword ? "text" : "password"}
+                    type={showPassword ? 'text' : 'password'}
                     placeholder=""
                     className="form-control-password"
                     name="password"

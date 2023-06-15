@@ -48,16 +48,16 @@ function LandingNavbar() {
           {/* About US */}
           <NavHashLink
             className="nav-item nav-link active navbarhover px-3"
-            to="/#about-us" 
+            to="/#about-us"
             smooth
             activeClassName="activeLink"
           >
-             About Us
-
+            About Us
+          </NavHashLink>
           {/* mission vission */}
           <NavHashLink
             className="nav-item nav-link active navbarhover px-3"
-            to="/#mission-vision" 
+            to="/#mission-vision"
             smooth
             activeClassName="activeLink"
           >
