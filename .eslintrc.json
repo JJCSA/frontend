@@ -3,31 +3,35 @@
         "browser": true,
         "es6": true
     },
-    "extends": ["eslint:recommended", "airbnb", "plugin:react/recommended", "plugin:prettier/recommended"],
-    "plugins": ["react","react-hooks","prettier"],
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb"
+    ],
     "parserOptions": {
-      "ecmaFeatures": {
-          "jsx": true
-      },
-      "ecmaVersion": 2018,
-      "sourceType": "module"  
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
     },
+    "plugins": [
+        "react",
+        "react-hooks"
+    ],
     "rules": {
-      "react/jsx-filename-extension": [
-        1,
-        {
-            "extensions": [
-                ".js",
-                ".jsx"
-            ]
-        }
-      ],
-      "react/jsx-one-expression-per-line":"off",
-      "jsx-a11y/click-events-have-key-events": "off",
-      "react/jsx-props-no-spreading": "off",
-      "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn",
-      "react/prop-types": "off",
-      "prettier/prettier": "error"
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx"
+                ]
+            }
+        ],
+        "jsx-a11y/click-events-have-key-events": "off",
+        "react/jsx-props-no-spreading": "off",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
+        "react/prop-types": "off"
     }
-  }
+}
