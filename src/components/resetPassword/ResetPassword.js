@@ -16,7 +16,11 @@ const ResetPassword = () => (
 
             {/* Need to change Username with actual name of Username */}
 
+<<<<<<< HEAD
             Hi,<br></br>
+=======
+            Hi, Username. <br></br>
+>>>>>>> 37f44943694a63233bd9c3fedbefef2f7ede60e6
             Your new password must be different from any of your previous password.
           </p>
 
@@ -24,7 +28,11 @@ const ResetPassword = () => (
             Create New Password
           </p>
         </div>
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 37f44943694a63233bd9c3fedbefef2f7ede60e6
         <div className='outside-box'>
           <Form>
             <div className='new-password'>
@@ -66,4 +74,8 @@ const ResetPassword = () => (
     </Col>
   </Row>
 );
+<<<<<<< HEAD
 export default ResetPassword;
+=======
+export default ResetPassword;
+>>>>>>> 37f44943694a63233bd9c3fedbefef2f7ede60e6
