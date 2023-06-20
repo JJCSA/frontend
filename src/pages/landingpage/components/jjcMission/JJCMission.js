@@ -29,11 +29,7 @@ function JJCMission() {
             onInit={(typewriter) => {
               typewriter
                 .typeString(
-<<<<<<< HEAD
                   "JJC STUDENT ASSOCIATION IS THERE TO GUIDE YOU THROUGHOUT YOUR JOURNEY IN THE USA"
-=======
-                  'JJC USA IS THERE TO GUIDE YOU THROUGHOUT YOUR JOURNEY IN THE USA'
->>>>>>> 25707d8 (Banner (#128))
                 )
                 .start();
             }}
@@ -43,13 +39,8 @@ function JJCMission() {
           {/*  journey in the USA */}
           {/* </ScrollAnimation> */}
         </div>
-<<<<<<< HEAD
         <div className="row">
           <div className="col-sm-12 col-lg-2 ">
-=======
-        <div className="card-deck">
-          <div className="col-sm-12 col-md-6 col-lg-3 mb-5">
->>>>>>> 25707d8 (Banner (#128))
             <ScrollAnimation
               animateIn="bounceIn"
               animateOut="bounceOut"
@@ -70,11 +61,7 @@ function JJCMission() {
               </div>
             </ScrollAnimation>
           </div>
-<<<<<<< HEAD
           <div className="col-sm-12 col-lg-2 ">
-=======
-          <div className="col-sm-12 col-md-6 col-lg-3 mb-5">
->>>>>>> 25707d8 (Banner (#128))
             <ScrollAnimation
               animateIn="bounceIn"
               animateOut="bounceOut"
@@ -96,11 +83,7 @@ function JJCMission() {
               </div>
             </ScrollAnimation>
           </div>
-<<<<<<< HEAD
           <div className="col-sm-12 col-lg-2 ">
-=======
-          <div className="col-sm-12 col-md-6 col-lg-3 mb-5">
->>>>>>> 25707d8 (Banner (#128))
             <ScrollAnimation
               animateIn="bounceIn"
               animateOut="bounceOut"
@@ -121,11 +104,7 @@ function JJCMission() {
               </div>
             </ScrollAnimation>
           </div>
-<<<<<<< HEAD
           <div className="col-sm-12 col-lg-2 ">
-=======
-          <div className="col-sm-12 col-md-6 col-lg-3 mb-5">
->>>>>>> 25707d8 (Banner (#128))
             <ScrollAnimation
               animateIn="bounceIn"
               animateOut="bounceOut"

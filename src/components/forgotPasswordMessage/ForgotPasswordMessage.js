@@ -23,7 +23,7 @@ const ForgotPasswordMessage = () => (
           <p className='message-content'>
             Wrong email address?<u> <a href="/forgotPassword"> Change Email Adderess</a> </u>
           </p>
-{/* {          <p className='message-content-1'>
+{/* {          <pclassName='message-content-1'>
 
             Did not receive an email? <u> <a href="/forgotPassword"> Resend Email </a> </u>
 </p>} */}

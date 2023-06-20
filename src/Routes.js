@@ -18,15 +18,9 @@ import Loader from './helpers/Loader';
 import AdminHomepage from './pages/admin/AdminHomepage';
 import UserManager from './pages/admin/UserManager';
 import ForgotPassword from './components/forgotPassword/ForgotPassword';
-<<<<<<< HEAD
-import ForgotPasswordMessage from './components/forgotPasswordMessage/ForgotPasswordMessage';
-=======
-<<<<<<< HEAD
-=======
 import ForgotPasswordMessage from './components/forgotPasswordMessage/FogotPasswordMessage';
 import ResetPassword from './components/resetPassword/ResetPassword';
->>>>>>> 37f44943694a63233bd9c3fedbefef2f7ede60e6
->>>>>>> 8fc7bc5 (reset password)
+
 
 function Routes() {
   const { globalState, setGlobalState } = useContext(GlobalContext);
@@ -71,24 +65,11 @@ function Routes() {
       <Switch>
         <Route path="/" element={<Landing />} />
         <Route path="/landing-home" element={<LandingHomepage />} />
-<<<<<<< HEAD
         <Route path="/register" element={<Register toggleNavbar={toggleNavbar} />} />
-=======
-<<<<<<< HEAD
-        <Route
-          path="/register"
-          element={<Register toggleNavbar={toggleNavbar} />}
-        />
-=======
-        <Route path="/register" element={<Register toggleNavbar={toggleNavbar} />} />
-        <Route path="/forgotPassword" element={<ForgotPassword toggleNavbar={toggleNavbar} />} />
-        <Route path="/forgotPasswordMessage" element={<ForgotPasswordMessage toggleNavbar={toggleNavbar} />} />
-        <Route path="/resetPassword" element={<ResetPassword toggleNavbar={toggleNavbar} />} />
->>>>>>> 37f44943694a63233bd9c3fedbefef2f7ede60e6
->>>>>>> 8fc7bc5 (reset password)
         <Route path="/login" element={<Login toggleNavbar={toggleNavbar} />} />
         <Route path="/ForgotPassword" element={<ForgotPassword toggleNavbar={toggleNavbar} />} />
         <Route path="/ForgotPasswordMessage" element={<ForgotPasswordMessage toggleNavbar={toggleNavbar} />} />
+        <Route path="/ResetPassword" element={<ForgotPasswordMessage toggleNavbar={toggleNavbar} />} />
         <Route path="/profile" element={<RequireAuth loginPath="/login"><Profile /></RequireAuth>} />
         <Route path="/admin/" element={<RequireAuth loginPath="/login"><AdminPanel toggleNavbar={toggleNavbar} toggleFooter={toggleFooter} /></RequireAuth>}>
           <Route path="dashboard" element={<AdminHomepage />} />

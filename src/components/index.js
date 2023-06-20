@@ -8,8 +8,4 @@ export { default as Navbar } from './Navbar';
 export { default as Profle } from './Profile';
 export { default as Register } from './Register/Register';
 export { default as UserModal } from './userModal/UserModal';
-<<<<<<< HEAD
 export { default as forgotPassword } from './forgotPassword/ForgotPassword';
-=======
-export { default as forgotPassword } from './forgotPassword/ForgotPassword';
->>>>>>> 37f44943694a63233bd9c3fedbefef2f7ede60e6
