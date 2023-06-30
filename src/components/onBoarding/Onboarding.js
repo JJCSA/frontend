@@ -18,7 +18,6 @@ function Onboarding() {
     userStudent: true,
     street: '',
     linkedinUrl: '',
-    socialMediaPlatform: '',
     volunteeringInterest: '',
     aboutMe: '',
     dateOfBirth: '',
@@ -102,17 +101,19 @@ function Onboarding() {
     setStep(step - 1);
     setProgress(50);
   };
-  const handleVolOnChange = (ev) => {
+  const handleVolOnChange = ev => {
     let updatedInterests;
     if (ev.target.checked) {
-      updatedInterests = volunteeringInterest.concat([ev.target.value])
+      updatedInterests = volunteeringInterest.concat([ev.target.value]);
     } else {
-      updatedInterests = volunteeringInterest.filter((interest) => interest !== ev.target.value);
+      updatedInterests = volunteeringInterest.filter(
+        interest => interest !== ev.target.value
+      );
     }
     setVolunteeringInterest(updatedInterests);
     setFormData({
       ...formData,
-      volunteeringInterest: updatedInterests.join(","),
+      volunteeringInterest: updatedInterests.join(','),
     });
   };
 
@@ -133,14 +134,6 @@ function Onboarding() {
             value={formData.linkedinUrl}
             onChange={handleInputChange}
             required
-          />
-          <input
-            name="socialMediaPlatform"
-            type="text"
-            className="form-control mt-2 mb-2"
-            placeholder="Instagram Handle"
-            value={formData.socialMediaPlatform}
-            onChange={handleInputChange}
           />
           <textarea
             name="aboutMe"
@@ -213,18 +206,10 @@ function Onboarding() {
                 <option value="" disabled>
                   Gender *
                 </option>
-                <option value="Male">
-                  Male
-                </option>
-                <option value="Female">
-                  Female
-                </option>
-                <option value="Other">
-                  Other
-                </option>
-                <option value="Prefer not to say">
-                  Prefer not to say
-                </option>
+                <option value="MALE">Male</option>
+                <option value="FEMALE">Female</option>
+                <option value="OTHER">Other</option>
+                <option value="PREFER_NOT_TO_SAY">Prefer not to say</option>
               </select>
             </div>
           </div>
@@ -347,28 +332,88 @@ function Onboarding() {
           </div>
           <div> Volunteering Interests</div>
           <div className="row">
-            <div class="form-check form-check-inline">
-              <input name="vol-check" class="form-check-input" type="checkbox" value="Website" checked={volunteeringInterest.includes('Website')} id="website-vol" onChange={handleVolOnChange} />
-              <label class="form-check-label" for="website-vol">
-                Website
+            <div className="form-check form-check-inline">
+              <input
+                name="vol-check"
+                className="form-check-input"
+                type="checkbox"
+                value="ADMIN"
+                checked={volunteeringInterest.includes('ADMIN')}
+                id="admin-vol"
+                onChange={handleVolOnChange}
+              />
+              <label className="form-check-label" htmlFor="admin-vol">
+                Admin
               </label>
             </div>
-            <div class="form-check form-check-inline">
-              <input name="vol-check" class="form-check-input" type="checkbox" value="Marketing" checked={volunteeringInterest.includes('Marketing')} id="marketing-vol" onChange={handleVolOnChange} />
-              <label class="form-check-label" for="marketing-vol">
+            <div className="form-check form-check-inline">
+              <input
+                name="vol-check"
+                className="form-check-input"
+                type="checkbox"
+                value="ALUMNIWELFARE"
+                checked={volunteeringInterest.includes('ALUMNIWELFARE')}
+                id="alumni-vol"
+                onChange={handleVolOnChange}
+              />
+              <label className="form-check-label" htmlFor="alumni-vol">
+                Alumni welfare
+              </label>
+            </div>
+            <div className="form-check form-check-inline">
+              <input
+                name="vol-check"
+                className="form-check-input"
+                type="checkbox"
+                value="EVENTS"
+                checked={volunteeringInterest.includes('EVENTS')}
+                id="event-vol"
+                onChange={handleVolOnChange}
+              />
+              <label className="form-check-label" htmlFor="events-vol">
+                Events
+              </label>
+            </div>
+            <div className="form-check form-check-inline">
+              <input
+                name="vol-check"
+                className="form-check-input"
+                type="checkbox"
+                value="MARKETING"
+                checked={volunteeringInterest.includes('MARKETING')}
+                id="marketing-vol"
+                onChange={handleVolOnChange}
+              />
+              <label className="form-check-label" htmlFor="marketing-vol">
                 Marketing
               </label>
             </div>
-            <div class="form-check form-check-inline">
-              <input name="vol-check" class="form-check-input" type="checkbox" value="Student welfare" checked={volunteeringInterest.includes('Student welfare')} id="student-vol" onChange={handleVolOnChange} />
-              <label class="form-check-label" for="student-vol">
+            <div className="form-check form-check-inline">
+              <input
+                name="vol-check"
+                className="form-check-input"
+                type="checkbox"
+                value="STUDENTWELFARE"
+                checked={volunteeringInterest.includes('STUDENTWELFARE')}
+                id="student-vol"
+                onChange={handleVolOnChange}
+              />
+              <label className="form-check-label" htmlFor="student-vol">
                 Student welfare
               </label>
             </div>
-            <div class="form-check form-check-inline">
-              <input name="vol-check" class="form-check-input" type="checkbox" value="Alumni welfare" checked={volunteeringInterest.includes('Alumni welfare')} id="alumni-vol" onChange={handleVolOnChange} />
-              <label class="form-check-label" for="alumni-vol">
-                Alumni welfare
+            <div className="form-check form-check-inline">
+              <input
+                name="vol-check"
+                className="form-check-input"
+                type="checkbox"
+                value="WEBSITE"
+                checked={volunteeringInterest.includes('WEBSITE')}
+                id="website-vol"
+                onChange={handleVolOnChange}
+              />
+              <label className="form-check-label" htmlFor="website-vol">
+                Website
               </label>
             </div>
           </div>
@@ -472,7 +517,9 @@ function Onboarding() {
             name="workExperience.0.totalExp"
             type="text"
             className="form-control mt-2"
-            placeholder={`Experience (years)${formData.userStudent ? '' : ' *'}`}
+            placeholder={`Experience (years)${
+              formData.userStudent ? '' : ' *'
+            }`}
             value={formData.workExperience[0].totalExp}
             onChange={handleInputChange}
             required={!formData.userStudent}
@@ -502,7 +549,9 @@ function Onboarding() {
               aria-valuenow={progress}
               aria-valuemin="0"
               aria-valuemax="100"
-            >{`${progress}%`}</div>
+            >
+              {`${progress}%`}
+            </div>
           </div>
           <small className="progress-label text-muted">Profile Progress</small>
         </div>
