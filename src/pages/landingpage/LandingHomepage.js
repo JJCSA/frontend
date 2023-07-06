@@ -12,7 +12,6 @@ function LandingHomepage() {
       <Banner />
       <JJCMission />
       <AboutUs />
-      <MissionVision />
       <NewsFeed />
       <ContactUs />
     </div>

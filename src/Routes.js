@@ -22,6 +22,7 @@ import Profile from './components/Profile';
 import AdminPanel from './pages/admin/AdminPanel';
 import Footer from './components/footer/Footer';
 import LandingHomepage from './pages/landingpage/LandingHomepage';
+import NewAboutUs from './pages/landingpage/components/newAboutUs/NewAboutUs';
 import Onboarding from './components/onBoarding/Onboarding';
 import { getProfile } from './components/UserFunctions';
 import Loader from './helpers/Loader';
@@ -81,6 +82,7 @@ function Routes() {
       <Switch>
         <Route path="/" element={<Landing />} />
         <Route path="/landing-home" element={<LandingHomepage />} />
+        <Route path="/about" element={<NewAboutUs />} />
         <Route
           path="/register"
           element={<Register toggleNavbar={toggleNavbar} />}
