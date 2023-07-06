@@ -1,12 +1,14 @@
 import React from 'react';
 import AboutUs from '../aboutUs/AboutUs';
-import MissionVision from '../missionVision/MissionVision';
+import NewMissionVision from '../missionVision/NewMissionVision';
+import Volunteers from '../volunteers/Volunteers';
 
 const NewAboutUs = () => {
   return (
     <div>
       <AboutUs />
-      <MissionVision />
+      <NewMissionVision />
+      <Volunteers />
     </div>
   );
 };
