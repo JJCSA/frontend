@@ -2,6 +2,36 @@
     background: #e9edf5;
     padding: 30px;
 }
+.filter-options {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+  }
+  
+.checkbox-group {
+    display: flex;
+    align-items: center;
+  }
+
+.filter-checkbox-label {
+    margin-left: 0px;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 0;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: larger;
+    color: #7b889a;
+  }
+
+.filter-checkbox-label input[type='checkbox'] {
+    margin-right: 8px;
+    border-color: #7b889a;
+  }
+ 
+.filter-checkbox-label span {
+    vertical-align: middle;
+ }
 
 .table-users {
     background: white;

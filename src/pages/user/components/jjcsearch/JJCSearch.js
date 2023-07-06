@@ -5,14 +5,15 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 import filterFactory, { textFilter } from 'react-bootstrap-table2-filter';
 import { Modal, Button } from 'react-bootstrap';
 import comm from '../../../../helpers/communication';
+import Avatar from '../../../../components/avatar/Avatar';
+import JJCSearchModal from '../jjcsearchModal/JJCSearchModal';
+import FilterOption from './FilterOption';
+import { regionalContact } from '../../../../assets/index';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import 'react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css';
 import 'react-bootstrap-table2-filter/dist/react-bootstrap-table2-filter.min.css';
 import './JJCSearch.scss';
-import Avatar from '../../../../components/avatar/Avatar';
-import JJCSearchModal from '../jjcsearchModal/JJCSearchModal';
-import { regionalContact } from '../../../../assets/index';
 
 function JJCSearch() {
   const [userlist, setUserList] = useState([]);
@@ -21,7 +22,7 @@ function JJCSearch() {
   const [modalInfo, setModalInfo] = useState({});
   const [showModal, setShowModal] = useState(false);
   const [show, setShow] = useState(false);
-
+  const [filters, setFilters] = useState(false);
   const token = useAuthHeader()();
   const ImageFormatter = cell => {
     const imgLinkRegex = RegExp('(http(s?):)|([/|.|w|s])*.(?:jpg|gif|png)');
@@ -45,7 +46,7 @@ function JJCSearch() {
       text: 'Name',
       sort: true,
       formatter: (cell, row) => {
-        return row.regionalContact ? (
+        return row.isRegionalContact ? (
           <>
             {row.name} <img src={regionalContact} alt="regional-contact" />
           </>
@@ -56,7 +57,7 @@ function JJCSearch() {
       filter: textFilter({
         onFilter: (filterValue, data) => {
           return data.filter(row => {
-            const name = `${row.name} ${row.regionalContact}`;
+            const name = `${row.name}`;
             return name.toLowerCase().includes(filterValue.toLowerCase());
           });
         },
@@ -93,7 +94,7 @@ function JJCSearch() {
       filter: textFilter(),
     },
     {
-      dataField: 'regionalContact',
+      dataField: 'isRegionalContact',
       text: 'Regional Contact',
       hidden: true,
     },
@@ -122,6 +123,10 @@ function JJCSearch() {
   const toggleTrueFalse = () => {
     setShowModal(handleShow());
   };
+  const handleFilterChange = () => {
+    setFilters(!filters);
+  };
+
   const rowEvents = {
     textAlign: 'center',
     onClick: (e, row, rowIndex) => {
@@ -162,34 +167,43 @@ function JJCSearch() {
     async function getJJCSearchList() {
       const response = await comm.get('/user/search', token, null);
       const userList = response.data;
-      setUserList(userList);
+      const filteredList = filters
+        ? userList.filter(i => i.isRegionalContact === true)
+        : userList;
+      setUserList(filteredList);
     }
     getJJCSearchList();
-  }, [token]);
+  }, [token, filters]);
 
   return (
     <div className="JJCSearchPage">
       <div id="jjc-search" className="JJCSearch">
         <div className="bg-table">
           <div className="table-users">
-            <BootstrapTable
-              keyField="userId"
-              columns={columns}
-              data={userlist}
-              pagination={paginationFactory(paginationOptions)}
-              filter={filterFactory()}
-              bootstrap4
-              noDataIndication="Table is Empty"
-              rowEvents={rowEvents}
-              rowClasses="clickable-row"
-              onTableChange={(type, { page }) => {
-                if (type === 'pagination') {
-                  handlePageChange(page, sizePerPage);
-                } else if (type === 'sizePerPage') {
-                  handleSizePerPageChange(sizePerPage);
-                }
-              }}
+            <FilterOption
+              filters={filters}
+              handleFilterChange={handleFilterChange}
             />
+            <div className="table-responsive">
+              <BootstrapTable
+                keyField="userId"
+                columns={columns}
+                data={userlist}
+                pagination={paginationFactory(paginationOptions)}
+                filter={filterFactory()}
+                bootstrap4
+                noDataIndication="Table is Empty"
+                rowEvents={rowEvents}
+                rowClasses="clickable-row"
+                onTableChange={(type, { page }) => {
+                  if (type === 'pagination') {
+                    handlePageChange(page, sizePerPage);
+                  } else if (type === 'sizePerPage') {
+                    handleSizePerPageChange(sizePerPage);
+                  }
+                }}
+              />
+            </div>
             {show ? <ModalContent /> : null}
           </div>
         </div>

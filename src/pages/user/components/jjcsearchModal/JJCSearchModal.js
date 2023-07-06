@@ -24,41 +24,27 @@ const JJCSearchModal = props => {
               avatarSize="large"
             />
           </Col>
-          <Col md={6} className="ml-2 mt-3">
-            <Container fluid>
-              <Row>
-                <span className="name-container">{props.data.name}</span>
-              </Row>
-              <Row>
-                {props.data.city && props.data.state ? (
-                  <div>
-                    <img src={locationIcon} alt="Location" />
-                    <span className="info-container-info">
-                      {props.data.city},{props.data.state}
-                    </span>
-                  </div>
-                ) : (
-                  <></>
-                )}
-              </Row>
-            </Container>
+          <Col md={10} className="mt-3">
+            <div className="name-container">{props.data.name}</div>
+            {props.data.city && props.data.state && (
+              <div className="location-container">
+                <img src={locationIcon} alt="Location" />
+                {props.data.city}, {props.data.state}
+              </div>
+            )}
           </Col>
         </Row>
         <Row>
-          <Col md={12}>
+          <Col>
             <div className="info-container mt-3 rounded mb-3">
-              <div className="divOutside">
-                <div className="mt-3 ml-2 mb-3">
-                  <img src={infoIcon} alt="Info" />
-                  <span className="info-container-headers"> About Me</span>
-                </div>
+              <div className="mt-3 ml-2 mb-3">
+                <img src={infoIcon} alt="Info" />
+                <span className="info-container-headers">About Me</span>
               </div>
-              <div className="divOutside last">
-                <div className="mt-3 ml-2 mb-3">
-                  <span className="info-container-info">
-                    {props.data.aboutMe}
-                  </span>
-                </div>
+              <div className="mt-3 ml-2 mb-3">
+                <span className="info-container-info">
+                  {props.data.aboutMe}
+                </span>
               </div>
             </div>
           </Col>
@@ -66,79 +52,62 @@ const JJCSearchModal = props => {
         <Row>
           <Col md={4}>
             <div className="info-container mt-3 rounded mb-3">
-              <div className="divOutside">
-                <div className="mt-3 ml-2 mb-3">
-                  <img src={universityDegree} alt="Education" />
-                  <span className="info-container-headers">
-                    University Name
-                  </span>
-                </div>
+              <div className="mt-3 ml-2 mb-3">
+                <img src={universityDegree} alt="Education" />
+                <span className="info-container-headers">University Name</span>
               </div>
-              <div className="divOutside last">
-                <div className="mt-3 ml-2 mb-3">
-                  <span className="info-container-info">
-                    {props.data.universityName}
-                  </span>
-                </div>
+              <div className="mt-3 ml-2 mb-3">
+                <span className="info-container-info">
+                  {props.data.universityName}
+                </span>
               </div>
             </div>
           </Col>
           <Col md={4}>
             <div className="info-container mt-3 rounded mb-3">
-              <div className="divOutside">
-                <div className="mt-3 ml-2 mb-3">
-                  <img src={specialization} alt="Education" />
-                  <span className="info-container-headers">Field of Study</span>
-                </div>
+              <div className="mt-3 ml-2 mb-3">
+                <img src={specialization} alt="Education" />
+                <span className="info-container-headers">Field of Study</span>
               </div>
-              <div className="divOutside last">
-                <div className="mt-3 ml-2 mb-3">
-                  <span className="info-container-info">
-                    {props.data.specialization}
-                  </span>
-                </div>
+              <div className="mt-3 ml-2 mb-3">
+                <span className="info-container-info">
+                  {props.data.specialization}
+                </span>
               </div>
             </div>
           </Col>
           <Col md={4}>
             <div className="info-container mt-3 rounded mb-3">
-              <div className="divOutside">
-                <div className="mt-3 ml-2 mb-3">
-                  <img src={caseIcon} alt="Experience" />
-                  <span className="info-container-headers">Job Title</span>
-                </div>
+              <div className="mt-3 ml-2 mb-3">
+                <img src={caseIcon} alt="Experience" />
+                <span className="info-container-headers">Job Title</span>
               </div>
-              <div className="divOutside last">
-                <div className="mt-3 ml-2 mb-3">
-                  <span className="info-container-info">
-                    {props.data.workRole}
-                  </span>
-                </div>
+              <div className="mt-3 ml-2 mb-3">
+                <span className="info-container-info">
+                  {props.data.workRole}
+                </span>
               </div>
             </div>
           </Col>
         </Row>
         <Row>
-          <Col md={12}>
+          <Col>
             <div className="info-container mt-3 rounded mb-3">
-              <div className="divOutside">
-                <div className="mt-3 ml-2 mb-3">
-                  <img src={linkedIn} alt="Experience" />
-                  <span className="info-container-headers">LinkedIn Url</span>
-                </div>
+              <div className="mt-3 ml-2 mb-3">
+                <img src={linkedIn} alt="Experience" />
+                <span className="info-container-headers">LinkedIn Url</span>
               </div>
-              <div className="divOutside last">
-                <div className="mt-3 ml-2 mb-3">
-                  <span className="info-container-info">
-                    <a
-                      className="linkedIn-url"
-                      href={props.data.linkedinUrl}
-                      target="blank"
-                    >
-                      {props.data.linkedinUrl}
-                    </a>
-                  </span>
-                </div>
+              <div className="mt-3 ml-2 mb-3">
+                <span className="info-container-info">
+                  <a
+                    className="linkedIn-url"
+                    href={props.data.linkedinUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {props.data.linkedinUrl}
+                  </a>
+                </span>
               </div>
             </div>
           </Col>
