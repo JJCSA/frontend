@@ -128,7 +128,6 @@ function JJCSearch() {
   };
 
   const rowEvents = {
-    textAlign: 'center',
     onClick: (e, row, rowIndex) => {
       setModalInfo(row);
       toggleTrueFalse();
