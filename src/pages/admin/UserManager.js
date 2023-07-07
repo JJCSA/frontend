@@ -1,30 +1,33 @@
-import React, { useEffect, useState } from 'react';
-import { useAuthHeader } from 'react-auth-kit';
+import React, {useEffect, useState} from 'react';
+import {useAuthHeader} from 'react-auth-kit';
 import DataTable from '../../components/datatable/DataTable';
 import './UserManager.scss';
-import { CustomDropdown, CustomTextBox } from '../../components';
+import {CustomDropdown, CustomTextBox} from '../../components';
 import * as Constants from '../../utils/constants';
-import { deleteIcon } from '../../assets/index';
+import {deleteIcon} from '../../assets/index';
 import PhoneNumberFormatter from '../../components/phoneNumberFormatter/PhoneNumberFormatter';
 import UserStatusFormatter from '../../components/userStatusFormatter/UserStatusFormatter';
-import ImageFormatter from '../../components/imageFormatter/ImageFormatter';
 import comm from '../../helpers/communication';
 import Avatar from '../../components/avatar/Avatar';
-
 
 function UserManager() {
   const [users, setUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [fetchingUsers, setFetchingUsers] = useState(true);
   const [error, setError] = useState('');
-  const [filters, setFilters] = useState({searchText:'',userStatusFilter:'',locationFilter:'',userTypeFilter:''})
+  const [filters, setFilters] = useState({
+    searchText: '',
+    userStatusFilter: '',
+    locationFilter: '',
+    userTypeFilter: '',
+  });
   const token = useAuthHeader()();
 
-  const ImageFormatter = (cell ,row) => {
+  const ImageFormatter = cell => {
     const imgLinkRegex = RegExp('(http(s?):)|([/|.|w|s])*.(?:jpg|gif|png)');
     const validImg = imgLinkRegex.test(cell);
-    return <Avatar imgSrc={validImg ? cell : ''} avatarSize='small' />;
-  }
+    return <Avatar imgSrc={validImg ? cell : ''} avatarSize="small" />;
+  };
   const tableColumns = [
     {
       dataField: 'id',
@@ -87,7 +90,7 @@ function UserManager() {
     async function getUserData() {
       const response = await comm.get('/admin/users', token, null);
       const userList = response.data;
-      userList.map((user) => {
+      userList.map(user => {
         user.name = `${user.firstName} ${user.lastName}`;
       });
       setUsers(userList);
@@ -108,14 +111,24 @@ function UserManager() {
     const newfiltered_users = [...filteredUsers];
 
     // Finding the element index of the user_id to update
-    const elementsIndexInFilteredUsers = filteredUsers.findIndex((element) => element.id === user_id);
-    const elementsIndexInUsers = users.findIndex((element) => element.id === user_id);
+    const elementsIndexInFilteredUsers = filteredUsers.findIndex(
+      element => element.id === user_id
+    );
+    const elementsIndexInUsers = users.findIndex(
+      element => element.id === user_id
+    );
 
     // Updating the array based on the status
     if (updated_record.userStatus === Constants.userStatus.NEWUSER) {
-      newusers[elementsIndexInUsers] = { ...newusers[elementsIndexInUsers], userStatus: updated_record.userStatus };
-      newfiltered_users[elementsIndexInFilteredUsers] = { ...newfiltered_users[elementsIndexInFilteredUsers], userStatus: updated_record.userStatus };
-    } else if(updated_record.userStatus === Constants.userStatus.REJECTED){
+      newusers[elementsIndexInUsers] = {
+        ...newusers[elementsIndexInUsers],
+        userStatus: updated_record.userStatus,
+      };
+      newfiltered_users[elementsIndexInFilteredUsers] = {
+        ...newfiltered_users[elementsIndexInFilteredUsers],
+        userStatus: updated_record.userStatus,
+      };
+    } else if (updated_record.userStatus === Constants.userStatus.REJECTED) {
       newusers.splice(elementsIndexInUsers, 1);
       newfiltered_users.splice(elementsIndexInFilteredUsers, 1);
       
@@ -135,40 +148,38 @@ function UserManager() {
    * @param {Search Filter to apply search on} filterType
    */
   const updateSearchFilter = (filterValue, filterType) => {
-    setFilters({...filters,[filterType]: filterValue})
+    setFilters({...filters, [filterType]: filterValue});
   };
-useEffect(()=>{
-  const filteredList = users.filter((user) => {
-    const searchTextFilter  = filters.searchText
-      ? user.name
-        .toLowerCase()
-        .includes(filters.searchText?.toLowerCase())
-        || user.email
-          .toLowerCase()
-          .includes(filters.searchText?.toLowerCase())
-        || user.mobileNumber
-          .toLowerCase()
-          .includes(filters.searchText?.toLowerCase())
-      : true;
-    const userStatus = filters.userStatusFilter
-      ? user.userStatus === filters.userStatusFilter
-      : true;
-    const location = filters.locationFilter
-      ? user.state === filters.locationFilter
-        || user.city === filters.locationFilter
-      : true;
-    const userType = filters.userTypeFilter
-      ? user.userRole === filters.userTypeFilter
-      : true;
-      return (searchTextFilter && userStatus && location && userType)
-  });
-  setFilteredUsers(filteredList);
-},[filters])
+  useEffect(() => {
+    const filteredList = users.filter(user => {
+      const searchTextFilter = filters.searchText
+        ? user.name.toLowerCase().includes(filters.searchText?.toLowerCase()) ||
+          user.email
+            .toLowerCase()
+            .includes(filters.searchText?.toLowerCase()) ||
+          user.mobileNumber
+            .toLowerCase()
+            .includes(filters.searchText?.toLowerCase())
+        : true;
+      const userStatus = filters.userStatusFilter
+        ? user.userStatus === filters.userStatusFilter
+        : true;
+      const location = filters.locationFilter
+        ? user.state === filters.locationFilter ||
+          user.city === filters.locationFilter
+        : true;
+      const userType = filters.userTypeFilter
+        ? user.userRole === filters.userTypeFilter
+        : true;
+      return searchTextFilter && userStatus && location && userType;
+    });
+    setFilteredUsers(filteredList);
+  }, [filters]);
   /**
    * Function to handle text filter
    * @param {The input element} event
    */
-  const handleSearchFilterChange = (event) => {
+  const handleSearchFilterChange = event => {
     updateSearchFilter(event.target.value, 'searchText');
   };
 
@@ -176,9 +187,13 @@ useEffect(()=>{
    * Function to clear search filters
    */
   const clearSearchFilters = () => {
-
     setFilteredUsers(users);
-    setFilters({searchText:'',userStatusFilter:'',locationFilter:'',userTypeFilter:''});
+    setFilters({
+      searchText: '',
+      userStatusFilter: '',
+      locationFilter: '',
+      userTypeFilter: '',
+    });
   };
 
   const renderUserTable = () => (
@@ -228,16 +243,8 @@ useEffect(()=>{
       <div className="pageHeader">
         <h4>User Manager</h4>
       </div>
-      {
-          error
-            ? `${error}`
-            : ''
-      }
-      {
-          fetchingUsers
-            ? 'Fetching Users...'
-            : renderUserTable()
-      }
+      {error ? `${error}` : ''}
+      {fetchingUsers ? 'Fetching Users...' : renderUserTable()}
     </div>
   );
 }

@@ -254,8 +254,8 @@ const UserModal = (props) => {
                     </div>
                   </Row>
                 )}
-              {props.data.userRole === 'ADMIN' !== isAdmin ?
-                <div className='row info-container confirmation_popup' style={{ border: '1px solid #ccc', borderRadius: '4px', padding: '10px', backgroundColor: '#f7f7f7' }}>
+              {(props.data.userRole === 'ADMIN') !== (isAdmin) ?
+                <div className='row info-container confirmation_popup'>
                   <span className="info-container-headers"> Are you sure you want to continue? </span>
                   <button className='yes-button' onClick={() => updateUserRole("yes")}>Yes</button>
                   <button className='no-button' onClick={() => updateUserRole("no")}>No</button>
