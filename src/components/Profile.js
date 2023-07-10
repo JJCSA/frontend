@@ -1,13 +1,13 @@
 import React, { useState, useContext } from 'react';
 import { Country, State, City } from 'country-state-city';
-import GlobalContext from '../store/GlobalContext';
 import { useAuthHeader } from 'react-auth-kit';
+import GlobalContext from '../store/GlobalContext';
 import comm from '../helpers/communication';
 import './Profile.scss';
 
 function Profile() {
   const { globalState, setGlobalState } = useContext(GlobalContext);
-  const [profile, setProfile] = useState({...globalState.profile});
+  const [profile, setProfile] = useState({ ...globalState.profile });
   const token = useAuthHeader()();
 
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -17,7 +17,6 @@ function Profile() {
   };
 
   const handleInputChange = (...events) => {
-    console.log(profile);
     const newState = { ...profile };
     events.forEach((ev) => {
       const attributes = ev.target.name.split('.');
@@ -33,13 +32,11 @@ function Profile() {
     setProfile(newState);
   };
   const handleSubmit = (event) => {
-    console.log(profile);
     event.preventDefault();
     const reqBody = {
       ...profile,
     };
     comm.sendPut('/user/profile', token, reqBody).then((newProfile) => {
-      console.log(newProfile);
       setGlobalState({
         ...globalState,
         profile: newProfile.data,
@@ -47,7 +44,7 @@ function Profile() {
     });
   };
   const handleReset = () => {
-    setProfile({...globalState.profile});
+    setProfile({ ...globalState.profile });
   };
 
   return (
@@ -159,8 +156,8 @@ function Profile() {
             </div>
           </>
         )}
-        <input type="submit" class="btn btn-primary save-button" value="Save Details" />
-        <button type="button" class="btn btn-outline-secondary reset-button" onClick={handleReset}>Reset</button>
+        <input type="submit" className="btn btn-primary save-button" value="Save Details" />
+        <button type="button" className="btn btn-outline-secondary reset-button" onClick={handleReset}>Reset</button>
       </form>
     </div>
   );
