@@ -35,7 +35,7 @@ function LandingNavbar() {
             smooth
             activeClassName="activeLink"
           >
-            Home
+            HOME
           </NavHashLink>
           <NavHashLink
             className="nav-item nav-link active navbarhover px-3"
@@ -43,7 +43,7 @@ function LandingNavbar() {
             smooth
             activeClassName="activeLink"
           >
-            JJC Mission
+            CORE VALUES
           </NavHashLink>
           {/* About US */}
           <NavHashLink
@@ -52,7 +52,7 @@ function LandingNavbar() {
             smooth
             activeClassName="activeLink"
           >
-            About Us
+            ABOUT US
           </NavHashLink>
           <NavHashLink
             className="nav-item nav-link active navbarhover px-3"
@@ -60,7 +60,7 @@ function LandingNavbar() {
             smooth
             activeClassName="activeLink"
           >
-            Testimonial
+            TESTIMONIAL
           </NavHashLink>
           <NavHashLink
             className="nav-item nav-link active navbarhover px-3"
@@ -68,7 +68,7 @@ function LandingNavbar() {
             smooth
             activeClassName="activeLink"
           >
-            Contact Us
+            CONTACT US
           </NavHashLink>
           <NavHashLink
             className="nav-item nav-link active navbarhover px-3"
@@ -84,7 +84,7 @@ function LandingNavbar() {
             to="/login"
             className="form-control btn btn-light btn-block mr-sm-3 login-button"
           >
-            Login
+            LOGIN
           </Link>
         </form>
       </div>

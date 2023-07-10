@@ -42,7 +42,7 @@ function Testimonial() {
     <div id="testimonial" className="TESTIMONIAL">
       <div className="container-fluid">
         <div className="text-center mt-5">
-          <h4>Testimonial</h4>
+          <h4>TESTIMONIAL</h4>
           <hr className="testimonial" />
         </div>
         <Slider {...settings}>
