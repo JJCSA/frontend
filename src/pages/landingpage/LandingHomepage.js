@@ -3,16 +3,15 @@ import ContactUs from './components/contactUs/ContactUs';
 import NewsFeed from './components/newsFeed/NewsFeed';
 import JJCMission from './components/jjcMission/JJCMission';
 import Banner from './components/banner/Banner';
-import AboutUs from './components/aboutUs/AboutUs';
-import MissionVision from './components/missionVision/MissionVision';
+import LandingAboutUs from './components/landingAboutUs/LandingAboutUs';
 
 function LandingHomepage() {
   return (
     <div>
       <Banner />
       <JJCMission />
-      <AboutUs />
-      <NewsFeed />
+      <LandingAboutUs />
+      {/* <NewsFeed /> */}
       <ContactUs />
     </div>
   );

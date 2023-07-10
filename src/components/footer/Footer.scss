@@ -1,7 +1,7 @@
 @import "../../utils/variables.scss";
 .footer-container {
-  background: $whiteSmoke;
-  color: $black;
+  background: #1e2350;;
+  color: $whiteSmoke;
   border-top: 1px solid $pageBackground;
 }
 
@@ -12,16 +12,25 @@
 }
 
 .footer-link {
-  color: $black;
+  color: $whiteSmoke;
+}
+
+.footer-sublinks{
+  font-size: 12px;
+  color: $whiteSmoke;
+}
+
+.footer-sublinks:hover{
+  color: #ff4020;
 }
 
 .footer-link:hover {
-  color: $black;
+  color: #ff4020;
 }
 
 .social-media-icons > * {
   margin-right: 2rem;
-  color: $black;
+  color: $whiteSmoke
 }
 
 .social-media-icons {

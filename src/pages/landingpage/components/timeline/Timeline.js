@@ -98,7 +98,7 @@ const Timeline = () => {
   };
 
   return (
-    <div className="container">
+    <div id="timeline" className="container mt-5">
       <div className="timelineHeading">
         <h4>OUR HISTORY</h4>
         <hr className="time-line" />

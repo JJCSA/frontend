@@ -13,51 +13,64 @@ function Footer() {
   return (
     <div className="footer-container">
       <div className="footer">
-        <NavHashLink
-          to="/landing-home#home"
-          smooth
-          className="footer-link"
-          activeClassName="activeLink"
-        >
-          HOME
-        </NavHashLink>{' '}
-        |
-        <NavHashLink
-          to="/landing-home#jjc-mission"
-          smooth
-          className="footer-link"
-          activeClassName="activeLink"
-        >
-          JJC MISSION
-        </NavHashLink>{' '}
-        |
-        <NavHashLink
-          to="/landing-home#news-feed"
-          smooth
-          className="footer-link"
-          activeClassName="activeLink"
-        >
-          NEWS UPDATES
-        </NavHashLink>{' '}
-        |
-        <NavHashLink
-          to="/landing-home#contact-us"
-          smooth
-          className="footer-link"
-          activeClassName="activeLink"
-        >
-          CONTACT US
-        </NavHashLink>{' '}
-        |
-        <div>
-          <a
-            href="https://www.jainjagruti.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="footer-link"
-          >
-            JJC Central Board
-          </a>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-2">
+              <h5>ABOUT US</h5>
+              <ul class="list-unstyled">
+                <li>
+                  <NavHashLink
+                    to="/about#mission-vision"
+                    smooth
+                    className="footer-sublinks"
+                    activeClassName="activeLink"
+                  >
+                    Mission and Vision
+                  </NavHashLink>{' '}
+                </li>
+                <li>
+                  <NavHashLink
+                    to="/about#timeline"
+                    smooth
+                    className="footer-sublinks"
+                    activeClassName="activeLink"
+                  >
+                    Timeline
+                  </NavHashLink>{' '}
+                </li>
+                <li>
+                  <NavHashLink
+                    to="/about#volunteers"
+                    smooth
+                    className="footer-sublinks"
+                    activeClassName="activeLink"
+                  >
+                    Our Commitee
+                  </NavHashLink>{' '}
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-2">
+              <NavHashLink
+                to="/landing-home#contact-us"
+                smooth
+                className="footer-link"
+                activeClassName="activeLink"
+              >
+                CONTACT US
+              </NavHashLink>
+            </div>
+            <div class="col-md-2">
+              <a
+                href="https://www.jainjagruti.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-link"
+              >
+                JJC CENTRE BOARD
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       <div className="social-media-icons">

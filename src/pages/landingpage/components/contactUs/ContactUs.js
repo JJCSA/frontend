@@ -6,7 +6,7 @@ function ContactUs() {
   return (
     <div id="contact-us" className="CONTACTUS">
       <div className="text-center mt-5">
-        <h4>Contact Us</h4>
+        <h4>CONTACT US</h4>
         <hr className="contact-us" />
       </div>
       <div className="container">

@@ -5,15 +5,15 @@ const Volunteers = props => {
   return (
     <div id="volunteers" className="VOLUNTEERS">
       <div className="text-center mt-5">
-        <h4>Volunteers</h4>
+        <h4>OUR COMMITEE</h4>
         <hr className="volunteers" />
       </div>
-      <div className="container">
+      <div className="container mt-5">
         <div className="row">
           <div className="col-md-4">
             <div className="card mb-4">
               <img
-                src="volunteer1.jpg"
+                src="http://www.shadowsphotography.co/wp-content/uploads/2017/12/photography-01-800x400.jpg"
                 className="card-img-top"
                 alt="Volunteer 1"
               />
