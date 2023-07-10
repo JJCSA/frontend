@@ -76,7 +76,7 @@ function LandingNavbar() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            JJC Central Board
+            JJC CENTRAL BOARD
           </NavHashLink>
         </div>
         <form className="form-inline">
