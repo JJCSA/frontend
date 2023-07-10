@@ -12,10 +12,11 @@ const FilterOption = ({ filters, handleFilterChange }) => {
             type="checkbox"
             id="regionalContactCheckbox"
             name="regionalContact"
+            className="regionalContact-Checkbox"
             checked={filters.regionalContact}
             onChange={handleFilterChange}
           />
-          <span>Regional Contact</span>
+          <span className="label-name">Regional Contact</span>
         </label>
       </div>
     </div>

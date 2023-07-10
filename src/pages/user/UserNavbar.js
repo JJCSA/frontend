@@ -88,12 +88,6 @@ function UserNavbar() {
           </NavHashLink>
         </div>
         <form className="form-inline">
-          <button
-            className="form-control btn btn-light btn-block mr-sm-5 post-questions-button"
-            type="button"
-          >
-            Post Questions
-          </button>
           <Avatar
             imgSrc={
               Object.keys(globalState.profile).length > 0
