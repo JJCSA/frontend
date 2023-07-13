@@ -29,7 +29,7 @@ import Loader from './helpers/Loader';
 import AdminHomepage from './pages/admin/AdminHomepage';
 import UserManager from './pages/admin/UserManager';
 import ForgotPassword from './components/forgotPassword/ForgotPassword';
-import AboutUs from './pages/landingpage/components/aboutUs/aboutUs';
+import AboutUs from './pages/landingpage/components/aboutUs/AboutUs';
 
 function Routes() {
   const { globalState, setGlobalState } = useContext(GlobalContext);
