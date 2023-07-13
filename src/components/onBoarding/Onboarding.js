@@ -18,10 +18,14 @@ function Onboarding() {
     userStudent: true,
     street: '',
     linkedinUrl: '',
+    volunteeringInterest: '',
+    aboutMe: '',
     dateOfBirth: '',
+    gender: '',
     state: '',
     city: '',
     zip: '',
+    country: 'US',
     education: [
       {
         universityName: '',
@@ -40,7 +44,7 @@ function Onboarding() {
       },
     ],
   });
-  const [countryISO, setCountryISO] = useState('');
+  const [volunteeringInterest, setVolunteeringInterest] = useState([]);
   const [step, setStep] = useState(1);
   const [progress, setProgress] = useState(50);
   const token = useAuthHeader()();
@@ -97,6 +101,21 @@ function Onboarding() {
     setStep(step - 1);
     setProgress(50);
   };
+  const handleVolOnChange = ev => {
+    let updatedInterests;
+    if (ev.target.checked) {
+      updatedInterests = volunteeringInterest.concat([ev.target.value]);
+    } else {
+      updatedInterests = volunteeringInterest.filter(
+        interest => interest !== ev.target.value
+      );
+    }
+    setVolunteeringInterest(updatedInterests);
+    setFormData({
+      ...formData,
+      volunteeringInterest: updatedInterests.join(','),
+    });
+  };
 
   const part1Html = (
     <div className="card-body">
@@ -113,6 +132,15 @@ function Onboarding() {
             className="form-control mt-2 mb-2"
             placeholder="Linkedin URL *"
             value={formData.linkedinUrl}
+            onChange={handleInputChange}
+            required
+          />
+          <textarea
+            name="aboutMe"
+            type="text"
+            className="form-control mt-2 mb-2"
+            placeholder="About Me *"
+            value={formData.aboutMe}
             onChange={handleInputChange}
             required
           />
@@ -167,6 +195,23 @@ function Onboarding() {
                 required
               />
             </div>
+            <div className="col">
+              <select
+                name="gender"
+                className="custom-select"
+                value={formData.gender}
+                onChange={handleInputChange}
+                required
+              >
+                <option value="" disabled>
+                  Gender *
+                </option>
+                <option value="MALE">Male</option>
+                <option value="FEMALE">Female</option>
+                <option value="OTHER">Other</option>
+                <option value="PREFER_NOT_TO_SAY">Prefer not to say</option>
+              </select>
+            </div>
           </div>
           <div className="form-row mt-2">
             <div className="col">
@@ -186,25 +231,12 @@ function Onboarding() {
               <select
                 name="country"
                 className="custom-select"
-                value={countryISO}
-                onChange={event => {
-                  setCountryISO(event.target.value);
-                  handleInputChange(
-                    event,
-                    { target: { name: 'state', value: '' } },
-                    { target: { name: 'city', value: '' } }
-                  );
-                }}
+                value={formData.country}
                 required
               >
-                <option value="" disabled>
-                  Country *
+                <option value={formData.country} disabled>
+                  United States
                 </option>
-                {Country.getAllCountries().map(country => (
-                  <option key={country.isoCode} value={country.isoCode}>
-                    {country.name}
-                  </option>
-                ))}
               </select>
             </div>
             <div className="col">
@@ -222,7 +254,7 @@ function Onboarding() {
                 <option value="" disabled>
                   State *
                 </option>
-                {State.getStatesOfCountry(countryISO).map(state => (
+                {State.getStatesOfCountry(formData.country).map(state => (
                   <option key={state.isoCode} value={state.isoCode}>
                     {state.name}
                   </option>
@@ -242,7 +274,7 @@ function Onboarding() {
                 <option value="" disabled>
                   City *
                 </option>
-                {City.getCitiesOfState(countryISO, formData.state).map(
+                {City.getCitiesOfState(formData.country, formData.state).map(
                   stateCity => (
                     <option key={stateCity.isoCode} value={stateCity.name}>
                       {stateCity.name}
@@ -279,7 +311,7 @@ function Onboarding() {
                 })
               }
             >
-              <StudentLogo className="type-logo" />
+              <img src={StudentLogo} className="type-logo" />
               <div>STUDENT</div>
             </div>
             <div
@@ -294,8 +326,95 @@ function Onboarding() {
                 })
               }
             >
-              <GraduateLogo className="type-logo" />
+              <img src={GraduateLogo} className="type-logo" />
               <div>PROFESSIONAL</div>
+            </div>
+          </div>
+          <div> Volunteering Interests</div>
+          <div className="row">
+            <div className="form-check form-check-inline">
+              <input
+                name="vol-check"
+                className="form-check-input"
+                type="checkbox"
+                value="ADMIN"
+                checked={volunteeringInterest.includes('ADMIN')}
+                id="admin-vol"
+                onChange={handleVolOnChange}
+              />
+              <label className="form-check-label" htmlFor="admin-vol">
+                Admin
+              </label>
+            </div>
+            <div className="form-check form-check-inline">
+              <input
+                name="vol-check"
+                className="form-check-input"
+                type="checkbox"
+                value="ALUMNIWELFARE"
+                checked={volunteeringInterest.includes('ALUMNIWELFARE')}
+                id="alumni-vol"
+                onChange={handleVolOnChange}
+              />
+              <label className="form-check-label" htmlFor="alumni-vol">
+                Alumni welfare
+              </label>
+            </div>
+            <div className="form-check form-check-inline">
+              <input
+                name="vol-check"
+                className="form-check-input"
+                type="checkbox"
+                value="EVENTS"
+                checked={volunteeringInterest.includes('EVENTS')}
+                id="event-vol"
+                onChange={handleVolOnChange}
+              />
+              <label className="form-check-label" htmlFor="events-vol">
+                Events
+              </label>
+            </div>
+            <div className="form-check form-check-inline">
+              <input
+                name="vol-check"
+                className="form-check-input"
+                type="checkbox"
+                value="MARKETING"
+                checked={volunteeringInterest.includes('MARKETING')}
+                id="marketing-vol"
+                onChange={handleVolOnChange}
+              />
+              <label className="form-check-label" htmlFor="marketing-vol">
+                Marketing
+              </label>
+            </div>
+            <div className="form-check form-check-inline">
+              <input
+                name="vol-check"
+                className="form-check-input"
+                type="checkbox"
+                value="STUDENTWELFARE"
+                checked={volunteeringInterest.includes('STUDENTWELFARE')}
+                id="student-vol"
+                onChange={handleVolOnChange}
+              />
+              <label className="form-check-label" htmlFor="student-vol">
+                Student welfare
+              </label>
+            </div>
+            <div className="form-check form-check-inline">
+              <input
+                name="vol-check"
+                className="form-check-input"
+                type="checkbox"
+                value="WEBSITE"
+                checked={volunteeringInterest.includes('WEBSITE')}
+                id="website-vol"
+                onChange={handleVolOnChange}
+              />
+              <label className="form-check-label" htmlFor="website-vol">
+                Website
+              </label>
             </div>
           </div>
         </div>
@@ -308,7 +427,7 @@ function Onboarding() {
       <div className="row">
         <div className="col-md text-center education-container">
           <h4>Educational details</h4>
-          <EducationLogo className="type-logo mt-2" />
+          <img src={EducationLogo} className="type-logo mt-2" />
           <input
             name="education.0.universityName"
             type="text"
@@ -364,48 +483,48 @@ function Onboarding() {
             required
           />
         </div>
-        {!formData.userStudent && (
-          <div className="col-md text-center profession-container">
-            <h4>Professional details</h4>
-            <ProfessionalLogo className="type-logo mt-2" />
-            <input
-              name="workExperience.0.companyName"
-              type="text"
-              className="form-control mt-2"
-              placeholder="Company Name *"
-              value={formData.workExperience[0].companyName}
-              onChange={handleInputChange}
-              required
-            />
-            <input
-              name="workExperience.0.role"
-              type="text"
-              className="form-control mt-2"
-              placeholder="Role *"
-              value={formData.workExperience[0].role}
-              onChange={handleInputChange}
-              required
-            />
-            <input
-              name="workExperience.0.location"
-              type="text"
-              className="form-control mt-2"
-              placeholder="Location *"
-              value={formData.workExperience[0].location}
-              onChange={handleInputChange}
-              required
-            />
-            <input
-              name="workExperience.0.totalExp"
-              type="text"
-              className="form-control mt-2"
-              placeholder="Experience (years) *"
-              value={formData.workExperience[0].totalExp}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-        )}
+        <div className="col-md text-center profession-container">
+          <h4>Professional details</h4>
+          <img src={ProfessionalLogo} className="type-logo mt-2" />
+          <input
+            name="workExperience.0.companyName"
+            type="text"
+            className="form-control mt-2"
+            placeholder={`Company Name${formData.userStudent ? '' : ' *'}`}
+            value={formData.workExperience[0].companyName}
+            onChange={handleInputChange}
+            required={!formData.userStudent}
+          />
+          <input
+            name="workExperience.0.role"
+            type="text"
+            className="form-control mt-2"
+            placeholder={`Role${formData.userStudent ? '' : ' *'}`}
+            value={formData.workExperience[0].role}
+            onChange={handleInputChange}
+            required={!formData.userStudent}
+          />
+          <input
+            name="workExperience.0.location"
+            type="text"
+            className="form-control mt-2"
+            placeholder={`Location${formData.userStudent ? '' : ' *'}`}
+            value={formData.workExperience[0].location}
+            onChange={handleInputChange}
+            required={!formData.userStudent}
+          />
+          <input
+            name="workExperience.0.totalExp"
+            type="text"
+            className="form-control mt-2"
+            placeholder={`Experience (years)${
+              formData.userStudent ? '' : ' *'
+            }`}
+            value={formData.workExperience[0].totalExp}
+            onChange={handleInputChange}
+            required={!formData.userStudent}
+          />
+        </div>
       </div>
     </div>
   );
@@ -430,7 +549,9 @@ function Onboarding() {
               aria-valuenow={progress}
               aria-valuemin="0"
               aria-valuemax="100"
-            >{`${progress}%`}</div>
+            >
+              {`${progress}%`}
+            </div>
           </div>
           <small className="progress-label text-muted">Profile Progress</small>
         </div>
