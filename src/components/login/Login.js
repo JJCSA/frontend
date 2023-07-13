@@ -59,7 +59,8 @@ function Login() {
               initialValues={{
                 username: '',
                 password: '',
-                rememberme: false,
+                grant_type: '',
+                client_id: '',
               }}
               validationSchema={loginSchema}
               onSubmit={onSubmit}
@@ -71,6 +72,7 @@ function Login() {
                 handleChange,
                 handleBlur,
                 handleSubmit,
+                setFieldValue,
                 isSubmitting,
               }) => (
                 <FormikForm className="login-form" onSubmit={handleSubmit}>
@@ -127,20 +129,15 @@ function Login() {
                       </Form.Control.Feedback>
                     </InputGroup>
                   </Form.Group>
-                  <Form.Group controlId="formBasicCheckbox">
-                    <Form.Check
-                      type="checkbox"
-                      label="Remember Me"
-                      name="rememberme"
-                      checked={values.rememberme}
-                      onChange={handleChange}
-                    />
-                  </Form.Group>
                   <input type="hidden" name="grant_type" value="password" />
                   <input type="hidden" name="client_id" value="jjcsa" />
                   <button
                     type="submit"
                     className="btn submit-button"
+                    onClick={() => {
+                      setFieldValue('grant_type', 'password');
+                      setFieldValue('client_id', 'jjcsa');
+                    }}
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? 'Loading...' : 'Login'}
