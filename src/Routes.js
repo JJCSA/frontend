@@ -11,7 +11,6 @@ import {
   useAuthHeader,
   useSignOut,
 } from 'react-auth-kit';
-
 import GlobalContext from './store/GlobalContext';
 import Navbar from './components/Navbar';
 import Landing from './components/Landing';

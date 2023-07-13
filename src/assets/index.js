@@ -29,3 +29,8 @@ export { default as feedbackIcon } from './icons/feedback-icon.svg';
 export { default as socialMediaIcon } from './icons/social-media-icon.svg';
 export { default as forumIcon } from './icons/forum-icon.svg';
 export { default as AdminIcon } from './icons/admin-icon.svg';
+export { default as BannerImage } from './images/together.png';
+export { default as StudentLogo } from './icons/student.svg';
+export { default as GraduateLogo } from './icons/graduate.svg';
+export { default as ProfessionalLogo } from './icons/professional.svg';
+export { default as EducationLogo } from './icons/education.svg';

@@ -31,28 +31,38 @@ function LandingNavbar() {
         <div className="navbar-nav mr-auto my-sm-2">
           <NavHashLink
             className="nav-item nav-link active navbarhover px-3"
+            to="/#home"
+            smooth
+            activeClassName="activeLink"
+          >
+            Home
+          </NavHashLink>
+          <NavHashLink
+            className="nav-item nav-link active navbarhover px-3"
             to="/#jjc-mission"
             smooth
             activeClassName="activeLink"
           >
             JJC Mission
           </NavHashLink>
-          {/*<NavHashLink*/}
-          {/*  className="nav-item nav-link active navbarhover px-3"*/}
-          {/*  to="/#about-us"*/}
-          {/*  smooth*/}
-          {/*  activeClassName="activeLink"*/}
-          {/*>*/}
-          {/*  About Us*/}
-          {/*</NavHashLink>*/}
-          {/*<NavHashLink*/}
-          {/*  className="nav-item nav-link active navbarhover px-3"*/}
-          {/*  to="/#our-initiatives"*/}
-          {/*  smooth*/}
-          {/*  activeClassName="activeLink"*/}
-          {/*>*/}
-          {/*  Ongoing Projects*/}
-          {/*</NavHashLink>*/}
+          {/* About US */}
+          <NavHashLink
+            className="nav-item nav-link active navbarhover px-3"
+            to="/#about-us"
+            smooth
+            activeClassName="activeLink"
+          >
+            About Us
+          </NavHashLink>
+          {/* mission vission */}
+          <NavHashLink
+            className="nav-item nav-link active navbarhover px-3"
+            to="/#mission-vision"
+            smooth
+            activeClassName="activeLink"
+          >
+            Vision and Mission
+          </NavHashLink>
           <NavHashLink
             className="nav-item nav-link active navbarhover px-3"
             to="/#news-feed"
@@ -69,14 +79,14 @@ function LandingNavbar() {
           >
             Contact Us
           </NavHashLink>
-          <a
-            className=" jjclink"
-            href="https://www.jainjagruti.com/"
+          <NavHashLink
+            className="nav-item nav-link active navbarhover px-3"
+            to="https://www.jainjagruti.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
             JJC Central Board
-          </a>
+          </NavHashLink>
         </div>
         <form className="form-inline">
           <Link
@@ -85,12 +95,6 @@ function LandingNavbar() {
           >
             Login
           </Link>
-          {/*<Link*/}
-          {/*  to="/"*/}
-          {/*  className="form-control btn btn-light btn-block my-2 my-sm-0 mr-sm-5 donate-button"*/}
-          {/*>*/}
-          {/*  Donate*/}
-          {/*</Link>*/}
         </form>
       </div>
     </nav>
