@@ -8,6 +8,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^4.5.0",
     "country-state-city": "^3.0.1",
+    "formik": "^2.4.2",
     "is-core-module": "^2.2.0",
     "jwt-decode": "^2.2.0",
     "node-sass": "^4.14.1",
@@ -20,6 +21,7 @@
     "react-bootstrap-table2-paginator": "^2.1.2",
     "react-dom": "^16.5.2",
     "react-icons": "^4.2.0",
+    "react-phone-input-2": "^2.15.1",
     "react-router": "^6.3.0",
     "react-router-bootstrap": "^0.25.0",
     "react-router-dom": "^6.3.0",
@@ -28,7 +30,8 @@
     "react-scroll": "^1.8.1",
     "react-toastify": "^9.0.3",
     "styled-components": "^5.3.0",
-    "typewriter-effect": "^2.18.0"
+    "typewriter-effect": "^2.18.0",
+    "yup": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -12,8 +12,8 @@ import {
 
 function JJCMission() {
   return (
-    <div id="jjc-mission">
-      <div className="container-fluid mission-color" id="leftpad">
+    <div id="jjc-mission" className="JJCMISSION">
+      <div className="container-fluid mission-color">
         <div className="headtext pb-5">
           <Typewriter
             options={{

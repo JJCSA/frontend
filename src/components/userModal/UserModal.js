@@ -32,6 +32,9 @@ const UserModal = props => {
   const [rejectReason, setRejectReason] = useState('');
   const [pendingAction, setPendingAction] = useState(false);
   const [isAdmin, setIsAdmin] = useState(props.data.userRole === 'ADMIN');
+  const [regionalContact, setRegionalContact] = useState(
+    props.data.isRegionalContact
+  );
 
   const globalState = useContext(GlobalContext);
 
@@ -96,6 +99,32 @@ const UserModal = props => {
           )
           .then(() => {
             props.onsubmitUpdate({ ...props.data, userRole: 'ADMIN' });
+          });
+      }
+    }
+  };
+
+  const updateRegionalContact = async e => {
+    if (e === 'no') {
+      setRegionalContact(false);
+    } else if (e === 'yes') {
+      if (regionalContact) {
+        await comm
+          .sendPost(
+            `/admin/users/${props.data.id}/regional-contact?isRegionalContact=true`,
+            props.token
+          )
+          .then(() => {
+            props.onsubmitUpdate({ ...props.data, isRegionalContact: true });
+          });
+      } else {
+        await comm
+          .sendPost(
+            `/admin/users/${props.data.id}/regional-contact?isRegionalContact=false`,
+            props.token
+          )
+          .then(() => {
+            props.onsubmitUpdate({ ...props.data, isRegionalContact: false });
           });
       }
     }
@@ -356,6 +385,52 @@ const UserModal = props => {
                 <button
                   className="no-button"
                   onClick={() => updateUserRole('no')}
+                >
+                  No
+                </button>
+              </div>
+            ) : (
+              ''
+            )}
+            {props.data.userStatus === Constants.userStatus.ACTIVE &&
+              (globalState.globalState.profile.userRole ===
+                Constants.userTypes.SUPERADMIN ||
+                globalState.globalState.profile.userRole ===
+                  Constants.userTypes.ADMIN) && (
+                <Row>
+                  <div className="info-container mt-1 rounded mb-3">
+                    <div className="divOutside">
+                      <div className="mt-3 ml-2 mb-3">
+                        <img src={AdminIcon} alt="Info" />
+                        <span className="info-container-headers">
+                          Assign Regional Contact
+                        </span>
+                        <input
+                          type="checkbox"
+                          checked={regionalContact}
+                          className="admin-checkbox"
+                          onChange={e => setRegionalContact(e.target.checked)}
+                        />{' '}
+                      </div>
+                    </div>
+                  </div>
+                </Row>
+              )}
+            {props.data.isRegionalContact !== regionalContact ? (
+              <div className="row info-container confirmation_popup">
+                <span className="info-container-headers">
+                  {' '}
+                  Are you sure you want to continue?{' '}
+                </span>
+                <button
+                  className="yes-button"
+                  onClick={() => updateRegionalContact('yes')}
+                >
+                  Yes
+                </button>
+                <button
+                  className="no-button"
+                  onClick={() => updateRegionalContact('no')}
                 >
                   No
                 </button>

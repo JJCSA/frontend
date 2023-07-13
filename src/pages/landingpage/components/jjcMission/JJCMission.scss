@@ -1,64 +1,69 @@
 @import "../../../../utils/variables.scss";
-
-.mission-color {
-  padding-top: 6em;
-  margin-top: 1rem;
-}
-.mission-card {
-  border-radius: 8px;
-  transition: transform .5s;
-  background: #2c5797;
-  color: white;
-}
-
-.mission-card:hover{
-  transform: scale(1.15);
-  transition: transform .5s;
-}
-
-.card_images {
-  width: 100%;
-  height: 7vw;
-  object-fit: contain;
-}
-
-.join-button {
-  color: $white !important;
-  background-color: $vividred !important;
-  border-radius: 8px !important;
-  &:hover {
-    background-color: $white !important;
-    color: $black !important;
+.JJCMISSION{
+    padding-left: 2rem;
+    padding-right: 2rem;
+    
+  .mission-color {
+    padding-top: 6em;
+    margin-top: 1rem;
   }
-}
-.headtext {
-  font-size: $largeTitle;
-  color: black;
-  font-weight: $semiBold;
-  font-style: normal;
-  text-align: center;
-}
-.mission-text {
-  font-size: 12px;
-  font-weight: $semiBold;
-  font-style: normal;
-  text-align: center;
-}
-
-@media only screen and (min-width: 576px) {
-  #leftpad {
-    padding-left: 89px;
-  }
-}
-
-@media only screen and (min-width: 356px) and (max-width: 600px){
-  .card_images {
-    display: block !important;
-    width: 100% !important;
-    height: 29vw !important;
-  }
-
   .mission-card {
-    max-height: 350px !important;
+    border-radius: 8px;
+    transition: transform .5s;
+    background: #2c5797;
+    color: white;
+  }
+  
+  .mission-card:hover{
+    transform: scale(1.15);
+    transition: transform .5s;
+  }
+  
+  .card_images {
+    width: 100%;
+    height: 7vw;
+    object-fit: contain;
+  }
+  
+  .join-button {
+    color: $white !important;
+    background-color: $vividred !important;
+    border-radius: 8px !important;
+    &:hover {
+      background-color: $white !important;
+      color: $black !important;
+    }
+  }
+  .headtext {
+    font-size: $largeTitle;
+    color: black;
+    font-weight: $semiBold;
+    font-style: normal;
+    text-align: center;
+  }
+  .mission-text {
+    font-size: 12px;
+    font-weight: $semiBold;
+    font-style: normal;
+    text-align: center;
+  }
+  
+  @media only screen and (min-width: 576px) {
+    #leftpad {
+      padding-left: 89px;
+    }
+  }
+  
+  @media only screen and (min-width: 356px) and (max-width: 600px){
+    .card_images {
+      display: block !important;
+      width: 100% !important;
+      height: 29vw !important;
+    }
+  
+    .mission-card {
+      max-height: 350px !important;
+    }
   }
 }
+
