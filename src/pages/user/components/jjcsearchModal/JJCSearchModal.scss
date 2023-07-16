@@ -1,0 +1,61 @@
+@import '../../../../utils/variables.scss';
+
+.JJCSEARCH-MODAL{
+
+hr {
+    border: 1px solid #1e2350;
+}
+.name-container {
+    font-style: normal;
+    font-weight: $bold;
+    font-size: $largeTitle;
+    color: #2c5797;
+    text-transform: uppercase;
+}
+.location-container{
+    color: #2c5797;
+    text-transform: uppercase;
+}
+.location-container img{
+    padding: 3px;
+}
+.info-container {
+    width:100%;
+    background-color: $whiteSmoke;
+}
+
+.divOutside {
+    border-bottom:1px rgba(0,0,0,0.1) solid;
+}
+
+.last {
+    border-bottom:0px;
+}
+
+.center-align {
+    text-align: center;
+}
+
+.remove-left-padding {
+    padding-left:0px;
+}
+
+.info-container-headers {
+    margin-left:2px;
+    color: #ff4020;
+    text-align: center;
+    font-weight: $semiBold;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+.info-container-info {
+    margin-left:5px;
+    color: #2c5797;
+    font-weight: $lightBold;
+    font-size: 15px;
+}
+.linkedIn-url {
+    color: #2c5797;
+    word-wrap: break-word;
+}
+}

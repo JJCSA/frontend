@@ -18,18 +18,18 @@ function UserNavbar() {
   const userDropdown = (
     <Popover>
       <Popover.Content className="user-profile-dropdown-content">
-        {
-                  ((Object.keys(globalState.profile).length > 0) && ((globalState.profile.userRole === 'ADMIN') || (globalState.profile.userRole === 'SUPER_ADMIN')))
-                    ? (
-                      <div className="user-dropdown">
-                        <GoHome className="user-dropdown-icon" />
-                        <Link to="/admin">
-                          <span onClick={() => document.body.click()}>Admin</span>
-                        </Link>
-                      </div>
-                    )
-                    : ''
-}
+        {Object.keys(globalState.profile).length > 0 &&
+        (globalState.profile.userRole === 'ADMIN' ||
+          globalState.profile.userRole === 'SUPER_ADMIN') ? (
+          <div className="user-dropdown">
+            <GoHome className="user-dropdown-icon" />
+            <Link to="/admin">
+              <span onClick={() => document.body.click()}>Admin</span>
+            </Link>
+          </div>
+        ) : (
+          ''
+        )}
         <hr className="m-0" />
         <div className="user-dropdown">
           <CgProfile className="user-dropdown-icon" />
@@ -71,44 +71,47 @@ function UserNavbar() {
       <div className="collapse navbar-collapse" id="myTogglerNav">
         <div className="navbar-nav mr-auto my-sm-2">
           <NavHashLink
-            to="/#news-feed"
+            to="/#jjc-search"
             smooth
             className="nav-item nav-link active navbarhover px-3"
             activeClassName="activeLink"
           >
-            News Feed
+            JJC SEARCH
           </NavHashLink>
           <NavHashLink
-            to="/#news-feed"
-            smooth
-            className="nav-item nav-link active navbarhover px-3"
-            activeClassName="activeLink"
-          >
-            Search Engine
-          </NavHashLink>
-          <NavHashLink
-            to="/#news-feed"
+            to="/#faq"
             className="nav-item nav-link active navbarhover px-3"
             smooth
             activeClassName="activeLink"
           >
-            Event Calendar
+            FAQ'S
           </NavHashLink>
         </div>
         <form className="form-inline">
-          <button
-            className="form-control btn btn-light btn-block mr-sm-5 post-questions-button"
-            type="button"
-          >
-            Post Questions
-          </button>
-          <Avatar imgSrc={Object.keys(globalState.profile).length > 0 ? globalState.profile.profilePicture : ''} />
+          <Avatar
+            imgSrc={
+              Object.keys(globalState.profile).length > 0
+                ? globalState.profile.profilePicture
+                : ''
+            }
+          />
           <h6 className="m-3">
             Hi,
-            {Object.keys(globalState.profile).length > 0 ? globalState.profile.firstName : ''}
+            {Object.keys(globalState.profile).length > 0
+              ? globalState.profile.firstName
+              : ''}
           </h6>
-          <OverlayTrigger trigger="click" placement="bottom" overlay={userDropdown} rootClose>
-            <img src={UserDropDownIcon} alt="UserDropdownIcon" className="mr-sm-5 user-profile-dropdown-icon" />
+          <OverlayTrigger
+            trigger="click"
+            placement="bottom"
+            overlay={userDropdown}
+            rootClose
+          >
+            <img
+              src={UserDropDownIcon}
+              alt="UserDropdownIcon"
+              className="mr-sm-5 user-profile-dropdown-icon"
+            />
           </OverlayTrigger>
         </form>
       </div>

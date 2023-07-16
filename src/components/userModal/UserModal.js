@@ -22,7 +22,7 @@ import * as Constants from '../../utils/constants';
 import PhoneNumberFormatter from '../phoneNumberFormatter/PhoneNumberFormatter';
 import './UserModal.scss';
 import comm from '../../helpers/communication';
-import GlobalContext from '../../../src/store/GlobalContext';
+import GlobalContext from '../../store/GlobalContext';
 
 const ACCEPT = 'Accept';
 const REJECT = 'Reject';
