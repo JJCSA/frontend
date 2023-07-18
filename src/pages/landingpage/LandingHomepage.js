@@ -4,7 +4,7 @@ import NewsFeed from './components/newsFeed/NewsFeed';
 import JJCMission from './components/jjcMission/JJCMission';
 import Banner from './components/banner/Banner';
 import AboutUs from './components/aboutUs/AboutUs';
-import MissionVision from './components/missionVision/MissionVision';
+import Leadership from './components/leadership/Leadership';
 
 function LandingHomepage() {
   return (
@@ -12,7 +12,7 @@ function LandingHomepage() {
       <Banner />
       <JJCMission />
       <AboutUs />
-      <MissionVision />
+      <Leadership />
       <NewsFeed />
       <ContactUs />
     </div>
