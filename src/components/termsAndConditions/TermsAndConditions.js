@@ -2,17 +2,13 @@ import React from 'react';
 import './TermsAndConditions.scss';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { universityDegree } from '../../assets/index';
+import { TermsAndConditions as bannerImage } from '../../assets/index';
 
 const TermsAndConditions = () => {
   return (
     <div className="TERMSANDCONDITIONS">
       <div className="banner">
-        <img
-          className="TCImage"
-          src={universityDegree}
-          alt="terms-conditions"
-        />
+        <img className="TCImage" src={bannerImage} alt="terms-conditions" />
       </div>
       <Container fluid className="terms-conditions-container">
         <Row>
