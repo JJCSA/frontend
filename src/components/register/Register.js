@@ -45,7 +45,16 @@ function Register() {
   };
   const [showPassword, setShowPassword] = useState(false);
   const [showError, setShowError] = useState(false);
+  const [agree, setAgree] = useState(false);
+
   const navigate = useNavigate();
+
+  const checkboxHandler = () => {
+    // if agree === true, it will be set to false
+    // if agree === false, it will be set to true
+    setAgree(!agree);
+    // Don't miss the exclamation mark
+  };
 
   const handleSubmit = (values, { setSubmitting }) => {
     delete values.passwordConfirmation;
@@ -345,6 +354,33 @@ function Register() {
                         setFieldValue('profPicture', e.currentTarget.files[0])
                       }
                       required
+                    />
+                  </Form.Group>
+                  {/* Terms & Conditions  */}
+                  <br />
+
+                  <Form.Group>
+                    <Form.Check
+                      type="checkbox"
+                      id="agree"
+                      label={
+                        <>
+                          {' '}
+                          By creating an account, you agree to{' '}
+                          <b>
+                            {' '}
+                            our{' '}
+                            <a href="/TermAndCondition" target="_blank">
+                              Terms & Condition{' '}
+                            </a>{' '}
+                            and{' '}
+                            <a href="/PrivacyPolicy" target="_blank">
+                              Privacy Policy.
+                            </a>
+                          </b>
+                        </>
+                      }
+                      onChange={checkboxHandler}
                     />
                   </Form.Group>
                   <br />

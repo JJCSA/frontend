@@ -39,3 +39,4 @@ export { default as regionalContact } from './icons/user-location-pin.svg';
 export { default as linkedIn } from './icons/linkedin-icon.svg';
 export { default as specialization } from './icons/study-field.svg';
 export { default as universityDegree } from './icons/university-degree.svg';
+export { default as privacyPolicyBanner } from './icons/PrivacyPolicy.svg';

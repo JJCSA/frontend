@@ -28,6 +28,7 @@ import Loader from './helpers/Loader';
 import AdminHomepage from './pages/admin/AdminHomepage';
 import UserManager from './pages/admin/UserManager';
 import ForgotPassword from './components/forgotPassword/ForgotPassword';
+import PrivacyPolicy from './components/privacyPolicy/PrivacyPolicy';
 
 function Routes() {
   const { globalState, setGlobalState } = useContext(GlobalContext);
@@ -84,6 +85,10 @@ function Routes() {
         <Route
           path="/register"
           element={<Register toggleNavbar={toggleNavbar} />}
+        />
+        <Route
+          path="/PrivacyPolicy"
+          element={<PrivacyPolicy toggleNavbar={toggleNavbar} />}
         />
         <Route path="/login" element={<Login toggleNavbar={toggleNavbar} />} />
         <Route
