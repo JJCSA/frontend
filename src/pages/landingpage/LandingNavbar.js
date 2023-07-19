@@ -35,7 +35,7 @@ function LandingNavbar() {
             smooth
             activeClassName="activeLink"
           >
-            Home
+            HOME
           </NavHashLink>
           <NavHashLink
             className="nav-item nav-link active navbarhover px-3"
@@ -43,7 +43,7 @@ function LandingNavbar() {
             smooth
             activeClassName="activeLink"
           >
-            JJC Mission
+            CORE VALUES
           </NavHashLink>
           {/* About US */}
           <NavHashLink
@@ -52,24 +52,15 @@ function LandingNavbar() {
             smooth
             activeClassName="activeLink"
           >
-            About Us
-          </NavHashLink>
-          {/* mission vission */}
-          <NavHashLink
-            className="nav-item nav-link active navbarhover px-3"
-            to="/#mission-vision"
-            smooth
-            activeClassName="activeLink"
-          >
-            Vision and Mission
+            ABOUT US
           </NavHashLink>
           <NavHashLink
             className="nav-item nav-link active navbarhover px-3"
-            to="/#news-feed"
+            to="/#testimonial"
             smooth
             activeClassName="activeLink"
           >
-            News Updates
+            TESTIMONIAL
           </NavHashLink>
           <NavHashLink
             className="nav-item nav-link active navbarhover px-3"
@@ -77,7 +68,7 @@ function LandingNavbar() {
             smooth
             activeClassName="activeLink"
           >
-            Contact Us
+            CONTACT US
           </NavHashLink>
           <NavHashLink
             className="nav-item nav-link active navbarhover px-3"
@@ -85,7 +76,7 @@ function LandingNavbar() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            JJC Central Board
+            JJC CENTRAL BOARD
           </NavHashLink>
         </div>
         <form className="form-inline">
@@ -93,7 +84,7 @@ function LandingNavbar() {
             to="/login"
             className="form-control btn btn-light btn-block mr-sm-3 login-button"
           >
-            Login
+            LOGIN
           </Link>
         </form>
       </div>
