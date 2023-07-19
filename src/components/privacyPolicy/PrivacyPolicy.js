@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import './PrivacyPolicy.scss';
-import { privacyPolicyBanner, termsconditions } from '../../assets/index';
+import { privacyPolicyBanner } from '../../assets/index';
 
 const PrivacyPolicy = () => {
   return (
