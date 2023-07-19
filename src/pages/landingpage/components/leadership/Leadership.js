@@ -55,7 +55,7 @@ const Leadership = () => {
     },
     {
       Name: 'Darshita Shah',
-      Role: '',
+      Role: 'Chief of Staff',
       Image: avater,
     },
   ];
