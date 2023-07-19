@@ -119,9 +119,8 @@ export const Form1 = props => {
           <div className="form-row mt-2">
             <div className="col">
               <Field name="country" as="select" className="custom-select">
-                <option value="US" disabled>
-                  United States
-                </option>
+                <option value="US">United States</option>
+                <option value="CA">Canada</option>
               </Field>
               <ErrorMessage name="country" component="div" className="error" />
             </div>
@@ -130,7 +129,7 @@ export const Form1 = props => {
                 <option value="" disabled>
                   State *
                 </option>
-                {State.getStatesOfCountry('US').map(state => (
+                {State.getStatesOfCountry(props.values.country).map(state => (
                   <option key={state.isoCode} value={state.isoCode}>
                     {state.name}
                   </option>
@@ -145,15 +144,16 @@ export const Form1 = props => {
                 <option value="" disabled>
                   City *
                 </option>
-                {City.getCitiesOfState('US', props.values.state).map(
-                  stateCity => {
-                    return (
-                      <option key={stateCity.name} value={stateCity.name}>
-                        {stateCity.name}
-                      </option>
-                    );
-                  }
-                )}
+                {City.getCitiesOfState(
+                  props.values.country,
+                  props.values.state
+                ).map(stateCity => {
+                  return (
+                    <option key={stateCity.name} value={stateCity.name}>
+                      {stateCity.name}
+                    </option>
+                  );
+                })}
               </Field>
               <ErrorMessage name="city" component="div" className="error" />
             </div>
@@ -365,6 +365,7 @@ export const Form2 = props => {
             type="text"
             className="form-control mt-2"
             placeholder={`Company Name${props.values.userStudent ? '' : ' *'}`}
+            required={!props.values.userStudent}
           />
           {!props.values.userStudent && (
             <ErrorMessage
@@ -378,6 +379,7 @@ export const Form2 = props => {
             name="workExperience[0].role"
             type="text"
             className="form-control mt-2"
+            required={!props.values.userStudent}
             placeholder={`Role${props.values.userStudent ? '' : ' *'}`}
           />
           {!props.values.userStudent && (
@@ -392,6 +394,7 @@ export const Form2 = props => {
             name="workExperience[0].location"
             type="text"
             className="form-control mt-2"
+            required={!props.values.userStudent}
             placeholder={`Location${props.values.userStudent ? '' : ' *'}`}
           />
           {!props.values.userStudent && (
@@ -406,6 +409,7 @@ export const Form2 = props => {
             name="workExperience[0].totalExp"
             type="number"
             className="form-control mt-2"
+            required={!props.values.userStudent}
             placeholder={`Experience (years)${
               props.values.userStudent ? '' : ' *'
             }`}
@@ -467,19 +471,4 @@ export const onBoardingValidationSchema2 = Yup.object().shape({
       degree: Yup.string().required('Degree is required'),
     })
   ),
-  workExperience: Yup.array()
-    .of(
-      Yup.object().shape({
-        companyName: Yup.string().required('Company Name is required'),
-        role: Yup.string().required('Role is required'),
-        location: Yup.string().required('Location is required'),
-        totalExp: Yup.number()
-          .required('Experience is required')
-          .positive('Invalid year format'),
-      })
-    )
-    .when('userStudent', {
-      is: value => value === true,
-      then: schema => schema.required(),
-    }),
 });
