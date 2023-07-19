@@ -1,7 +1,6 @@
 import React from 'react';
 import './TermsAndConditions.scss';
 import { Container, Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import { TermsAndConditions as bannerImage } from '../../assets/index';
 
 const TermsAndConditions = () => {

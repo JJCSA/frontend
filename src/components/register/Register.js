@@ -370,7 +370,7 @@ function Register() {
                           <b>
                             {' '}
                             our{' '}
-                            <a href="/TermAndCondition" target="_blank">
+                            <a href="/TermsAndConditions" target="_blank">
                               Terms & Condition{' '}
                             </a>{' '}
                             and{' '}
