@@ -8,7 +8,6 @@ import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import 'react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css';
 // import 'react-bootstrap-table2-filter/dist/react-bootstrap-table2-filter.min.css';
 
-
 class DataTable extends Component {
   constructor(props) {
     super(props);
@@ -50,7 +49,7 @@ class DataTable extends Component {
           max="50"
           step="5"
           value={this.state.sizePerPage}
-          onChange={(e) => {
+          onChange={e => {
             this.setState({ sizePerPage: e.target.value });
             onSizePerPageChange(e.target.value);
             e.preventDefault();
@@ -77,12 +76,24 @@ class DataTable extends Component {
     };
 
     const ModalContent = () => (
-      <Modal size="lg" show={this.state.show} onHide={this.handleClose} dialogClassName="my-modal">
+      <Modal
+        size="lg"
+        show={this.state.show}
+        onHide={this.handleClose}
+        dialogClassName="my-modal"
+      >
         <Modal.Body>
-          <UserModal data={this.state.modalInfo} onsubmitUpdate={this.updateUserTable} token={this.props.token} />
+          <UserModal
+            data={this.state.modalInfo}
+            onsubmitUpdate={this.updateUserTable}
+            token={this.props.token}
+          />
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={this.handleClose}> Close</Button>
+          <Button variant="secondary" onClick={this.handleClose}>
+            {' '}
+            Close
+          </Button>
         </Modal.Footer>
       </Modal>
     );

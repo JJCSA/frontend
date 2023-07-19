@@ -22,12 +22,15 @@ import Profile from './components/Profile';
 import AdminPanel from './pages/admin/AdminPanel';
 import Footer from './components/footer/Footer';
 import LandingHomepage from './pages/landingpage/LandingHomepage';
+
 import Onboarding from './components/onBoarding/Onboarding';
 import { getProfile } from './components/UserFunctions';
 import Loader from './helpers/Loader';
 import AdminHomepage from './pages/admin/AdminHomepage';
 import UserManager from './pages/admin/UserManager';
 import ForgotPassword from './components/forgotPassword/ForgotPassword';
+import AboutUs from './pages/landingpage/components/aboutUs/AboutUs';
+import PrivacyPolicy from './components/privacyPolicy/PrivacyPolicy';
 
 function Routes() {
   const { globalState, setGlobalState } = useContext(GlobalContext);
@@ -81,9 +84,14 @@ function Routes() {
       <Switch>
         <Route path="/" element={<Landing />} />
         <Route path="/landing-home" element={<LandingHomepage />} />
+        <Route path="/about" element={<AboutUs />} />
         <Route
           path="/register"
           element={<Register toggleNavbar={toggleNavbar} />}
+        />
+        <Route
+          path="/PrivacyPolicy"
+          element={<PrivacyPolicy toggleNavbar={toggleNavbar} />}
         />
         <Route path="/login" element={<Login toggleNavbar={toggleNavbar} />} />
         <Route

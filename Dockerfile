@@ -18,7 +18,8 @@ WORKDIR /app
 COPY package*.json /app/
 
 # Install the NPM dependencies
-RUN npm install
+# RUN npm install
+RUN node --max-old-space-size=16384 `which npm` install
 
 # Copy ALL files from current directory to working directory in image
 COPY ./ /app/

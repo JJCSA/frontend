@@ -1,0 +1,71 @@
+@import "../../../../utils/variables.scss";
+.ABOUTUS{
+    padding-top: 3em;
+    margin-top: -5em;
+    padding-left: 2rem;
+    padding-right: 2rem;
+.aboutUsImage {
+    height: 500px;
+    background-color: #ccc;
+    background: url(../../../../assets/images/AboutUs.svg);
+    background-size: cover;
+    background-position: center;
+}
+.aboutUsHeading {
+    text-align: center;
+}
+.text-decor {
+    text-decoration: none !important;
+}
+.about-us {
+    width: 4rem;
+    border-color: $vividred;
+}
+.know-more-button{
+    margin-top: 2rem;
+    border-radius: 8px !important;
+    color: $white !important;
+    font-weight: $lightBold !important;
+    border: 1px solid $red !important;
+    background-color: $red !important;
+  }
+.about-us-text{
+    padding-top: 4rem;
+}
+@media only screen and (max-width: 767px) {
+    .aboutUsImage {
+        height: 300px;
+    }
+
+    .knowMoreBox {
+        text-align: center;
+    }
+
+    .knowMore {
+        display: inline-block;
+    }
+}
+blockquote {
+    position: relative;
+    margin: 0.5em;
+    padding: 0.5em 2em 0.5em 3em;
+    font-size: $largeTitle;
+}
+blockquote:before {
+    position: absolute;
+    font-size: 6em;
+    line-height: 1;
+    top: 0;
+    left: 0;
+    content: "\201C";
+}
+blockquote:after {
+    position: absolute;
+    float:right;
+    font-size:6em;
+    line-height: 0.75;
+    right:0;
+    bottom:-0.5em;
+    content: "\201D";
+}
+}

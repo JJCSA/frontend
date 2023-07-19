@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react';
-import {useAuthHeader} from 'react-auth-kit';
+import React, { useEffect, useState } from 'react';
+import { useAuthHeader } from 'react-auth-kit';
 import DataTable from '../../components/datatable/DataTable';
 import './UserManager.scss';
-import {CustomDropdown, CustomTextBox} from '../../components';
+import { CustomDropdown, CustomTextBox } from '../../components';
 import * as Constants from '../../utils/constants';
-import {deleteIcon} from '../../assets/index';
+import { deleteIcon } from '../../assets/index';
 import PhoneNumberFormatter from '../../components/phoneNumberFormatter/PhoneNumberFormatter';
 import UserStatusFormatter from '../../components/userStatusFormatter/UserStatusFormatter';
 import comm from '../../helpers/communication';
@@ -131,11 +131,25 @@ function UserManager() {
     } else if (updated_record.userStatus === Constants.userStatus.REJECTED) {
       newusers.splice(elementsIndexInUsers, 1);
       newfiltered_users.splice(elementsIndexInFilteredUsers, 1);
-      
+
       //Updating UserRole by SuperAdmin if the user is Active
     } else if (updated_record.userStatus === Constants.userStatus.ACTIVE) {
-      newusers[elementsIndexInUsers] = { ...newusers[elementsIndexInUsers], userRole: updated_record.userRole };
-      newfiltered_users[elementsIndexInFilteredUsers] = { ...newfiltered_users[elementsIndexInFilteredUsers], userRole: updated_record.userRole };
+      newusers[elementsIndexInUsers] = {
+        ...newusers[elementsIndexInUsers],
+        userRole: updated_record.userRole,
+      };
+      newusers[elementsIndexInUsers] = {
+        ...newusers[elementsIndexInUsers],
+        isRegionalContact: updated_record.isRegionalContact,
+      };
+      newfiltered_users[elementsIndexInFilteredUsers] = {
+        ...newfiltered_users[elementsIndexInFilteredUsers],
+        userRole: updated_record.userRole,
+      };
+      newfiltered_users[elementsIndexInFilteredUsers] = {
+        ...newfiltered_users[elementsIndexInFilteredUsers],
+        isRegionalContact: updated_record.isRegionalContact,
+      };
     }
 
     setUsers(newusers);
@@ -148,7 +162,7 @@ function UserManager() {
    * @param {Search Filter to apply search on} filterType
    */
   const updateSearchFilter = (filterValue, filterType) => {
-    setFilters({...filters, [filterType]: filterValue});
+    setFilters({ ...filters, [filterType]: filterValue });
   };
   useEffect(() => {
     const filteredList = users.filter(user => {

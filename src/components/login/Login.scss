@@ -10,13 +10,14 @@
 
 .login-box{
   padding: 10% 13%;
-  background: $bgBlue;
+  background: whitesmoke;
 }
 
 .login-form{
   padding: 6%;
   border-radius: 5px;
   background: $white;
+  border: 1px solid black;
 }
 
 .form-control-custom{
@@ -40,7 +41,7 @@
 
 .image-col{
   padding: 0;
-  background: url("../../assets/icons/login-image.svg");
+  background: url("../../assets/icons/jjc-login-icon.svg");
   background-repeat: no-repeat;
   background-size: cover;
 }

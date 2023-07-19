@@ -1,9 +1,10 @@
 import React from 'react';
+import JJCSearch from './components/jjcsearch/JJCSearch';
 
 function UserHomepage() {
   return (
     <div>
-      This is User Home Page
+      <JJCSearch />
     </div>
   );
 }
