@@ -2,7 +2,7 @@ import React from 'react';
 import { ImFacebook, ImLinkedin2, ImTwitter, ImYoutube } from 'react-icons/im';
 import { GrInstagram } from 'react-icons/gr';
 import { BiCopyright } from 'react-icons/bi';
-import { NavHashLink } from 'react-router-hash-link';
+import { HashLink } from 'react-router-hash-link';
 import './Footer.scss';
 
 function Footer() {
@@ -13,54 +13,80 @@ function Footer() {
   return (
     <div className="footer-container">
       <div className="footer">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-2">
-              <h5>ABOUT US</h5>
-              <ul class="list-unstyled">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-2">
+              <h6>ABOUT US</h6>
+              <ul className="list-unstyled">
                 <li>
-                  <NavHashLink
+                  <HashLink
                     to="/about#mission-vision"
                     smooth
                     className="footer-sublinks"
                     activeClassName="activeLink"
                   >
                     Mission and Vision
-                  </NavHashLink>{' '}
+                  </HashLink>{' '}
                 </li>
                 <li>
-                  <NavHashLink
+                  <HashLink
                     to="/about#timeline"
                     smooth
                     className="footer-sublinks"
                     activeClassName="activeLink"
                   >
                     Timeline
-                  </NavHashLink>{' '}
+                  </HashLink>{' '}
                 </li>
                 <li>
-                  <NavHashLink
+                  <HashLink
                     to="/about#volunteers"
                     smooth
                     className="footer-sublinks"
                     activeClassName="activeLink"
                   >
                     Our Commitee
-                  </NavHashLink>{' '}
+                  </HashLink>{' '}
                 </li>
               </ul>
             </div>
-            <div class="col-md-2">
-              <NavHashLink
+            <div className="col-md-2">
+              <h6>JOIN US</h6>
+              <ul className="list-unstyled">
+                <li>
+                  <HashLink
+                    to="/register"
+                    smooth
+                    className="footer-sublinks"
+                    activeClassName="activeLink"
+                  >
+                    Register
+                  </HashLink>{' '}
+                </li>
+              </ul>
+            </div>
+            <div className="col-md-2">
+              <HashLink
                 to="/landing-home#contact-us"
                 smooth
                 className="footer-link"
                 activeClassName="activeLink"
               >
                 CONTACT US
-              </NavHashLink>
+              </HashLink>
+              <ul className="list-unstyled">
+                <li>
+                  <a
+                    className="footer-sublinks"
+                    activeClassName="activeLink"
+                    href="jjcsausa@gmail.com"
+                  >
+                    jjcsausa@gmail.com
+                  </a>
+                </li>
+              </ul>
             </div>
-            <div class="col-md-2">
+            <div className="col-md-2">
               <a
                 href="https://www.jainjagruti.com/"
                 target="_blank"
