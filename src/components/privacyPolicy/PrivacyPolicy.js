@@ -1,12 +1,17 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import './PrivacyPolicy.scss';
+import { privacyPolicyBanner, termsconditions } from '../../assets/index';
 
 const PrivacyPolicy = () => {
   return (
     <div className="PRIVACYPOLICY">
       <div className="banner">
-        <div className="privacyPolicyimage" />
+        <img
+          className="privacyPolicyimage"
+          src={privacyPolicyBanner}
+          alt="privacy-policy"
+        />
       </div>
       <Container fluid className="privacyPolicy-container">
         <Row>
@@ -14,8 +19,6 @@ const PrivacyPolicy = () => {
             <div className="PrivacyPolicyPage">
               <div id="privacy-policy" className="PrivacyPolicy">
                 <div>
-                  <h1>Privacy Policy</h1>
-
                   <h4>Introduction</h4>
                   <p>
                     Jain Jagruti Centre Central Board and its subsidiary, JJC
@@ -471,11 +474,23 @@ const PrivacyPolicy = () => {
 
                   <h4>Security of Your Personal Data</h4>
                   <p>
-                    The security of your Personal Data is important to us, but
-                    remember that no method of transmission over the Internet or
-                    method of electronic storage is 100% secure. While we strive
-                    to use commercially acceptable means to protect your
-                    Personal Data, we cannot guarantee its absolute security.
+                    The security of your personal data is important to us, We
+                    have taken steps to ensure that your personal information is
+                    kept secure and protected from accidental loss or
+                    unauthorized access, use, alteration, or disclosure. All
+                    information you provide to us is stored on our secure
+                    servers. However, it is important for you to also take
+                    responsibility for the safety and security of your
+                    information. If you have a password for certain parts of our
+                    website, it is your responsibility to keep it confidential
+                    and not share it with anyone. Unfortunately, the
+                    transmission of information via the internet is not
+                    completely secure. Although we do our best to protect your
+                    personal information, we cannot guarantee the security of
+                    your personal information transmitted to our Website. Any
+                    transmission of personal information is at your own risk. We
+                    are not responsible for circumvention of any privacy
+                    settings or security measures contained on the Website.
                   </p>
 
                   <h4>Children's Privacy (Children Under the Age of 13)</h4>
