@@ -11,7 +11,7 @@ function LandingHomepage() {
       <Banner />
       <JJCMission />
       <LandingAboutUs />
-      {/* <NewsFeed /> */}
+      <Testimonial />
       <ContactUs />
     </div>
   );
