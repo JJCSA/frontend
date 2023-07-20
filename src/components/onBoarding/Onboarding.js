@@ -7,13 +7,15 @@ import {
   Form1,
   Form2,
   onBoardingValidationSchema1,
-  onBoardingValidationSchema2,
+  studentSchema,
+  professionalSchema,
 } from './onBoardingConstans';
 import { Formik, Form as FormikForm } from 'formik';
 
 function Onboarding() {
   const { globalState, setGlobalState } = useContext(GlobalContext);
-
+  const [onBoardingValidationSchema2, setOnBoardingValidationSchema2] =
+    useState(studentSchema);
   const initialValues = {
     ...useAuthUser()(),
     linkedinUrl: '',
@@ -45,10 +47,9 @@ function Onboarding() {
       },
     ],
   };
-
+  const token = useAuthHeader()();
   const [step, setStep] = useState(1);
   const [progress, setProgress] = useState(50);
-  const token = useAuthHeader()();
   const months = [
     'January',
     'February',
@@ -65,6 +66,9 @@ function Onboarding() {
   ];
   const handleSubmit = (values, { setSubmitting }) => {
     if (step === 1) {
+      if (!values.userStudent) {
+        setOnBoardingValidationSchema2(professionalSchema);
+      }
       setStep(2);
       setProgress(100);
     } else {

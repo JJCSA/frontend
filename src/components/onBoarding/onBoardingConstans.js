@@ -365,62 +365,51 @@ export const Form2 = props => {
             type="text"
             className="form-control mt-2"
             placeholder={`Company Name${props.values.userStudent ? '' : ' *'}`}
-            required={!props.values.userStudent}
           />
-          {!props.values.userStudent && (
-            <ErrorMessage
-              name="workExperience[0].companyName"
-              component="div"
-              className="error"
-            />
-          )}
+
+          <ErrorMessage
+            name="workExperience[0].companyName"
+            component="div"
+            className="error"
+          />
 
           <Field
             name="workExperience[0].role"
             type="text"
             className="form-control mt-2"
-            required={!props.values.userStudent}
             placeholder={`Role${props.values.userStudent ? '' : ' *'}`}
           />
-          {!props.values.userStudent && (
-            <ErrorMessage
-              name="workExperience[0].role"
-              component="div"
-              className="error"
-            />
-          )}
+          <ErrorMessage
+            name="workExperience[0].role"
+            component="div"
+            className="error"
+          />
 
           <Field
             name="workExperience[0].location"
             type="text"
             className="form-control mt-2"
-            required={!props.values.userStudent}
             placeholder={`Location${props.values.userStudent ? '' : ' *'}`}
           />
-          {!props.values.userStudent && (
-            <ErrorMessage
-              name="workExperience[0].location"
-              component="div"
-              className="error"
-            />
-          )}
+          <ErrorMessage
+            name="workExperience[0].location"
+            component="div"
+            className="error"
+          />
 
           <Field
             name="workExperience[0].totalExp"
             type="number"
             className="form-control mt-2"
-            required={!props.values.userStudent}
             placeholder={`Experience (years)${
               props.values.userStudent ? '' : ' *'
             }`}
           />
-          {!props.values.userStudent && (
-            <ErrorMessage
-              name="workExperience[0].totalExp"
-              component="div"
-              className="error"
-            />
-          )}
+          <ErrorMessage
+            name="workExperience[0].totalExp"
+            component="div"
+            className="error"
+          />
         </div>
       </div>
     </div>
@@ -456,12 +445,13 @@ export const onBoardingValidationSchema1 = Yup.object().shape({
     .required('Select at least one volunteering interest'),
 });
 
-export const onBoardingValidationSchema2 = Yup.object().shape({
+export const studentSchema = Yup.object().shape({
   education: Yup.array().of(
     Yup.object().shape({
       universityName: Yup.string().required('University Name is required'),
       gradMonth: Yup.number().required('Grad Month is required'),
       gradYear: Yup.number()
+        .required('Graduation Year is required')
         .typeError('Invalid year format. Please enter a valid year.')
         .integer('Invalid year format. Please enter a whole number (year).')
         .min(1900, 'Graduation year cannot be before 1900')
@@ -469,6 +459,36 @@ export const onBoardingValidationSchema2 = Yup.object().shape({
         .nullable(),
       specialization: Yup.string().required('Specialization is required'),
       degree: Yup.string().required('Degree is required'),
+    })
+  ),
+});
+
+export const professionalSchema = Yup.object().shape({
+  education: Yup.array().of(
+    Yup.object().shape({
+      universityName: Yup.string().required('University Name is required'),
+      gradMonth: Yup.number().required('Grad Month is required'),
+      gradYear: Yup.number()
+        .required('Graduation Year is required')
+        .typeError('Invalid year format. Please enter a valid year.')
+        .integer('Invalid year format. Please enter a whole number (year).')
+        .min(1900, 'Graduation year cannot be before 1900')
+        .max(2100, 'Graduation year cannot be after 2100')
+        .nullable(),
+      specialization: Yup.string().required('Specialization is required'),
+      degree: Yup.string().required('Degree is required'),
+    })
+  ),
+  workExperience: Yup.array().of(
+    Yup.object().shape({
+      companyName: Yup.string().required('Company Name is required'),
+      role: Yup.string().required('Role is required'),
+      location: Yup.string().required('Location is required'),
+      totalExp: Yup.number()
+        .typeError('Experience (years) must be a number')
+        .required('Experience (years) is required')
+        .integer('Experience (years) must be an integer')
+        .min(0, 'Experience (years) must be greater than or equal to 0'),
     })
   ),
 });
