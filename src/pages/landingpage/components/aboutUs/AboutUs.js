@@ -12,7 +12,6 @@ const AboutUs = () => {
       <MissionVision />
       <Timeline />
       <Leadership />
-      <Volunteers />
     </div>
   );
 };

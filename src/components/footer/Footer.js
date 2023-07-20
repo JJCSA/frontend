@@ -28,7 +28,7 @@ function Footer() {
                     <a href="/about#leadership">Leadership</a>
                   </li>
                   <li className="mb-2">
-                    <a href="/about#volunteers">Volunteers</a>
+                    <a href="/volunteers">Volunteers</a>
                   </li>
                 </ul>
               </div>
@@ -39,7 +39,7 @@ function Footer() {
                 </h6>
                 <ul className="list-unstyled mb-0">
                   <li className="mb-2">
-                    <a href="#">Join Us</a>
+                    <a href="/register">Join Us</a>
                   </li>
                 </ul>
               </div>

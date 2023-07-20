@@ -1,5 +1,7 @@
 import React from 'react';
 import './Leadership.scss';
+import { Link } from 'react-router-dom';
+
 import {
   President,
   VicePresident,
@@ -86,6 +88,16 @@ const Leadership = () => {
             </div>
           ))}
         </div>
+      </div>
+      <div className="knowMoreBox" id="volunteers">
+        <Link to="/volunteers" className="text-decor">
+          <button
+            type="button"
+            className="btn btn-light mx-auto mb-3 d-flex justify-content-center know-more-button"
+          >
+            Our Volunteers
+          </button>
+        </Link>
       </div>
     </div>
   );

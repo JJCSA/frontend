@@ -1,3 +1,14 @@
 export { default as President } from './leadsership/Rishi.jpeg';
 export { default as VicePresident } from './leadsership/Chintan.jpg';
 export { default as avater } from './leadsership/user.jpg';
+export { default as volunteer1 } from './volunteers/Aayushi-Shah.jpeg';
+export { default as volunteer2 } from './volunteers/Deshna.jpg';
+export { default as volunteer3 } from './volunteers/Darshit.jpg';
+export { default as volunteer4 } from './volunteers/Harshil.jpg';
+export { default as volunteer5 } from './volunteers/Jay.jpg';
+export { default as volunteer6 } from './volunteers/Kinjal.jpg';
+export { default as volunteer7 } from './volunteers/Parth.jpg';
+export { default as volunteer8 } from './volunteers/Rishi.jpg';
+export { default as volunteer9 } from './volunteers/Tarak.jpeg';
+export { default as volunteer10 } from './volunteers/Urja.jpg';
+export { default as volunteer11 } from './volunteers/Vishesh.jpg';

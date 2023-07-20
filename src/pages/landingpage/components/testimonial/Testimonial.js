@@ -131,6 +131,36 @@ function Testimonial() {
               <p className="author mt-3">- Dhawani Doshi</p>
             </div>
           </div>
+          <div className="testimonial-card">
+            <div className="testimonial-content">
+              <p>
+                JJC USA has been a source of support and assistance for students
+                who are far away from their home country, just like me. We
+                understand that being far away from home can be a challenging
+                experience, especially when it comes to navigating a new
+                educational system and adjusting to a different culture. JJC
+                USA, have made a top priority to ensure that you feel welcomed,
+                supported, and connected throughout your academic journey. They
+                have created a vibrant and inclusive community.
+              </p>
+              <p className="author mt-3">- Bhavna Seth</p>
+            </div>
+          </div>
+          <div className="testimonial-card">
+            <div className="testimonial-content">
+              <p>
+                Being a part of JJC USA has been an enriching experience that I
+                cherish deeply. The warmth and inclusivity of this community
+                make it feel like a second family. Through engaging events and
+                workshops, I've grown as a person, expanding my horizons and
+                embracing diversity. The support and encouragement from fellow
+                members and the committee have been incredible. Joining JJC USA
+                has not only given me wonderful memories but also lifelong
+                friendships.
+              </p>
+              <p className="author mt-3">- Aayushi Vora</p>
+            </div>
+          </div>
         </Slider>
       </div>
     </div>

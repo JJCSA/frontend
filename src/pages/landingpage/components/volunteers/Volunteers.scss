@@ -2,9 +2,54 @@
 
 .VOLUNTEERS  {
     padding-bottom: 3em;
-  }
+  
   .volunteers {
     border-color: $vividred;
     width: 2rem;
     margin-top: 0px;
   }
+  h5{
+    text-align: center;
+    color: #2c5797;
+}
+p{
+    text-align: center;
+    color: #2c5797;
+}
+.volunteer-card{
+    border: 1px solid #2c5797;
+}
+.volunteer {
+    border-color: $vividred;
+    width: 2rem;
+    margin-top: 0px;
+  }
+  .thank-you-banner {
+    background-color: #2c5797;
+    padding: 40px 0;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .banner-content {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+  }
+  .volunteer-text{
+    font-style: italic;
+    color: #2c5797;
+    p{
+      color: black;
+      font-weight: 800;
+    }
+  }
+  .card-img, .card-img-bottom, .card-img-top {
+    min-height: 260px;
+  }
+
+}

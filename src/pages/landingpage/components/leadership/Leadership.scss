@@ -17,4 +17,13 @@
         width: 2rem;
         margin-top: 0px;
       }
+
+      .know-more-button{
+        margin-top: 2rem;
+        border-radius: 8px !important;
+        color: $white !important;
+        font-weight: $lightBold !important;
+        border: 1px solid $red !important;
+        background-color: $red !important;
+      }
 }
