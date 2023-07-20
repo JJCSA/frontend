@@ -1,3 +1,4 @@
+@import "../../../../utils/variables.scss";
 
 .LEADERSHIP{
     h5{
@@ -11,4 +12,9 @@
     .leadership-card{
         border: 1px solid #2c5797;
     }
+    .leadership {
+        border-color: $vividred;
+        width: 2rem;
+        margin-top: 0px;
+      }
 }

@@ -63,8 +63,8 @@ const Leadership = () => {
   return (
     <div id="leadership" className="LEADERSHIP">
       <div className="text-center mt-5">
-        <h4>OUR LEADERSHIP TEAM</h4>
-        <hr className="leaders" />
+        <h4>OUR LEADERSHIP</h4>
+        <hr className="leadership" />
       </div>
       <div className="container mt-5">
         <div className="row">
