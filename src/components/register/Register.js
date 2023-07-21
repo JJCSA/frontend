@@ -363,6 +363,7 @@ function Register() {
                     <Form.Check
                       type="checkbox"
                       id="agree"
+                      required
                       label={
                         <>
                           {' '}

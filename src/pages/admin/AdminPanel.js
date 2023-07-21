@@ -77,8 +77,7 @@ function AdminPanel(props) {
       <div className="copyright-admin-footer">
         <BiCopyright />
         &nbsp;
-        {getCurrentYear()}
-        Copyright reserved JJC Student Association USA
+        {getCurrentYear()}&nbsp;Copyright reserved JJC USA
       </div>
     </div>
   );

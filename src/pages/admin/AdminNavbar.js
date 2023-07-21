@@ -66,14 +66,6 @@ function AdminNavbar() {
 
       <div className="collapse navbar-collapse" id="myTogglerNav">
         <div className="left-section">
-          <div>
-            <BsBell size="1.5em" color="#606060" />
-            <sup className="notification-number">
-              <Badge pill variant="danger">
-                10
-              </Badge>
-            </sup>
-          </div>
           <div className="vertical-line mr-3 ml-3" />
           <Avatar imgSrc={profile.profilePicture || ''} />
           <h6 className="m-3">
