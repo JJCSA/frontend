@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import './ForgotPassword.scss';
 import { Form, Col, Row, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import comm from '../../helpers/communication';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
   const navigate = useNavigate();
 
-  const validateForm = (event) => {
+  const validateForm = event => {
     event.preventDefault(); // Prevent form submission if validation fails
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -20,10 +22,21 @@ const ForgotPassword = () => {
       setEmailError('');
       // Code to handle form submission (e.g., send email, show success message, etc.)
       // For now, let's just log the email for demonstration purposes
-      console.log('Valid email:', email);
-
-      // Navigate to the ForgotPasswordMessage page programmatically
-      navigate('/ForgotPasswordMessage');
+      comm
+        .sendPost(`/user-password/forgot-password?email=${email}`, null, null)
+        .then(res => {
+          if (res.status === 200) {
+            // Navigate to the ForgotPasswordMessage page programmatically
+            navigate('/ForgotPasswordMessage');
+          }
+        })
+        .catch(err => {
+          toast.error(
+            err?.response?.data?.error_description
+              ? err?.response?.data?.error_description
+              : 'Email does not exist'
+          );
+        });
     }
   };
 
@@ -54,7 +67,7 @@ const ForgotPassword = () => {
                     className="inlinebox"
                     name="email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={e => setEmail(e.target.value)}
                   />
                   {emailError && (
                     <div style={{ color: 'red' }}>{emailError}</div>

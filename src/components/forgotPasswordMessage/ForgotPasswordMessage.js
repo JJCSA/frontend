@@ -36,7 +36,7 @@ const ForgotPasswordMessage = () => (
           <div className="message-outside-container-2">
             <p className="message-content-2">
               {/* proper email id should be come instead of email_id@gmail.com below */}
-              We have sent you an email to your registered Email-id. <br></br>
+              We have sent you an email to your registered email id. <br></br>
               Check your inbox and follow the instructions to reset your account
               password.
             </p>
