@@ -43,7 +43,7 @@ const ForgotPassword = () => {
   return (
     <Container fluid className="ForgotPassword-container">
       <Row className="row FORGOT-PASSWORD">
-        <Col>
+        <Col className="col-forgot-password">
           <div className="forgot-password-container">
             <div className="forgot-password-header">
               <h4>Forgot Password?</h4>

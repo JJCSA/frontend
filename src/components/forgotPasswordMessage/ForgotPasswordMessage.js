@@ -5,7 +5,7 @@ import { Form, Col, Row, Container } from 'react-bootstrap';
 const ForgotPasswordMessage = () => (
   <Container fluid className="ForgotPasswordMessage-container">
     <Row className="row FORGOT-PASSWORD-Message">
-      <Col>
+      <Col className="col-forgot-password-message">
         <div className="forgot-password-message-container">
           <div className="email-icon-header">
             <div className="email-icon">
