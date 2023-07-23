@@ -6,6 +6,14 @@ import {
   President,
   VicePresident,
   avater,
+  AlumniWelfare,
+  Events,
+  Marketing,
+  Consultant,
+  Website,
+  Student,
+  chiefofstaff,
+  admin,
 } from '../../../../assets/images/images-index';
 
 const Leadership = () => {
@@ -13,7 +21,7 @@ const Leadership = () => {
     {
       Name: 'Bhavin Shanghvi',
       Role: 'President',
-      Image: avater,
+      Image: President,
     },
     {
       Name: 'Chintan Shah',
@@ -23,42 +31,42 @@ const Leadership = () => {
     {
       Name: 'Vikas Luthia',
       Role: 'Alumni Welfare Lead',
-      Image: avater,
+      Image: AlumniWelfare,
     },
     {
       Name: 'Ishit Shah',
       Role: 'Student Welfare Lead',
-      Image: avater,
+      Image: Student,
     },
     {
       Name: 'Manan Mathukia',
       Role: 'Event Lead',
-      Image: avater,
+      Image: Events,
     },
     {
       Name: 'Riya Shah',
       Role: 'Marketing Lead',
-      Image: avater,
+      Image: Marketing,
     },
     {
       Name: 'Nishit Gopani',
       Role: 'Website Lead',
-      Image: avater,
+      Image: Website,
     },
     {
       Name: 'Hemal Tolia',
       Role: 'Admin Lead',
-      Image: avater,
+      Image: admin,
     },
     {
       Name: 'Harshil Shah',
       Role: 'Consultant',
-      Image: avater,
+      Image: Consultant,
     },
     {
       Name: 'Darshita Shah',
       Role: 'Chief of Staff',
-      Image: avater,
+      Image: chiefofstaff,
     },
   ];
 

@@ -1,25 +1,33 @@
-@import "../../../../utils/variables.scss";
+@import '../../../../utils/variables.scss';
 
-.VOLUNTEERS  {
-    padding-bottom: 3em;
-  
+.VOLUNTEERS {
+  padding-bottom: 3em;
+
   .volunteers {
     border-color: $vividred;
     width: 2rem;
     margin-top: 0px;
   }
-  h5{
+  h5 {
     text-align: center;
     color: #2c5797;
-}
-p{
+  }
+  p {
     text-align: center;
     color: #2c5797;
-}
-.volunteer-card{
+  }
+  .card-img-top {
+    max-width: 100%;
+    min-height: 250px;
+    max-height: 250px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%; /* Make the image round */
+  }
+  .volunteer-card {
     border: 1px solid #2c5797;
-}
-.volunteer {
+  }
+  .volunteer {
     border-color: $vividred;
     width: 2rem;
     margin-top: 0px;
@@ -28,28 +36,29 @@ p{
     background-color: #2c5797;
     padding: 40px 0;
   }
-  
+
   .container {
     display: flex;
     justify-content: center;
   }
-  
+
   .banner-content {
     display: flex;
     align-items: center;
     color: white;
     font-size: 18px;
   }
-  .volunteer-text{
+  .volunteer-text {
     font-style: italic;
     color: #2c5797;
-    p{
+    p {
       color: black;
       font-weight: 800;
     }
   }
-  .card-img, .card-img-bottom, .card-img-top {
+  .card-img,
+  .card-img-bottom,
+  .card-img-top {
     min-height: 260px;
   }
-
 }
