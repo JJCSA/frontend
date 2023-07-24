@@ -1,6 +1,6 @@
 import React from 'react';
 import MissionVision from '../missionVision/MissionVision';
-import Volunteers from '../volunteers/Volunteers';
+import Trustees from '../trustees/Trustees';
 import Timeline from '../timeline/Timeline';
 import MiniAboutUs from '../landingAboutUs/MiniAboutUs';
 import Leadership from '../leadership/Leadership';
@@ -12,6 +12,7 @@ const AboutUs = () => {
       <MissionVision />
       <Timeline />
       <Leadership />
+      <Trustees />
     </div>
   );
 };

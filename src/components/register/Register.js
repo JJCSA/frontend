@@ -26,13 +26,11 @@ const registrationSchema = Yup.object().shape({
     'Preferred Method of Contact is required'
   ),
   jainCommunity: Yup.string().required('Jain Community is required'),
-  jainProof: Yup.mixed().required('Jain Community Certificate is required'),
   profPicture: Yup.mixed().required('Profile Picture is required'),
 });
 
 function Register() {
   const initialValues = {
-    jainProof: null,
     profPicture: null,
     firstName: '',
     lastName: '',
@@ -320,28 +318,6 @@ function Register() {
                       {errors.jainCommunity}
                     </Form.Control.Feedback>
                   </Form.Group>
-
-                  <Form.Group controlId="formFile" className="mb-3">
-                    <Form.Label>
-                      Upload Photo Proof of your Jain Community Certificate
-                      <span style={{ color: 'red' }}>*</span>
-                    </Form.Label>
-                    <Form.Control
-                      type="file"
-                      name="jainProof"
-                      onChange={e =>
-                        setFieldValue('jainProof', e.currentTarget.files[0])
-                      }
-                      required
-                    />
-                    <Form.Text className="text-muted">
-                      This is a certificate that shows you are a Jain. If you
-                      are not aware of this please ask your parents. Your
-                      application will be rejected if you don’t upload an
-                      appropriate document.
-                    </Form.Text>
-                  </Form.Group>
-
                   <Form.Group controlId="formFile" className="mb-3">
                     <Form.Label>
                       Upload a Profile Picture

@@ -1,3 +1,4 @@
+//Leadership
 export { default as President } from './leadsership/Bhavin.jpg';
 export { default as VicePresident } from './leadsership/Chintan.png';
 export { default as AlumniWelfare } from './leadsership/Vikas.jpg';
@@ -9,6 +10,8 @@ export { default as Student } from './leadsership/Ishit.jpg';
 export { default as chiefofstaff } from './leadsership/Darshita.jpg';
 export { default as admin } from './leadsership/Hemal.jpg';
 export { default as avater } from './leadsership/user.jpg';
+
+// Volunteers
 export { default as volunteer1 } from './volunteers/Aayushi-Shah.jpeg';
 export { default as volunteer2 } from './volunteers/Deshna.jpg';
 export { default as volunteer3 } from './volunteers/Darshit.jpg';
@@ -40,6 +43,7 @@ export { default as volunteer28 } from './volunteers/Ronak.png';
 export { default as volunteer29 } from './volunteers/Tejas-shah.png';
 export { default as volunteer30 } from './volunteers/Dhairyav.jpg';
 
+//JJC History
 export { default as covidassistance } from './covid-assistance.png';
 export { default as games } from './bingo.png';
 export { default as graduation } from './graduation.png';
@@ -48,3 +52,12 @@ export { default as milestone500 } from './milestone500.png';
 export { default as buddyproject } from './buddyproject.png';
 export { default as symposium } from './symposium.png';
 export { default as milestone1000 } from './milestone1000.png';
+
+//Trustees
+export { default as Trustee1 } from './trustees/SanjayShah.png';
+export { default as Trustee2 } from './trustees/JitendraKothari.png';
+export { default as Trustee3 } from './trustees/PrafulKamdar.png';
+export { default as Trustee4 } from './trustees/RajeshGandhi.png';
+export { default as Trustee5 } from './trustees/AmitKothari.png';
+export { default as Trustee6 } from './trustees/AnilDoshi.png';
+export { default as Trustee7 } from './trustees/RajeshBhansali.png';
