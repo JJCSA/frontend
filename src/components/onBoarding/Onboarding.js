@@ -311,7 +311,7 @@ function Onboarding() {
                 })
               }
             >
-              <img src={StudentLogo} className="type-logo" />
+              <img src={StudentLogo} className="type-logo" alt="student-logo" />
               <div>STUDENT</div>
             </div>
             <div
@@ -326,7 +326,7 @@ function Onboarding() {
                 })
               }
             >
-              <img src={GraduateLogo} className="type-logo" />
+              <img src={GraduateLogo} className="type-logo" alt="grad-logo" />
               <div>PROFESSIONAL</div>
             </div>
           </div>
@@ -427,7 +427,11 @@ function Onboarding() {
       <div className="row">
         <div className="col-md text-center education-container">
           <h4>Educational details</h4>
-          <img src={EducationLogo} className="type-logo mt-2" />
+          <img
+            src={EducationLogo}
+            className="type-logo mt-2"
+            alt="Education-logo"
+          />
           <input
             name="education.0.universityName"
             type="text"
@@ -485,7 +489,11 @@ function Onboarding() {
         </div>
         <div className="col-md text-center profession-container">
           <h4>Professional details</h4>
-          <img src={ProfessionalLogo} className="type-logo mt-2" />
+          <img
+            src={ProfessionalLogo}
+            className="type-logo mt-2"
+            alt="professional-logo"
+          />
           <input
             name="workExperience.0.companyName"
             type="text"

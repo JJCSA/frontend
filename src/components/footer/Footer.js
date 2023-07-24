@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImFacebook, ImLinkedin2, ImTwitter, ImYoutube } from 'react-icons/im';
+import { ImLinkedin2, ImYoutube, ImWhatsapp } from 'react-icons/im';
 import { GrInstagram } from 'react-icons/gr';
 import { BiCopyright } from 'react-icons/bi';
 import './Footer.scss';
@@ -30,6 +30,9 @@ function Footer() {
                   <li className="mb-2">
                     <a href="/volunteers">Volunteers</a>
                   </li>
+                  <li className="mb-2">
+                    <a href="/about#trustees">Trustees</a>
+                  </li>
                 </ul>
               </div>
 
@@ -48,9 +51,9 @@ function Footer() {
                 <h6 className="text-uppercase font-weight-bold mb-4">
                   CONTACT US
                 </h6>
-                <ul class="list-unstyled mb-0">
+                <ul className="list-unstyled mb-0">
                   <li className="mb-2">
-                    <a href="#">jjcusa@gmail.com</a>
+                    <a href="mailto:jjcsausa@gmail.com">jjcusa@gmail.com</a>
                   </li>
                 </ul>
               </div>
@@ -84,28 +87,44 @@ function Footer() {
                 </p>
                 <ul className="list-inline">
                   <li className="list-inline-item">
-                    <a href="#" target="_blank" title="facebook">
-                      <ImFacebook />
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a href="#" target="_blank" title="instagram">
+                    <a
+                      href="https://www.instagram.com/jjcusa/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="instagram"
+                    >
                       <GrInstagram />
                     </a>
                   </li>
                   <li className="list-inline-item">
-                    <a href="#" target="_blank" title="linkedin">
+                    <a
+                      href="https://www.linkedin.com/in/jjc-us-student-association/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="linkedin"
+                    >
                       <ImLinkedin2 />
                     </a>
                   </li>
                   <li className="list-inline-item">
-                    <a href="#" target="_blank" title="twitter">
-                      <ImTwitter />
+                    <a
+                      href="https://www.youtube.com/channel/UCERP8n9IzMXT6eqZtUQVovw?view_as=subscriber"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="youtube"
+                    >
+                      <ImYoutube />
                     </a>
                   </li>
                   <li className="list-inline-item">
-                    <a href="#" target="_blank" title="youtube">
-                      <ImYoutube />
+                    <a
+                      href="https://wa.me/19093336349 "
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="whatsapp"
+                    >
+                      <ImWhatsapp />
+                      <strong> (Message Only)</strong>
                     </a>
                   </li>
                 </ul>

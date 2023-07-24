@@ -33,6 +33,7 @@ import AboutUs from './pages/landingpage/components/aboutUs/AboutUs';
 import PrivacyPolicy from './components/privacyPolicy/PrivacyPolicy';
 import TermsAndConditions from './components/termsAndConditions/TermsAndConditions';
 import Volunteers from './pages/landingpage/components/volunteers/Volunteers';
+import Faqs from './pages/user/components/faqs/Faqs';
 
 function Routes() {
   const { globalState, setGlobalState } = useContext(GlobalContext);
@@ -100,6 +101,15 @@ function Routes() {
           path="/TermsAndConditions"
           element={<TermsAndConditions toggleNavbar={toggleNavbar} />}
         />
+        <Route
+          path="/Faqs"
+          element={
+            <RequireAuth loginPath="/login">
+              <Profile />
+            </RequireAuth>
+          }
+        />
+        <Route path="/Faqs" element={<Faqs toggleNavbar={toggleNavbar} />} />
         <Route path="/login" element={<Login toggleNavbar={toggleNavbar} />} />
         <Route
           path="/profile"
