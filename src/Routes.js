@@ -30,6 +30,7 @@ import AdminHomepage from './pages/admin/AdminHomepage';
 import UserManager from './pages/admin/UserManager';
 import ForgotPassword from './components/forgotPassword/ForgotPassword';
 import ForgotPasswordMessage from './components/forgotPasswordMessage/ForgotPasswordMessage';
+import ResetPassword from './components/resetPassword/ResetPassword';
 import AboutUs from './pages/landingpage/components/aboutUs/AboutUs';
 import PrivacyPolicy from './components/privacyPolicy/PrivacyPolicy';
 import TermsAndConditions from './components/termsAndConditions/TermsAndConditions';
@@ -138,6 +139,7 @@ function Routes() {
           path="/forgotPasswordMessage"
           element={<ForgotPasswordMessage toggleNavbar={toggleNavbar} />}
         />
+        <Route path="/ResetPassword" element={<ResetPassword toggleNavbar={toggleNavbar} />} />
         <Route
           path="/admin/"
           element={
