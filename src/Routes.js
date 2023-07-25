@@ -139,7 +139,10 @@ function Routes() {
           path="/forgotPasswordMessage"
           element={<ForgotPasswordMessage toggleNavbar={toggleNavbar} />}
         />
-        <Route path="/ResetPassword" element={<ResetPassword toggleNavbar={toggleNavbar} />} />
+        <Route
+          path="/ResetPassword"
+          element={<ResetPassword toggleNavbar={toggleNavbar} />}
+        />
         <Route
           path="/admin/"
           element={
