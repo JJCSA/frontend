@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Country, State, City } from 'country-state-city';
@@ -41,7 +41,7 @@ function Profile() {
     return date.toISOString().substr(0, 10);
   };
 
-  const studentSchema = Yup.object().shape({
+  const validationSchemaWithStudent = Yup.object().shape({
     firstName: Yup.string().required('First Name is required'),
     lastName: Yup.string().required('Last Name is required'),
     email: Yup.string().required('Email Address is required'),
@@ -68,7 +68,6 @@ function Profile() {
     ),
     linkedinUrl: Yup.string().url('Invalid LinkedIn URL'),
     aboutMe: Yup.string().required('About Me is required'),
-    volunteeringInterest: Yup.array(),
     userStatus: Yup.string().required('User Status is required'),
   });
 
@@ -111,12 +110,14 @@ function Profile() {
     ),
     linkedinUrl: Yup.string().url('Invalid LinkedIn URL'),
     aboutMe: Yup.string().required('About Me is required'),
-    volunteeringInterest: Yup.array(),
     userStatus: Yup.string().required('User Status is required'),
   });
 
   const handleVolunteeringInterestChange = value => {
-    const currentValue = formik.values.volunteeringInterest.split(',');
+    const currentValue =
+      formik.values.volunteeringInterest.length > 0
+        ? formik.values.volunteeringInterest
+        : formik.values.volunteeringInterest.split(',');
     const updatedValue = currentValue.includes(value)
       ? currentValue.filter(item => item !== value)
       : [...currentValue, value];
@@ -124,28 +125,33 @@ function Profile() {
     formik.setFieldValue('volunteeringInterest', updatedValue); // Use join() to convert the array to a string
   };
 
-  const handleUserStatusChange = event => {
-    const value = event.target.value;
-    console.log(value);
-    // Your custom logic based on userStatus value can be handled here
-    // For example, you can show/hide fields, update validation, etc.
-
-    // Call formik's handleChange to update the formik values
-    formik.handleChange(event);
+  // Function to select the appropriate validation schema based on userStatus
+  const getValidationSchema = userStatus => {
+    if (userStatus === 'STUDENT') {
+      return validationSchemaWithStudent;
+    } else if (userStatus === 'PROFESSIONAL') {
+      return validationSchemaWithProfessional;
+    }
+    return Yup.object(); // Return a default empty schema if userStatus is not selected yet
   };
+
+  const [validationSchema, setValidationSchema] = useState(
+    getValidationSchema(globalState.profile.userStatus)
+  );
 
   const formik = useFormik({
     initialValues: {
       ...globalState.profile,
     },
-    validationSchema: {
-      studentSchema,
-    },
+    validationSchemaWithStudent,
     onSubmit: values => {
       if (JSON.stringify(globalState.profile) !== JSON.stringify(values)) {
         const reqBody = {
           ...values,
-          volunteeringInterest: values.volunteeringInterest.join(','),
+          volunteeringInterest:
+            values.volunteeringInterest.length > 0
+              ? values.volunteeringInterest.join(',')
+              : values.volunteeringInterest,
         };
         comm
           .sendPut('/user/profile', token, reqBody)
@@ -164,7 +170,10 @@ function Profile() {
       }
     },
   });
-  const [validationSchema, setValidationSchema] = useState(studentSchema);
+
+  useEffect(() => {
+    setValidationSchema(getValidationSchema(formik.values.userStatus));
+  }, [formik.values.userStatus]);
 
   return (
     <div className="PROFILE container">
@@ -377,8 +386,7 @@ function Profile() {
             <select
               name="userStatus"
               className="custom-select"
-              value={formik.values.userStatus}
-              onChange={handleUserStatusChange}
+              {...formik.getFieldProps('userStatus')}
               required
             >
               <option value="" disabled>
@@ -534,107 +542,81 @@ function Profile() {
           </div>
         ) : null}
         {/* Professional details */}
-        {!formik.values.userStudent ? (
-          <>
-            <h6>Experience details</h6>
-            {formik.values.workExperience.map((exp, index) => (
-              <div key={index} className="form-row">
-                <div className="col">
-                  <label htmlFor={`workExperience.${index}.companyName`}>
-                    Company *
-                  </label>
-                  <input
-                    name={`workExperience.${index}.companyName`}
-                    type="text"
-                    className="form-control"
-                    placeholder="Company"
-                    {...formik.getFieldProps(
-                      `workExperience.${index}.companyName`
-                    )}
-                    required
-                  />
-                  {formik.touched.workExperience?.[index]?.companyName &&
-                    formik.errors.workExperience?.[index]?.companyName && (
-                      <div className="error">
-                        {formik.errors.workExperience?.[index]?.companyName}
-                      </div>
-                    )}
-                </div>
-                <div className="col">
-                  <label htmlFor={`workExperience.${index}.role`}>Role *</label>
-                  <input
-                    name={`workExperience.${index}.role`}
-                    type="text"
-                    className="form-control"
-                    placeholder="Role"
-                    {...formik.getFieldProps(`workExperience.${index}.role`)}
-                    required
-                  />
-                  {formik.touched.workExperience?.[index]?.role &&
-                    formik.errors.workExperience?.[index]?.role && (
-                      <div className="error">
-                        {formik.errors.workExperience?.[index]?.role}
-                      </div>
-                    )}
-                </div>
-                <div className="col">
-                  <label htmlFor={`workExperience.${index}.location`}>
-                    Location *
-                  </label>
-                  <input
-                    name={`workExperience.${index}.location`}
-                    type="text"
-                    className="form-control"
-                    placeholder="Location"
-                    {...formik.getFieldProps(
-                      `workExperience.${index}.location`
-                    )}
-                    required
-                  />
-                  {formik.touched.workExperience?.[index]?.location &&
-                    formik.errors.workExperience?.[index]?.location && (
-                      <div className="error">
-                        {formik.errors.workExperience?.[index]?.location}
-                      </div>
-                    )}
-                </div>
-                <div className="col">
-                  <label htmlFor={`workExperience.${index}.totalExp`}>
-                    Total Experience (Years) *
-                  </label>
-                  <input
-                    name={`workExperience.${index}.totalExp`}
-                    type="text"
-                    className="form-control"
-                    placeholder="Total Experience"
-                    {...formik.getFieldProps(
-                      `workExperience.${index}.totalExp`
-                    )}
-                    required
-                  />
-                  {formik.touched.workExperience?.[index]?.totalExp &&
-                    formik.errors.workExperience?.[index]?.totalExp && (
-                      <div className="error">
-                        {formik.errors.workExperience?.[index]?.totalExp}
-                      </div>
-                    )}
-                </div>
-              </div>
-            ))}
-            <button
-              type="button"
-              className="btn btn-primary"
-              onClick={() =>
-                formik.setFieldValue('workExperience', [
-                  ...formik.values.workExperience,
-                  {},
-                ])
-              }
-            >
-              Add Experience
-            </button>
-          </>
-        ) : null}
+        <h6>Experience details</h6>
+        {formik.values.workExperience.map((exp, index) => (
+          <div key={index} className="form-row">
+            <div className="col">
+              <label htmlFor={`workExperience.${index}.companyName`}>
+                Company *
+              </label>
+              <input
+                name={`workExperience.${index}.companyName`}
+                type="text"
+                className="form-control"
+                placeholder="Company"
+                {...formik.getFieldProps(`workExperience.${index}.companyName`)}
+              />
+              {formik.touched.workExperience?.[index]?.companyName &&
+                formik.errors.workExperience?.[index]?.companyName && (
+                  <div className="error">
+                    {formik.errors.workExperience?.[index]?.companyName}
+                  </div>
+                )}
+            </div>
+            <div className="col">
+              <label htmlFor={`workExperience.${index}.role`}>Role *</label>
+              <input
+                name={`workExperience.${index}.role`}
+                type="text"
+                className="form-control"
+                placeholder="Role"
+                {...formik.getFieldProps(`workExperience.${index}.role`)}
+              />
+              {formik.touched.workExperience?.[index]?.role &&
+                formik.errors.workExperience?.[index]?.role && (
+                  <div className="error">
+                    {formik.errors.workExperience?.[index]?.role}
+                  </div>
+                )}
+            </div>
+            <div className="col">
+              <label htmlFor={`workExperience.${index}.location`}>
+                Location *
+              </label>
+              <input
+                name={`workExperience.${index}.location`}
+                type="text"
+                className="form-control"
+                placeholder="Location"
+                {...formik.getFieldProps(`workExperience.${index}.location`)}
+              />
+              {formik.touched.workExperience?.[index]?.location &&
+                formik.errors.workExperience?.[index]?.location && (
+                  <div className="error">
+                    {formik.errors.workExperience?.[index]?.location}
+                  </div>
+                )}
+            </div>
+            <div className="col">
+              <label htmlFor={`workExperience.${index}.totalExp`}>
+                Total Experience (Years) *
+              </label>
+              <input
+                name={`workExperience.${index}.totalExp`}
+                type="text"
+                className="form-control"
+                placeholder="Total Experience"
+                {...formik.getFieldProps(`workExperience.${index}.totalExp`)}
+              />
+              {formik.touched.workExperience?.[index]?.totalExp &&
+                formik.errors.workExperience?.[index]?.totalExp && (
+                  <div className="error">
+                    {formik.errors.workExperience?.[index]?.totalExp}
+                  </div>
+                )}
+            </div>
+          </div>
+        ))}
         <div className="form-row mt-3">
           <div className="col">
             <button type="submit" className="btn btn-primary">
