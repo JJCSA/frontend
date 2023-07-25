@@ -41,3 +41,4 @@ export { default as specialization } from './icons/study-field.svg';
 export { default as universityDegree } from './icons/university-degree.svg';
 export { default as TermsAndConditions } from './icons/TandC.svg';
 export { default as privacyPolicyBanner } from './icons/PrivacyPolicy.svg';
+export { default as whatsapp } from './icons/whatsapp.svg';

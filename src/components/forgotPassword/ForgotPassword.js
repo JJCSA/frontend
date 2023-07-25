@@ -32,8 +32,8 @@ const ForgotPassword = () => {
         })
         .catch(err => {
           toast.error(
-            err?.response?.data?.error_description
-              ? err?.response?.data?.error_description
+            err?.res?.data?.error_description
+              ? err?.res?.data?.error_description
               : 'Email does not exist'
           );
         });

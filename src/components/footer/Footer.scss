@@ -1,5 +1,8 @@
 @import "../../utils/variables.scss";
 .FOOTER{
+  a{
+    color: white;
+  }
   li a{
     color: white;
   }
@@ -8,7 +11,9 @@
     color: $whiteSmoke;
     border-top: 1px solid $pageBackground;
   }
-  
+  .copyright-text{
+    color: black;
+  }
   .footer {
     display: flex;
     justify-content: space-evenly;
@@ -50,6 +55,9 @@
     font-size: small;
     text-align: center;
     padding: 0.5rem;
+  }
+  .list-inline-item:not(:last-child) {
+    margin-right:2.5rem;
   }
 }
 

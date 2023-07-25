@@ -1,3 +1,5 @@
+@import '../utils/variables.scss';
+
 .PROFILE.container {
   padding: 24px;
 
@@ -8,14 +10,20 @@
     }
   }
 
-  .form-control, .custom-select {
+  .container,
+  label {
+    color: #2c5797;
+  }
+  .form-control,
+  .custom-select {
     margin-bottom: 16px;
   }
 
   .save-button {
+    border: 1px solid $vividred;
     margin-top: 8px;
     width: 156px;
-    background: #1E2350;
+    background: #ff4020;
     color: white;
     border: none;
   }
@@ -23,7 +31,7 @@
   .reset-button {
     margin-top: 8px;
     width: 156px;
-    background: #E5E9F2;
+    background: #e5e9f2;
     margin-left: 8px;
     color: black;
     border: none;

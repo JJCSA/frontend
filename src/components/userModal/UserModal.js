@@ -12,7 +12,6 @@ import {
   bookIcon,
   tickIcon,
   communityIcon,
-  attachmentIcon,
   AdminIcon,
 } from '../../assets/index';
 import ImageFormatter from '../imageFormatter/ImageFormatter';
@@ -62,17 +61,6 @@ const UserModal = props => {
     );
     props.onsubmitUpdate({ ...props.data, userStatus: status });
   };
-
-  const getCommunityProof = async e => {
-    e.preventDefault();
-    const response = await comm.get(
-      `/admin/users/${props.data.id}/communityProof`,
-      props.token,
-      null
-    );
-    window.open(response.data, '_blank');
-  };
-
   const updateUserRole = async e => {
     if (e === 'no') {
       setIsAdmin(props.data.userRole === 'ADMIN');
@@ -225,16 +213,6 @@ const UserModal = props => {
                   {' '}
                   {props.data.communityName}
                 </span>
-                <Button
-                  variant="outline-secondary"
-                  className="ml-4"
-                  onClick={getCommunityProof}
-                >
-                  <span className="info-container-info">
-                    <img src={attachmentIcon} alt="attachment" /> Certificate
-                    proof
-                  </span>
-                </Button>
               </div>
             </div>
           </div>

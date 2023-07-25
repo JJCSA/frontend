@@ -1,9 +1,18 @@
 import React from 'react';
 import './Leadership.scss';
+import { Link } from 'react-router-dom';
+
 import {
   President,
   VicePresident,
-  avater,
+  AlumniWelfare,
+  Events,
+  Marketing,
+  Consultant,
+  Website,
+  Student,
+  chiefofstaff,
+  admin,
 } from '../../../../assets/images/images-index';
 
 const Leadership = () => {
@@ -11,7 +20,7 @@ const Leadership = () => {
     {
       Name: 'Bhavin Shanghvi',
       Role: 'President',
-      Image: avater,
+      Image: President,
     },
     {
       Name: 'Chintan Shah',
@@ -19,52 +28,52 @@ const Leadership = () => {
       Image: VicePresident,
     },
     {
-      Name: 'Vikas Luthia',
-      Role: 'Alumni Welfare Lead',
-      Image: avater,
-    },
-    {
-      Name: 'Ishit Shah',
-      Role: 'Student Welfare Lead',
-      Image: avater,
-    },
-    {
-      Name: 'Manan Mathukia',
-      Role: 'Event Lead',
-      Image: avater,
-    },
-    {
-      Name: 'Riya Shah',
-      Role: 'Marketing Lead',
-      Image: avater,
-    },
-    {
-      Name: 'Nishit Gopani',
-      Role: 'Website Lead',
-      Image: avater,
+      Name: 'Darshita Shah',
+      Role: 'Chief of Staff',
+      Image: chiefofstaff,
     },
     {
       Name: 'Hemal Tolia',
       Role: 'Admin Lead',
-      Image: avater,
+      Image: admin,
     },
     {
       Name: 'Harshil Shah',
       Role: 'Consultant',
-      Image: avater,
+      Image: Consultant,
     },
     {
-      Name: 'Darshita Shah',
-      Role: 'Chief of Staff',
-      Image: avater,
+      Name: 'Ishit Shah',
+      Role: 'Student Welfare Lead',
+      Image: Student,
+    },
+    {
+      Name: 'Manan Mathukia',
+      Role: 'Event Lead',
+      Image: Events,
+    },
+    {
+      Name: 'Nishit Gopani',
+      Role: 'Website Lead',
+      Image: Website,
+    },
+    {
+      Name: 'Riya Shah',
+      Role: 'Marketing Lead',
+      Image: Marketing,
+    },
+    {
+      Name: 'Vikas Luthia',
+      Role: 'Alumni Welfare Lead',
+      Image: AlumniWelfare,
     },
   ];
 
   return (
     <div id="leadership" className="LEADERSHIP">
       <div className="text-center mt-5">
-        <h4>OUR LEADERSHIP TEAM</h4>
-        <hr className="leaders" />
+        <h4>OUR LEADERSHIP</h4>
+        <hr className="leadership" />
       </div>
       <div className="container mt-5">
         <div className="row">
@@ -86,6 +95,16 @@ const Leadership = () => {
             </div>
           ))}
         </div>
+      </div>
+      <div className="knowMoreBox" id="volunteers">
+        <Link to="/volunteers" className="text-decor">
+          <button
+            type="button"
+            className="btn btn-light mx-auto mb-3 d-flex justify-content-center know-more-button"
+          >
+            Our Volunteers
+          </button>
+        </Link>
       </div>
     </div>
   );

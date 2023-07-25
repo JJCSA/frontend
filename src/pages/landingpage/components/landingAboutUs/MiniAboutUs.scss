@@ -26,12 +26,14 @@
     }
 }
 blockquote {
+    font-family: $font;
     position: relative;
     margin: 0.5em;
     padding: 0.5em 2em 0.5em 3em;
     font-size: $largeTitle;
 }
 blockquote:before {
+    font-family: $font;
     position: absolute;
     font-size: 6em;
     line-height: 1;
@@ -41,6 +43,7 @@ blockquote:before {
     content: "\201C";
 }
 blockquote:after {
+    font-family: $font;
     position: absolute;
     float:right;
     font-size:6em;
