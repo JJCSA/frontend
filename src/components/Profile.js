@@ -68,7 +68,7 @@ function Profile() {
     ),
     linkedinUrl: Yup.string().url('Invalid LinkedIn URL'),
     aboutMe: Yup.string().required('About Me is required'),
-    userStatus: Yup.string().required('User Status is required'),
+    userStudent: Yup.string().required('User Status is required'),
   });
 
   const validationSchemaWithProfessional = Yup.object().shape({
@@ -110,7 +110,7 @@ function Profile() {
     ),
     linkedinUrl: Yup.string().url('Invalid LinkedIn URL'),
     aboutMe: Yup.string().required('About Me is required'),
-    userStatus: Yup.string().required('User Status is required'),
+    userStudent: Yup.string().required('User Status is required'),
   });
 
   const [validationSchema, setValidationSchema] = useState(
@@ -352,13 +352,17 @@ function Profile() {
                 />
               </div>
               <div className="col">
-                <label htmlFor="userStatus">User Status *</label>
+                <label htmlFor="userStudent">User Status *</label>
                 <Field
                   as="select"
                   className="custom-select"
-                  name="userStatus"
+                  name="userStudent"
+                  value={values.userStudent ? 'STUDENT' : 'PROFESSIONAL'}
                   onChange={e => {
-                    setFieldValue('userStatus', e.target.value);
+                    setFieldValue(
+                      'userStudent',
+                      e.target.value === 'STUDENT' ? true : false
+                    );
                     if (e.target.value === 'STUDENT') {
                       setValidationSchema(validationSchemaWithStudent);
                     } else {
@@ -370,11 +374,15 @@ function Profile() {
                   <option value="" disabled>
                     Select your current status(Student/Working Professional) *
                   </option>
-                  <option value="STUDENT">Student</option>
-                  <option value="PROFESSIONAL">Professional</option>
+                  <option selected={values.userStudent} value="STUDENT">
+                    Student
+                  </option>
+                  <option selected={!values.userStudent} value="PROFESSIONAL">
+                    Professional
+                  </option>
                 </Field>
                 <ErrorMessage
-                  name="userStatus"
+                  name="userStudent"
                   component="div"
                   className="error"
                 />
