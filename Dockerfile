@@ -8,8 +8,13 @@ ARG ARCH=
 FROM ${ARCH}/node:14 as BUILDER
 
 ARG npm_config_loglevel=error
-
 ENV NPM_CONFIG_LOGLEVEL ${npm_config_loglevel}
+
+ARG node_env=development
+ENV NODE_ENV=${node_env}
+
+ARG react_app_site_key=
+ENV REACT_APP_SITE_KEY=${react_app_site_key}
 
 
 # Set working directory
