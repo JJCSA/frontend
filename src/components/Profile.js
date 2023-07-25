@@ -1,16 +1,16 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import { Country, State, City } from 'country-state-city';
-import GlobalContext from '../store/GlobalContext';
-import { useAuthHeader } from 'react-auth-kit';
-import comm from '../helpers/communication';
 import { toast } from 'react-toastify';
+import { useAuthHeader } from 'react-auth-kit';
+import GlobalContext from '../store/GlobalContext';
+import comm from '../helpers/communication';
 import './Profile.scss';
 
 function Profile() {
   const { globalState, setGlobalState } = useContext(GlobalContext);
-  const [profile, setProfile] = useState({ ...globalState.profile });
   const token = useAuthHeader()();
-
   const months = [
     'January',
     'February',
@@ -25,61 +25,155 @@ function Profile() {
     'November',
     'December',
   ];
+
+  const volunteeringInterestOptions = [
+    { value: 'ADMIN', label: 'Admin' },
+    { value: 'ALUMNIWELFARE', label: 'Alumni Welfare' },
+    { value: 'EVENTS', label: 'Events ' },
+    { value: 'MARKETING', label: 'Marketing ' },
+    { value: 'STUDENTWELFARE', label: 'Student Welfare ' },
+    { value: 'WEBSITE', label: 'Website ' },
+    // Add more options as needed
+  ];
+
   const formatDatePickerInput = dateString => {
     const date = new Date(dateString);
     return date.toISOString().substr(0, 10);
   };
 
-  const handleInputChange = (...events) => {
-    const newState = { ...profile };
-    events.forEach(ev => {
-      const attributes = ev.target.name.split('.');
-      let newStateProperty = newState;
-      attributes.forEach((attribute, index) => {
-        if (index < attributes.length - 1) {
-          newStateProperty = newStateProperty[attribute];
-        } else {
-          newStateProperty[attribute] = ev.target.value;
-        }
-      });
-    });
-    setProfile(newState);
+  const studentSchema = Yup.object().shape({
+    firstName: Yup.string().required('First Name is required'),
+    lastName: Yup.string().required('Last Name is required'),
+    email: Yup.string().required('Email Address is required'),
+    dateOfBirth: Yup.date().required('Date of Birth is required'),
+    street: Yup.string().required('Street is required'),
+    country: Yup.string().required('Country is required'),
+    state: Yup.string().required('State is required'),
+    city: Yup.string().required('City is required'),
+    zip: Yup.number().required('Zipcode is required'),
+    education: Yup.array().of(
+      Yup.object().shape({
+        universityName: Yup.string().required('University Name is required'),
+        gradMonth: Yup.number().required('Grad Month is required'),
+        gradYear: Yup.number()
+          .required('Graduation Year is required')
+          .typeError('Invalid year format. Please enter a valid year.')
+          .integer('Invalid year format. Please enter a whole number (year).')
+          .min(1900, 'Graduation year cannot be before 1900')
+          .max(2100, 'Graduation year cannot be after 2100')
+          .nullable(),
+        specialization: Yup.string().required('Specialization is required'),
+        degree: Yup.string().required('Degree is required'),
+      })
+    ),
+    linkedinUrl: Yup.string().url('Invalid LinkedIn URL'),
+    aboutMe: Yup.string().required('About Me is required'),
+    volunteeringInterest: Yup.array(),
+    userStatus: Yup.string().required('User Status is required'),
+  });
+
+  const validationSchemaWithProfessional = Yup.object().shape({
+    firstName: Yup.string().required('First Name is required'),
+    lastName: Yup.string().required('Last Name is required'),
+    email: Yup.string().required('Email Address is required'),
+    dateOfBirth: Yup.date().required('Date of Birth is required'),
+    street: Yup.string().required('Street is required'),
+    country: Yup.string().required('Country is required'),
+    state: Yup.string().required('State is required'),
+    city: Yup.string().required('City is required'),
+    zip: Yup.number().required('Zipcode is required'),
+    education: Yup.array().of(
+      Yup.object().shape({
+        universityName: Yup.string().required('University Name is required'),
+        gradMonth: Yup.number().required('Grad Month is required'),
+        gradYear: Yup.number()
+          .required('Graduation Year is required')
+          .typeError('Invalid year format. Please enter a valid year.')
+          .integer('Invalid year format. Please enter a whole number (year).')
+          .min(1900, 'Graduation year cannot be before 1900')
+          .max(2100, 'Graduation year cannot be after 2100')
+          .nullable(),
+        specialization: Yup.string().required('Specialization is required'),
+        degree: Yup.string().required('Degree is required'),
+      })
+    ),
+    workExperience: Yup.array().of(
+      Yup.object().shape({
+        companyName: Yup.string().required('Company Name is required'),
+        role: Yup.string().required('Role is required'),
+        location: Yup.string().required('Location is required'),
+        totalExp: Yup.number()
+          .typeError('Experience (years) must be a number')
+          .required('Experience (years) is required')
+          .integer('Experience (years) must be an integer')
+          .min(0, 'Experience (years) must be greater than or equal to 0'),
+      })
+    ),
+    linkedinUrl: Yup.string().url('Invalid LinkedIn URL'),
+    aboutMe: Yup.string().required('About Me is required'),
+    volunteeringInterest: Yup.array(),
+    userStatus: Yup.string().required('User Status is required'),
+  });
+
+  const handleVolunteeringInterestChange = value => {
+    const currentValue = formik.values.volunteeringInterest.split(',');
+    const updatedValue = currentValue.includes(value)
+      ? currentValue.filter(item => item !== value)
+      : [...currentValue, value];
+
+    formik.setFieldValue('volunteeringInterest', updatedValue); // Use join() to convert the array to a string
   };
-  const handleSubmit = event => {
-    event.preventDefault();
-    if (JSON.stringify(globalState.profile) !== JSON.stringify(profile)) {
-      const reqBody = {
-        ...profile,
-      };
-      comm
-        .sendPut('/user/profile', token, reqBody)
-        .then(newProfile => {
-          console.log(newProfile);
-          setGlobalState({
-            ...globalState,
-            profile: newProfile.data,
+
+  const handleUserStatusChange = event => {
+    const value = event.target.value;
+    console.log(value);
+    // Your custom logic based on userStatus value can be handled here
+    // For example, you can show/hide fields, update validation, etc.
+
+    // Call formik's handleChange to update the formik values
+    formik.handleChange(event);
+  };
+
+  const formik = useFormik({
+    initialValues: {
+      ...globalState.profile,
+    },
+    validationSchema: {
+      studentSchema,
+    },
+    onSubmit: values => {
+      if (JSON.stringify(globalState.profile) !== JSON.stringify(values)) {
+        const reqBody = {
+          ...values,
+          volunteeringInterest: values.volunteeringInterest.join(','),
+        };
+        comm
+          .sendPut('/user/profile', token, reqBody)
+          .then(newProfile => {
+            setGlobalState({
+              ...globalState,
+              profile: newProfile.data,
+            });
+            toast.success('Profile Update successful!');
+          })
+          .catch(() => {
+            toast.error('Profile Update Failed!');
           });
-          toast.success('Profile Update successful!');
-        })
-        .catch(() => {
-          toast.error('Profile Update Failed!');
-        });
-    } else {
-      toast.error('Please make some changes before saving!');
-    }
-  };
-  const handleReset = () => {
-    setProfile({ ...globalState.profile });
-  };
+      } else {
+        toast.error('Please make some changes before saving!');
+      }
+    },
+  });
+  const [validationSchema, setValidationSchema] = useState(studentSchema);
 
   return (
     <div className="PROFILE container">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={formik.handleSubmit}>
         <div className="form-row">
           <div className="profile-image-container col">
             <img
               className="profile-image"
-              src={profile.profilePicture}
+              src={formik.values.profilePicture}
               alt="Profile"
             />
           </div>
@@ -87,276 +181,467 @@ function Profile() {
         <h6>Personal Info</h6>
         <div className="form-row">
           <div className="col">
+            <label htmlFor="firstName">First Name</label>
             <input
               type="text"
               className="form-control"
-              placeholder="First name *"
-              value={profile.firstName}
-              required
+              placeholder="First name"
+              id="firstName"
+              {...formik.getFieldProps('firstName')}
               disabled
             />
+            {formik.touched.firstName && formik.errors.firstName && (
+              <div className="error">{formik.errors.firstName}</div>
+            )}
           </div>
           <div className="col">
+            <label htmlFor="lastName">Last Name</label>
             <input
               type="text"
               className="form-control"
-              placeholder="Last name *"
-              value={profile.lastName}
-              required
+              placeholder="Last name"
+              id="lastName"
+              {...formik.getFieldProps('lastName')}
               disabled
             />
+            {formik.touched.lastName && formik.errors.lastName && (
+              <div className="error">{formik.errors.lastName}</div>
+            )}
           </div>
         </div>
         <div className="form-row">
           <div className="col">
+            <label htmlFor="email">Email Address</label>
             <input
               type="text"
               className="form-control"
-              placeholder="Email Address *"
-              value={profile.email}
-              required
+              placeholder="Email Address"
+              id="email"
+              {...formik.getFieldProps('email')}
               disabled
             />
+            {formik.touched.email && formik.errors.email && (
+              <div className="error">{formik.errors.email}</div>
+            )}
           </div>
           <div className="col">
+            <label htmlFor="gender">Gender</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Gender"
+              id="gender"
+              {...formik.getFieldProps('gender')}
+              disabled
+            />
+            {formik.touched.email && formik.errors.email && (
+              <div className="error">{formik.errors.email}</div>
+            )}
+          </div>
+          <div className="col">
+            <label htmlFor="dateOfBirth">Date of Birth</label>
             <input
               type="date"
               className="form-control"
-              placeholder="DOB *"
-              value={formatDatePickerInput(profile.dateOfBirth)}
-              required
+              placeholder="DOB"
+              id="dateOfBirth"
+              value={formatDatePickerInput(formik.values.dateOfBirth)}
+              {...formik.getFieldProps('dateOfBirth')}
               disabled
             />
+            {formik.touched.dateOfBirth && formik.errors.dateOfBirth && (
+              <div className="error">{formik.errors.dateOfBirth}</div>
+            )}
           </div>
         </div>
         <div className="form-row">
           <div className="col">
+            <label htmlFor="street">Street *</label>
             <input
               name="street"
               type="text"
               className="form-control"
-              placeholder="Street *"
-              value={profile.street}
-              onChange={handleInputChange}
+              placeholder="Street"
+              id="street"
+              {...formik.getFieldProps('street')}
               required
             />
+            {formik.touched.street && formik.errors.street && (
+              <div className="error">{formik.errors.street}</div>
+            )}
           </div>
         </div>
         <div className="form-row">
           <div className="col">
+            <label htmlFor="country">Country *</label>
             <select
               name="country"
               className="custom-select"
-              value={profile.country}
-              onChange={event => {
-                handleInputChange(
-                  event,
-                  { target: { name: 'state', value: '' } },
-                  { target: { name: 'city', value: '' } }
-                );
-              }}
+              id="country"
+              {...formik.getFieldProps('country')}
               required
             >
               <option value="" disabled>
                 Country *
               </option>
-              {Country.getAllCountries().map(country => (
-                <option key={country.isoCode} value={country.isoCode}>
-                  {country.name}
-                </option>
-              ))}
+              <option value="US">United States</option>
+              {/* Add more country options as needed */}
             </select>
+            {formik.touched.country && formik.errors.country && (
+              <div className="error">{formik.errors.country}</div>
+            )}
           </div>
           <div className="col">
+            <label htmlFor="state">State *</label>
             <select
               name="state"
               className="custom-select"
-              value={profile.state}
-              onChange={event => {
-                handleInputChange(event, {
-                  target: { name: 'city', value: '' },
-                });
-              }}
+              id="state"
+              {...formik.getFieldProps('state')}
               required
             >
               <option value="" disabled>
                 State *
               </option>
-              {State.getStatesOfCountry(profile.country).map(state => (
+              {State.getStatesOfCountry(formik.values.country).map(state => (
                 <option key={state.isoCode} value={state.isoCode}>
                   {state.name}
                 </option>
               ))}
             </select>
+            {formik.touched.state && formik.errors.state && (
+              <div className="error">{formik.errors.state}</div>
+            )}
           </div>
         </div>
         <div className="form-row">
           <div className="col">
+            <label htmlFor="city">City *</label>
             <select
               name="city"
               className="custom-select"
-              value={profile.city}
-              onChange={handleInputChange}
+              id="city"
+              {...formik.getFieldProps('city')}
               required
             >
               <option value="" disabled>
                 City *
               </option>
-              {City.getCitiesOfState(profile.country, profile.state).map(
-                stateCity => (
-                  <option key={stateCity.isoCode} value={stateCity.name}>
-                    {stateCity.name}
-                  </option>
-                )
-              )}
+              {City.getCitiesOfState(
+                formik.values.country,
+                formik.values.state
+              ).map(stateCity => (
+                <option key={stateCity.isoCode} value={stateCity.name}>
+                  {stateCity.name}
+                </option>
+              ))}
             </select>
+            {formik.touched.city && formik.errors.city && (
+              <div className="error">{formik.errors.city}</div>
+            )}
           </div>
           <div className="col">
+            <label htmlFor="zip">Zipcode *</label>
             <input
               name="zip"
               type="number"
               className="form-control"
-              placeholder="Zipcode *"
-              value={profile.zip}
-              onChange={handleInputChange}
+              placeholder="Zipcode"
+              id="zip"
+              {...formik.getFieldProps('zip')}
               required
             />
+            {formik.touched.zip && formik.errors.zip && (
+              <div className="error">{formik.errors.zip}</div>
+            )}
           </div>
         </div>
-        <h6>Education details</h6>
+        {/* New fields */}
+        <h6>Additional Details</h6>
         <div className="form-row">
           <div className="col">
+            <label htmlFor="linkedinUrl">LinkedIn URL</label>
             <input
-              name="education.0.universityName"
+              name="linkedinUrl"
               type="text"
               className="form-control"
-              placeholder="School/University *"
-              value={profile.education[0].universityName}
-              onChange={handleInputChange}
-              required
+              placeholder="LinkedIn URL"
+              {...formik.getFieldProps('linkedinUrl')}
             />
-          </div>
-        </div>
-        <div className="form-row">
-          <div className="col">
-            <input
-              name="education.0.specialization"
-              type="text"
-              className="form-control"
-              placeholder="Specialization *"
-              value={profile.education[0].specialization}
-              onChange={handleInputChange}
-              required
-            />
+            {formik.touched.linkedinUrl && formik.errors.linkedinUrl && (
+              <div className="error">{formik.errors.linkedinUrl}</div>
+            )}
           </div>
           <div className="col">
-            <input
-              name="education.0.degree"
-              type="text"
-              className="form-control"
-              placeholder="Degree *"
-              value={profile.education[0].degree}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-        </div>
-        <div className="form-row">
-          <div className="col">
+            <label htmlFor="userStatus">User Status *</label>
             <select
-              name="education.0.gradMonth"
+              name="userStatus"
               className="custom-select"
-              value={profile.education[0].gradMonth}
-              onChange={handleInputChange}
+              value={formik.values.userStatus}
+              onChange={handleUserStatusChange}
               required
             >
               <option value="" disabled>
-                Grad Month *
+                Select your current status(Student/Working Professional) *
               </option>
-              {months.map((month, index) => (
-                <option key={month} value={index}>
-                  {month}
-                </option>
-              ))}
+              <option value="STUDENT">Student</option>
+              <option value="PROFESSIONAL">Professional</option>
             </select>
-          </div>
-          <div className="col">
-            <input
-              name="education.0.gradYear"
-              type="number"
-              className="form-control"
-              placeholder="Grad Year *"
-              value={profile.education[0].gradYear}
-              onChange={handleInputChange}
-              required
-            />
+            {formik.touched.userStatus && formik.errors.userStatus && (
+              <div className="error">{formik.errors.userStatus}</div>
+            )}
           </div>
         </div>
-        {!profile.userStudent && (
+        <div className="form-row">
+          <div className="col">
+            <label htmlFor="aboutMe">About Me</label>
+            <textarea
+              name="aboutMe"
+              className="form-control"
+              placeholder="Tell something about yourself..."
+              {...formik.getFieldProps('aboutMe')}
+            />
+            {formik.touched.aboutMe && formik.errors.aboutMe && (
+              <div className="error">{formik.errors.aboutMe}</div>
+            )}
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="col">
+            <label>Volunteering Interest</label>
+            <div>
+              {volunteeringInterestOptions.map(option => (
+                <label key={option.value}>
+                  <input
+                    type="checkbox"
+                    name="volunteeringInterest"
+                    value={option.value}
+                    onChange={() =>
+                      handleVolunteeringInterestChange(option.value)
+                    }
+                    checked={formik.values.volunteeringInterest?.includes(
+                      option.value
+                    )}
+                  />
+                  {option.label} &nbsp;
+                </label>
+              ))}
+            </div>
+            {formik.touched.volunteeringInterest &&
+              formik.errors.volunteeringInterest && (
+                <div className="error">
+                  {formik.errors.volunteeringInterest}
+                </div>
+              )}
+          </div>
+        </div>
+        <h6>Education details</h6>
+        {formik.values.userStudent ? (
+          <div className="form-row">
+            <div className="col">
+              <label htmlFor="universityName">School/University *</label>
+              <input
+                name="education.0.universityName"
+                type="text"
+                className="form-control"
+                placeholder="School/University"
+                id="universityName"
+                {...formik.getFieldProps('education.0.universityName')}
+                required
+              />
+              {formik.touched.education?.[0]?.universityName &&
+                formik.errors.education?.[0]?.universityName && (
+                  <div className="error">
+                    {formik.errors.education?.[0]?.universityName}
+                  </div>
+                )}
+            </div>
+            <div className="col">
+              <label htmlFor="specialization">Specialization *</label>
+              <input
+                name={`education.0.specialization`}
+                type="text"
+                className="form-control"
+                placeholder="Specialization"
+                {...formik.getFieldProps(`education.0.specialization`)}
+                required
+              />
+              {formik.touched.education?.[0]?.specialization &&
+                formik.errors.education?.[0]?.specialization && (
+                  <div className="error">
+                    {formik.errors.education?.[0]?.specialization}
+                  </div>
+                )}
+            </div>
+            <div className="col">
+              <label htmlFor={`education.0.degree`}>Degree *</label>
+              <input
+                name={`education.0.degree`}
+                type="text"
+                className="form-control"
+                placeholder="Degree"
+                {...formik.getFieldProps(`education.0.degree`)}
+                required
+              />
+              {formik.touched.education?.[0]?.degree &&
+                formik.errors.education?.[0]?.degree && (
+                  <div className="error">
+                    {formik.errors.education?.[0]?.degree}
+                  </div>
+                )}
+            </div>
+            <div className="col">
+              <label htmlFor={`education.0.gradMonth`}>Grad Month *</label>
+              <select
+                name={`education.0.gradMonth`}
+                className="custom-select"
+                {...formik.getFieldProps(`education.0.gradMonth`)}
+                required
+              >
+                <option value="" disabled>
+                  Grad Month
+                </option>
+                {months.map((month, idx) => (
+                  <option key={idx} value={idx}>
+                    {month}
+                  </option>
+                ))}
+              </select>
+              {formik.touched.education?.[0]?.gradMonth &&
+                formik.errors.education?.[0]?.gradMonth && (
+                  <div className="error">
+                    {formik.errors.education?.[0]?.gradMonth}
+                  </div>
+                )}
+            </div>
+            <div className="col">
+              <label htmlFor={`education.0.gradYear`}>Grad Year *</label>
+              <input
+                name={`education.0.gradYear`}
+                type="number"
+                className="form-control"
+                placeholder="Grad Year"
+                {...formik.getFieldProps(`education.0.gradYear`)}
+                required
+              />
+              {formik.touched.education?.[0]?.gradYear &&
+                formik.errors.education?.[0]?.gradYear && (
+                  <div className="error">
+                    {formik.errors.education?.[0]?.gradYear}
+                  </div>
+                )}
+            </div>
+          </div>
+        ) : null}
+        {/* Professional details */}
+        {!formik.values.userStudent ? (
           <>
             <h6>Experience details</h6>
-            <div className="form-row">
-              <div className="col">
-                <input
-                  name="workExperience.0.companyName"
-                  type="text"
-                  className="form-control"
-                  placeholder="Company *"
-                  value={profile.workExperience[0].companyName}
-                  required
-                  disabled
-                />
+            {formik.values.workExperience.map((exp, index) => (
+              <div key={index} className="form-row">
+                <div className="col">
+                  <label htmlFor={`workExperience.${index}.companyName`}>
+                    Company *
+                  </label>
+                  <input
+                    name={`workExperience.${index}.companyName`}
+                    type="text"
+                    className="form-control"
+                    placeholder="Company"
+                    {...formik.getFieldProps(
+                      `workExperience.${index}.companyName`
+                    )}
+                    required
+                  />
+                  {formik.touched.workExperience?.[index]?.companyName &&
+                    formik.errors.workExperience?.[index]?.companyName && (
+                      <div className="error">
+                        {formik.errors.workExperience?.[index]?.companyName}
+                      </div>
+                    )}
+                </div>
+                <div className="col">
+                  <label htmlFor={`workExperience.${index}.role`}>Role *</label>
+                  <input
+                    name={`workExperience.${index}.role`}
+                    type="text"
+                    className="form-control"
+                    placeholder="Role"
+                    {...formik.getFieldProps(`workExperience.${index}.role`)}
+                    required
+                  />
+                  {formik.touched.workExperience?.[index]?.role &&
+                    formik.errors.workExperience?.[index]?.role && (
+                      <div className="error">
+                        {formik.errors.workExperience?.[index]?.role}
+                      </div>
+                    )}
+                </div>
+                <div className="col">
+                  <label htmlFor={`workExperience.${index}.location`}>
+                    Location *
+                  </label>
+                  <input
+                    name={`workExperience.${index}.location`}
+                    type="text"
+                    className="form-control"
+                    placeholder="Location"
+                    {...formik.getFieldProps(
+                      `workExperience.${index}.location`
+                    )}
+                    required
+                  />
+                  {formik.touched.workExperience?.[index]?.location &&
+                    formik.errors.workExperience?.[index]?.location && (
+                      <div className="error">
+                        {formik.errors.workExperience?.[index]?.location}
+                      </div>
+                    )}
+                </div>
+                <div className="col">
+                  <label htmlFor={`workExperience.${index}.totalExp`}>
+                    Total Experience (Years) *
+                  </label>
+                  <input
+                    name={`workExperience.${index}.totalExp`}
+                    type="text"
+                    className="form-control"
+                    placeholder="Total Experience"
+                    {...formik.getFieldProps(
+                      `workExperience.${index}.totalExp`
+                    )}
+                    required
+                  />
+                  {formik.touched.workExperience?.[index]?.totalExp &&
+                    formik.errors.workExperience?.[index]?.totalExp && (
+                      <div className="error">
+                        {formik.errors.workExperience?.[index]?.totalExp}
+                      </div>
+                    )}
+                </div>
               </div>
-              <div className="col">
-                <input
-                  name="workExperience.0.role"
-                  type="text"
-                  className="form-control"
-                  placeholder="Role *"
-                  value={profile.workExperience[0].role}
-                  required
-                  disabled
-                />
-              </div>
-            </div>
-            <div className="form-row">
-              <div className="col">
-                <input
-                  name="workExperience.0.location"
-                  type="text"
-                  className="form-control"
-                  placeholder="Location *"
-                  value={profile.workExperience[0].location}
-                  required
-                  disabled
-                />
-              </div>
-              <div className="col">
-                <input
-                  name="workExperience.0.totalExp"
-                  type="text"
-                  className="form-control"
-                  placeholder="Total Experience *"
-                  value={profile.workExperience[0].totalExp}
-                  required
-                  disabled
-                />
-              </div>
-            </div>
+            ))}
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() =>
+                formik.setFieldValue('workExperience', [
+                  ...formik.values.workExperience,
+                  {},
+                ])
+              }
+            >
+              Add Experience
+            </button>
           </>
-        )}
-        <input
-          type="submit"
-          class="btn btn-primary save-button"
-          value="Save Details"
-        />
-        <button
-          type="button"
-          class="btn btn-outline-secondary reset-button"
-          onClick={handleReset}
-        >
-          Reset
-        </button>
+        ) : null}
+        <div className="form-row mt-3">
+          <div className="col">
+            <button type="submit" className="btn btn-primary">
+              Save
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   );
