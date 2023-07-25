@@ -597,11 +597,20 @@ function Profile() {
 
             <div className="form-row mt-3">
               <div className="col">
-                <button type="submit" className="btn btn-primary">
+                <button
+                  type="submit"
+                  className="form-control btn btn-light btn-block mr-sm-3 save-button"
+                >
                   Save
                 </button>
               </div>
             </div>
+            <p>
+              <strong>
+                Note: If you want to update uneditable field please email us at
+                jjcsausa@gmail.com
+              </strong>
+            </p>
           </Form>
         )}
       </Formik>

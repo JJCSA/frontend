@@ -11,6 +11,8 @@ import {
   milestone500,
   symposium,
   jjcsearch,
+  immigrant,
+  mortgage,
 } from '../../../../assets/images/images-index';
 import './Timeline.scss'; // Import the custom CSS file
 
@@ -78,7 +80,8 @@ const Timeline = () => {
     {
       title: '2021-JULY',
       cardTitle: 'Conducted Alumni Symposium',
-      cardDetailedText: 'DATA NEEDED- Get details from NISHIT',
+      cardDetailedText:
+        'The Alumni Symposium convenes participants into nine distinct groups based on their respective professions or fields of study, providing a focused environment for in-depth discussions, networking opportunities, and collaboration among like-minded individuals with shared interests and expertise. This segmentation helped members an enriching experience that enables attendees to explore and address specific topics and challenges relevant to their professional domains.',
       image: symposium,
     },
     {
@@ -87,6 +90,20 @@ const Timeline = () => {
       cardDetailedText:
         'The organization reached a momentous milestone by crossing the threshold of 1000 members, marking an extraordinary testament to its compelling mission and widespread influence. With a thriving community of over 1000 individuals.',
       image: milestone1000,
+    },
+    {
+      title: '2023-FEBRUARY',
+      cardTitle: 'Immigrant Entrepreneur',
+      cardDetailedText:
+        'Conducted Seminar to showcases the spot light on inspirational journey of an immigrant student who arrived in the USA with dreams of a better future, and through dedication, hard work, and resilience, evolved into a successful entrepreneur.',
+      image: immigrant,
+    },
+    {
+      title: '2023-MARCH',
+      cardTitle: 'First Time Home Buying Seminar',
+      cardDetailedText:
+        'The First Time Home Buying Seminar an event organized for members, providing them with essential knowledge and practical tips to confidently navigate the home buying process. From understanding the housing market and mortgage options to negotiating deals and completing paperwork, this seminar aims to empower members in making informed decisions and achieving their dream of owning a home.',
+      image: mortgage,
     },
   ];
   const items = [
@@ -119,6 +136,12 @@ const Timeline = () => {
     },
     {
       title: '2022-AUGUST',
+    },
+    {
+      title: '2023-FEBRUARY',
+    },
+    {
+      title: '2023-MARCH',
     },
   ];
   const handleTimelineClick = (timelineItem, index) => {

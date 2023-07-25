@@ -16,6 +16,28 @@ function Footer() {
           <div className="container-fluid py-5 p-5">
             <div className="row py-3">
               <div className="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                <h6 className="text-uppercase font-weight-bold mb-4">HOME</h6>
+                <ul className="list-unstyled mb-0">
+                  <li className="mb-2">
+                    <a href="/landing-home#jjc-mission">Core Values</a>
+                  </li>
+                  <li className="mb-2">
+                    <a href="/landing-home#about-us">About Us</a>
+                  </li>
+                  <li className="mb-2">
+                    <a href="/landing-home#testimonial">Testimonial</a>
+                  </li>
+                  <li className="mb-2">
+                    <a href="/landing-home#contact-us">Contact Us </a>
+                  </li>
+                  <li className="mb-2">
+                    <a href="https://www.jainjagruti.com/">
+                      JJC Central Board{' '}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div className="col-lg-2 col-md-6 mb-4 mb-lg-0">
                 <h6 className="text-uppercase font-weight-bold mb-4">About</h6>
                 <ul className="list-unstyled mb-0">
                   <li className="mb-2">
@@ -56,11 +78,6 @@ function Footer() {
                     <a href="mailto:jjcsausa@gmail.com">jjcusa@gmail.com</a>
                   </li>
                 </ul>
-              </div>
-              <div className="col-lg-2 col-md-6 mb-4 mb-lg-0">
-                <h6 className="text-uppercase font-weight-bold mb-4">
-                  JJC CENTRAL BOARD
-                </h6>
               </div>
               <div className="col-lg-4 col-md-6 mb-lg-0">
                 <h6 className="text-uppercase font-weight-bold mb-4">

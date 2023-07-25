@@ -28,29 +28,9 @@ const Leadership = () => {
       Image: VicePresident,
     },
     {
-      Name: 'Vikas Luthia',
-      Role: 'Alumni Welfare Lead',
-      Image: AlumniWelfare,
-    },
-    {
-      Name: 'Ishit Shah',
-      Role: 'Student Welfare Lead',
-      Image: Student,
-    },
-    {
-      Name: 'Manan Mathukia',
-      Role: 'Event Lead',
-      Image: Events,
-    },
-    {
-      Name: 'Riya Shah',
-      Role: 'Marketing Lead',
-      Image: Marketing,
-    },
-    {
-      Name: 'Nishit Gopani',
-      Role: 'Website Lead',
-      Image: Website,
+      Name: 'Darshita Shah',
+      Role: 'Chief of Staff',
+      Image: chiefofstaff,
     },
     {
       Name: 'Hemal Tolia',
@@ -63,9 +43,29 @@ const Leadership = () => {
       Image: Consultant,
     },
     {
-      Name: 'Darshita Shah',
-      Role: 'Chief of Staff',
-      Image: chiefofstaff,
+      Name: 'Ishit Shah',
+      Role: 'Student Welfare Lead',
+      Image: Student,
+    },
+    {
+      Name: 'Manan Mathukia',
+      Role: 'Event Lead',
+      Image: Events,
+    },
+    {
+      Name: 'Nishit Gopani',
+      Role: 'Website Lead',
+      Image: Website,
+    },
+    {
+      Name: 'Riya Shah',
+      Role: 'Marketing Lead',
+      Image: Marketing,
+    },
+    {
+      Name: 'Vikas Luthia',
+      Role: 'Alumni Welfare Lead',
+      Image: AlumniWelfare,
     },
   ];
 

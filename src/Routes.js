@@ -139,14 +139,6 @@ function Routes() {
           element={<ForgotPasswordMessage toggleNavbar={toggleNavbar} />}
         />
         <Route
-          path="/profile"
-          element={
-            <RequireAuth loginPath="/login">
-              <Profile />
-            </RequireAuth>
-          }
-        />
-        <Route
           path="/admin/"
           element={
             <RequireAuth loginPath="/login">

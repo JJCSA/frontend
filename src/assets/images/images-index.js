@@ -65,6 +65,8 @@ export { default as buddyproject } from './buddyproject.png';
 export { default as symposium } from './symposium.png';
 export { default as milestone1000 } from './milestone1000.png';
 export { default as jjcsearch } from './jjcsearch.svg';
+export { default as immigrant } from './international.png';
+export { default as mortgage } from './mortgage.png';
 
 //Trustees
 export { default as Trustee1 } from './trustees/SanjayShah.png';
