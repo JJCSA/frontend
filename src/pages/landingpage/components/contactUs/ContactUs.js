@@ -7,19 +7,59 @@ import comm from '../../../../helpers/communication';
 function ContactUs() {
   const captchaRef = useRef(null);
   const [captchaResponse, setCaptchaResponse] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [errors, setErrors] = useState({});
+
+  const handleNameChange = e => {
+    setName(e.target.value);
+  };
+
+  const handleEmail = e => {
+    setEmail(e.target.value);
+  };
+
+  const handleMessageChange = e => {
+    setMessage(e.target.value);
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
-    const data = { captchaToken: captchaResponse };
-    comm
-      .sendPost('/contactus/verify', null, data)
-      .then(response => {
-        console.log(response);
-      })
-      .catch(error => {
-        // handle error
-        console.error(error);
-      });
-    captchaRef.current.reset();
+
+    // Validate the passwords here
+    const validationErrors = {};
+    if (email === '') {
+      validationErrors.email = 'Email is required.';
+    }
+    if (name === '') {
+      validationErrors.name = 'Name is required.';
+    }
+
+    if (message === '') {
+      validationErrors.message = 'Message is required.';
+    }
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+    } else {
+      const data = {
+        captchaToken: captchaResponse,
+        name,
+        email,
+        message,
+      };
+      comm
+        .sendPost('/contactus/verify', null, data)
+        .then(response => {
+          console.log(response);
+        })
+        .catch(error => {
+          // handle error
+          console.error(error);
+        });
+      captchaRef.current.reset();
+    }
   };
   const handleCaptchaChange = responseToken => {
     setCaptchaResponse(responseToken);
@@ -84,6 +124,9 @@ function ContactUs() {
                     rows="5"
                   />
                 </div>
+                {console.log(process.env.REACT_APP_SITE_KEY)}
+                {console.log(process.env.NODE_ENV)}
+
                 <div>
                   <ReCAPTCHA
                     sitekey={process.env.REACT_APP_SITE_KEY}
