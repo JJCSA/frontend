@@ -114,7 +114,9 @@ function Profile() {
   });
 
   const [validationSchema, setValidationSchema] = useState(
-    validationSchemaWithStudent
+    globalState.profile.userStudent
+      ? validationSchemaWithStudent
+      : validationSchemaWithProfessional
   );
 
   const handleSubmit = values => {
@@ -526,7 +528,7 @@ function Profile() {
               <div key={index} className="form-row">
                 <div className="col">
                   <label htmlFor={`workExperience.${index}.companyName`}>
-                    Company *
+                    {`Company Name${values.userStudent ? '' : ' *'}`}
                   </label>
                   <Field
                     name={`workExperience.${index}.companyName`}
@@ -541,7 +543,9 @@ function Profile() {
                   />
                 </div>
                 <div className="col">
-                  <label htmlFor={`workExperience.${index}.role`}>Role *</label>
+                  <label htmlFor={`workExperience.${index}.role`}>{`Role${
+                    values.userStudent ? '' : ' *'
+                  }`}</label>
                   <Field
                     name={`workExperience.${index}.role`}
                     type="text"
@@ -556,7 +560,7 @@ function Profile() {
                 </div>
                 <div className="col">
                   <label htmlFor={`workExperience.${index}.location`}>
-                    Location *
+                    {`Location${values.userStudent ? '' : ' *'}`}
                   </label>
                   <Field
                     name={`workExperience.${index}.location`}
@@ -572,7 +576,9 @@ function Profile() {
                 </div>
                 <div className="col">
                   <label htmlFor={`workExperience.${index}.totalExp`}>
-                    Total Experience (Years) *
+                    {`Total Experience (years)${
+                      values.userStudent ? '' : ' *'
+                    }`}
                   </label>
                   <Field
                     name={`workExperience.${index}.totalExp`}
