@@ -81,6 +81,13 @@ export const prod = {
 
 export const dev = {
   url: {
+    KEYCLOAK_BASE_URL: 'http://backend.stage.jjcsausa.com:8080',
+    API_BASE_URL: 'http://backend.stage.jjcsausa.com:9080/api',
+  },
+};
+
+export const local = {
+  url: {
     KEYCLOAK_BASE_URL: 'http://keycloak:8080',
     API_BASE_URL: 'http://localhost:9080/api',
   },
