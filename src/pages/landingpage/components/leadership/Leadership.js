@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import {
   President,
   VicePresident,
-  avater,
   AlumniWelfare,
   Events,
   Marketing,

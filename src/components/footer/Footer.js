@@ -31,7 +31,7 @@ function Footer() {
                     <a href="/volunteers">Volunteers</a>
                   </li>
                   <li className="mb-2">
-                    <a href="/about#trustees">Trustees</a>
+                    <a href="/about#trustees">JJCCBCT</a>
                   </li>
                 </ul>
               </div>

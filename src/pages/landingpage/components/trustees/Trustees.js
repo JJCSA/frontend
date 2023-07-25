@@ -38,7 +38,7 @@ const Trustees = () => {
       Image: Trustee5,
     },
     {
-      Name: 'Shri Rajesh R. Bhansali',
+      Name: 'Shri Anil G. Doshi',
       Role: 'Treasurer & Permanent Trustee',
       Image: Trustee6,
     },
@@ -51,7 +51,9 @@ const Trustees = () => {
   return (
     <div id="trustees" className="TRUSTEES">
       <div className="text-center mt-5">
-        <h4>OUR BOARD OF TRUSTEES</h4>
+        <h4>
+          JJC CENTRAL BOARD CHARITABLE TRUST COMMITTEE MEMBERS (2022-2024)
+        </h4>
         <hr className="trustees" />
       </div>
       <div className="container mt-5">

@@ -10,6 +10,7 @@ import {
   milestone1000,
   milestone500,
   symposium,
+  jjcsearch,
 } from '../../../../assets/images/images-index';
 import './Timeline.scss'; // Import the custom CSS file
 
@@ -62,9 +63,16 @@ const Timeline = () => {
       image: milestone500,
     },
     {
+      title: '2020-NOVEMBER',
+      cardTitle: 'Launched JJC Search Tool',
+      cardDetailedText: `JJC Search tool is a community-based member search tool that allows users to quickly find and connect with specific members within the community, enhancing communication and networking efficiently.`,
+      image: jjcsearch,
+    },
+    {
       title: '2021-JANUARY',
       cardTitle: 'Kicked Off Buddy Project',
-      cardDetailedText: 'DATA NEEDED- Get details from Ishit',
+      cardDetailedText:
+        'The buddy project for incoming students from India is a structured program designed to provide guidance, support, and assistance to  students coming from India to USA as they transition into a new educational environment. The program pairs experienced mentors, who are typically current students or alumni, with incoming students to help them navigate the challenges and opportunities of studying in the USA.',
       image: buddyproject,
     },
     {
@@ -99,6 +107,9 @@ const Timeline = () => {
     },
     {
       title: '2020-AUGUST',
+    },
+    {
+      title: '2020-NOVEMBER',
     },
     {
       title: '2021-JANUARY',

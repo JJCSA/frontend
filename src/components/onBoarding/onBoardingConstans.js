@@ -1,14 +1,14 @@
 import React from 'react';
+import { State, City } from 'country-state-city';
+import { Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import DefaultProfile from '../../assets/images/avatar-default.webp';
 import {
   StudentLogo,
   GraduateLogo,
   ProfessionalLogo,
   EducationLogo,
 } from '../../assets/index';
-import { State, City } from 'country-state-city';
-import DefaultProfile from '../../assets/images/avatar-default.webp';
-import { Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
 
 export const Form1 = props => {
   return (
@@ -85,7 +85,7 @@ export const Form1 = props => {
                 className="form-control"
                 placeholder="DOB *"
                 value={props.values.dateOfBirth}
-              ></Field>
+              />
               <ErrorMessage
                 name="dateOfBirth"
                 component="div"
@@ -120,7 +120,6 @@ export const Form1 = props => {
             <div className="col">
               <Field name="country" as="select" className="custom-select">
                 <option value="US">United States</option>
-                <option value="CA">Canada</option>
               </Field>
               <ErrorMessage name="country" component="div" className="error" />
             </div>

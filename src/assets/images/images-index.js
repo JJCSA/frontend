@@ -42,6 +42,18 @@ export { default as volunteer27 } from './volunteers/Krina.png';
 export { default as volunteer28 } from './volunteers/Ronak.png';
 export { default as volunteer29 } from './volunteers/Tejas-shah.png';
 export { default as volunteer30 } from './volunteers/Dhairyav.jpg';
+export { default as volunteer31 } from './volunteers/Devanshi.jpeg';
+export { default as volunteer32 } from './volunteers/Janvi.jpeg';
+export { default as volunteer33 } from './volunteers/Milan.jpeg';
+export { default as volunteer34 } from './volunteers/Vatsal.jpeg';
+export { default as volunteer35 } from './volunteers/Aayushi-Vora.jpg';
+export { default as volunteer36 } from './volunteers/Bhavishi.png';
+export { default as volunteer37 } from './volunteers/Chaitali.jpg';
+export { default as volunteer38 } from './volunteers/Gaurav.png';
+export { default as volunteer39 } from './volunteers/Heet.jpg';
+export { default as volunteer40 } from './volunteers/Hinal-Fifadra.png';
+export { default as volunteer41 } from './volunteers/Dhruvi.png';
+export { default as volunteer42 } from './volunteers/Richa.jpg';
 
 //JJC History
 export { default as covidassistance } from './covid-assistance.png';
@@ -52,6 +64,7 @@ export { default as milestone500 } from './milestone500.png';
 export { default as buddyproject } from './buddyproject.png';
 export { default as symposium } from './symposium.png';
 export { default as milestone1000 } from './milestone1000.png';
+export { default as jjcsearch } from './jjcsearch.svg';
 
 //Trustees
 export { default as Trustee1 } from './trustees/SanjayShah.png';

@@ -204,6 +204,13 @@ function JJCSearch() {
               />
             </div>
             {show ? <ModalContent /> : null}
+            <img src={regionalContact} alt="regional-contact" /> {''}
+            <strong>
+              {' '}
+              (Regional Contact) : If you require assistance specific to your
+              state, feel free to contact regional contact who will be more than
+              happy to help you with your queries.
+            </strong>
           </div>
         </div>
       </div>

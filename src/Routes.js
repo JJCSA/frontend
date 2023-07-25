@@ -106,11 +106,10 @@ function Routes() {
           path="/Faqs"
           element={
             <RequireAuth loginPath="/login">
-              <Profile />
+              <Faqs />
             </RequireAuth>
           }
         />
-        <Route path="/Faqs" element={<Faqs toggleNavbar={toggleNavbar} />} />
         <Route path="/login" element={<Login toggleNavbar={toggleNavbar} />} />
         <Route
           path="/profile"
