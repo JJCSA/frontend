@@ -81,8 +81,8 @@ export const prod = {
 
 export const dev = {
   url: {
-    KEYCLOAK_BASE_URL: 'https://backend.stage.jjcsausa.com:8080',
-    API_BASE_URL: 'https://backend.stage.jjcsausa.com:9080/api',
+    KEYCLOAK_BASE_URL: 'https://backend.stage.jjcsausa.org:8080',
+    API_BASE_URL: 'https://backend.stage.jjcsausa.org:9080/api',
   },
 };
 
