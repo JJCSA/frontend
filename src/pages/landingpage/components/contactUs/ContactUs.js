@@ -3,6 +3,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import { emailIcon, whatsapp } from '../../../../assets/index';
 import './ContactUs.scss';
 import comm from '../../../../helpers/communication';
+import { toast } from 'react-toastify';
 
 function ContactUs() {
   const captchaRef = useRef(null);
@@ -52,11 +53,11 @@ function ContactUs() {
       comm
         .sendPost('/contactus/verify', null, data)
         .then(response => {
-          console.log(response);
+          if (response) toast.success('Email sent successfully');
         })
         .catch(error => {
           // handle error
-          console.error(error);
+          toast.error(error);
         });
       captchaRef.current.reset();
     }
@@ -102,6 +103,7 @@ function ContactUs() {
                         type="text"
                         className="form-control form-style"
                         id="name"
+                        onChange={handleNameChange}
                       />
                     </div>
                   </div>
@@ -112,6 +114,7 @@ function ContactUs() {
                         type="email"
                         className="form-control form-style"
                         id="email"
+                        onChange={handleEmail}
                       />
                     </div>
                   </div>
@@ -122,6 +125,7 @@ function ContactUs() {
                     className="form-control form-style"
                     id="message"
                     rows="5"
+                    onChange={handleMessageChange}
                   />
                 </div>
                 <div>
