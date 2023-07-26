@@ -7,6 +7,8 @@ ARG ARCH=
 # Name the node stage "BUILDER"
 FROM ${ARCH}/node:14 as BUILDER
 
+RUN env
+
 ARG npm_config_loglevel=error
 ENV NPM_CONFIG_LOGLEVEL ${npm_config_loglevel}
 
