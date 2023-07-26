@@ -124,12 +124,9 @@ function ContactUs() {
                     rows="5"
                   />
                 </div>
-                {console.log(process.env.REACT_APP_SITE_KEY)}
-                {console.log(process.env.NODE_ENV)}
-
                 <div>
                   <ReCAPTCHA
-                    sitekey={process.env.REACT_APP_SITE_KEY}
+                    sitekey="6LdKv0snAAAAAJYwxr0ilX6-_bp1aTY9e6C08DT0"
                     ref={captchaRef}
                     onChange={handleCaptchaChange}
                   />
