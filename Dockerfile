@@ -8,9 +8,15 @@ ARG ARCH=
 FROM ${ARCH}/node:14 as BUILDER
 
 ARG npm_config_loglevel=error
-
 ENV NPM_CONFIG_LOGLEVEL ${npm_config_loglevel}
 
+ARG node_env=
+ENV NODE_ENV=${node_env}
+
+ARG react_app_site_key=
+ENV REACT_APP_SITE_KEY=${react_app_site_key}
+
+RUN env
 
 # Set working directory
 WORKDIR /app
@@ -19,11 +25,13 @@ COPY package*.json /app/
 
 # Install the NPM dependencies
 # RUN npm install
+RUN env
 RUN node --max-old-space-size=16384 `which npm` install
 
 # Copy ALL files from current directory to working directory in image
 COPY ./ /app/
 
+RUN env
 RUN npm run build
 
 
