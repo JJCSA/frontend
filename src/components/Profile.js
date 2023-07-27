@@ -50,7 +50,9 @@ function Profile() {
     country: Yup.string().required('Country is required'),
     state: Yup.string().required('State is required'),
     city: Yup.string().required('City is required'),
-    zip: Yup.number().required('Zipcode is required'),
+    zip: Yup.string()
+      .required('Zipcode is required')
+      .matches(/^[0-9]{5}$/, 'Zip code must be 5 digits'),
     education: Yup.array().of(
       Yup.object().shape({
         universityName: Yup.string().required('University Name is required'),
@@ -80,7 +82,9 @@ function Profile() {
     country: Yup.string().required('Country is required'),
     state: Yup.string().required('State is required'),
     city: Yup.string().required('City is required'),
-    zip: Yup.number().required('Zipcode is required'),
+    zip: Yup.string()
+      .required('Zipcode is required')
+      .matches(/^[0-9]{5}$/, 'Zip code must be 5 digits'),
     education: Yup.array().of(
       Yup.object().shape({
         universityName: Yup.string().required('University Name is required'),
@@ -325,7 +329,7 @@ function Profile() {
               <div className="col">
                 <label htmlFor="zip">Zipcode *</label>
                 <Field
-                  type="number"
+                  type="text"
                   className="form-control"
                   placeholder="Zipcode"
                   id="zip"
