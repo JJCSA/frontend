@@ -84,7 +84,7 @@ const ResetPassword = () => {
         newPassword,
       };
       comm
-        .sendPost('/user-password/forgot-password', null, data)
+        .sendPost('/user-password/reset-password', null, data)
         .then(res => {
           if (res.status === 200) {
             if (res.data) {
