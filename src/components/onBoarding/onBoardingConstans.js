@@ -159,7 +159,7 @@ export const Form1 = props => {
             <div className="col">
               <Field
                 name="zip"
-                type="number"
+                type="text"
                 className="form-control"
                 placeholder="Zipcode *"
               />
@@ -435,7 +435,7 @@ export const onBoardingValidationSchema1 = Yup.object().shape({
   city: Yup.string().required('City is required'),
   zip: Yup.string()
     .required('Zipcode is required')
-    .matches(/^\d{5}$/, 'Zip code must be 5 digits'),
+    .matches(/^[0-9]{5}$/, 'Zip code must be 5 digits'),
   userStudent: Yup.boolean().required('User type is required'),
   volunteeringInterest: Yup.array()
     .min(1, 'Select at least one volunteering interest')
