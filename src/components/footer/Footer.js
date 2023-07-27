@@ -84,8 +84,8 @@ function Footer() {
                   <u>JAIN JAGRUTI CENTRE USA</u>
                 </h6>
                 <p className="mb-4">
-                  JJC USA is a non profit organization, a subsidiary of Jain
-                  Jagruti Centre Central Board and Charitable trust
+                  JJC USA is a non profit organization, a branch of Jain Jagruti
+                  Centre Central Board and Charitable trust
                 </p>
                 <p className="mb-4">
                   <a
