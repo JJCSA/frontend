@@ -39,8 +39,8 @@ function Login() {
       })
       .catch(err => {
         toast.error(
-          err?.response?.data?.error_description
-            ? err?.response?.data?.error_description
+          err?.response?.data?.error_description === 'Account disabled'
+            ? 'Please wait until account is approved by Admin'
             : 'Login Failed!'
         );
         console.log(err);

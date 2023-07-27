@@ -63,8 +63,8 @@ function Register() {
       })
       .catch(err => {
         toast.error(
-          err?.response?.data?.error_description
-            ? err?.response?.data?.error_description
+          err?.response?.data?.message === 'User already exists'
+            ? 'User already exist with this email'
             : 'Registration Failed!'
         );
         setSubmitting(false);

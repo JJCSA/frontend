@@ -193,7 +193,7 @@ export const Form1 = props => {
               <div>PROFESSIONAL</div>
             </div>
           </div>
-          <div> Volunteering Interests</div>
+          <div> Volunteering Interests *</div>
           <div className="row">
             <div className="form-check form-check-inline">
               <Field
@@ -435,9 +435,7 @@ export const onBoardingValidationSchema1 = Yup.object().shape({
   city: Yup.string().required('City is required'),
   zip: Yup.string()
     .required('Zipcode is required')
-    .matches(/^[0-9]+$/, 'Must be only digits')
-    .min(5, 'Zipcode must be exactly 5 digits')
-    .max(5, 'Zipcode must be exactly 5 digits'),
+    .matches(/^[0-9]{5}$/, 'Zip code must be 5 digits'),
   userStudent: Yup.boolean().required('User type is required'),
   volunteeringInterest: Yup.array()
     .min(1, 'Select at least one volunteering interest')
