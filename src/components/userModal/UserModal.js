@@ -286,10 +286,10 @@ const UserModal = props => {
                           <CareerInfo
                             key={index}
                             careerType="Experience"
-                            careerName={experience_row.company_name}
+                            careerName={experience_row.companyName}
                             careerDescription={experience_row.role}
-                            careerStart={experience_row.start_date}
-                            careerEnd={experience_row.end_date}
+                            careerStart={experience_row.location}
+                            careerEnd={experience_row.totalExp}
                           />
                         )
                       )}
@@ -316,8 +316,8 @@ const UserModal = props => {
                           careerType="Education"
                           careerName={education_row.universityName}
                           careerDescription={education_row.degree}
-                          careerStart={education_row.start_date}
-                          careerEnd={education_row.end_date}
+                          careerStart={education_row.gradMonth}
+                          careerEnd={education_row.gradYear}
                         />
                       ))}
                     </div>
