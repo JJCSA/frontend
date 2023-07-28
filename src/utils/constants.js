@@ -74,8 +74,8 @@ export const states = [
 
 export const prod = {
   url: {
-    KEYCLOAK_BASE_URL: 'http://backend.stage.jjcusa.com:8080',
-    API_BASE_URL: 'http://backend.stage.jjcusa.com:9080/api',
+    KEYCLOAK_BASE_URL: 'https://www.jjcusa.org:8080',
+    API_BASE_URL: 'https://www.jjcusa.com:9080/api',
   },
 };
 
@@ -93,4 +93,4 @@ export const local = {
   },
 };
 
-export const config = dev;
+export const config = prod;
