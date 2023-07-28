@@ -75,7 +75,7 @@ export const states = [
 export const prod = {
   url: {
     KEYCLOAK_BASE_URL: 'https://www.jjcusa.org:8080',
-    API_BASE_URL: 'https://www.jjcusa.com:9080/api',
+    API_BASE_URL: 'https://www.jjcusa.org:9080/api',
   },
 };
 
