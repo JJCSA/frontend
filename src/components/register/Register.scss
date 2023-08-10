@@ -41,3 +41,9 @@
 .login-link:hover {
   color: black;
 }
+
+.phone-button {
+  input {
+    width: inherit !important;
+  }
+}
