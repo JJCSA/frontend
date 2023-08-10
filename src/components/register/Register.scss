@@ -41,3 +41,9 @@
 .login-link:hover {
   color: black;
 }
+
+@media (max-width: 768px) {
+  .register-box {
+    padding: 2%;
+  }
+}
