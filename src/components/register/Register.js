@@ -248,7 +248,7 @@ function Register() {
                         setFieldValue('mobileNumber', `+${phone}`);
                       }}
                       isInvalid={touched.mobileNumber && errors.mobileNumber}
-                      // className="form-control-custom"
+                      className="phone-button"
                     />
                     <Form.Control.Feedback type="invalid">
                       {errors.mobileNumber}
