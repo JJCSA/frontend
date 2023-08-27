@@ -300,7 +300,7 @@ function Register() {
                       <span style={{ color: 'red' }}>*</span>
                     </Form.Label>
                     <Form.Control
-                      type="text"
+                      as="select"
                       placeholder=""
                       name="jainCommunity"
                       value={values.jainCommunity}
@@ -308,7 +308,17 @@ function Register() {
                       onBlur={handleBlur}
                       isInvalid={touched.jainCommunity && errors.jainCommunity}
                       className="form-control-custom"
-                    />
+                    >
+                      <option value="" disabled>
+                        Select your Community
+                      </option>
+                      <option value="Digambar">Digambar</option>
+                      <option value="Swetambar">Swetambar</option>
+                      <option value="Sthanakvasi">Sthanakvasi</option>
+                      <option value="Terapanthi">Terapanthi</option>
+                      <option value="Deravasi">Deravasi</option>
+                    </Form.Control>
+
                     <Form.Text className="text-muted">
                       Please do not mention None or N/A, please ask your parents
                       what Jain community they are related to in India and be
