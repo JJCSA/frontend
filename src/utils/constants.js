@@ -93,4 +93,4 @@ export const local = {
   },
 };
 
-export const config = local;
+export const config = prod;
