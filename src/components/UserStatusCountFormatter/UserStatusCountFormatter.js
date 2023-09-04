@@ -4,14 +4,14 @@ import { Badge } from 'react-bootstrap';
 
 const UserStatusCountFormatter = (cell, count) => {
   const statusClass = `${cell}` === 'Pending'
-    ? 'pendingStatusContainer'
-    : 'approvedStatusContainer';
+    ? 'pendingUserStatusContainer'
+    : 'approvedUserStatusContainer';
 
   return (
     <div className={statusClass}>
       <span />
       <span>{cell}</span>
-      <Badge variant="secondary">{count}</Badge>
+      <Badge variant="secondary" className='count'>{count}</Badge>
     </div>
   );
 };

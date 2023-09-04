@@ -23,12 +23,23 @@ function AdminUserStatusCounts() {
     <div className="pageContainer">
       <div className="pageHeader">
         <h4>Number of Users per Status</h4>
-        <div style={{ display: "flex", justifyContent: "space-around", width: "40%"}}>
+        {/* <div style={{ display: "flex", justifyContent: "space-around", width: "40%" }}>
           {
-            userStatusCounts.map(userStatusCount => 
+            userStatusCounts.map(userStatusCount =>
               UserStatusCountFormatter(userStatusCount.userStatus, userStatusCount.userStatusCount)
             )
           }
+        </div> */}
+        <div className="row">
+          {
+            userStatusCounts.map(userStatusCount =>
+              <div className="col-md-4 text-center mb-5">
+                {UserStatusCountFormatter(userStatusCount.userStatus, userStatusCount.userStatusCount)}
+
+              </div>
+            )
+          }
+
         </div>
       </div>
     </div>

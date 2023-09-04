@@ -1,16 +1,16 @@
 @import '../../utils/variables.scss';
 
-.pendingStatusContainer {
-    width: 120px;
-    height: 38px;
+
+.pendingUserStatusContainer {
     background: rgba(255, 64, 32, 0.1);
     border-radius: 5px;
-    padding: 5px 0px 5px 15px;
+    padding: 25px;
+    color: #ffffff;
 
     span {
         font-style: normal;
         font-weight: $lightBold;
-        font-size: $regularSize;
+        font-size: $largeTitle;
         line-height: 22px;
         color: $red;
     }
@@ -23,19 +23,25 @@
         display: inline-block;
         margin-right: 5px;
     }
+
+    :nth-child(2) {
+        margin-right: 10px;
+    }
+
+    .count {
+        color: #ffffff;
+    }
 }
 
-.approvedStatusContainer {
-    width: 120px;
-    height: 38px;
+.approvedUserStatusContainer {
     background: rgba(76, 181, 118, 0.1);
     border-radius: 5px;
-    padding: 5px 0px 5px 15px;
+    padding: 25px;
 
     span {
         font-style: normal;
         font-weight: $lightBold;
-        font-size: $regularSize;
+        font-size: $largeTitle;
         line-height: 22px;
         color: $green;
     }
@@ -47,5 +53,13 @@
         border-radius: 50%;
         display: inline-block;
         margin-right: 5px;
+    }
+
+    :nth-child(2) {
+        margin-right: 10px;
+    }
+
+    .count {
+        color: #ffffff;
     }
 }
