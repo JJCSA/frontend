@@ -1,0 +1,44 @@
+.past_events {
+    .card img {
+        height: 500px;
+    }
+
+    .card {
+        margin-bottom: 15px;
+    }
+
+    button {
+        background-color: #415C83 !important;
+    }
+}
+
+.events {
+    .past_events {
+        .card {
+            width: 400px;
+        }
+    }
+}
+
+@media (min-width: 300px) and (max-width: 991px) {
+
+    .my-modal {
+        width: 90% !important;
+        max-width: 100% !important;
+    }
+
+    .past_events {
+        .card img {
+            height: 350px;
+        }
+    }
+
+    .events {
+        .past_events {
+            .card {
+                width: 100%;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,39 @@
+.events_modal {
+    img {
+        height: 700px;
+        width: 100%
+    }
+
+    .date {
+        background-color: #415C83;
+        color: #ffffff;
+        padding: 10px;
+    }
+
+    .e_title {
+        color: #415C83;
+        font-weight: 500;
+    }
+
+    a {
+        /* Add word-wrap to break long URLs and prevent them from overflowing */
+        word-wrap: break-word;
+
+        /* Add some padding and margin to the links for better spacing */
+        padding: 5px;
+        margin: 5px;
+
+        /* Style the links with an underline and a different color */
+        text-decoration: underline;
+        color: #007bff;
+        /* You can use your preferred link color */
+    }
+}
+
+@media (min-width: 300px) and (max-width: 991px) {
+    .events_modal {
+        img {
+            height: 300px;
+        }
+    }
+}
