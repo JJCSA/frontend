@@ -1,0 +1,500 @@
+// // .cd-h-timeline__events {
+// //     position: relative;
+// //   }
+  
+// //   .cd-h-timeline__event {
+// //     position: absolute;
+// //     z-index: 1;
+// //     width: 100%;
+// //     left: 0;
+// //     top: 0;
+// //     transform: translateX(-100%);
+// //     opacity: 0;
+// //     animation-duration: 0.4s;
+// //     animation-timing-function: ease-in-out;
+// //   }
+  
+// //   .cd-h-timeline__event--selected { // selected event info
+// //     position: relative;
+// //     z-index: 2;
+// //     opacity: 1;
+// //     transform: translateX(0);
+// //   }
+  
+// //   .cd-h-timeline__event--enter-right, 
+// //   .cd-h-timeline__event--leave-right { // animate event info
+// //      animation-name: cd-enter-right;
+// //   }
+  
+// //   .cd-h-timeline__event--enter-left,  
+// //   .cd-h-timeline__event--leave-left { // animate event info
+// //      animation-name: cd-enter-left;
+// //   }
+  
+// //   .cd-h-timeline__event--leave-right, 
+// //   .cd-h-timeline__event--leave-left {
+// //      animation-direction: reverse;
+// //   }
+  
+// //   @keyframes cd-enter-right {
+// //      0% {
+// //         opacity: 0;
+// //         transform: translateX(100%);
+// //      }
+  
+// //      100% {
+// //         opacity: 1;
+// //         transform: translateX(0%);
+// //      }
+// //   }
+  
+// //   @keyframes cd-enter-left {
+// //      0% {
+// //         opacity: 0;
+// //         transform: translateX(-100%);
+// //      }
+  
+// //      100% {
+// //         opacity: 1;
+// //         transform: translateX(0%);
+// //      }
+// //   }
+
+
+// // Working part1
+
+// // .text-center{
+// //    text-align: center;
+// //    }
+   
+// //    .root-div{
+// //    margin-top: 150px;
+// //    }
+   
+// // Working part 2
+
+// // .timeline-container {
+// //   display: flex;
+// //   flex-wrap: wrap;
+// //   justify-content: center;
+// //   align-items: center;
+// //   margin-top: 50px;
+
+// //   .timeline-item {
+// //     display: flex;
+// //     flex-direction: column;
+// //     align-items: center;
+// //     margin: 20px;
+// //     cursor: pointer;
+// //     transition: all 0.3s ease-in-out;
+
+// //     &:before {
+// //       content: "";
+// //       position: absolute;
+// //       width: 100%;
+// //       height: 2px;
+// //       background-color: #ccc;
+// //       top: 50%;
+// //       z-index: -1;
+// //     }
+
+// //     &:first-child:before {
+// //       display: none;
+// //     }
+
+// //     &.active {
+// //       .timeline-content {
+// //         display: block;
+// //       }
+
+// //       &:before {
+// //         background-color: #2196f3;
+// //       }
+
+// //       .timeline-dot {
+// //         background-color: #2196f3;
+// //       }
+// //     }
+
+// //     .timeline-dot {
+// //       width: 20px;
+// //       height: 20px;
+// //       border-radius: 50%;
+// //       background-color: #ccc;
+// //       margin-bottom: 10px;
+// //       z-index: 1;
+// //       transition: all 0.3s ease-in-out;
+// //     }
+
+// //     .timeline-date {
+// //       font-size: 18px;
+// //       font-weight: bold;
+// //       margin-bottom: 10px;
+// //     }
+// //     .timeline-heading {
+// //       font-weight: bold;
+// //     }
+
+// //     .timeline-content {
+// //       display: none;
+// //       font-size: 16px;
+// //       text-align: center;
+// //       padding: 10px;
+// //       border-radius: 5px;
+// //       background-color: #f5f5f5;
+// //       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+// //     }
+// //   }
+// // }
+
+
+// // working part4
+
+// /* CustomTimeline.css */
+// // .timeline {
+// //   position: relative;
+// //   height: 100px;
+// //   overflow-x: auto;
+// //   white-space: nowrap;
+// // }
+
+// // .timeline .timeline-labels {
+// //   position: absolute;
+// //   bottom: -40px;
+// //   display: flex;
+// //   justify-content: space-between;
+// //   width: 100%;
+// //   font-size: 14px;
+// //   color: #888;
+// //   white-space: nowrap;
+// //   overflow-x: auto;
+// // }
+
+// // .timeline .timeline-labels .timeline-label {
+// //   display: inline-block;
+// //   flex-basis: 100%;
+// //   text-align: center;
+// //   white-space: normal;
+// // }
+
+// // .timeline .timeline-labels .timeline-label span {
+// //   display: inline-block;
+// //   padding: 4px;
+// //   border-radius: 50%;
+// //   background-color: #fff;
+// // }
+
+// // .timeline .timeline-labels .timeline-label.active span {
+// //   background-color: #1890ff;
+// //   color: #fff;
+// // }
+
+// // .timeline .timeline-content {
+// //   display: flex;
+// //   justify-content: space-between;
+// //   align-items: center;
+// //   height: 100%;
+// //   white-space: nowrap;
+// //   overflow-x: auto;
+// // }
+
+// // .timeline .timeline-content .timeline-event {
+// //   flex: 1;
+// //   display: flex;
+// //   justify-content: center;
+// //   align-items: center;
+// //   height: 100%;
+// //   font-size: 14px;
+// //   color: #888;
+// //   background-color: #f5f5f5;
+// //   border: 1px solid #ddd;
+// //   border-radius: 5px;
+// //   white-space: normal;
+// // }
+
+// // .timeline .timeline-content .timeline-event.active {
+// //   background-color: #1890ff;
+// //   color: #fff;
+// // }
+
+// //new
+
+// /* CustomTimeline.css */
+// .timeline {
+//   position: relative;
+//   height: 100px;
+//   overflow: hidden;
+//     overflow-x: auto;
+//   white-space: nowrap;
+// }
+
+// .timeline .timeline-labels {
+//   position: absolute;
+//   bottom: -40px;
+//   display: flex;
+//   justify-content: space-between;
+//   width: 100%;
+//   font-size: 14px;
+//   color: #888;
+//   overflow: hidden;
+//   white-space: nowrap;
+// }
+
+// .timeline .timeline-labels .timeline-label {
+//   display: inline-block;
+//   flex-basis: 100%;
+//   text-align: center;
+//   white-space: normal;
+// }
+
+// .timeline .timeline-labels .timeline-label span {
+//   display: inline-block;
+//   padding: 4px;
+//   border-radius: 50%;
+//   background-color: #fff;
+// }
+
+// .timeline .timeline-labels .timeline-label.active span {
+//   background-color: #1890ff;
+//   color: #fff;
+// }
+
+// .timeline .timeline-content {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   height: 100%;
+//   white-space: nowrap;
+// }
+
+// .timeline .timeline-content .timeline-event {
+//   flex: 1;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 100%;
+//   font-size: 14px;
+//   color: #888;
+//   background-color: #f5f5f5;
+//   border: 1px solid #ddd;
+//   border-radius: 5px;
+//   white-space: normal;
+//   cursor: pointer;
+//   transition: background-color 0.3s ease;
+//   white-space: normal;
+// }
+
+// .timeline .timeline-content .timeline-event.active {
+//   background-color: #1890ff;
+//   color: #fff;
+// }
+
+//working part 5
+
+/* CustomTimeline.css */
+// .timeline {
+//   position: relative;
+//   height: 100px;
+//   overflow: hidden;
+// }
+
+// .timeline .timeline-labels {
+//   position: absolute;
+//   bottom: -40px;
+//   display: flex;
+//   justify-content: space-between;
+//   width: 100%;
+//   font-size: 14px;
+//   color: #888;
+//   overflow: hidden;
+//   white-space: nowrap;
+// }
+
+// .timeline .timeline-labels .timeline-label {
+//   display: inline-block;
+//   flex-basis: 100%;
+//   text-align: center;
+//   white-space: normal;
+// }
+
+// .timeline .timeline-labels .timeline-label span {
+//   display: inline-block;
+//   padding: 4px;
+//   border-radius: 50%;
+//   background-color: #fff;
+// }
+
+// .timeline .timeline-labels .timeline-label.active span {
+//   background-color: #1890ff;
+//   color: #fff;
+// }
+
+// .timeline .timeline-content {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   height: 100%;
+//   white-space: nowrap;
+//   overflow-x: auto;
+//   scroll-behavior: smooth;
+// }
+
+// .timeline .timeline-content::-webkit-scrollbar {
+//   display: none;
+// }
+
+// .timeline .timeline-event {
+//   flex: 1;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 100%;
+//   font-size: 14px;
+//   color: #888;
+//   background-color: #f5f5f5;
+//   border: 1px solid #ddd;
+//   border-radius: 5px;
+//   white-space: normal;
+//   cursor: pointer;
+//   transition: background-color 0.3s ease;
+//   padding: 10px;
+//   text-align: center;
+// }
+
+// .timeline .timeline-event.active {
+//   background-color: #1890ff;
+//   color: #fff;
+// }
+
+// .timeline .timeline-arrows {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   position: absolute;
+//   top: 50%;
+//   transform: translateY(-50%);
+//   width: 100%;
+//   height: 100%;
+//   pointer-events: none;
+// }
+
+// .timeline .timeline-arrows .timeline-arrow {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   width: 40px;
+//   height: 40px;
+//   background-color: rgba(0, 0, 0, 0.3);
+//   border-radius: 50%;
+//   color: #fff;
+//   font-size: 18px;
+//   cursor: pointer;
+//   pointer-events: auto;
+//   transition: background-color 0.3s ease;
+// }
+
+// .timeline .timeline-arrows .timeline-arrow:hover {
+//   background-color: rgba(0, 0, 0, 0.5);
+// }
+
+
+//part 6
+
+.timelineHeading {
+  padding-top: 30px;
+  text-align: center;
+}
+
+.time-line {
+  width: 4rem;
+  border-color: #1890ff;
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+
+  .timeline-arrows {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    pointer-events: none;
+  }
+
+  .timeline-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: background-color 0.3s ease;
+  }
+
+  .timeline-arrow.left {
+    margin-right: 10px;
+  }
+
+  .timeline-arrow.right {
+    margin-left: 10px;
+  }
+
+  .chrono-horizontal {
+    margin-top: 90px;
+  }
+
+  .timeline-slide-item {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px;
+    max-width: 100%;
+
+    @media (max-width: 767px) {
+      width: auto;
+    }
+  }
+
+  .chrono-horizontal .chrono-cards-container {
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding-right: 80px;
+
+    @media (max-width: 767px) {
+      overflow-x: visible;
+    }
+  }
+
+  .chrono-horizontal .chrono-cards-container .chrono-card {
+    margin: 0 10px;
+  }
+
+  .chrono-horizontal .chrono-cards-container .chrono-card.chrono-active {
+    background-color: #1890ff;
+    color: #fff;
+  }
+
+  .chrono-horizontal .chrono-cards-container .centered .chrono-card {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+

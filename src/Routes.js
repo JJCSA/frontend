@@ -20,6 +20,7 @@ import UserManager from './pages/admin/UserManager';
 import ForgotPassword from './components/forgotPassword/ForgotPassword';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 import TermAndCondition from './components/TermAndCondition/TermAndCondition'; 
+// import AboutUsContent from './pages/landingpage/components/aboutUsContent/AboutUsContent';
 
 function Routes() {
   const { globalState, setGlobalState } = useContext(GlobalContext);
@@ -70,6 +71,7 @@ function Routes() {
         <Route path="/TermAndCondition" element={<TermAndCondition toggleNavbar={toggleNavbar} />} />
         <Route path="/ForgotPassword" element={<ForgotPassword toggleNavbar={toggleNavbar} />} />
         <Route path="/login" element={<Login toggleNavbar={toggleNavbar} />} />
+        {/* <Route path="/AboutUsContent" element={<AboutUsContent toggleNavbar={toggleNavbar} />} /> */}
         <Route path="/profile" element={<RequireAuth loginPath="/login"><Profile /></RequireAuth>} />
         <Route path="/admin/" element={<RequireAuth loginPath="/login"><AdminPanel toggleNavbar={toggleNavbar} toggleFooter={toggleFooter} /></RequireAuth>}>
           <Route path="dashboard" element={<AdminHomepage />} />

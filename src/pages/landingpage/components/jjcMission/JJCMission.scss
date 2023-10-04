@@ -1,5 +1,14 @@
 @import "../../../../utils/variables.scss";
 
+.jjcMission{
+      /* Auto layout */
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+}
+
 .mission-color {
   background: linear-gradient(180deg, #2c5797 0%, #0f2d58 100%);
   padding-top: 6em;

@@ -7,7 +7,7 @@ import { AuthProvider } from 'react-auth-kit';
 import refreshApi from './helpers/refreshApi';
 import GlobalContext from './store/GlobalContext';
 import Routes from './Routes';
-import { AcceptRejectButton } from './components';
+// import { AcceptRejectButton } from './components';
 
 
 function App() {
@@ -22,8 +22,8 @@ function App() {
   };
 
   return (
-    <><AcceptRejectButton
-      content={content} />
+    // <><AcceptRejectButton
+    //   content={content} />
       
       <GlobalContext.Provider value={{ globalState, setGlobalState }}>
         <AuthProvider
@@ -35,7 +35,8 @@ function App() {
         >
           <Routes />
         </AuthProvider>
-      </GlobalContext.Provider></>
+      </GlobalContext.Provider>
+      // </>
   );
 }
 

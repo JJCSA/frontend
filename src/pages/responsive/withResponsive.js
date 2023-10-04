@@ -21,3 +21,12 @@ const withResponsive = (Component) => {
 }
 
 export default withResponsive;
+// @media screen and (max-width: 768px) {
+//     body {
+//       font-size: 14px;
+//     }
+  
+//     .container {
+//       padding: 0 10px;
+//     }
+//   }

@@ -14,7 +14,7 @@ import Typewriter from "typewriter-effect";
 
 function JJCMission() {
   return (
-    <div id="jjc-mission">
+    <div id="jjc-mission" className="jjcMission">
       <div className="container-fluid mission-color" id="leftpad">
         {/* <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 headtext pb-5"> */}
         <div className="headtext pb-5">

@@ -13,3 +13,4 @@ export { default as UserModal } from './userModal/UserModal';
 export { default as forgotPassword } from './forgotPassword/ForgotPassword';
 export {default as PrivacyPolicy} from './PrivacyPolicy/PrivacyPolicy';
 export { default as TermAndCondition} from './TermAndCondition/TermAndCondition';
+// export { default as AboutUsContent} from './aboutUsContent/AboutUsContent';
