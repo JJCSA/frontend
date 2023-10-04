@@ -1,0 +1,61 @@
+@import '../../utils/variables.css';
+
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  background: var(--pageBackground);
+}
+
+.pageHeader {
+  height: 72px;
+  padding: 10px;
+  background: var(--white);
+  padding: 10px 30px 10px 30px;
+}
+
+.pageHeader h4 {
+  font-style: normal;
+  font-weight: var(--bold);
+  font-size: var(--titleSize);
+  line-height: 22px;
+  height: 100%;
+  margin: 0px;
+  vertical-align: middle;
+}
+
+.pageContent {
+  margin: 30px;
+  background: var(--white);
+  border-radius: 5px;
+  padding: 5px 0px;
+  font-style: normal;
+  font-weight: var(--regular);
+  font-size: var(--regularSize);
+  line-height: 19px;
+}
+
+.tableHeader {
+  font-style: normal;
+  font-weight: var(--semiBold);
+  font-size: 14px;
+  line-height: 19px;
+  color: var(--grey);
+  width: 10%;
+  height: 72px;
+  border-top: none !important;
+  vertical-align: middle !important;
+}
+
+.tableNarrowColumn {
+  width: 4.5%;
+}
+
+.tableBroadColumn {
+  width: 10%;
+}
+
+.tableFilterContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 20px;
+}

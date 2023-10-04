@@ -1,10 +1,11 @@
 import React from 'react';
-import './UserStatusFormatter.scss';
+import './UserStatusFormatter.css';
 
-const UserStatusFormatter = (cell) => {
-  const statusClass = `${cell}` === 'Pending'
-    ? 'pendingStatusContainer'
-    : 'approvedStatusContainer';
+const UserStatusFormatter = cell => {
+  const statusClass =
+    `${cell}` === 'Pending'
+      ? 'pendingStatusContainer'
+      : 'approvedStatusContainer';
   return (
     <div className={statusClass}>
       <span />

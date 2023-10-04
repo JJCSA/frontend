@@ -1,5 +1,5 @@
 import React from 'react';
-import './MiniAboutUs.scss';
+import './MiniAboutUs.css';
 
 const MiniAboutUs = () => {
   return (

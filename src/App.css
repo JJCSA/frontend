@@ -1,0 +1,6 @@
+@import './utils/variables.css';
+
+body {
+  font-family: var(--font);
+  /* Use other variables as needed */
+}

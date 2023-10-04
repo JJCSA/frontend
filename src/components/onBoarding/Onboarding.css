@@ -1,0 +1,63 @@
+@import '../../utils/variables.css'; /* Import the CSS file containing variables */
+
+.ONBOARDING {
+  .card-body {
+    .profile-image {
+      height: 120px;
+      width: 120px;
+      border-radius: 50%;
+    }
+    .type-container {
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      cursor: pointer;
+
+      &.active {
+        border: 1.5px solid var(--red); /* Use a custom property for the border color */
+      }
+      .type-logo {
+        height: 84px;
+      }
+    }
+    .education-container {
+      .type-logo {
+        height: 180px;
+        width: 238px;
+      }
+    }
+    .profession-container {
+      .type-logo {
+        height: 180px;
+        width: 238px;
+      }
+    }
+  }
+  .card-footer {
+    .buttons {
+      text-align: right;
+      button {
+        height: 48px;
+        width: 144px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .back-button {
+        color: var(--charcoalBlack); /* Use a custom property for text color */
+        background: transparent;
+        border: 0;
+        margin-right: 16px;
+      }
+      .submit-button {
+        color: var(--white); /* Use a custom property for text color */
+        background: var(--DC3B44); /* Use a custom property for background color */
+      }
+    }
+  }
+}
+
+.error {
+  color: var(--e74c3c); /* Use a custom property for text color */
+  font-size: 14px;
+  margin-top: 5px;
+  text-align: left;
+}

@@ -1,0 +1,51 @@
+@import '../../utils/variables.css'; /* Import the CSS file containing variables */
+
+.closedStatusContainer {
+    width: 107px;
+    height: 32px;
+    background: rgba(255, 64, 32, 0.1);
+    border-radius: 5px;
+    padding: 5px 0px 5px 15px;
+
+    span {
+        font-style: normal;
+        font-weight: var(--lightBold); /* Use a custom property for font weight */
+        font-size: var(--regularSize); /* Use a custom property for font size */
+        line-height: 22px;
+        color: var(--red); /* Use a custom property for color */
+    }
+
+    :nth-child(1) {
+        background-color: var(--red); /* Use a custom property for background color */
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 5px;
+    }
+}
+
+.activeStatusContainer {
+    width: 120px;
+    height: 32px;
+    background: rgba(76, 181, 118, 0.1);
+    border-radius: 5px;
+    padding: 5px 0px 5px 15px;
+
+    span {
+        font-style: normal;
+        font-weight: var(--lightBold); /* Use a custom property for font weight */
+        font-size: var(--regularSize); /* Use a custom property for font size */
+        line-height: 22px;
+        color: var(--green); /* Use a custom property for color */
+    }
+
+    :nth-child(1) {
+        background-color: var(--green); /* Use a custom property for background color */
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 5px;
+    }
+}

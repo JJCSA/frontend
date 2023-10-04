@@ -1,0 +1,62 @@
+@import "../utils/variables.css"; /* Import the CSS file containing variables */
+
+.NAVBAR {
+  .nav-link {
+    cursor: pointer;
+  }
+}
+
+.navbar {
+  padding: 0 !important;
+}
+
+.login-button, .post-questions-button {
+  border-radius: 8px !important;
+  color: var(--white) !important;
+  font-weight: var(--lightBold) !important;
+}
+
+.donate-button {
+  border: 1px solid var(--red) !important;
+  border-radius: 8px !important;
+  color: var(--red) !important;
+  background-color: var(--white) !important;
+  font-weight: var(--lightBold) !important;
+}
+
+.login-button {
+  border: 1px solid var(--red) !important;
+  background-color: var(--red) !important;
+}
+
+.navbar-brand img {
+  height: var(--logoHeight); /* Use the variable for image height */
+  float: left;
+}
+
+.navbarhover {
+  font-style: normal;
+  font-weight: var(--lightBold);
+  line-height: 19px;
+}
+
+.navbarhover:hover {
+  text-decoration: underline !important;
+}
+
+.jjclink:hover,
+.jjclink:active,
+.jjclink:link,
+.jjclink:visited {
+  color: var(--black);
+  text-decoration: none;
+}
+
+.jjclink {
+  margin: auto;
+  padding-left: 1rem !important;
+}
+
+.activeLink {
+  text-decoration: underline;
+}

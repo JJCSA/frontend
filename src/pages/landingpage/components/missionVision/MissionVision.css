@@ -1,0 +1,14 @@
+@import "../../../../utils/variables.css";
+
+.MISSIONVISION  {
+    padding-bottom: 5px;
+  }
+  .mission-vision {
+    border-color: var(--vividred);
+    width: 6rem;
+    margin-top: 0px;
+  }
+
+.vision-title {
+  color: #ff4020;
+}

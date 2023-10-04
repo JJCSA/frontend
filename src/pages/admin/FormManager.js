@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FormDataTable from '../../components/formDataTable/FormDataTable';
-import './UserManager.scss';
+import './UserManager.css';
 import { CustomDropdown, CustomTextBox } from '../../components';
 import * as Constants from '../../utils/constants';
 import { deleteIcon } from '../../assets/index.js';
@@ -55,7 +55,6 @@ const tableColumns = [
     formatter: FormAction,
     headerClasses: 'tableHeader',
   },
-
 ];
 
 class FormManager extends Component {
@@ -77,29 +76,29 @@ class FormManager extends Component {
 
   componentDidMount() {
     fetch(`${Constants.apiRootURLForms}/forms`)
-      .then((res) => res.json())
+      .then(res => res.json())
       .then(
-        (result) => {
+        result => {
           this.setState({
             forms: result,
             fetchingForms: false,
             filteredForms: result,
           });
         },
-        (error) => {
+        error => {
           this.setState({
             fetchingForms: false,
             error,
           });
-        },
+        }
       );
   }
 
   /**
-        * Function to apply filter to form data
-        * @param {Value of Filter} filterValue
-        * @param {Search Filter to apply search on} filterType
-      */
+   * Function to apply filter to form data
+   * @param {Value of Filter} filterValue
+   * @param {Search Filter to apply search on} filterType
+   */
   updateSearchFilter(filterValue, filterType) {
     // Update the state with the filter value before filtering the data
     this.setState(
@@ -110,49 +109,46 @@ class FormManager extends Component {
         const stateObj = { ...this.state };
         // Apply the search filters to original forms data
         // TODO: room for optimize by filtering on existing filtered data
-        const filteredForms = this.state.forms.filter((form) => {
+        const filteredForms = this.state.forms.filter(form => {
           const searchTextFilter = stateObj.searchText
             ? form.category
-              .toLowerCase()
-              .includes(stateObj.searchText.toLowerCase())
-                  || form.creator
-                    .toLowerCase()
-                    .includes(stateObj.searchText.toLowerCase())
-                  || form.name
-                    .toLowerCase()
-                    .includes(stateObj.searchText.toLowerCase())
-                  || form.due_date
-                    .toLowerCase()
-                    .includes(stateObj.searchText.toLowerCase())
+                .toLowerCase()
+                .includes(stateObj.searchText.toLowerCase()) ||
+              form.creator
+                .toLowerCase()
+                .includes(stateObj.searchText.toLowerCase()) ||
+              form.name
+                .toLowerCase()
+                .includes(stateObj.searchText.toLowerCase()) ||
+              form.due_date
+                .toLowerCase()
+                .includes(stateObj.searchText.toLowerCase())
             : true;
           const formstatusFilter = stateObj.formstatusFilter
             ? form.status === stateObj.formstatusFilter
             : true;
-          return (
-            searchTextFilter
-                && formstatusFilter
-          );
+          return searchTextFilter && formstatusFilter;
         });
 
         // Update the filtered data in the state
         this.setState({
           filteredForms,
         });
-      },
+      }
     );
   }
 
   /**
-      * Function to handle text filter
-      * @param {The input element} event
-    */
+   * Function to handle text filter
+   * @param {The input element} event
+   */
   handleSearchFilterChange(event) {
     this.updateSearchFilter(event.target.value, 'searchText');
   }
 
   /**
-     * Function to clear search filters
-    */
+   * Function to clear search filters
+   */
   clearSearchFilters() {
     this.setState({
       filteredForms: this.state.forms,
@@ -195,16 +191,10 @@ class FormManager extends Component {
         <div className="pageHeader">
           <h4>Form Manager</h4>
         </div>
-        {
-                this.state.error
-                  ? `${this.state.error}`
-                  : ''
-            }
-        {
-                this.state.fetchingForms
-                  ? 'Fetching Forms...'
-                  : this.renderFormTable()
-            }
+        {this.state.error ? `${this.state.error}` : ''}
+        {this.state.fetchingForms
+          ? 'Fetching Forms...'
+          : this.renderFormTable()}
       </div>
     );
   }

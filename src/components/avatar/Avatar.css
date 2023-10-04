@@ -1,0 +1,13 @@
+@import '../../utils/variables.css'; /* Import the CSS file containing variables */
+
+.smallavatarContainer,
+.largeavatarContainer {
+  width: var(--avatarSize); /* Use a custom property for width */
+  height: var(--avatarSize); /* Use a custom property for height */
+  
+  img {
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--green); /* Use a custom property for border color */
+  }
+}

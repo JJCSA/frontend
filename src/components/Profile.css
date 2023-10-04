@@ -1,0 +1,40 @@
+@import '../utils/variables.css'; /* Import the CSS file containing variables */
+
+.PROFILE.container {
+  padding: 24px;
+
+  .profile-image-container {
+    .profile-image {
+      height: 108px;
+      width: 108px;
+    }
+  }
+
+  .container,
+  label {
+    color: var(--bgBlue); /* Use the custom property for color */
+  }
+
+  .form-control,
+  .custom-select {
+    margin-bottom: 16px;
+  }
+
+  .save-button {
+    border: 1px solid var(--vividred); /* Use the custom property for border color */
+    margin-top: 8px;
+    width: 156px;
+    background: var(--red); /* Use the custom property for background color */
+    color: var(--white); /* Use the custom property for text color */
+    border: none;
+  }
+
+  .reset-button {
+    margin-top: 8px;
+    width: 156px;
+    background: var(--pageBackground); /* Use the custom property for background color */
+    margin-left: 8px;
+    color: var(--black); /* Use the custom property for text color */
+    border: none;
+  }
+}

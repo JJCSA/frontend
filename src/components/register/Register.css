@@ -1,0 +1,45 @@
+@import '../../utils/variables.css';
+.register-container {
+  margin: 0;
+  background-color: whitesmoke;
+}
+
+.register-col {
+  padding: 0;
+}
+
+.register-text {
+  color: black;
+  text-align: center;
+  margin-top: 2%;
+}
+
+.register-box {
+  padding: 2% 25%;
+}
+
+.register-button {
+  background-color: var(--vividred);
+  color: var(--white);
+}
+
+.register-form {
+  padding: 5%;
+  border-radius: 5px;
+  background: var(--white);
+  border: 1px solid black;
+
+  .error {
+    color: var(--red);
+    margin-bottom: 16px;
+  }
+}
+
+.login-link {
+  color: black;
+  text-decoration: underline;
+}
+
+.login-link:hover {
+  color: black;
+}

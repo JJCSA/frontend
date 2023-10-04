@@ -1,0 +1,23 @@
+@import url("../../utils/variables.css");
+
+.post-questions-button {
+  border: 1px solid var(--darkBlue);
+  background-color: var(--darkBlue);
+}
+
+.user-profile-dropdown-icon {
+  cursor: pointer;
+}
+
+.user-profile-dropdown-content > div {
+  font-size: medium;
+  cursor: pointer;
+}
+
+.user-profile-dropdown-content > div > a {
+  color: var(--black);
+}
+
+.user-profile-dropdown-content > div:hover {
+  text-decoration: underline;
+}

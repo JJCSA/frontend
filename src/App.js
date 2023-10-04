@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
-import './App.scss';
+import './App.css';
 
 import { AuthProvider } from 'react-auth-kit';
 import { ToastContainer } from 'react-toastify';

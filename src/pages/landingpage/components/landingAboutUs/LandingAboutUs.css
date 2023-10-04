@@ -1,0 +1,85 @@
+@import "../../../../utils/variables.css";
+
+.ABOUTUS {
+    padding-top: 3em;
+    margin-top: -5em;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.ABOUTUS .aboutUsImage {
+    height: 500px;
+    background-color: #ccc;
+    background: url(../../../../assets/images/AboutUs.svg);
+    background-size: cover;
+    background-position: center;
+}
+
+.ABOUTUS .aboutUsHeading {
+    text-align: center;
+}
+
+.ABOUTUS .text-decor {
+    text-decoration: none !important;
+}
+
+.ABOUTUS .about-us {
+    width: 4rem;
+    border-color: var(--vividred);
+}
+
+.ABOUTUS .know-more-button {
+    margin-top: 2rem;
+    border-radius: 8px !important;
+    color: var(--white) !important;
+    font-weight: var(--lightBold) !important;
+    border: 1px solid var(--red) !important;
+    background-color: var(--red) !important;
+}
+
+.ABOUTUS .about-us-text {
+    padding-top: 4rem;
+}
+
+@media only screen and (max-width: 767px) {
+    .ABOUTUS .aboutUsImage {
+        height: 300px;
+    }
+
+    .ABOUTUS .knowMoreBox {
+        text-align: center;
+    }
+
+    .ABOUTUS .knowMore {
+        display: inline-block;
+    }
+}
+
+.ABOUTUS blockquote {
+    position: relative;
+    margin: 0.5em;
+    padding: 0.5em 2em 0.5em 3em;
+    font-size: var(--largeTitle);
+    font-family: var(--font);
+}
+
+.ABOUTUS blockquote:before {
+    font-family: var(--font);
+    position: absolute;
+    font-size: 6em;
+    line-height: 1;
+    top: 0;
+    left: 0;
+    content: "\201C";
+}
+
+.ABOUTUS blockquote:after {
+    font-family: var(--font);
+    position: absolute;
+    float: right;
+    font-size: 6em;
+    line-height: 0.75;
+    right: 0;
+    bottom: -0.5em;
+    content: "\201D";
+}

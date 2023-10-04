@@ -1,5 +1,5 @@
 import React from 'react';
-import './TermsAndConditions.scss';
+import './TermsAndConditions.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import { TermsAndConditions as bannerImage } from '../../assets/index';
 

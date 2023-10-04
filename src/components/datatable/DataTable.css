@@ -1,0 +1,74 @@
+@import '../../utils/variables.css'; /* Import the CSS file containing variables */
+
+.tableRow {
+  padding: 5px 0px;
+  color: var(--grey); /* Use a custom property for color */
+  border-top: none;
+  height: 72px;
+
+  td {
+    border-top: 0.2px solid var(--lightGrey); /* Use a custom property for border color */
+    vertical-align: middle;
+  }
+}
+
+.tableRow:nth-last-child(1) td {
+  border-bottom: 0.2px solid var(--lightGrey); /* Use a custom property for border color */
+}
+
+.react-bootstrap-table-pagination {
+  padding: 0px 30px;
+}
+
+.my-modal {
+  width: 50vw;
+  max-width: 60vw;
+}
+
+.react-bootstrap-table-pagination-list {
+  display: flex;
+  flex-direction: row-reverse;
+  .page-link {
+    width: 9px;
+    height: 19px;
+    font-style: normal;
+    font-weight: var(--semiBold); /* Use a custom property for font weight */
+    font-size: var(--regularSize); /* Use a custom property for font size */
+    line-height: 19px;
+    color: rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    border: none;
+    &:hover {
+      background-color: transparent;
+    }
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  .active .page-link {
+    color: var(--charcoalBlack); /* Use a custom property for color */
+    background-color: transparent;
+    border: none;
+    font-weight: var(--semiBold); /* Use a custom property for font weight */
+    font-size: var(--regularSize); /* Use a custom property for font size */
+    line-height: 19px;
+  }
+}
+
+.sizePerPage {
+  font-weight: var(--regular); /* Use a custom property for font weight */
+  font-size: var(--regularSize); /* Use a custom property for font size */
+  line-height: 19px;
+  color: var(--charcoalBlack); /* Use a custom property for color */
+  & input {
+    margin: 0px 5px;
+    padding: 0px 5px;
+    background: var(--white); /* Use a custom property for background color */
+    border: 1px solid var(--pageBackground); /* Use a custom property for border color */
+    box-sizing: border-box;
+    border-radius: 3px;
+  }
+}
+.react-bootstrap-table table {
+  table-layout: auto;
+}

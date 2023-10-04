@@ -1,0 +1,73 @@
+@import "../../../../utils/variables.css";
+
+.JJCMISSION {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.JJCMISSION .mission-color {
+  padding-top: 6em;
+  margin-top: 1rem;
+}
+
+.JJCMISSION .mission-card {
+  border-radius: 8px;
+  transition: transform .5s;
+  background: #2c5797;
+  color: white;
+}
+
+.JJCMISSION .mission-card:hover {
+  transform: scale(1.15);
+  transition: transform .5s;
+}
+
+.JJCMISSION .card_images {
+  width: 100%;
+  height: 7vw;
+  object-fit: contain;
+}
+
+.JJCMISSION .join-button {
+  color: var(--white) !important;
+  background-color: var(--vividred) !important;
+  border-radius: 8px !important;
+}
+
+.JJCMISSION .join-button:hover {
+  background-color: var(--white) !important;
+  color: var(--black) !important;
+}
+
+.JJCMISSION .headtext {
+  font-size: var(--largeTitle);
+  color: black;
+  font-weight: var(--semiBold);
+  font-style: normal;
+  text-align: center;
+}
+
+.JJCMISSION .mission-text {
+  font-size: 12px;
+  font-weight: var(--semiBold);
+  font-style: normal;
+  text-align: center;
+}
+
+@media only screen and (min-width: 576px) {
+  .JJCMISSION #leftpad {
+      padding-left: 89px;
+  }
+}
+
+@media only screen and (min-width: 356px) and (max-width: 600px) {
+  .JJCMISSION .card_images {
+      display: block !important;
+      width: 100% !important;
+      height: 29vw !important;
+  }
+
+  .JJCMISSION .mission-card {
+      max-height: 350px !important;
+  }
+}

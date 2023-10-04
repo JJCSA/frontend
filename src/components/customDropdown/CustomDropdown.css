@@ -1,0 +1,62 @@
+@import '../../utils/variables.css'; /* Import the CSS file containing variables */
+
+.dropdownToggle {
+    width: 200px;
+    height: 40px;
+    border: 1px solid var(--slateGrey); /* Use a custom property for border color */
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-style: normal;
+    font-size: var(--regularSize); /* Use a custom property for font size */
+    color: var(--slateGrey); /* Use a custom property for text color */
+    background-color: white;
+    box-shadow: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:active, &:hover, &:focus {
+        background-color: var(--white) !important; /* Use a custom property for background color */
+        color: var(--slateGrey) !important; /* Use a custom property for text color */
+        border: 2px solid var(--slateGrey) !important; /* Use a custom property for border color */
+        box-shadow: none;
+        outline: none;
+    }
+}
+
+.btn-primary.dropdown-toggle {
+    background-color: var(--white) !important; /* Use a custom property for background color */
+    border-color: var(--slateGrey) !important; /* Use a custom property for border color */
+}
+.btn-primary.dropdown-toggle:focus{
+    background-color: var(--white) !important; /* Use a custom property for background color */
+    box-shadow: none !important;
+}
+
+.dropdownMenu {
+    width: 200px;
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid var(--whiteSmoke); /* Use a custom property for border color */
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: var(--semiBold); /* Use a custom property for font weight */
+    font-size: var(--regularSize); /* Use a custom property for font size */
+    color: var(--charcoalBlack); /* Use a custom property for text color */
+    background-color: var(--white); /* Use a custom property for background color */
+}
+
+.dropdownItem {
+    opacity: 0.4;
+    padding-left: 12px;
+    font-weight: var(--semiBold); /* Use a custom property for font weight */
+
+    &:active, &:hover, &:focus {
+        background-color: var(--white) !important; /* Use a custom property for background color */
+        color: var(--slateGrey) !important; /* Use a custom property for text color */
+        box-shadow: none;
+        font-weight: var(--bold) !important; /* Use a custom property for font weight */
+        opacity: 1 !important;
+    }
+}

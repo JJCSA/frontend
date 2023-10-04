@@ -1,0 +1,23 @@
+@import "../../utils/variables.css";
+
+.side-navbar-custom {
+  background-color: #1e2350;
+  position: fixed;
+  overflow: hidden;
+  top: var(--logoHeight) + 12px;
+}
+
+.side-navbar-option {
+  padding-right: 32px;
+}
+
+.sidenav---highlighted---oUx9u {
+  background-color: #383d77;
+}
+
+.copyright-admin-footer {
+  text-align: right;
+  font-size: small;
+  padding-right: 1.5em;
+  padding-bottom: 1em;
+}

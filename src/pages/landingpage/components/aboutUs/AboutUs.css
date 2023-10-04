@@ -1,0 +1,43 @@
+@import '../../../../utils/variables.css';
+
+.aboutUsImage {
+  height: 300px;
+  background-color: #ccc;
+  background: url(../../../../assets/images/Bitmap.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.aboutUsHeading {
+  text-align: center;
+}
+
+.about-us {
+  width: 4rem;
+  border-color: var(--vividred);
+}
+
+.knowMore {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  border-radius: nullpx; /* Not sure what you intend here */
+  border-color: #ff3c00;
+  color: #ff3c00;
+}
+
+@media only screen and (max-width: 767px) {
+  .aboutUsImage {
+    height: 300px;
+  }
+
+  .knowMoreBox {
+    text-align: center;
+  }
+
+  .knowMore {
+    display: inline-block;
+  }
+}

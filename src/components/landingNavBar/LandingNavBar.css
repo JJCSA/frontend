@@ -1,0 +1,69 @@
+@import "../../utils/variables.css"; /* Import the CSS file containing variables */
+
+.login-button, .post-questions-button {
+  border-radius: var(--buttonBorderRadius); /* Use a custom property for border radius */
+  color: var(--white);
+  font-weight: var(--lightBold);
+}
+
+.donate-button {
+  border: 1px solid var(--red); /* Use a custom property for border color */
+  border-radius: var(--buttonBorderRadius);
+  color: var(--red);
+  background-color: var(--white);
+  font-weight: var(--lightBold);
+}
+
+.login-button {
+  border: 1px solid var(--red);
+  background-color: var(--red);
+}
+
+.post-questions-button {
+  border: 1px solid var(--darkBlue); /* Use a custom property for border color */
+  background-color: var(--darkBlue);
+}
+
+.navbar-brand img {
+  height: var(--logoHeight); /* Use a custom property for image height */
+  float: left;
+}
+
+.navbarhover {
+  font-style: normal;
+  font-weight: var(--lightBold);
+  line-height: 19px;
+}
+
+.navbarhover:hover {
+  cursor: pointer;
+}
+
+.jjclink:hover,
+.jjclink:active,
+.jjclink:link,
+.jjclink:visited {
+  color: var(--black);
+  text-decoration: none;
+}
+
+.jjclink {
+  padding-left: 1rem !important;
+}
+
+.user-profile-dropdown-icon {
+  cursor: pointer;
+}
+
+.user-profile-dropdown-content > div {
+  font-size: medium;
+  cursor: pointer;
+}
+
+.user-profile-dropdown-content > div > a {
+  color: var(--black);
+}
+
+.user-profile-dropdown-content > div:hover {
+  text-decoration: underline;
+}

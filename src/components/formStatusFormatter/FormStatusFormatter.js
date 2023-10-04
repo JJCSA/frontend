@@ -1,10 +1,9 @@
 import React from 'react';
-import './FormStatusFormatter.scss';
+import './FormStatusFormatter.css';
 
-const FormStatusFormatter = (cell) => {
-  const statusClass = `${cell}` === 'Active'
-    ? 'activeStatusContainer'
-    : 'closedStatusContainer';
+const FormStatusFormatter = cell => {
+  const statusClass =
+    `${cell}` === 'Active' ? 'activeStatusContainer' : 'closedStatusContainer';
   return (
     <div className={statusClass}>
       <span />

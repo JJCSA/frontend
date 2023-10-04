@@ -3,25 +3,29 @@ import PropTypes from 'prop-types';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import './CareerInfo.scss';
+import './CareerInfo.css';
 import { companyIcon, universityIcon } from '../../assets/index.js';
 
 const CareerInfo = ({
-  careerType, careerName, careerDescription, careerStart, careerEnd,
+  careerType,
+  careerName,
+  careerDescription,
+  careerStart,
+  careerEnd,
 }) => (
   <Container fluid>
     <Row>
       <Col md={1} className="pl-1">
-        {careerType === 'Education' ? <img src={universityIcon} alt="University" /> : <img src={companyIcon} alt="Company" />}
+        {careerType === 'Education' ? (
+          <img src={universityIcon} alt="University" />
+        ) : (
+          <img src={companyIcon} alt="Company" />
+        )}
       </Col>
       <Col md={11}>
         <Container fluid>
-          <Row>
-            {careerName}
-          </Row>
-          <Row>
-            {careerDescription}
-          </Row>
+          <Row>{careerName}</Row>
+          <Row>{careerDescription}</Row>
           <Row>
             {careerStart}
             {' - '}

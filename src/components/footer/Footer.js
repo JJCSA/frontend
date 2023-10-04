@@ -2,7 +2,7 @@ import React from 'react';
 import { ImLinkedin2, ImYoutube, ImWhatsapp } from 'react-icons/im';
 import { GrInstagram } from 'react-icons/gr';
 import { BiCopyright } from 'react-icons/bi';
-import './Footer.scss';
+import './Footer.css';
 
 function Footer() {
   const getCurrentYear = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import './LandingAboutUs.scss';
+import './LandingAboutUs.css';
 import { Link } from 'react-router-dom';
 
 const LandingAboutUs = () => {
