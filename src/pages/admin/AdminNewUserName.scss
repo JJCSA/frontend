@@ -1,0 +1,33 @@
+@import '../../utils/variables.scss';
+
+.tableHeader {
+    font-style: normal;
+    font-weight: $semiBold;
+    font-size: 14px;
+    line-height: 19px;
+    color: $grey;
+    width: 10%;
+    height: 72px;
+    border-top: none !important;
+    vertical-align: middle !important;
+}
+
+.tableNarrowColumn {
+    width: 4.5%;
+}
+
+.tableRow {
+    padding: 5px 0px;
+    color: $grey;
+    border-top: none;
+    height: 72px;
+
+    td {
+        border-top: 0.2px solid $lightGrey;
+        vertical-align: middle;
+    }
+}
+
+.tableRow:nth-last-child(1) td {
+    border-bottom: 0.2px solid $lightGrey;
+}

@@ -15,15 +15,6 @@
         color: $red;
     }
 
-    :nth-child(1) {
-        background-color: $red;
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        display: inline-block;
-        margin-right: 5px;
-    }
-
     :nth-child(2) {
         margin-right: 10px;
     }
@@ -46,13 +37,48 @@
         color: $green;
     }
 
-    :nth-child(1) {
-        background-color: $green;
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        display: inline-block;
-        margin-right: 5px;
+    :nth-child(2) {
+        margin-right: 10px;
+    }
+
+    .count {
+        color: #ffffff;
+    }
+}
+
+.newUserStatusContainer {
+    background: rgba(28, 30, 205, 0.1);
+    border-radius: 5px;
+    padding: 25px;
+
+    span {
+        font-style: normal;
+        font-weight: $lightBold;
+        font-size: $largeTitle;
+        line-height: 22px;
+        color: $green;
+    }
+
+    :nth-child(2) {
+        margin-right: 10px;
+    }
+
+    .count {
+        color: #ffffff;
+    }
+}
+
+.totalStatusContainer {
+    background: rgba(203, 231, 19, 0.1);
+    border-radius: 5px;
+    padding: 25px;
+
+    span {
+        font-style: normal;
+        font-weight: $lightBold;
+        font-size: $largeTitle;
+        line-height: 22px;
+        color: $green;
     }
 
     :nth-child(2) {

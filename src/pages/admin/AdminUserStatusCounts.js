@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import comm from '../../helpers/communication';
 import { useAuthHeader } from 'react-auth-kit';
 import UserStatusCountFormatter from '../../components/UserStatusCountFormatter/UserStatusCountFormatter';
+import { userStatus } from '../../utils/constants';
 
 function AdminUserStatusCounts() {
 
@@ -12,9 +13,26 @@ function AdminUserStatusCounts() {
   useEffect(() => {
     async function getUserStatusCounts() {
       const response = await comm.get('/admin/users/userStatusCount', token, null);
-      const temp = response.data;
-      console.log(temp);
-      setUserStatusCounts(response.data);
+      const fetchedUsetStatus = [];
+      var totalUsers = 0;
+      const fetchedUsetStatusCounts = response.data || [];
+      fetchedUsetStatusCounts.forEach(fetchedUsetStatusCount => {
+        fetchedUsetStatus.push(fetchedUsetStatusCount.userStatus);
+        totalUsers += fetchedUsetStatusCount.userStatusCount
+      });
+      Object.values(userStatus).forEach(status => {
+        if(!fetchedUsetStatus.includes(status)){
+          fetchedUsetStatusCounts.push({
+            userStatus: status,
+            userStatusCount: 0,
+          })
+        }
+      });
+      fetchedUsetStatusCounts.push({
+        userStatus: 'Total',
+        userStatusCount: totalUsers,
+      })
+      setUserStatusCounts(fetchedUsetStatusCounts);
     }
     getUserStatusCounts();
   }, []);
@@ -23,18 +41,16 @@ function AdminUserStatusCounts() {
     <div className="pageContainer">
       <div className="pageHeader">
         <h4>Number of Users per Status</h4>
-        <div className="row">
+      </div>      
+      <div className="row">
           {
             userStatusCounts.map(userStatusCount =>
               <div className="col-md-4 text-center mb-5">
                 {UserStatusCountFormatter(userStatusCount.userStatus, userStatusCount.userStatusCount)}
-
               </div>
             )
           }
-
         </div>
-      </div>
     </div>
   );
 }
