@@ -38,14 +38,15 @@ function PastEventsCard(event_information) {
     );
 
     return (
-        <div className="card" >
+        <div >
             {show ? <ModalContent /> : null}
-            {/* <div className='card'> */}
-            <img className="card-img-top img-fluid" src={img_src} alt="Card image cap" />
-            <div className="card-body">
-                <h5 className="card-title">{event_information.title}</h5>
-                <p className="card-text">{event_information.description}</p>
-                <button className="btn btn-primary" onClick={handleShow}>View More</button>
+            <div className='card'>
+                <img className="card-img-top img-fluid" src={img_src} alt="Card image cap" />
+                <div className="card-body">
+                    <h5 className="card-title">{event_information.title}</h5>
+                    <p className="card-text">{event_information.description}</p>
+                    <button className="btn btn-primary" onClick={handleShow}>View More</button>
+                </div>
             </div>
         </div>
     )

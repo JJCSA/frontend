@@ -1,13 +1,11 @@
 .events_modal {
     img {
-        height: 700px;
-        width: 100%
+        height: 60%;
+        width: 70%
     }
 
     .date {
-        background-color: #415C83;
-        color: #ffffff;
-        padding: 10px;
+        font-size: 20px;
     }
 
     .e_title {
@@ -16,19 +14,29 @@
     }
 
     a {
-        /* Add word-wrap to break long URLs and prevent them from overflowing */
         word-wrap: break-word;
-
-        /* Add some padding and margin to the links for better spacing */
         padding: 5px;
         margin: 5px;
-
-        /* Style the links with an underline and a different color */
         text-decoration: underline;
         color: #007bff;
-        /* You can use your preferred link color */
     }
+
+    .horizontal-rule {
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+
+    .horizontal-rule hr {
+        flex: 1;
+        border: none;
+        border-top: 2px solid #FB7D74;
+        /* Customize the line style here */
+    }
+
 }
+
+
 
 @media (min-width: 300px) and (max-width: 991px) {
     .events_modal {
