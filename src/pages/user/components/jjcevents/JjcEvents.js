@@ -23,7 +23,7 @@ function JjcEvents() {
                     <div className="row">
                         <div className="col-md-4">
                             <PastEventsCard
-                                title="Demystifying USA;s Health Insuarnce"
+                                title="Demystifying USA's Health Insuarnce"
                                 description="Different types of health insurance plans (e.g., HMO, PPO, EPO, HDHP).HMO plans typically require members to select a primary care physician (PCP).PCPs act as gatekeepers, coordinating and authorizing all necessary medical care.PPO plans offer a broader network of healthcare providers.Members can see specialists without referrals and usually have more flexibility in choosing doctors.EPO plans are a hybrid between HMOs and PPOs.Like HMOs, EPOs often do not require referrals to see specialists.HDHPs have higher deductibles and lower premiums compared to traditional plans.  They are often paired with Health Savings Accounts (HSAs) that allow pre-tax contributions for medical expenses."
                                 video=" https://youtu.be/CSc1qB4kMOQ?si=v988fEdgGoO-upJy "
                                 material="https://drive.google.com/file/d/1eQAY6fFLcJ_aYZDzQnzl6GwA1hjsjOtl/view"

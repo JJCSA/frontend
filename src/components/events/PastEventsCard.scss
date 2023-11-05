@@ -1,3 +1,7 @@
+.modal-body {
+    height: 900px;
+}
+
 .past_events {
     .card img {
         height: 500px;
@@ -35,6 +39,9 @@
 }
 
 @media (min-width: 300px) and (max-width: 991px) {
+    .modal-body {
+        height: 1400px;
+    }
 
     .my-modal {
         width: 90% !important;
