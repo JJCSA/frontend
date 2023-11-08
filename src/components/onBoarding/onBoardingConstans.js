@@ -43,7 +43,16 @@ export const Form1 = props => {
           <ErrorMessage name="aboutMe" component="div" className="error" />
         </div>
         <div className="col-md">
-          <div className="form-row">
+          <div className="form-row mt-2">
+            <div className="col">
+              {/* text-center */}
+              {/* className="faq-text" */}
+              {/* class="col-md p-3 m-2 type-container text-center active" */}
+              <div class="note">Note: If you are incoming students from India please use your <b><i>university address</i></b> until you have your address in USA. 
+              Please do not forget to update your <b><i>apartment address</i></b> once you are here</div>
+            </div>
+          </div>
+          <div className="form-row mt-2">
             <div className="col">
               <Field
                 name="firstName"
