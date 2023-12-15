@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useAuthUser, useAuthHeader } from 'react-auth-kit';
+import { Formik, Form as FormikForm } from 'formik';
 import comm from '../../helpers/communication';
 import GlobalContext from '../../store/GlobalContext';
 import './Onboarding.scss';
@@ -10,7 +11,6 @@ import {
   studentSchema,
   professionalSchema,
 } from './onBoardingConstans';
-import { Formik, Form as FormikForm } from 'formik';
 
 function Onboarding() {
   const { globalState, setGlobalState } = useContext(GlobalContext);

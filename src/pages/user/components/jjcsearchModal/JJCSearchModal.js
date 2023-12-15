@@ -24,7 +24,7 @@ const JJCSearchModal = props => {
               avatarSize="large"
             />
           </Col>
-          <Col md={10} className="mt-3 ml-3">
+          <Col md={10} className="mt-3 ml-4">
             <div className="name-container">{props.data.name}</div>
             {props.data.city && props.data.state && (
               <div className="location-container">

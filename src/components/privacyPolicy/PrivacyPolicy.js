@@ -30,7 +30,7 @@ const PrivacyPolicy = () => {
                       className="email-text-color"
                       href="http://www.jjcusa.org"
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                     >
                       http://www.jjcusa.org
                     </a>{' '}

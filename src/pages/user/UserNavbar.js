@@ -79,7 +79,7 @@ function UserNavbar() {
             JJC SEARCH
           </NavHashLink>
           <NavHashLink
-            to="/#faq"
+            to="/faqs"
             className="nav-item nav-link active navbarhover px-3"
             smooth
             activeClassName="activeLink"

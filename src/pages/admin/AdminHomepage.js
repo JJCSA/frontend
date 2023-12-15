@@ -5,6 +5,7 @@ function AdminHomepage() {
     <div className="pageContainer">
       <div className="pageHeader">
         <h4>Admin Dashboard</h4>
+        <h6>Coming Soon..</h6>
       </div>
     </div>
   );

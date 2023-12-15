@@ -34,6 +34,8 @@ import ResetPassword from './components/resetPassword/ResetPassword';
 import AboutUs from './pages/landingpage/components/aboutUs/AboutUs';
 import PrivacyPolicy from './components/privacyPolicy/PrivacyPolicy';
 import TermsAndConditions from './components/termsAndConditions/TermsAndConditions';
+import Volunteers from './pages/landingpage/components/volunteers/Volunteers';
+import Faqs from './pages/user/components/faqs/Faqs';
 
 function Routes() {
   const { globalState, setGlobalState } = useContext(GlobalContext);
@@ -88,6 +90,7 @@ function Routes() {
         <Route path="/" element={<Landing />} />
         <Route path="/landing-home" element={<LandingHomepage />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/volunteers" element={<Volunteers />} />
         <Route
           path="/register"
           element={<Register toggleNavbar={toggleNavbar} />}
@@ -99,6 +102,14 @@ function Routes() {
         <Route
           path="/TermsAndConditions"
           element={<TermsAndConditions toggleNavbar={toggleNavbar} />}
+        />
+        <Route
+          path="/Faqs"
+          element={
+            <RequireAuth loginPath="/login">
+              <Faqs />
+            </RequireAuth>
+          }
         />
         <Route path="/login" element={<Login toggleNavbar={toggleNavbar} />} />
         <Route
@@ -128,14 +139,9 @@ function Routes() {
           path="/forgotPasswordMessage"
           element={<ForgotPasswordMessage toggleNavbar={toggleNavbar} />}
         />
-        <Route path="/ResetPassword" element={<ResetPassword toggleNavbar={toggleNavbar} />} />
         <Route
-          path="/profile"
-          element={
-            <RequireAuth loginPath="/login">
-              <Profile />
-            </RequireAuth>
-          }
+          path="/ResetPassword"
+          element={<ResetPassword toggleNavbar={toggleNavbar} />}
         />
         <Route
           path="/admin/"

@@ -74,16 +74,23 @@ export const states = [
 
 export const prod = {
   url: {
-    KEYCLOAK_BASE_URL: 'http://backend.stage.jjcsausa.com:8080',
-    API_BASE_URL: 'http://backend.stage.jjcsausa.com:9080/api',
+    KEYCLOAK_BASE_URL: 'https://www.jjcusa.org:8080',
+    API_BASE_URL: 'https://www.jjcusa.org:9080/api',
   },
 };
 
 export const dev = {
+  url: {
+    KEYCLOAK_BASE_URL: 'https://backend.stage.jjcusa.org:8080',
+    API_BASE_URL: 'https://backend.stage.jjcusa.org:9080/api',
+  },
+};
+
+export const local = {
   url: {
     KEYCLOAK_BASE_URL: 'http://keycloak:8080',
     API_BASE_URL: 'http://localhost:9080/api',
   },
 };
 
-export const config = process.env.NODE_ENV === 'development' ? dev : prod;
+export const config = prod;

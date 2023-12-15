@@ -26,13 +26,11 @@ const registrationSchema = Yup.object().shape({
     'Preferred Method of Contact is required'
   ),
   jainCommunity: Yup.string().required('Jain Community is required'),
-  jainProof: Yup.mixed().required('Jain Community Certificate is required'),
   profPicture: Yup.mixed().required('Profile Picture is required'),
 });
 
 function Register() {
   const initialValues = {
-    jainProof: null,
     profPicture: null,
     firstName: '',
     lastName: '',
@@ -65,8 +63,8 @@ function Register() {
       })
       .catch(err => {
         toast.error(
-          err?.response?.data?.error_description
-            ? err?.response?.data?.error_description
+          err?.response?.data?.message === 'User already exists'
+            ? 'User already exist with this email'
             : 'Registration Failed!'
         );
         setSubmitting(false);
@@ -302,7 +300,7 @@ function Register() {
                       <span style={{ color: 'red' }}>*</span>
                     </Form.Label>
                     <Form.Control
-                      type="text"
+                      as="select"
                       placeholder=""
                       name="jainCommunity"
                       value={values.jainCommunity}
@@ -310,7 +308,17 @@ function Register() {
                       onBlur={handleBlur}
                       isInvalid={touched.jainCommunity && errors.jainCommunity}
                       className="form-control-custom"
-                    />
+                    >
+                      <option value="" disabled>
+                        Select your Community
+                      </option>
+                      <option value="Digambar">Digambar</option>
+                      <option value="Swetambar">Swetambar</option>
+                      <option value="Sthanakvasi">Sthanakvasi</option>
+                      <option value="Terapanthi">Terapanthi</option>
+                      <option value="Deravasi">Deravasi</option>
+                    </Form.Control>
+
                     <Form.Text className="text-muted">
                       Please do not mention None or N/A, please ask your parents
                       what Jain community they are related to in India and be
@@ -320,28 +328,6 @@ function Register() {
                       {errors.jainCommunity}
                     </Form.Control.Feedback>
                   </Form.Group>
-
-                  <Form.Group controlId="formFile" className="mb-3">
-                    <Form.Label>
-                      Upload Photo Proof of your Jain Community Certificate
-                      <span style={{ color: 'red' }}>*</span>
-                    </Form.Label>
-                    <Form.Control
-                      type="file"
-                      name="jainProof"
-                      onChange={e =>
-                        setFieldValue('jainProof', e.currentTarget.files[0])
-                      }
-                      required
-                    />
-                    <Form.Text className="text-muted">
-                      This is a certificate that shows you are a Jain. If you
-                      are not aware of this please ask your parents. Your
-                      application will be rejected if you don’t upload an
-                      appropriate document.
-                    </Form.Text>
-                  </Form.Group>
-
                   <Form.Group controlId="formFile" className="mb-3">
                     <Form.Label>
                       Upload a Profile Picture
@@ -363,6 +349,7 @@ function Register() {
                     <Form.Check
                       type="checkbox"
                       id="agree"
+                      required
                       label={
                         <>
                           {' '}

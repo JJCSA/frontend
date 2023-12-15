@@ -1,32 +1,37 @@
 @import "../../../../utils/variables.scss";
 
-.TESTIMONIAL{
-    padding-top: 3em;
-    margin-top: -5em;
-    padding-left: 2rem;
-    padding-right: 2rem;
+.TESTIMONIAL {
+  padding-top: 3em;
+  margin-top: -5em;
+  padding-left: 2rem;
+  padding-right: 2rem;
 
   .testimonial {
     border-color: $vividred;
     width: 2rem;
     margin-top: 0px;
   }
+
   .slick-slide img {
     margin: auto;
   }
-  .slick-prev::before{
+
+  .slick-prev::before {
     color: black;
     margin-right: 30px;
   }
-  .slick-next::before{
+
+  .slick-next::before {
     color: black;
   }
+
   .author {
     font-size: 14px;
   }
+
   .testimonial-card {
     width: auto!important;
-    min-height: 250px;
+    min-height: 360px;
     background-color: #2c5797;
     color: whitesmoke;
     border-radius: 5px;
@@ -34,16 +39,52 @@
     margin: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     flex: 1 0 25%; /* Adjust the width as needed */
+
+    // Media Queries for different screen sizes
+    @media screen and (max-width: 768px) {
+      width: 100%; // Make the card take full width on screens up to 768px
+      flex: 1 0 100%; // Adjust flex property for mobile view
+      margin: 10px 0; // Remove left and right margins to create spacing between cards
+    }
+
+    @media screen and (min-width: 769px) and (max-width: 1024px) {
+      // Adjust styles for screens between 769px and 1024px wide
+      .testimonial-card {
+        flex: 1 0 50%; // Display two cards in a row
+        margin: 10px; // Add some spacing between cards
+      }
+    }
+
+    @media screen and (min-width: 1025px) and (max-width: 1200px) {
+      // Adjust styles for screens between 1025px and 1200px wide
+      .testimonial-card {
+        flex: 1 0 33.33%; // Display three cards in a row
+      }
+    }
+
+    @media screen and (min-width: 1201px) and (max-width: 1366px) {
+      // Adjust styles for screens between 1201px and 1366px wide
+      .testimonial-card {
+        flex: 1 0 25%; // Display four cards in a row
+      }
+    }
+
+    @media screen and (min-width: 1367px) {
+      // Adjust styles for screens wider than 1366px
+      .testimonial-card {
+        flex: 1 0 20%; // Display five cards in a row
+      }
+    }
   }
-  
+
   .testimonial-content h3 {
     font-size: 18px;
     margin-bottom: 10px;
   }
+
   .testimonial-content p {
     font-size: $regularSize;
     margin-bottom: 0;
     font-weight: $lightBold;
   }
-
 }

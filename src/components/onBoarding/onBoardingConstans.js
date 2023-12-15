@@ -1,14 +1,14 @@
 import React from 'react';
+import { State, City } from 'country-state-city';
+import { Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import DefaultProfile from '../../assets/images/avatar-default.webp';
 import {
   StudentLogo,
   GraduateLogo,
   ProfessionalLogo,
   EducationLogo,
 } from '../../assets/index';
-import { State, City } from 'country-state-city';
-import DefaultProfile from '../../assets/images/avatar-default.webp';
-import { Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
 
 export const Form1 = props => {
   return (
@@ -85,7 +85,7 @@ export const Form1 = props => {
                 className="form-control"
                 placeholder="DOB *"
                 value={props.values.dateOfBirth}
-              ></Field>
+              />
               <ErrorMessage
                 name="dateOfBirth"
                 component="div"
@@ -120,7 +120,6 @@ export const Form1 = props => {
             <div className="col">
               <Field name="country" as="select" className="custom-select">
                 <option value="US">United States</option>
-                <option value="CA">Canada</option>
               </Field>
               <ErrorMessage name="country" component="div" className="error" />
             </div>
@@ -160,7 +159,7 @@ export const Form1 = props => {
             <div className="col">
               <Field
                 name="zip"
-                type="number"
+                type="text"
                 className="form-control"
                 placeholder="Zipcode *"
               />
@@ -194,7 +193,7 @@ export const Form1 = props => {
               <div>PROFESSIONAL</div>
             </div>
           </div>
-          <div> Volunteering Interests</div>
+          <div> Volunteering Interests *</div>
           <div className="row">
             <div className="form-check form-check-inline">
               <Field
@@ -436,9 +435,7 @@ export const onBoardingValidationSchema1 = Yup.object().shape({
   city: Yup.string().required('City is required'),
   zip: Yup.string()
     .required('Zipcode is required')
-    .matches(/^[0-9]+$/, 'Must be only digits')
-    .min(5, 'Zipcode must be exactly 5 digits')
-    .max(5, 'Zipcode must be exactly 5 digits'),
+    .matches(/^[0-9]{5}$/, 'Zip code must be 5 digits'),
   userStudent: Yup.boolean().required('User type is required'),
   volunteeringInterest: Yup.array()
     .min(1, 'Select at least one volunteering interest')
