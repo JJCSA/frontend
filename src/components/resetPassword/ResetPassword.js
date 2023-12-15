@@ -4,8 +4,7 @@ import { Form, Col, Row, Container } from 'react-bootstrap';
 import PasswordValidator from 'password-validator';
 import comm from '../../helpers/communication';
 import { toast } from 'react-toastify';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { BsEye, BsEyeSlash } from 'react-icons/bs';
 
 const ResetPassword = () => {
   // Strong Password Validation with 8 Letter 1 Uppercase , Lowercase and Number
@@ -17,6 +16,10 @@ const ResetPassword = () => {
   const [email, setEmail] = useState('');
 
   const schema = new PasswordValidator();
+
+  const [showTempPassword, setShowTempPassword] = useState(false);
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
@@ -169,7 +172,7 @@ const ResetPassword = () => {
                       </Form.Label>
                       {/* inline box layout */}
                       <Form.Control
-                        type={showPassword ? 'text' : 'password'}
+                        type={showTempPassword ? 'text' : 'password'}
                         placeholder=""
                         className="inlinebox-3"
                         name="temporarypassword"
@@ -180,10 +183,14 @@ const ResetPassword = () => {
                           {errors.tempPassword}
                         </div>
                       )}
-                      <span
-                        className="password-toggle"
-                        onClick={togglePasswordVisibility}>
-                        <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye}/>
+                      <span className="password-toggle">
+                        {showTempPassword ? (
+                          <BsEyeSlash
+                            onClick={() => setShowTempPassword(false)}
+                          />
+                        ) : (
+                          <BsEye onClick={() => setShowTempPassword(true)} />
+                        )}
                       </span>
                     </Form.Group>
                   </div>
@@ -198,7 +205,7 @@ const ResetPassword = () => {
                       </Form.Label>
                       {/* inline box layout */}
                       <Form.Control
-                        type={showPassword1 ? 'text' : 'password'}
+                        type={showNewPassword ? 'text' : 'password'}
                         placeholder=""
                         className="inlinebox"
                         name="password"
@@ -207,10 +214,14 @@ const ResetPassword = () => {
                       {errors.newPassword && (
                         <div className="red-asterick">{errors.newPassword}</div>
                       )}
-                       <span
-                        className="password-toggle1"
-                        onClick={togglePasswordVisibility1}>
-                        <FontAwesomeIcon icon={showPassword1 ? faEyeSlash : faEye}/>
+                      <span className="password-toggle1">
+                        {showNewPassword ? (
+                          <BsEyeSlash
+                            onClick={() => setShowNewPassword(false)}
+                          />
+                        ) : (
+                          <BsEye onClick={() => setShowNewPassword(true)} />
+                        )}
                       </span>
                     </Form.Group>
                   </div>
@@ -225,22 +236,25 @@ const ResetPassword = () => {
                       </Form.Label>
                       {/* inline box layout */}
                       <Form.Control
-                        type={showPassword2 ? 'text' : 'password'}
+                        type={showConfirmPassword ? 'text' : 'password'}
                         placeholder=""
                         className="inlinebox-1"
                         name="confirmpassword"
                         onChange={handleConfirmPasswordChange}
-                        
                       />
                       {errors.confirmPassword && (
                         <div className="red-asterick">
                           {errors.confirmPassword}
                         </div>
                       )}
-                      <span
-                        className="password-toggle2"
-                        onClick={togglePasswordVisibility2}>
-                        <FontAwesomeIcon icon={showPassword2 ? faEyeSlash : faEye}/>
+                      <span className="password-toggle2">
+                        {showConfirmPassword ? (
+                          <BsEyeSlash
+                            onClick={() => setShowConfirmPassword(false)}
+                          />
+                        ) : (
+                          <BsEye onClick={() => setShowConfirmPassword(true)} />
+                        )}
                       </span>
                     </Form.Group>
                   </div>
