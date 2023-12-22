@@ -27,7 +27,7 @@ import Onboarding from './components/onBoarding/Onboarding';
 import { getProfile } from './components/UserFunctions';
 import Loader from './helpers/Loader';
 import AdminHomepage from './pages/admin/AdminHomepage';
-import UserManager from './pages/admin/UserManager';
+import UserManager from './pages/admin/components/userManager/UserManager';
 import ForgotPassword from './components/forgotPassword/ForgotPassword';
 import ForgotPasswordMessage from './components/forgotPasswordMessage/ForgotPasswordMessage';
 import ResetPassword from './components/resetPassword/ResetPassword';

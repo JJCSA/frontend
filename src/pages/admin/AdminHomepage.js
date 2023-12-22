@@ -1,6 +1,5 @@
 import React from 'react';
-import AdminUserStatusCounts from './AdminUserStatusCounts';
-import AdminNewUserNames from './AdminNewUserNames';
+import AdminUserStatusCounts from './components/userStatusCount/AdminUserStatusCounts';
 
 function AdminHomepage() {
   return (
@@ -8,10 +7,9 @@ function AdminHomepage() {
       <div className="pageHeader">
         <h4>Admin Dashboard</h4>
       </div>
-      <div style={{display: 'flex', flexDirection: 'column'}}>
-          <AdminUserStatusCounts/>
-          <AdminNewUserNames/>
-        </div>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <AdminUserStatusCounts />
+      </div>
     </div>
   );
 }

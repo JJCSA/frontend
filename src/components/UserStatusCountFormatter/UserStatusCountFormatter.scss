@@ -1,91 +1,66 @@
 @import '../../utils/variables.scss';
 
-
-.pendingUserStatusContainer {
-    background: rgba(255, 64, 32, 0.1);
-    border-radius: 5px;
-    padding: 25px;
-    color: #ffffff;
-
-    span {
-        font-style: normal;
-        font-weight: $lightBold;
-        font-size: $largeTitle;
-        line-height: 22px;
-        color: $red;
-    }
-
-    :nth-child(2) {
-        margin-right: 10px;
-    }
-
-    .count {
-        color: #ffffff;
-    }
+.count-card {
+  width: 250px;
+  height: 130px;
+  padding: 20px;
 }
 
-.approvedUserStatusContainer {
-    background: rgba(76, 181, 118, 0.1);
-    border-radius: 5px;
-    padding: 25px;
+.pendingUserStatusContainer {
+  background: rgba(238, 114, 20, 0.75);
+  border-radius: 5px;
+  padding: 25px;
 
-    span {
-        font-style: normal;
-        font-weight: $lightBold;
-        font-size: $largeTitle;
-        line-height: 22px;
-        color: $green;
-    }
+  .card-text {
+    font-style: normal;
+    font-weight: $lightBold;
+    font-size: $largeTitle;
+    line-height: 22px;
+    color: rgba(238, 114, 20, 1);
+  }
 
-    :nth-child(2) {
-        margin-right: 10px;
-    }
-
-    .count {
-        color: #ffffff;
-    }
+  :nth-child(2) {
+    margin-right: 10px;
+  }
 }
 
 .newUserStatusContainer {
-    background: rgba(28, 30, 205, 0.1);
-    border-radius: 5px;
-    padding: 25px;
+  background: rgba(161, 238, 189, 0.8);
+  border-radius: 5px;
+  padding: 25px;
 
-    span {
-        font-style: normal;
-        font-weight: $lightBold;
-        font-size: $largeTitle;
-        line-height: 22px;
-        color: $green;
-    }
+  :nth-child(2) {
+    margin-right: 10px;
+  }
+}
 
-    :nth-child(2) {
-        margin-right: 10px;
-    }
+.activeStatusContainer {
+  background: rgba(101, 183, 65, 0.4);
+  border-radius: 5px;
+  padding: 25px;
+  color: black;
 
-    .count {
-        color: #ffffff;
-    }
+  :nth-child(2) {
+    margin-right: 10px;
+  }
 }
 
 .totalStatusContainer {
-    background: rgba(203, 231, 19, 0.1);
-    border-radius: 5px;
-    padding: 25px;
+  background: rgba(12, 53, 106, 0.6);
+  border-radius: 5px;
+  padding: 25px;
 
-    span {
-        font-style: normal;
-        font-weight: $lightBold;
-        font-size: $largeTitle;
-        line-height: 22px;
-        color: $green;
-    }
+  :nth-child(2) {
+    margin-right: 10px;
+  }
+}
 
-    :nth-child(2) {
-        margin-right: 10px;
-    }
+.rejectedStatusContainer {
+  background: rgba(184, 0, 0, 0.5);
+  border-radius: 5px;
+  padding: 25px;
 
-    .count {
-        color: #ffffff;
-    }
+  :nth-child(2) {
+    margin-right: 10px;
+  }
 }
