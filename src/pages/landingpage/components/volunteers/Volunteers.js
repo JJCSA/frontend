@@ -45,6 +45,7 @@ import {
   volunteer35,
   volunteer41,
   volunteer42,
+  volunteer43,
 } from '../../../../assets/images/images-index';
 
 const Volunteers = () => {
@@ -178,6 +179,10 @@ const Volunteers = () => {
       Image: volunteer4,
     },
     {
+      Name: 'Harshil Shah',
+      Image: volunteer43,
+    },
+    {
       Name: 'Heet Shah',
       Image: volunteer39,
     },
@@ -222,10 +227,6 @@ const Volunteers = () => {
       Image: volunteer21,
     },
     {
-      Name: 'Janvi Shah',
-      Image: volunteer32,
-    },
-    {
       Name: 'Jinali Shah',
       Image: volunteer26,
     },
@@ -240,10 +241,6 @@ const Volunteers = () => {
     {
       Name: 'Karan Sheth',
       Image: avater,
-    },
-    {
-      Name: 'Kinjal Gala',
-      Image: volunteer6,
     },
     {
       Name: 'Krina Shah',
@@ -265,6 +262,10 @@ const Volunteers = () => {
     {
       Name: 'Manan Meghani',
       Image: volunteer20,
+    },
+    {
+      Name: 'Manan Mathukia',
+      Image: volunteer32,
     },
     {
       Name: 'Mayank Dedhia',
@@ -386,6 +387,10 @@ const Volunteers = () => {
     {
       Name: 'Vidhi Nagda',
       Image: avater,
+    },
+    {
+      Name: 'Vikas Luthia',
+      Image: volunteer6,
     },
     {
       Name: 'Visesh Jain',
