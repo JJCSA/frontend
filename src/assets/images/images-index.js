@@ -2,7 +2,7 @@
 export { default as President } from './leadsership/Bhavin.jpg';
 export { default as VicePresident } from './leadsership/Chintan.png';
 export { default as AlumniWelfare } from './leadsership/Kinjal.jpg';
-export { default as Events } from './leadsership/Janvi.JPG';
+export { default as Events } from './leadsership/Janvi.jpg';
 export { default as Marketing } from './leadsership/Riya.png';
 export { default as Consultant } from './leadsership/Priyal.png';
 export { default as Website } from './leadsership/Nishit.jpg';
