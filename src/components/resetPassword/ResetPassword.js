@@ -21,21 +21,6 @@ const ResetPassword = () => {
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  const [showPassword, setShowPassword] = useState(false);
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
-
-  const [showPassword1, setShowPassword1] = useState(false);
-  const togglePasswordVisibility1 = () => {
-    setShowPassword1(!showPassword1);
-  };
-
-  const [showPassword2, setShowPassword2] = useState(false);
-  const togglePasswordVisibility2 = () => {
-    setShowPassword2(!showPassword2);
-  };
-
   // Configure the password complexity rules
   schema
     .is()
