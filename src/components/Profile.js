@@ -117,6 +117,12 @@ function Profile() {
     userStudent: Yup.string().required('User Status is required'),
   });
 
+  function toSentenceCase(str) {
+    return str.replace(/\w\S*/g, function (txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+  }
+
   const [validationSchema, setValidationSchema] = useState(
     globalState.profile.userStudent
       ? validationSchemaWithStudent
@@ -152,6 +158,7 @@ function Profile() {
       <Formik
         initialValues={{
           ...globalState.profile,
+          gender: toSentenceCase(globalState.profile.gender),
         }}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
@@ -378,7 +385,7 @@ function Profile() {
                   />
                 </div>
                 <div className="col">
-                  <label htmlFor="userStudent">User Status *</label>
+                  <label htmlFor="userStudent">Current Status *</label>
                   <Field
                     as="select"
                     className="custom-select"
@@ -431,6 +438,17 @@ function Profile() {
                   />
                 </div>
               </div>
+              {values.userStudent && values.workExperience.length === 0 ? (
+                <p className="userStudent">
+                  <b>
+                    Note: Please update your current status to "Professional" if
+                    you are a recent graduate or wish to include professional
+                    experience.
+                  </b>
+                </p>
+              ) : (
+                <></>
+              )}
             </div>
             {/* <div className="form-row">
               <div className="col">
@@ -548,96 +566,92 @@ function Profile() {
               </div>
             </div>
             {/* Professional details */}
-            <h6>Experience details</h6>
-            <div className="form-section">
-              {(values.workExperience.length > 0
-                ? values.workExperience
-                : [{}]
-              ).map((exp, index) => (
-                <div key={index} className="form-row">
-                  <div className="col">
-                    <label htmlFor={`workExperience.${index}.companyName`}>
-                      {`Company Name${values.userStudent ? '' : ' *'}`}
-                    </label>
-                    <Field
-                      name={`workExperience.${index}.companyName`}
-                      type="text"
-                      className="form-control"
-                      placeholder="Company"
-                      disabled={values.userStudent} // Disable the field if user is a student
-                    />
-                    <ErrorMessage
-                      name={`workExperience.${index}.companyName`}
-                      component="div"
-                      className="error"
-                    />
-                  </div>
-                  <div className="col">
-                    <label htmlFor={`workExperience.${index}.role`}>{`Role${
-                      values.userStudent ? '' : ' *'
-                    }`}</label>
-                    <Field
-                      name={`workExperience.${index}.role`}
-                      type="text"
-                      className="form-control"
-                      placeholder="Role"
-                      disabled={values.userStudent} // Disable the field if user is a student
-                    />
-                    <ErrorMessage
-                      name={`workExperience.${index}.role`}
-                      component="div"
-                      className="error"
-                    />
-                  </div>
-                  <div className="col">
-                    <label htmlFor={`workExperience.${index}.location`}>
-                      {`Location${values.userStudent ? '' : ' *'}`}
-                    </label>
-                    <Field
-                      name={`workExperience.${index}.location`}
-                      type="text"
-                      className="form-control"
-                      placeholder="Location"
-                      disabled={values.userStudent} // Disable the field if user is a student
-                    />
-                    <ErrorMessage
-                      name={`workExperience.${index}.location`}
-                      component="div"
-                      className="error"
-                    />
-                  </div>
-                  <div className="col">
-                    <label htmlFor={`workExperience.${index}.totalExp`}>
-                      {`Total Experience (years)${
-                        values.userStudent ? '' : ' *'
-                      }`}
-                    </label>
-                    <Field
-                      name={`workExperience.${index}.totalExp`}
-                      type="text"
-                      className="form-control"
-                      placeholder="Total Experience"
-                      disabled={values.userStudent} // Disable the field if user is a student
-                    />
-                    <ErrorMessage
-                      name={`workExperience.${index}.totalExp`}
-                      component="div"
-                      className="error"
-                    />
-                  </div>
+            {values.userStudent && values.workExperience.length === 0 ? (
+              <></>
+            ) : (
+              <>
+                <h6>Professional details</h6>
+                <div className="form-section">
+                  {(values.workExperience.length > 0
+                    ? values.workExperience
+                    : [{}]
+                  ).map((exp, index) => (
+                    <div key={index} className="form-row">
+                      <div className="col">
+                        <label htmlFor={`workExperience.${index}.companyName`}>
+                          {`Company Name${values.userStudent ? '' : ' *'}`}
+                        </label>
+                        <Field
+                          name={`workExperience.${index}.companyName`}
+                          type="text"
+                          className="form-control"
+                          placeholder="Company"
+                          required
+                        />
+                        <ErrorMessage
+                          name={`workExperience.${index}.companyName`}
+                          component="div"
+                          className="error"
+                        />
+                      </div>
+                      <div className="col">
+                        <label htmlFor={`workExperience.${index}.role`}>{`Role${
+                          values.userStudent ? '' : ' *'
+                        }`}</label>
+                        <Field
+                          name={`workExperience.${index}.role`}
+                          type="text"
+                          className="form-control"
+                          placeholder="Role"
+                          required
+                        />
+                        <ErrorMessage
+                          name={`workExperience.${index}.role`}
+                          component="div"
+                          className="error"
+                        />
+                      </div>
+                      <div className="col">
+                        <label htmlFor={`workExperience.${index}.location`}>
+                          {`Location${values.userStudent ? '' : ' *'}`}
+                        </label>
+                        <Field
+                          name={`workExperience.${index}.location`}
+                          type="text"
+                          className="form-control"
+                          placeholder="Location"
+                          required
+                        />
+                        <ErrorMessage
+                          name={`workExperience.${index}.location`}
+                          component="div"
+                          className="error"
+                        />
+                      </div>
+                      <div className="col">
+                        <label htmlFor={`workExperience.${index}.totalExp`}>
+                          {`Total Experience (years)${
+                            values.userStudent ? '' : ' *'
+                          }`}
+                        </label>
+                        <Field
+                          name={`workExperience.${index}.totalExp`}
+                          type="text"
+                          className="form-control"
+                          placeholder="Total Experience"
+                          required
+                        />
+                        <ErrorMessage
+                          name={`workExperience.${index}.totalExp`}
+                          component="div"
+                          className="error"
+                        />
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-              {values.userStudent && (
-                <div className="form-row">
-                  <div className="col">
-                    <p className="error">
-                      You are currently a student. Please update your status to
-                      Professional to add work experience.
-                    </p>
-                  </div>
-                </div>
-              )}
-            </div>
+              </>
+            )}
             <div className="form-row mt-3">
               <div className="col">
                 <button
