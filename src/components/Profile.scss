@@ -12,7 +12,7 @@
 
   .container,
   label {
-    color: #2c5797;
+    color: #2e66ba;
   }
   .form-control,
   .custom-select {
@@ -36,4 +36,25 @@
     color: black;
     border: none;
   }
+
+  .avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  .form-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid rgb(99, 99, 97);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9; /* Set your desired background color */
+  }
+
+  .form-control {
+    border: 1px solid #454444b0;
+  }
+  
 }
