@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthHeader } from 'react-auth-kit';
-import DataTable from '../../components/datatable/DataTable';
+import DataTable from '../../../../components/datatable/DataTable';
 import './UserManager.scss';
-import { CustomDropdown, CustomTextBox } from '../../components';
-import * as Constants from '../../utils/constants';
-import { deleteIcon } from '../../assets/index';
-import PhoneNumberFormatter from '../../components/phoneNumberFormatter/PhoneNumberFormatter';
-import UserStatusFormatter from '../../components/userStatusFormatter/UserStatusFormatter';
-import comm from '../../helpers/communication';
-import Avatar from '../../components/avatar/Avatar';
+import { CustomDropdown, CustomTextBox } from '../../../../components';
+import * as Constants from '../../../../utils/constants';
+import { deleteIcon } from '../../../../assets/index';
+import PhoneNumberFormatter from '../../../../components/phoneNumberFormatter/PhoneNumberFormatter';
+import UserStatusFormatter from '../../../../components/userStatusFormatter/UserStatusFormatter';
+import comm from '../../../../helpers/communication';
+import Avatar from '../../../../components/avatar/Avatar';
 
 function UserManager() {
   const [users, setUsers] = useState([]);

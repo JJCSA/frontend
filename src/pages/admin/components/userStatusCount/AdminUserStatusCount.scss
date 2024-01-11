@@ -1,0 +1,45 @@
+@import '../../../../utils/variables.scss';
+
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  background: $pageBackground;
+}
+
+.pageHeader {
+  height: 72px;
+  padding: 10px;
+  background: $white;
+  padding: 10px 30px 10px 30px;
+
+  h4 {
+    font-style: normal;
+    font-weight: $bold;
+    font-size: $titleSize;
+    line-height: 22px;
+    height: 100%;
+    margin: 0px;
+    vertical-align: middle;
+  }
+}
+
+.pageContent {
+  margin: 30px;
+  background: $white;
+  border-radius: 5px;
+  padding: 5px 0px;
+  font-style: normal;
+  font-weight: $regular;
+  font-size: $regularSize;
+  line-height: 19px;
+
+  h6 {
+    font-style: normal;
+    font-weight: $bold;
+    font-size: $titleSize;
+    line-height: 22px;
+    height: 100%;
+    margin: 10px;
+    vertical-align: middle;
+  }
+}

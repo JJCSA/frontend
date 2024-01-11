@@ -5,7 +5,7 @@ export const userTypes = {
 };
 
 export const userStatus = {
-  NEWUSER: 'NewUser',
+  APPROVED: 'Approved',
   PENDING: 'Pending',
   REJECTED: 'Rejected',
   ACTIVE: 'Active',
@@ -93,4 +93,4 @@ export const local = {
   },
 };
 
-export const config = prod;
+export const config = local;
