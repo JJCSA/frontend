@@ -12,9 +12,13 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [globalState, setGlobalState] = useState({ profile: null });
+  const isDevEnv = process.env.REACT_APP_ENV == 'development';
 
   return (
     <GlobalContext.Provider value={{ globalState, setGlobalState }}>
+      {isDevEnv &&
+        <h3>Running application in <b>DEV</b> environment.</h3>
+      }
       <ToastContainer
         position="top-center"
         autoClose={2000}
