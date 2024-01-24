@@ -1,20 +1,19 @@
 .events_modal {
     img {
-        height: 60%;
-        width: 70%
+        height: 50%;
+        width: 100%
     }
-
-    .date {
+    .date{
+        font-weight: 600;
         font-size: 20px;
     }
 
-    .e_title {
+    .event_title,.event_resources {
         color: #415C83;
         font-weight: 500;
+        font-size: 30px;
     }
-
     a {
-        word-wrap: break-word;
         padding: 5px;
         margin: 5px;
         text-decoration: underline;
@@ -40,8 +39,8 @@
 
 @media (min-width: 300px) and (max-width: 991px) {
     .events_modal {
-        img {
-            height: 300px;
+        a{
+        word-wrap: break-word;
         }
     }
 }
