@@ -68,6 +68,7 @@ export { default as milestone1000 } from './milestone1000.png';
 export { default as jjcsearch } from './jjcsearch.svg';
 export { default as immigrant } from './international.png';
 export { default as mortgage } from './mortgage.png';
+export { default as connectCon } from './jjcconnect.png';
 
 //Trustees
 export { default as Trustee1 } from './trustees/SanjayShah.png';

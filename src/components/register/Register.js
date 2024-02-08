@@ -318,12 +318,6 @@ function Register() {
                       <option value="Terapanthi">Terapanthi</option>
                       <option value="Deravasi">Deravasi</option>
                     </Form.Control>
-
-                    <Form.Text className="text-muted">
-                      Please do not mention None or N/A, please ask your parents
-                      what Jain community they are related to in India and be
-                      very specific.
-                    </Form.Text>
                     <Form.Control.Feedback type="invalid">
                       {errors.jainCommunity}
                     </Form.Control.Feedback>

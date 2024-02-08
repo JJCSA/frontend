@@ -1,13 +1,18 @@
 import React from 'react';
+import DownloadData from './components/downloadData/DownloadData';
 import AdminUserStatusCounts from './components/userStatusCount/AdminUserStatusCounts';
+import './AdminHomepage.scss';
 
 function AdminHomepage() {
   return (
     <div className="pageContainer">
-      <div className="pageHeader">
-        <h4>Admin Dashboard</h4>
+      <div className="pageHeader-dashboard">
+        <div className="header-content">
+          <h4>Admin Dashboard</h4>
+          <DownloadData />
+        </div>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div>
         <AdminUserStatusCounts />
       </div>
     </div>
