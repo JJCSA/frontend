@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [globalState, setGlobalState] = useState({ profile: null });
-  const isDevEnv = process.env.REACT_APP_ENV == 'development';
+  const isDevEnv = process.env.REACT_APP_ENV === 'development';
 
   return (
     <GlobalContext.Provider value={{ globalState, setGlobalState }}>
