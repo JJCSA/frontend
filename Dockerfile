@@ -12,7 +12,7 @@ ENV NPM_CONFIG_LOGLEVEL ${npm_config_loglevel}
 
 ARG node_env=
 ENV NODE_ENV=${node_env}
-ENV REACT_APP_NODE_ENV={node_env}
+ENV REACT_APP_NODE_ENV=${node_env}
 
 ARG react_app_site_key=
 ENV REACT_APP_SITE_KEY=${react_app_site_key}
