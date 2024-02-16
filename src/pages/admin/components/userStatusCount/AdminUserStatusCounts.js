@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuthHeader } from 'react-auth-kit';
 import comm from '../../../../helpers/communication';
 import UserStatusCountFormatter from '../../../../components/UserStatusCountFormatter/UserStatusCountFormatter';
-import { userStatus } from '../../../../utils/constants';
+import { DashboardUserStatus } from '../../../../utils/constants';
 import './AdminUserStatusCount.scss';
 
 function AdminUserStatusCounts() {
@@ -29,8 +29,7 @@ function AdminUserStatusCounts() {
         fetchedUserStatus.push(updatedStatusCount.userStatus);
         totalUsers += updatedStatusCount.userStatusCount;
       });
-      console.log(fetchedUserStatus);
-      Object.values(userStatus).forEach(status => {
+      Object.values(DashboardUserStatus).forEach(status => {
         if (!fetchedUserStatus.includes(status)) {
           updatedStatusCounts.push({
             userStatus: status,
