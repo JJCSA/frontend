@@ -4,8 +4,15 @@ export const userTypes = {
   SUPERADMIN: 'SUPER_ADMIN',
 };
 
-export const userStatus = {
+export const DashboardUserStatus = {
   APPROVED: 'Approved',
+  PENDING: 'Pending',
+  REJECTED: 'Rejected',
+  ACTIVE: 'Active',
+};
+
+export const userStatus = {
+  NEWUSER: 'NewUser',
   PENDING: 'Pending',
   REJECTED: 'Rejected',
   ACTIVE: 'Active',
