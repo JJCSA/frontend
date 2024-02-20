@@ -1,58 +1,91 @@
 import React from 'react';
 import './PastEventsModal.scss';
 
-function PastEventsModal(event_information) {
-  console.log(event_information);
+function PastEventsModal(eventInformation) {
   const img_base = '/events/';
-  const img_src = img_base + event_information.img;
+  const img_src = img_base + eventInformation.img;
 
   return (
     <div className="events_modal">
       <div className="container-fluid">
-        <img className="img_fluid" src={img_src} />
-        <div>
-          <p className="date mt-3 mb-0">{event_information.date}</p>
-          <p className="event_title mb-0">{event_information.title}</p>
-          <p className="event_desctiption">{event_information.description}</p>
-          <p className="event_resources">Resources</p>
-          <div>
-            {event_information.video && (
-              <span>
-                Video{event_information.note && `(${event_information.note})`}:
-                <a target="_blank" href={event_information.video}>{event_information.video}</a>
-              </span>
-            )}
+        <div className="modal-header">
+          <div className="img-container">
+            <img className="img_fluid" src={img_src} alt="Event Image" />
           </div>
-          <div>
-            {event_information.material && (
-              <span>
-                Material:
-                <a target="_blank" href={event_information.video}>
-                  {event_information.material}
-                </a>
-              </span>
-            )}         
+        </div>
+        <div className="modal-body">
+          <div className="event-details">
+            <h5 className="event_title">{eventInformation.title}</h5>
+            <p className="date">{eventInformation.date}</p>
           </div>
-          <div>
-            {event_information.qa && (
-              <span>
-                QA:<a target="_blank" href={event_information.qa}>{event_information.qa}</a>
-              </span>
-            )}
+          <div className="description">
+            <p>{eventInformation.description}</p>
           </div>
-          <div>
-            {event_information.slides && (
-              <span>
-                Slides:
-                <a target="_blank" href={event_information.slides}>
-                  {event_information.slides}
-                </a>
-              </span>
-            )}
+          <div className="speaker-host">
+            <h5>Speaker</h5>
+            <p>{eventInformation.speaker}</p>
+          </div>
+          <div className="event_resources">
+            <h5>Resources</h5>
+            <div className="resources-section">
+              {eventInformation.video && (
+                <div className="resource-link">
+                  <span className="icon">▶</span>
+                  Video{eventInformation.note && `(${eventInformation.note})`}:
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={eventInformation.video}
+                  >
+                    {eventInformation.video}
+                  </a>
+                </div>
+              )}
+              {eventInformation.material && (
+                <div className="resource-link">
+                  <span className="icon">📄</span>
+                  Material:
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={eventInformation.material}
+                  >
+                    {eventInformation.material}
+                  </a>
+                </div>
+              )}
+              {eventInformation.qa && (
+                <div className="resource-link">
+                  <span className="icon">❓</span>
+                  QA:
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={eventInformation.qa}
+                  >
+                    {eventInformation.qa}
+                  </a>
+                </div>
+              )}
+              {eventInformation.slides && (
+                <div className="resource-link">
+                  <span className="icon">🖥️</span>
+                  Slides:
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={eventInformation.slides}
+                  >
+                    {eventInformation.slides}
+                  </a>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
 }
+
 export default PastEventsModal;

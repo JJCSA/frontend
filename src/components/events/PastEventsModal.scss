@@ -1,46 +1,114 @@
 .events_modal {
-    img {
-        height: 50%;
-        width: 100%
-    }
-    .date{
-        font-weight: 600;
-        font-size: 20px;
-    }
+  overflow-y: auto;
+  max-height: 80vh;
+  border-radius: 15px;
+  overflow-x: hidden;
 
-    .event_title,.event_resources {
-        color: #415C83;
+  .modal-header {
+    position: relative;
+    .img-container {
+      overflow: hidden;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      border: 2px solid #ddd;
+
+      img {
+        width: 100%;
+        height: auto;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+    }
+  }
+
+  .modal-body {
+    padding: 20px;
+
+    .event-details {
+      margin-bottom: 20px;
+
+      .event_title {
+        font-size: 22px;
+        color: #ff3c00;
         font-weight: 500;
-        font-size: 30px;
-    }
-    a {
-        padding: 5px;
-        margin: 5px;
-        text-decoration: underline;
-        color: #007bff;
+        margin-bottom: 5px;
+      }
+
+      .date {
+        font-size: 18px;
+        font-weight: 600;
+        color: #2c5797;
+      }
     }
 
-    .horizontal-rule {
+    .description,
+    .speaker-host,
+    .event_resources {
+      margin-bottom: 20px;
+
+      h5 {
+        font-size: 20px;
+        color: #ff3c00;
+        font-weight: 500;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 16px;
+        font-weight: 500;
+        color: #555;
+        line-height: 1.5;
+      }
+    }
+
+    .resources-section {
+      .resource-link {
         display: flex;
         align-items: center;
-        text-align: center;
-    }
+        margin-bottom: 15px;
 
-    .horizontal-rule hr {
-        flex: 1;
-        border: none;
-        border-top: 2px solid #FB7D74;
-        /* Customize the line style here */
-    }
-
-}
-
-
-
-@media (min-width: 300px) and (max-width: 991px) {
-    .events_modal {
-        a{
-        word-wrap: break-word;
+        .icon {
+          font-size: 20px;
+          margin-right: 10px;
         }
+
+        a {
+          padding: 8px;
+          text-decoration: underline;
+          color: #007bff;
+          font-size: 16px;
+        }
+      }
     }
+  }
+
+  // Responsive Styles
+  @media (max-width: 767px) {
+    .event-title {
+      font-size: 24px;
+    }
+
+    .date {
+      font-size: 16px;
+    }
+
+    .description p,
+    .speaker-host p {
+      font-size: 14px;
+    }
+
+    .resources-section .resource-link {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .icon {
+        margin-right: 0;
+        margin-bottom: 5px;
+      }
+
+      a {
+        font-size: 14px;
+      }
+    }
+  }
 }

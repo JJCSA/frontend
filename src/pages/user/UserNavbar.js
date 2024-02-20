@@ -14,13 +14,12 @@ import GlobalContext from '../../store/GlobalContext';
 function UserNavbar() {
   const signOut = useSignOut();
   const { globalState } = useContext(GlobalContext);
-  console.log("global", globalState)
   const userDropdown = (
     <Popover>
       <Popover.Content className="user-profile-dropdown-content">
         {Object.keys(globalState.profile).length > 0 &&
-          (globalState.profile.userRole === 'ADMIN' ||
-            globalState.profile.userRole === 'SUPER_ADMIN') ? (
+        (globalState.profile.userRole === 'ADMIN' ||
+          globalState.profile.userRole === 'SUPER_ADMIN') ? (
           <div className="user-dropdown">
             <GoHome className="user-dropdown-icon" />
             <Link to="/admin">
@@ -86,10 +85,14 @@ function UserNavbar() {
           >
             FAQ'S
           </NavHashLink>
-          <NavHashLink to="/events"
+          <NavHashLink
+            to="/events"
             className="nav-item nav-link active navbarhover px-3"
             smooth
-            activeClassName="activeLink" >Events</NavHashLink>
+            activeClassName="activeLink"
+          >
+            EVENTS
+          </NavHashLink>
         </div>
         <form className="form-inline">
           <Avatar

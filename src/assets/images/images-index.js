@@ -1,15 +1,15 @@
 //Leadership
-export { default as President } from './leadsership/Bhavin.jpg';
-export { default as VicePresident } from './leadsership/Chintan.png';
-export { default as AlumniWelfare } from './leadsership/Vikas.jpg';
-export { default as Events } from './leadsership/Manan.png';
-export { default as Marketing } from './leadsership/Riya.png';
-export { default as Consultant } from './leadsership/Harshil.png';
-export { default as Website } from './leadsership/Nishit.jpg';
-export { default as Student } from './leadsership/Ishit.jpg';
-export { default as chiefofstaff } from './leadsership/Darshita.jpg';
-export { default as admin } from './leadsership/Hemal.jpg';
-export { default as avater } from './leadsership/user.jpg';
+export { default as President } from './leadership/Bhavin.jpg';
+export { default as VicePresident } from './leadership/Chintan.png';
+export { default as AlumniWelfare } from './leadership/Vikas.jpg';
+export { default as Events } from './leadership/Manan.png';
+export { default as Marketing } from './leadership/Riya.png';
+export { default as Consultant } from './leadership/Harshil.png';
+export { default as Website } from './leadership/Nishit.jpg';
+export { default as Student } from './leadership/Ishit.jpg';
+export { default as chiefofstaff } from './leadership/Darshita.jpg';
+export { default as admin } from './leadership/Hemal.jpg';
+export { default as avater } from './leadership/user.jpg';
 
 // Volunteers
 export { default as volunteer1 } from './volunteers/Aayushi-Shah.jpeg';
