@@ -1,0 +1,46 @@
+.events_modal {
+    img {
+        height: 50%;
+        width: 100%
+    }
+    .date{
+        font-weight: 600;
+        font-size: 20px;
+    }
+
+    .event_title,.event_resources {
+        color: #415C83;
+        font-weight: 500;
+        font-size: 30px;
+    }
+    a {
+        padding: 5px;
+        margin: 5px;
+        text-decoration: underline;
+        color: #007bff;
+    }
+
+    .horizontal-rule {
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+
+    .horizontal-rule hr {
+        flex: 1;
+        border: none;
+        border-top: 2px solid #FB7D74;
+        /* Customize the line style here */
+    }
+
+}
+
+
+
+@media (min-width: 300px) and (max-width: 991px) {
+    .events_modal {
+        a{
+        word-wrap: break-word;
+        }
+    }
+}

@@ -36,6 +36,7 @@ import PrivacyPolicy from './components/privacyPolicy/PrivacyPolicy';
 import TermsAndConditions from './components/termsAndConditions/TermsAndConditions';
 import Volunteers from './pages/landingpage/components/volunteers/Volunteers';
 import Faqs from './pages/user/components/faqs/Faqs';
+import JjcEvents from './pages/user/components/jjcevents/JjcEvents';
 
 function Routes() {
   const { globalState, setGlobalState } = useContext(GlobalContext);
@@ -108,6 +109,14 @@ function Routes() {
           element={
             <RequireAuth loginPath="/login">
               <Faqs />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/events"
+          element={
+            <RequireAuth loginPath="/login">
+              <JjcEvents />
             </RequireAuth>
           }
         />
