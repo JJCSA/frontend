@@ -79,14 +79,14 @@ export const states = [
   'Wyoming',
 ];
 
-export const prod = {
+export const production = {
   url: {
     KEYCLOAK_BASE_URL: 'https://www.jjcusa.org:8080',
     API_BASE_URL: 'https://www.jjcusa.org:9080/api',
   },
 };
 
-export const dev = {
+export const development = {
   url: {
     KEYCLOAK_BASE_URL: 'https://backend.stage.jjcusa.org:8080',
     API_BASE_URL: 'https://backend.stage.jjcusa.org:9080/api',
@@ -100,4 +100,5 @@ export const local = {
   },
 };
 
-export const config = dev;
+export const config = (process.env.REACT_APP_NODE_ENV === 'production') ? production :
+                        (process.env.REACT_APP_NODE_ENV === 'development') ? development : local;
