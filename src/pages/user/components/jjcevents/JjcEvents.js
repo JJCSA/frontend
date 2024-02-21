@@ -6,12 +6,23 @@ function JjcEvents() {
   return (
     <div className="events">
       <div className="container-fluid">
+        <div className="upcoming_events">
+          <div className="horizontal-rule">
+            <hr />
+            <div className="centered-text past_title">UPCOMING EVENTS</div>
+            <hr />
+          </div>
+          <p>
+            Currently, there are no upcoming events. Please check back later for
+            updates.
+          </p>
+        </div>
         <div className="past_events">
-          {/* <div className="horizontal-rule">
+          <div className="horizontal-rule">
             <hr />
             <div className="centered-text past_title">PAST EVENTS</div>
             <hr />
-          </div> */}
+          </div>
           <div className="row">
             <div className="col-md-4">
               <PastEventsCard
