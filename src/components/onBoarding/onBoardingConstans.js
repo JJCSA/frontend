@@ -45,15 +45,6 @@ export const Form1 = props => {
         <div className="col-md">
           <div className="form-row mt-2">
             <div className="col">
-              {/* text-center */}
-              {/* className="faq-text" */}
-              {/* class="col-md p-3 m-2 type-container text-center active" */}
-              <div class="note">Note: If you are incoming students from India please use your <b><i>university address</i></b> until you have your address in USA. 
-              Please do not forget to update your <b><i>apartment address</i></b> once you are here</div>
-            </div>
-          </div>
-          <div className="form-row mt-2">
-            <div className="col">
               <Field
                 name="firstName"
                 type="text"
@@ -173,6 +164,23 @@ export const Form1 = props => {
                 placeholder="Zipcode *"
               />
               <ErrorMessage name="zip" component="div" className="error" />
+            </div>
+          </div>
+          <div className="form-row mt-2">
+            <div className="col">
+              <div class="note">
+                Note: If you are incoming students/professionals from India
+                please use your{' '}
+                <b>
+                  <i>university/work address</i>
+                </b>{' '}
+                until you have your address in USA. Please remember to update
+                your{' '}
+                <b>
+                  <i>apartment address</i>
+                </b>{' '}
+                once you have relocated.
+              </div>
             </div>
           </div>
         </div>
@@ -431,14 +439,18 @@ export const onBoardingValidationSchema1 = Yup.object().shape({
       'Must be a valid LinkedIn URL'
     )
     .required('Linkedin URL is required'),
-  aboutMe: Yup.string().required('About Me is required'),
+  aboutMe: Yup.string()
+    .required('About Me is required')
+    .max(256, 'About Me must be at most 256 characters'),
   dateOfBirth: Yup.date()
     .typeError('Invalid date format')
     .max(new Date(), 'DOB cannot be after the current date')
     .nullable()
     .required('DOB is required'),
   gender: Yup.string().required('Gender is required'),
-  street: Yup.string().required('Street is required'),
+  street: Yup.string()
+    .required('Street is required')
+    .max(45, 'Address must be at most 45 characters'),
   country: Yup.string().required('Country is required'),
   state: Yup.string().required('State is required'),
   city: Yup.string().required('City is required'),
@@ -463,8 +475,12 @@ export const studentSchema = Yup.object().shape({
         .min(1900, 'Graduation year cannot be before 1900')
         .max(2100, 'Graduation year cannot be after 2100')
         .nullable(),
-      specialization: Yup.string().required('Specialization is required'),
-      degree: Yup.string().required('Degree is required'),
+      specialization: Yup.string()
+        .required('Specialization is required')
+        .max(40, 'Specialization must be at most 40 characters'),
+      degree: Yup.string()
+        .required('Degree is required')
+        .max(100, 'Degree must be at most 100 characters'),
     })
   ),
 });
@@ -481,8 +497,12 @@ export const professionalSchema = Yup.object().shape({
         .min(1900, 'Graduation year cannot be before 1900')
         .max(2100, 'Graduation year cannot be after 2100')
         .nullable(),
-      specialization: Yup.string().required('Specialization is required'),
-      degree: Yup.string().required('Degree is required'),
+      specialization: Yup.string()
+        .required('Specialization is required')
+        .max(40, 'Specialization must be at most 40 characters'),
+      degree: Yup.string()
+        .required('Degree is required')
+        .max(100, 'Degree must be at most 100 characters'),
     })
   ),
   workExperience: Yup.array().of(
