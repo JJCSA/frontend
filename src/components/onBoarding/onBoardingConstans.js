@@ -507,8 +507,12 @@ export const professionalSchema = Yup.object().shape({
   ),
   workExperience: Yup.array().of(
     Yup.object().shape({
-      companyName: Yup.string().required('Company Name is required'),
-      role: Yup.string().required('Role is required'),
+      companyName: Yup.string()
+        .required('Company Name is required')
+        .max(45, 'Company Name must be at most 45 characters'),
+      role: Yup.string()
+        .required('Role is required')
+        .max(45, 'Role must be at most 45 characters'),
       location: Yup.string().required('Location is required'),
       totalExp: Yup.number()
         .typeError('Experience (years) must be a number')
