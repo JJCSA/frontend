@@ -1,62 +1,66 @@
 @import '../../utils/variables.scss';
 
 .dropdownToggle {
-    width: 200px;
-    height: 40px;
-    border: 1px solid $slateGrey;
-    box-sizing: border-box;
-    border-radius: 5px;
-    font-style: normal;
-    font-size: 14px;
-    color: $slateGrey;
-    background-color: white;
-    box-shadow: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 200px;
+  height: 40px;
+  border: 1px solid $slateGrey;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-style: normal;
+  font-size: 14px;
+  color: $slateGrey;
+  background-color: white;
+  box-shadow: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    &:active, &:hover, &:focus {
-        background-color: $white !important;
-        color: $slateGrey !important;
-        border: 2px solid $slateGrey !important;
-        box-shadow: none;
-        outline: none;
-    }
+  &:active,
+  &:hover,
+  &:focus {
+    background-color: $white !important;
+    color: $slateGrey !important;
+    border: 2px solid $slateGrey !important;
+    box-shadow: none;
+    outline: none;
+  }
 }
 
 .btn-primary.dropdown-toggle {
-    background-color: $white !important;
-    border-color: $slateGrey !important;
+  background-color: $white !important;
+  border-color: $slateGrey !important;
 }
-.btn-primary.dropdown-toggle:focus{
-    background-color: $white !important;
-    box-shadow: none !important;
+.btn-primary.dropdown-toggle:focus {
+  background-color: $white !important;
+  box-shadow: none !important;
 }
 
 .dropdownMenu {
-    width: 200px;
-    max-height: 400px;
-    overflow-y: auto;
-    border: 1px solid $whiteSmoke;
-    box-sizing: border-box;
-    border-radius: 5px;
-    font-style: normal;
-    font-weight: $semiBold;
-    font-size: $regularSize;
-    color: $charcoalBlack;
-    background-color: $white;
+  width: 200px;
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid $whiteSmoke;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: $semiBold;
+  font-size: $regularSize;
+  color: $charcoalBlack;
+  background-color: $white;
 }
 
 .dropdownItem {
-    opacity: 0.4;
-    padding-left: 12px;
-    font-weight: $semiBold;
+  opacity: 0.4;
+  padding-left: 12px;
+  font-weight: $semiBold;
 
-    &:active, &:hover, &:focus {
-        background-color: $white !important;
-        color: $slateGrey !important;
-        box-shadow: none;
-        font-weight: $bold !important;
-        opacity: 100% !important;
-    }
+  &:active,
+  &:hover,
+  &:focus {
+    background-color: $white !important;
+    color: $charcoalBlack !important;
+    box-shadow: none;
+    font-weight: $bold !important;
+    opacity: 100% !important;
+  }
 }
