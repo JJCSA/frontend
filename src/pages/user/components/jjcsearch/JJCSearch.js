@@ -127,7 +127,20 @@ function JJCSearch() {
     setFilters(!filters);
   };
 
+  const rowStyle = (row, rowIndex) => {
+    const isEvenRow = rowIndex % 2 === 0;
+    return {
+      backgroundColor: isEvenRow ? '#f2f2f2' : '#ffffff', // Set alternate row colors
+    };
+  };
+
   const rowEvents = {
+    onMouseEnter: e => {
+      e.target.parentElement.style.border = '2px solid #1e2350'; // Set border color on hover
+    },
+    onMouseLeave: e => {
+      e.target.parentElement.style.border = '1px solid #dee2e6'; // Restore original border color on leave
+    },
     onClick: (e, row, rowIndex) => {
       setModalInfo(row);
       toggleTrueFalse();
@@ -135,9 +148,10 @@ function JJCSearch() {
   };
   const paginationOptions = {
     sizePerPageList: [
-      { text: '5', value: 5 },
-      { text: '10', value: 10 },
-      { text: '20', value: 20 },
+      { text: '50', value: 50 },
+      { text: '100', value: 100 },
+      { text: '150', value: 150 },
+      { text: '200', value: 200 },
       { text: 'All', value: userlist.length },
     ],
     onPageChange: handlePageChange,
@@ -191,6 +205,7 @@ function JJCSearch() {
                 pagination={paginationFactory(paginationOptions)}
                 filter={filterFactory()}
                 bootstrap4
+                rowStyle={rowStyle}
                 noDataIndication="Table is Empty"
                 rowEvents={rowEvents}
                 rowClasses="clickable-row"
