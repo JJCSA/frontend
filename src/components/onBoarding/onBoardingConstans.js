@@ -466,7 +466,9 @@ export const onBoardingValidationSchema1 = Yup.object().shape({
 export const studentSchema = Yup.object().shape({
   education: Yup.array().of(
     Yup.object().shape({
-      universityName: Yup.string().required('University Name is required'),
+      universityName: Yup.string()
+        .required('University Name is required')
+        .max(45, 'University Name must be at most 40 characters'),
       gradMonth: Yup.number().required('Grad Month is required'),
       gradYear: Yup.number()
         .required('Graduation Year is required')
@@ -488,7 +490,9 @@ export const studentSchema = Yup.object().shape({
 export const professionalSchema = Yup.object().shape({
   education: Yup.array().of(
     Yup.object().shape({
-      universityName: Yup.string().required('University Name is required'),
+      universityName: Yup.string()
+        .required('University Name is required')
+        .max(45, 'University Name must be at most 40 characters'),
       gradMonth: Yup.number().required('Grad Month is required'),
       gradYear: Yup.number()
         .required('Graduation Year is required')
