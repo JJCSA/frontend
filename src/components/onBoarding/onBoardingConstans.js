@@ -177,9 +177,9 @@ export const Form1 = props => {
                 until you have your address in USA. Please remember to update
                 your{' '}
                 <b>
-                  <i>apartment address</i>
+                  <i>address</i>
                 </b>{' '}
-                once you have relocated.
+                once you have permenent address.
               </div>
             </div>
           </div>
