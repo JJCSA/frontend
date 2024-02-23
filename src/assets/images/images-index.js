@@ -1,10 +1,10 @@
 //Leadership
 export { default as President } from './leadsership/Bhavin.jpg';
 export { default as VicePresident } from './leadsership/Chintan.png';
-export { default as AlumniWelfare } from './leadsership/Vikas.jpg';
-export { default as Events } from './leadsership/Manan.png';
+export { default as AlumniWelfare } from './leadsership/Kinjal.jpg';
+export { default as Events } from './leadsership/Janvi.jpg';
 export { default as Marketing } from './leadsership/Riya.png';
-export { default as Consultant } from './leadsership/Harshil.png';
+export { default as Consultant } from './leadsership/Priyal.png';
 export { default as Website } from './leadsership/Nishit.jpg';
 export { default as Student } from './leadsership/Ishit.jpg';
 export { default as chiefofstaff } from './leadsership/Darshita.jpg';
@@ -16,8 +16,9 @@ export { default as volunteer1 } from './volunteers/Aayushi-Shah.jpeg';
 export { default as volunteer2 } from './volunteers/Deshna.jpg';
 export { default as volunteer3 } from './volunteers/Darshit.jpg';
 export { default as volunteer4 } from './volunteers/Harshil.jpg';
+export { default as volunteer43 } from './volunteers/Harshil-shah.png';
 export { default as volunteer5 } from './volunteers/Jay.jpg';
-export { default as volunteer6 } from './volunteers/Kinjal.jpg';
+export { default as volunteer6 } from './volunteers/Vikas.jpg';
 export { default as volunteer7 } from './volunteers/Parth.jpg';
 export { default as volunteer8 } from './volunteers/Rishi.jpg';
 export { default as volunteer9 } from './volunteers/Tarak.jpeg';
@@ -43,7 +44,7 @@ export { default as volunteer28 } from './volunteers/Ronak.png';
 export { default as volunteer29 } from './volunteers/Tejas-shah.png';
 export { default as volunteer30 } from './volunteers/Dhairyav.jpg';
 export { default as volunteer31 } from './volunteers/Devanshi.jpeg';
-export { default as volunteer32 } from './volunteers/Janvi.jpeg';
+export { default as volunteer32 } from './volunteers/Manan-m.png';
 export { default as volunteer33 } from './volunteers/Milan.jpeg';
 export { default as volunteer34 } from './volunteers/Vatsal.jpeg';
 export { default as volunteer35 } from './volunteers/Aayushi-Vora.jpg';
@@ -67,6 +68,7 @@ export { default as milestone1000 } from './milestone1000.png';
 export { default as jjcsearch } from './jjcsearch.svg';
 export { default as immigrant } from './international.png';
 export { default as mortgage } from './mortgage.png';
+export { default as connectCon } from './jjcconnect.png';
 
 //Trustees
 export { default as Trustee1 } from './trustees/SanjayShah.png';

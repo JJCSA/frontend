@@ -38,19 +38,19 @@ const Leadership = () => {
       Image: admin,
     },
     {
-      Name: 'Harshil Shah',
-      Role: 'Consultant',
-      Image: Consultant,
-    },
-    {
       Name: 'Ishit Shah',
       Role: 'Student Welfare Lead',
       Image: Student,
     },
     {
-      Name: 'Manan Mathukia',
+      Name: 'Janvi Shah',
       Role: 'Event Lead',
       Image: Events,
+    },
+    {
+      Name: 'Kinjal Gala',
+      Role: 'Alumni Welfare Lead',
+      Image: AlumniWelfare,
     },
     {
       Name: 'Nishit Gopani',
@@ -63,9 +63,9 @@ const Leadership = () => {
       Image: Marketing,
     },
     {
-      Name: 'Vikas Luthia',
-      Role: 'Alumni Welfare Lead',
-      Image: AlumniWelfare,
+      Name: 'Priyal Chheda',
+      Role: 'Consultant',
+      Image: Consultant,
     },
   ];
 

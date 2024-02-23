@@ -41,3 +41,15 @@
 .login-link:hover {
   color: black;
 }
+
+.phone-button {
+  input {
+    width: inherit !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .register-box {
+    padding: 2%;
+  }
+}

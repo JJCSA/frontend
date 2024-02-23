@@ -4,6 +4,7 @@ import { Form, Col, Row, Container } from 'react-bootstrap';
 import PasswordValidator from 'password-validator';
 import comm from '../../helpers/communication';
 import { toast } from 'react-toastify';
+import { BsEye, BsEyeSlash } from 'react-icons/bs';
 
 const ResetPassword = () => {
   // Strong Password Validation with 8 Letter 1 Uppercase , Lowercase and Number
@@ -15,6 +16,10 @@ const ResetPassword = () => {
   const [email, setEmail] = useState('');
 
   const schema = new PasswordValidator();
+
+  const [showTempPassword, setShowTempPassword] = useState(false);
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   // Configure the password complexity rules
   schema
@@ -152,7 +157,7 @@ const ResetPassword = () => {
                       </Form.Label>
                       {/* inline box layout */}
                       <Form.Control
-                        type="password"
+                        type={showTempPassword ? 'text' : 'password'}
                         placeholder=""
                         className="inlinebox-3"
                         name="temporarypassword"
@@ -163,6 +168,15 @@ const ResetPassword = () => {
                           {errors.tempPassword}
                         </div>
                       )}
+                      <span className="password-toggle">
+                        {showTempPassword ? (
+                          <BsEyeSlash
+                            onClick={() => setShowTempPassword(false)}
+                          />
+                        ) : (
+                          <BsEye onClick={() => setShowTempPassword(true)} />
+                        )}
+                      </span>
                     </Form.Group>
                   </div>
                 </div>
@@ -176,7 +190,7 @@ const ResetPassword = () => {
                       </Form.Label>
                       {/* inline box layout */}
                       <Form.Control
-                        type="password"
+                        type={showNewPassword ? 'text' : 'password'}
                         placeholder=""
                         className="inlinebox"
                         name="password"
@@ -185,6 +199,15 @@ const ResetPassword = () => {
                       {errors.newPassword && (
                         <div className="red-asterick">{errors.newPassword}</div>
                       )}
+                      <span className="password-toggle1">
+                        {showNewPassword ? (
+                          <BsEyeSlash
+                            onClick={() => setShowNewPassword(false)}
+                          />
+                        ) : (
+                          <BsEye onClick={() => setShowNewPassword(true)} />
+                        )}
+                      </span>
                     </Form.Group>
                   </div>
                 </div>
@@ -198,7 +221,7 @@ const ResetPassword = () => {
                       </Form.Label>
                       {/* inline box layout */}
                       <Form.Control
-                        type="password"
+                        type={showConfirmPassword ? 'text' : 'password'}
                         placeholder=""
                         className="inlinebox-1"
                         name="confirmpassword"
@@ -209,6 +232,15 @@ const ResetPassword = () => {
                           {errors.confirmPassword}
                         </div>
                       )}
+                      <span className="password-toggle2">
+                        {showConfirmPassword ? (
+                          <BsEyeSlash
+                            onClick={() => setShowConfirmPassword(false)}
+                          />
+                        ) : (
+                          <BsEye onClick={() => setShowConfirmPassword(true)} />
+                        )}
+                      </span>
                     </Form.Group>
                   </div>
                 </div>
