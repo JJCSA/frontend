@@ -57,7 +57,7 @@ function Profile() {
       Yup.object().shape({
         universityName: Yup.string()
           .required('University Name is required')
-          .max(45, 'University Name must be at most 40 characters'),
+          .max(45, 'University Name must be at most 45 characters'),
         gradMonth: Yup.number().required('Grad Month is required'),
         gradYear: Yup.number()
           .required('Graduation Year is required')
@@ -97,7 +97,7 @@ function Profile() {
       Yup.object().shape({
         universityName: Yup.string()
           .required('University Name is required')
-          .max(45, 'University Name must be at most 40 characters'),
+          .max(45, 'University Name must be at most 45 characters'),
         gradMonth: Yup.number().required('Grad Month is required'),
         gradYear: Yup.number()
           .required('Graduation Year is required')
@@ -137,6 +137,12 @@ function Profile() {
     userStudent: Yup.string().required('User Status is required'),
   });
 
+  function toUpperCase(str) {
+    return str.replace(/\w\S*/g, function (txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toUpperCase();
+    });
+  }
+
   function toSentenceCase(str) {
     return str.replace(/\w\S*/g, function (txt) {
       return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
@@ -153,12 +159,13 @@ function Profile() {
     if (JSON.stringify(globalState.profile) !== JSON.stringify(values)) {
       const reqBody = {
         ...values,
+        gender: toUpperCase(values.gender),
+
         // volunteeringInterest: values.volunteeringInterest.join(','),
       };
       comm
         .sendPut('/user/profile', token, reqBody)
         .then(newProfile => {
-          console.log(newProfile);
           setGlobalState({
             ...globalState,
             profile: newProfile.data,
@@ -507,7 +514,6 @@ function Profile() {
                     className="form-control"
                     placeholder="School/University"
                     id="universityName"
-                    required
                   />
                   <ErrorMessage
                     name="education.0.universityName"
@@ -522,7 +528,6 @@ function Profile() {
                     type="text"
                     className="form-control"
                     placeholder="Specialization"
-                    required
                   />
                   <ErrorMessage
                     name="education.0.specialization"
@@ -537,7 +542,6 @@ function Profile() {
                     type="text"
                     className="form-control"
                     placeholder="Degree"
-                    required
                   />
                   <ErrorMessage
                     name="education.0.degree"
@@ -551,7 +555,6 @@ function Profile() {
                     as="select"
                     name="education.0.gradMonth"
                     className="custom-select"
-                    required
                   >
                     <option value="" disabled>
                       Grad Month
@@ -575,7 +578,6 @@ function Profile() {
                     type="number"
                     className="form-control"
                     placeholder="Grad Year"
-                    required
                   />
                   <ErrorMessage
                     name="education.0.gradYear"
@@ -606,7 +608,6 @@ function Profile() {
                           type="text"
                           className="form-control"
                           placeholder="Company"
-                          required
                         />
                         <ErrorMessage
                           name={`workExperience.${index}.companyName`}
@@ -623,7 +624,6 @@ function Profile() {
                           type="text"
                           className="form-control"
                           placeholder="Role"
-                          required
                         />
                         <ErrorMessage
                           name={`workExperience.${index}.role`}
@@ -640,7 +640,6 @@ function Profile() {
                           type="text"
                           className="form-control"
                           placeholder="Location"
-                          required
                         />
                         <ErrorMessage
                           name={`workExperience.${index}.location`}
@@ -659,7 +658,6 @@ function Profile() {
                           type="text"
                           className="form-control"
                           placeholder="Total Experience"
-                          required
                         />
                         <ErrorMessage
                           name={`workExperience.${index}.totalExp`}

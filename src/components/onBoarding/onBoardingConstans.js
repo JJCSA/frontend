@@ -468,7 +468,7 @@ export const studentSchema = Yup.object().shape({
     Yup.object().shape({
       universityName: Yup.string()
         .required('University Name is required')
-        .max(45, 'University Name must be at most 40 characters'),
+        .max(45, 'University Name must be at most 45 characters'),
       gradMonth: Yup.number().required('Grad Month is required'),
       gradYear: Yup.number()
         .required('Graduation Year is required')
@@ -492,7 +492,7 @@ export const professionalSchema = Yup.object().shape({
     Yup.object().shape({
       universityName: Yup.string()
         .required('University Name is required')
-        .max(45, 'University Name must be at most 40 characters'),
+        .max(45, 'University Name must be at most 45 characters'),
       gradMonth: Yup.number().required('Grad Month is required'),
       gradYear: Yup.number()
         .required('Graduation Year is required')
