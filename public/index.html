@@ -7,6 +7,35 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <meta name="theme-color" content="#000000" />
+    <meta property="og:title" content="JJC USA" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:description"
+      content="JJC USA is a non-profit organization, a branch of Jain Jagruti Centre Central Board Charitable Trust, formed in August 2019 with a motive to assist Jain community members living in the United States of America"
+    />
+    <meta property="og:image" content="" />
+    <!-- Will be set dynamically -->
+    <meta property="og:url" content="" />
+    <!-- Will be set dynamically -->
+
+    <!-- Add a script to set the host URL and image dynamically -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var ogUrlMeta = document.querySelector('meta[property="og:url"]');
+        var ogImageMeta = document.querySelector('meta[property="og:image"]');
+
+        if (ogUrlMeta && ogImageMeta) {
+          ogUrlMeta.setAttribute('content', window.location.origin);
+
+          // Set the image dynamically (replace 'your_image_path' with the actual path)
+          var imagePath = 'src/assets/images/together.png'; // Example path
+          ogImageMeta.setAttribute(
+            'content',
+            window.location.origin + '/' + imagePath
+          );
+        }
+      });
+    </script>
     <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
