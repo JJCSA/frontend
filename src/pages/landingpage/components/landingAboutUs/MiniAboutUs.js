@@ -12,7 +12,7 @@ const MiniAboutUs = () => {
         <div className="about-us-text">
           <blockquote className="quote">
             JJC USA is a non-profit organization, a branch of Jain Jagruti
-            Centre Central Board and Charitable Trust, formed in August 2019
+            Centre Central Board Charitable Trust, formed in August 2019
             with a motive to assist Jain community members living in the United
             States of America. The organization has grown into a thriving
             community of 1000+ members, living by the principle of helping each

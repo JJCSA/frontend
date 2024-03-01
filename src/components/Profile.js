@@ -55,7 +55,9 @@ function Profile() {
       .matches(/^[0-9]{5}$/, 'Zip code must be 5 digits'),
     education: Yup.array().of(
       Yup.object().shape({
-        universityName: Yup.string().required('University Name is required'),
+        universityName: Yup.string()
+          .required('University Name is required')
+          .max(45, 'University Name must be at most 45 characters'),
         gradMonth: Yup.number().required('Grad Month is required'),
         gradYear: Yup.number()
           .required('Graduation Year is required')
@@ -64,12 +66,18 @@ function Profile() {
           .min(1900, 'Graduation year cannot be before 1900')
           .max(2100, 'Graduation year cannot be after 2100')
           .nullable(),
-        specialization: Yup.string().required('Specialization is required'),
-        degree: Yup.string().required('Degree is required'),
+        specialization: Yup.string()
+          .required('Specialization is required')
+          .max(40, 'Specialization must be at most 40 characters'),
+        degree: Yup.string()
+          .required('Degree is required')
+          .max(100, 'Degree must be at most 100 characters'),
       })
     ),
     linkedinUrl: Yup.string().url('Invalid LinkedIn URL'),
-    aboutMe: Yup.string().required('About Me is required'),
+    aboutMe: Yup.string()
+      .required('About Me is required')
+      .max(256, 'About Me must be at most 256 characters'),
     userStudent: Yup.string().required('User Status is required'),
   });
 
@@ -87,7 +95,9 @@ function Profile() {
       .matches(/^[0-9]{5}$/, 'Zip code must be 5 digits'),
     education: Yup.array().of(
       Yup.object().shape({
-        universityName: Yup.string().required('University Name is required'),
+        universityName: Yup.string()
+          .required('University Name is required')
+          .max(45, 'University Name must be at most 45 characters'),
         gradMonth: Yup.number().required('Grad Month is required'),
         gradYear: Yup.number()
           .required('Graduation Year is required')
@@ -96,14 +106,22 @@ function Profile() {
           .min(1900, 'Graduation year cannot be before 1900')
           .max(2100, 'Graduation year cannot be after 2100')
           .nullable(),
-        specialization: Yup.string().required('Specialization is required'),
-        degree: Yup.string().required('Degree is required'),
+        specialization: Yup.string()
+          .required('Specialization is required')
+          .max(40, 'Specialization must be at most 40 characters'),
+        degree: Yup.string()
+          .required('Degree is required')
+          .max(100, 'Degree must be at most 100 characters'),
       })
     ),
     workExperience: Yup.array().of(
       Yup.object().shape({
-        companyName: Yup.string().required('Company Name is required'),
-        role: Yup.string().required('Role is required'),
+        companyName: Yup.string()
+          .required('Company Name is required')
+          .max(45, 'Company Name must be at most 45 characters'),
+        role: Yup.string()
+          .required('Role is required')
+          .max(45, 'Role must be at most 45 characters'),
         location: Yup.string().required('Location is required'),
         totalExp: Yup.number()
           .typeError('Experience (years) must be a number')
@@ -113,9 +131,17 @@ function Profile() {
       })
     ),
     linkedinUrl: Yup.string().url('Invalid LinkedIn URL'),
-    aboutMe: Yup.string().required('About Me is required'),
+    aboutMe: Yup.string()
+      .required('About Me is required')
+      .max(256, 'About Me must be at most 256 characters'),
     userStudent: Yup.string().required('User Status is required'),
   });
+
+  function toUpperCase(str) {
+    return str.replace(/\w\S*/g, function (txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toUpperCase();
+    });
+  }
 
   function toSentenceCase(str) {
     return str.replace(/\w\S*/g, function (txt) {
@@ -133,12 +159,13 @@ function Profile() {
     if (JSON.stringify(globalState.profile) !== JSON.stringify(values)) {
       const reqBody = {
         ...values,
+        gender: toUpperCase(values.gender),
+
         // volunteeringInterest: values.volunteeringInterest.join(','),
       };
       comm
         .sendPut('/user/profile', token, reqBody)
         .then(newProfile => {
-          console.log(newProfile);
           setGlobalState({
             ...globalState,
             profile: newProfile.data,
@@ -487,7 +514,6 @@ function Profile() {
                     className="form-control"
                     placeholder="School/University"
                     id="universityName"
-                    required
                   />
                   <ErrorMessage
                     name="education.0.universityName"
@@ -502,7 +528,6 @@ function Profile() {
                     type="text"
                     className="form-control"
                     placeholder="Specialization"
-                    required
                   />
                   <ErrorMessage
                     name="education.0.specialization"
@@ -517,7 +542,6 @@ function Profile() {
                     type="text"
                     className="form-control"
                     placeholder="Degree"
-                    required
                   />
                   <ErrorMessage
                     name="education.0.degree"
@@ -531,7 +555,6 @@ function Profile() {
                     as="select"
                     name="education.0.gradMonth"
                     className="custom-select"
-                    required
                   >
                     <option value="" disabled>
                       Grad Month
@@ -555,7 +578,6 @@ function Profile() {
                     type="number"
                     className="form-control"
                     placeholder="Grad Year"
-                    required
                   />
                   <ErrorMessage
                     name="education.0.gradYear"
@@ -586,7 +608,6 @@ function Profile() {
                           type="text"
                           className="form-control"
                           placeholder="Company"
-                          required
                         />
                         <ErrorMessage
                           name={`workExperience.${index}.companyName`}
@@ -603,7 +624,6 @@ function Profile() {
                           type="text"
                           className="form-control"
                           placeholder="Role"
-                          required
                         />
                         <ErrorMessage
                           name={`workExperience.${index}.role`}
@@ -620,7 +640,6 @@ function Profile() {
                           type="text"
                           className="form-control"
                           placeholder="Location"
-                          required
                         />
                         <ErrorMessage
                           name={`workExperience.${index}.location`}
@@ -639,7 +658,6 @@ function Profile() {
                           type="text"
                           className="form-control"
                           placeholder="Total Experience"
-                          required
                         />
                         <ErrorMessage
                           name={`workExperience.${index}.totalExp`}

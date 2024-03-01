@@ -100,5 +100,9 @@ export const local = {
   },
 };
 
-export const config = (process.env.REACT_APP_NODE_ENV === 'production') ? production :
-                        (process.env.REACT_APP_NODE_ENV === 'development') ? development : local;
+export const config =
+  process.env.REACT_APP_NODE_ENV === 'production'
+    ? production
+    : process.env.REACT_APP_NODE_ENV === 'development'
+    ? development
+    : local;
