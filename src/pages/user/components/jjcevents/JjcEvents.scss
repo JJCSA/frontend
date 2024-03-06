@@ -1,44 +1,55 @@
 .events {
-    .banner {
-        height: 100px;
-        background-color: #415C83;
+  .banner {
+    height: 100px;
+    background-color: #415c83;
 
-        .center {
-            text-align: center;
-        }
-
-        h2 {
-            text-align: center;
-            color: #ffffff;
-        }
+    .center {
+      text-align: center;
     }
 
-    .past_events {
-        margin-top: 50px;
+    h2 {
+      text-align: center;
+      color: #ffffff;
     }
+  }
 
-    .horizontal-rule {
-        display: flex;
-        align-items: center;
-        text-align: center;
-    }
+  .past_events {
+    margin-top: 50px;
+  }
 
-    .horizontal-rule hr {
-        flex: 1;
-        border: none;
-        border-top: 2px solid #FB7D74;
-        /* Customize the line style here */
-    }
+  .horizontal-rule {
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
 
-    .centered-text {
-        padding: 0 10px;
-        color: #28536B;
-        /* Adjust spacing as needed */
-    }
+  .horizontal-rule hr {
+    flex: 1;
+    border: none;
+    border-top: 2px solid #fb7d74;
+    /* Customize the line style here */
+  }
 
-    .past_title {
-        margin-top: 50px;
-        margin-bottom: 50px;
-    }
+  .centered-text {
+    padding: 0 10px;
+    color: #28536b;
+    /* Adjust spacing as needed */
+  }
 
+  .past_title {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .ongoing_title {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .upcoming_title {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .event-message {
+    text-align: center;
+    color: #28536b;
+  }
 }

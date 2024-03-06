@@ -22,8 +22,20 @@ function PastEventsModal(eventInformation) {
             <p>{eventInformation.description}</p>
           </div>
           <div className="speaker-host">
-            <h5>Speaker</h5>
-            <p>{eventInformation.speaker}</p>
+            {eventInformation.title === "JJC Connect Con'2023" ? (
+              <h5>Hosted by</h5>
+            ) : (
+              <h5>Speaker</h5>
+            )}
+            <div className="speaker-details">
+              <p className="speaker-name">{eventInformation.speaker}</p>
+              <p className="speaker-details1">
+                {eventInformation.speakerDetails1}
+              </p>
+              <p className="speaker-details2">
+                {eventInformation.speakerDetails2}
+              </p>
+            </div>
           </div>
           <div className="event_resources">
             <h5>Resources</h5>
@@ -31,7 +43,7 @@ function PastEventsModal(eventInformation) {
               {eventInformation.video && (
                 <div className="resource-link">
                   <span className="icon">▶</span>
-                  Video{eventInformation.note && `(${eventInformation.note})`}:
+                  Video:
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
@@ -78,6 +90,11 @@ function PastEventsModal(eventInformation) {
                   >
                     {eventInformation.slides}
                   </a>
+                </div>
+              )}
+              {eventInformation.note && (
+                <div className="resource-link">
+                  <b>Note:{eventInformation.note}</b>
                 </div>
               )}
             </div>
