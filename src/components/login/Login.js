@@ -53,8 +53,8 @@ function Login() {
   return (
     <div className="LOGIN">
       <Container fluid className="login-container">
-        <Row>
-          <Col className="login-col">
+        <Row className="main-login-bg">
+          <div className="login-col">
             <div className="login-box">
               <Formik
                 initialValues={{
@@ -159,7 +159,7 @@ function Login() {
                 )}
               </Formik>
             </div>
-          </Col>
+          </div>
           <Col className="image-col"></Col>
         </Row>
       </Container>

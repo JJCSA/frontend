@@ -32,7 +32,7 @@ function Footer() {
                   </li>
                   <li className="mb-2">
                     <a href="https://www.jainjagruti.com/">
-                      JJC Central Board{' '}
+                      JJC Charitable Trust
                     </a>
                   </li>
                 </ul>
@@ -85,7 +85,7 @@ function Footer() {
                 </h6>
                 <p className="mb-4">
                   JJC USA is a non profit organization, a branch of Jain Jagruti
-                  Centre Central Board and Charitable trust
+                  Centre Central Board Charitable Trust
                 </p>
                 <p className="mb-4">
                   <a

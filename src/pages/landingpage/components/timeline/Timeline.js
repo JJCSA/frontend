@@ -13,6 +13,7 @@ import {
   jjcsearch,
   immigrant,
   mortgage,
+  connectCon,
 } from '../../../../assets/images/images-index';
 import './Timeline.scss'; // Import the custom CSS file
 
@@ -105,6 +106,13 @@ const Timeline = () => {
         'The First Time Home Buying Seminar an event organized for members, providing them with essential knowledge and practical tips to confidently navigate the home buying process. From understanding the housing market and mortgage options to negotiating deals and completing paperwork, this seminar aims to empower members in making informed decisions and achieving their dream of owning a home.',
       image: mortgage,
     },
+    {
+      title: '2023-JULY',
+      cardTitle: 'JJC ConnectCon',
+      cardDetailedText:
+        'JJC ConnectCon hosted by JJC USA in Edison, NJ in July 2023 brought together Jain students and professionals. The event provided a collaborative platform for exchanging ideas, connecting with industry leaders, and forging lasting partnerships. Participants had the opportunity to break boundaries, expand networks and learn from experienced speakers.',
+      image: connectCon,
+    },
   ];
   const items = [
     {
@@ -142,6 +150,9 @@ const Timeline = () => {
     },
     {
       title: '2023-MARCH',
+    },
+    {
+      title: '2023-JULY',
     },
   ];
   const handleTimelineClick = (timelineItem, index) => {

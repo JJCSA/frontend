@@ -55,7 +55,9 @@ function Profile() {
       .matches(/^[0-9]{5}$/, 'Zip code must be 5 digits'),
     education: Yup.array().of(
       Yup.object().shape({
-        universityName: Yup.string().required('University Name is required'),
+        universityName: Yup.string()
+          .required('University Name is required')
+          .max(45, 'University Name must be at most 45 characters'),
         gradMonth: Yup.number().required('Grad Month is required'),
         gradYear: Yup.number()
           .required('Graduation Year is required')
@@ -64,12 +66,18 @@ function Profile() {
           .min(1900, 'Graduation year cannot be before 1900')
           .max(2100, 'Graduation year cannot be after 2100')
           .nullable(),
-        specialization: Yup.string().required('Specialization is required'),
-        degree: Yup.string().required('Degree is required'),
+        specialization: Yup.string()
+          .required('Specialization is required')
+          .max(40, 'Specialization must be at most 40 characters'),
+        degree: Yup.string()
+          .required('Degree is required')
+          .max(100, 'Degree must be at most 100 characters'),
       })
     ),
     linkedinUrl: Yup.string().url('Invalid LinkedIn URL'),
-    aboutMe: Yup.string().required('About Me is required'),
+    aboutMe: Yup.string()
+      .required('About Me is required')
+      .max(256, 'About Me must be at most 256 characters'),
     userStudent: Yup.string().required('User Status is required'),
   });
 
@@ -87,7 +95,9 @@ function Profile() {
       .matches(/^[0-9]{5}$/, 'Zip code must be 5 digits'),
     education: Yup.array().of(
       Yup.object().shape({
-        universityName: Yup.string().required('University Name is required'),
+        universityName: Yup.string()
+          .required('University Name is required')
+          .max(45, 'University Name must be at most 45 characters'),
         gradMonth: Yup.number().required('Grad Month is required'),
         gradYear: Yup.number()
           .required('Graduation Year is required')
@@ -96,14 +106,22 @@ function Profile() {
           .min(1900, 'Graduation year cannot be before 1900')
           .max(2100, 'Graduation year cannot be after 2100')
           .nullable(),
-        specialization: Yup.string().required('Specialization is required'),
-        degree: Yup.string().required('Degree is required'),
+        specialization: Yup.string()
+          .required('Specialization is required')
+          .max(40, 'Specialization must be at most 40 characters'),
+        degree: Yup.string()
+          .required('Degree is required')
+          .max(100, 'Degree must be at most 100 characters'),
       })
     ),
     workExperience: Yup.array().of(
       Yup.object().shape({
-        companyName: Yup.string().required('Company Name is required'),
-        role: Yup.string().required('Role is required'),
+        companyName: Yup.string()
+          .required('Company Name is required')
+          .max(45, 'Company Name must be at most 45 characters'),
+        role: Yup.string()
+          .required('Role is required')
+          .max(45, 'Role must be at most 45 characters'),
         location: Yup.string().required('Location is required'),
         totalExp: Yup.number()
           .typeError('Experience (years) must be a number')
@@ -113,9 +131,23 @@ function Profile() {
       })
     ),
     linkedinUrl: Yup.string().url('Invalid LinkedIn URL'),
-    aboutMe: Yup.string().required('About Me is required'),
+    aboutMe: Yup.string()
+      .required('About Me is required')
+      .max(256, 'About Me must be at most 256 characters'),
     userStudent: Yup.string().required('User Status is required'),
   });
+
+  function toUpperCase(str) {
+    return str.replace(/\w\S*/g, function (txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toUpperCase();
+    });
+  }
+
+  function toSentenceCase(str) {
+    return str.replace(/\w\S*/g, function (txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+  }
 
   const [validationSchema, setValidationSchema] = useState(
     globalState.profile.userStudent
@@ -127,12 +159,13 @@ function Profile() {
     if (JSON.stringify(globalState.profile) !== JSON.stringify(values)) {
       const reqBody = {
         ...values,
+        gender: toUpperCase(values.gender),
+
         // volunteeringInterest: values.volunteeringInterest.join(','),
       };
       comm
         .sendPut('/user/profile', token, reqBody)
         .then(newProfile => {
-          console.log(newProfile);
           setGlobalState({
             ...globalState,
             profile: newProfile.data,
@@ -152,6 +185,7 @@ function Profile() {
       <Formik
         initialValues={{
           ...globalState.profile,
+          gender: toSentenceCase(globalState.profile.gender),
         }}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
@@ -161,255 +195,287 @@ function Profile() {
             <div className="form-row">
               <div className="profile-image-container col">
                 <img
-                  className="profile-image"
+                  className="profile-image avatar"
                   src={values.profilePicture}
                   alt="Profile"
                 />
               </div>
             </div>
             <h6>Personal Info</h6>
-            <div className="form-row">
-              <div className="col">
-                <label htmlFor="firstName">First Name</label>
-                <Field
-                  type="text"
-                  className="form-control"
-                  placeholder="First name"
-                  id="firstName"
-                  name="firstName"
-                  disabled
-                />
-                <ErrorMessage
-                  name="firstName"
-                  component="div"
-                  className="error"
-                />
+            <div className="form-section">
+              <div className="form-row">
+                <div className="col">
+                  <label htmlFor="firstName">First Name</label>
+                  <Field
+                    type="text"
+                    className="form-control"
+                    placeholder="First name"
+                    id="firstName"
+                    name="firstName"
+                    disabled
+                  />
+                  <ErrorMessage
+                    name="firstName"
+                    component="div"
+                    className="error"
+                  />
+                </div>
+                <div className="col">
+                  <label htmlFor="lastName">Last Name</label>
+                  <Field
+                    type="text"
+                    className="form-control"
+                    placeholder="Last name"
+                    id="lastName"
+                    name="lastName"
+                    disabled
+                  />
+                  <ErrorMessage
+                    name="lastName"
+                    component="div"
+                    className="error"
+                  />
+                </div>
               </div>
-              <div className="col">
-                <label htmlFor="lastName">Last Name</label>
-                <Field
-                  type="text"
-                  className="form-control"
-                  placeholder="Last name"
-                  id="lastName"
-                  name="lastName"
-                  disabled
-                />
-                <ErrorMessage
-                  name="lastName"
-                  component="div"
-                  className="error"
-                />
+
+              {/* Rest of the form fields */}
+              <div className="form-row">
+                <div className="col">
+                  <label htmlFor="email">Email Address</label>
+                  <Field
+                    type="text"
+                    className="form-control"
+                    placeholder="Email Address"
+                    id="email"
+                    name="email"
+                    disabled
+                  />
+                  <ErrorMessage
+                    name="email"
+                    component="div"
+                    className="error"
+                  />
+                </div>
+                <div className="col">
+                  <label htmlFor="gender">Gender</label>
+                  <Field
+                    type="text"
+                    className="form-control"
+                    placeholder="Gender"
+                    id="gender"
+                    name="gender"
+                    disabled
+                  />
+                  <ErrorMessage
+                    name="gender"
+                    component="div"
+                    className="error"
+                  />
+                </div>
+                <div className="col">
+                  <label htmlFor="dateOfBirth">Date of Birth</label>
+                  <Field
+                    type="date"
+                    className="form-control"
+                    placeholder="DOB"
+                    id="dateOfBirth"
+                    name="dateOfBirth"
+                    value={formatDatePickerInput(values.dateOfBirth)}
+                    disabled
+                  />
+                  <ErrorMessage
+                    name="dateOfBirth"
+                    component="div"
+                    className="error"
+                  />
+                </div>
               </div>
-            </div>
-            {/* Rest of the form fields */}
-            <div className="form-row">
-              <div className="col">
-                <label htmlFor="email">Email Address</label>
-                <Field
-                  type="text"
-                  className="form-control"
-                  placeholder="Email Address"
-                  id="email"
-                  name="email"
-                  disabled
-                />
-                <ErrorMessage name="email" component="div" className="error" />
+              <div className="form-row">
+                <div className="col">
+                  <label htmlFor="street">Street *</label>
+                  <Field
+                    type="text"
+                    className="form-control"
+                    placeholder="Street"
+                    id="street"
+                    name="street"
+                    required
+                  />
+                  <ErrorMessage
+                    name="street"
+                    component="div"
+                    className="error"
+                  />
+                </div>
               </div>
-              <div className="col">
-                <label htmlFor="gender">Gender</label>
-                <Field
-                  type="text"
-                  className="form-control"
-                  placeholder="Gender"
-                  id="gender"
-                  name="gender"
-                  disabled
-                />
-                <ErrorMessage name="gender" component="div" className="error" />
-              </div>
-              <div className="col">
-                <label htmlFor="dateOfBirth">Date of Birth</label>
-                <Field
-                  type="date"
-                  className="form-control"
-                  placeholder="DOB"
-                  id="dateOfBirth"
-                  name="dateOfBirth"
-                  value={formatDatePickerInput(values.dateOfBirth)}
-                  disabled
-                />
-                <ErrorMessage
-                  name="dateOfBirth"
-                  component="div"
-                  className="error"
-                />
-              </div>
-            </div>
-            <div className="form-row">
-              <div className="col">
-                <label htmlFor="street">Street *</label>
-                <Field
-                  type="text"
-                  className="form-control"
-                  placeholder="Street"
-                  id="street"
-                  name="street"
-                  required
-                />
-                <ErrorMessage name="street" component="div" className="error" />
-              </div>
-            </div>
-            <div className="form-row">
-              <div className="col">
-                <label htmlFor="country">Country *</label>
-                <Field
-                  as="select"
-                  className="custom-select"
-                  id="country"
-                  name="country"
-                  required
-                >
-                  <option value="" disabled>
-                    Country *
-                  </option>
-                  <option value="US">United States</option>
-                  {/* Add more country options as needed */}
-                </Field>
-                <ErrorMessage
-                  name="country"
-                  component="div"
-                  className="error"
-                />
-              </div>
-              <div className="col">
-                <label htmlFor="state">State *</label>
-                <Field
-                  as="select"
-                  className="custom-select"
-                  id="state"
-                  name="state"
-                  required
-                >
-                  <option value="" disabled>
-                    State *
-                  </option>
-                  {State.getStatesOfCountry(values.country).map(state => (
-                    <option key={state.isoCode} value={state.isoCode}>
-                      {state.name}
+              <div className="form-row">
+                <div className="col">
+                  <label htmlFor="country">Country *</label>
+                  <Field
+                    as="select"
+                    className="custom-select"
+                    id="country"
+                    name="country"
+                    required
+                  >
+                    <option value="" disabled>
+                      Country *
                     </option>
-                  ))}
-                </Field>
-                <ErrorMessage name="state" component="div" className="error" />
-              </div>
-            </div>
-            <div className="form-row">
-              <div className="col">
-                <label htmlFor="city">City *</label>
-                <Field
-                  as="select"
-                  className="custom-select"
-                  id="city"
-                  name="city"
-                  required
-                >
-                  <option value="" disabled>
-                    City *
-                  </option>
-                  {City.getCitiesOfState(values.country, values.state).map(
-                    stateCity => (
-                      <option key={stateCity.isoCode} value={stateCity.name}>
-                        {stateCity.name}
+                    <option value="US">United States</option>
+                    {/* Add more country options as needed */}
+                  </Field>
+                  <ErrorMessage
+                    name="country"
+                    component="div"
+                    className="error"
+                  />
+                </div>
+                <div className="col">
+                  <label htmlFor="state">State *</label>
+                  <Field
+                    as="select"
+                    className="custom-select"
+                    id="state"
+                    name="state"
+                    required
+                  >
+                    <option value="" disabled>
+                      State *
+                    </option>
+                    {State.getStatesOfCountry(values.country).map(state => (
+                      <option key={state.isoCode} value={state.isoCode}>
+                        {state.name}
                       </option>
-                    )
-                  )}
-                </Field>
-                <ErrorMessage name="city" component="div" className="error" />
+                    ))}
+                  </Field>
+                  <ErrorMessage
+                    name="state"
+                    component="div"
+                    className="error"
+                  />
+                </div>
               </div>
-              <div className="col">
-                <label htmlFor="zip">Zipcode *</label>
-                <Field
-                  type="text"
-                  className="form-control"
-                  placeholder="Zipcode"
-                  id="zip"
-                  name="zip"
-                  required
-                />
-                <ErrorMessage name="zip" component="div" className="error" />
+              <div className="form-row">
+                <div className="col">
+                  <label htmlFor="city">City *</label>
+                  <Field
+                    as="select"
+                    className="custom-select"
+                    id="city"
+                    name="city"
+                    required
+                  >
+                    <option value="" disabled>
+                      City *
+                    </option>
+                    {City.getCitiesOfState(values.country, values.state).map(
+                      stateCity => (
+                        <option key={stateCity.isoCode} value={stateCity.name}>
+                          {stateCity.name}
+                        </option>
+                      )
+                    )}
+                  </Field>
+                  <ErrorMessage name="city" component="div" className="error" />
+                </div>
+                <div className="col">
+                  <label htmlFor="zip">Zipcode *</label>
+                  <Field
+                    type="text"
+                    className="form-control"
+                    placeholder="Zipcode"
+                    id="zip"
+                    name="zip"
+                    required
+                  />
+                  <ErrorMessage name="zip" component="div" className="error" />
+                </div>
               </div>
             </div>
             {/* New fields */}
             <h6>Additional Details</h6>
-            <div className="form-row">
-              <div className="col">
-                <label htmlFor="linkedinUrl">LinkedIn URL</label>
-                <Field
-                  type="text"
-                  className="form-control"
-                  placeholder="LinkedIn URL"
-                  id="linkedinUrl"
-                  name="linkedinUrl"
-                />
-                <ErrorMessage
-                  name="linkedinUrl"
-                  component="div"
-                  className="error"
-                />
+            <div className="form-section">
+              <div className="form-row">
+                <div className="col">
+                  <label htmlFor="linkedinUrl">LinkedIn URL</label>
+                  <Field
+                    type="text"
+                    className="form-control"
+                    placeholder="LinkedIn URL"
+                    id="linkedinUrl"
+                    name="linkedinUrl"
+                  />
+                  <ErrorMessage
+                    name="linkedinUrl"
+                    component="div"
+                    className="error"
+                  />
+                </div>
+                <div className="col">
+                  <label htmlFor="userStudent">Current Status *</label>
+                  <Field
+                    as="select"
+                    className="custom-select"
+                    name="userStudent"
+                    value={values.userStudent ? 'STUDENT' : 'PROFESSIONAL'}
+                    onChange={e => {
+                      setFieldValue(
+                        'userStudent',
+                        e.target.value === 'STUDENT' ? true : false
+                      );
+                      if (e.target.value === 'STUDENT') {
+                        setValidationSchema(validationSchemaWithStudent);
+                      } else {
+                        setValidationSchema(validationSchemaWithProfessional);
+                      }
+                    }}
+                    required
+                  >
+                    <option value="" disabled>
+                      Select your current status(Student/Working Professional) *
+                    </option>
+                    <option selected={values.userStudent} value="STUDENT">
+                      Student
+                    </option>
+                    <option selected={!values.userStudent} value="PROFESSIONAL">
+                      Professional
+                    </option>
+                  </Field>
+                  <ErrorMessage
+                    name="userStudent"
+                    component="div"
+                    className="error"
+                  />
+                </div>
               </div>
-              <div className="col">
-                <label htmlFor="userStudent">User Status *</label>
-                <Field
-                  as="select"
-                  className="custom-select"
-                  name="userStudent"
-                  value={values.userStudent ? 'STUDENT' : 'PROFESSIONAL'}
-                  onChange={e => {
-                    setFieldValue(
-                      'userStudent',
-                      e.target.value === 'STUDENT' ? true : false
-                    );
-                    if (e.target.value === 'STUDENT') {
-                      setValidationSchema(validationSchemaWithStudent);
-                    } else {
-                      setValidationSchema(validationSchemaWithProfessional);
-                    }
-                  }}
-                  required
-                >
-                  <option value="" disabled>
-                    Select your current status(Student/Working Professional) *
-                  </option>
-                  <option selected={values.userStudent} value="STUDENT">
-                    Student
-                  </option>
-                  <option selected={!values.userStudent} value="PROFESSIONAL">
-                    Professional
-                  </option>
-                </Field>
-                <ErrorMessage
-                  name="userStudent"
-                  component="div"
-                  className="error"
-                />
+              <div className="form-row">
+                <div className="col">
+                  <label htmlFor="aboutMe">About Me</label>
+                  <Field
+                    as="textarea"
+                    className="form-control"
+                    placeholder="Tell something about yourself..."
+                    id="aboutMe"
+                    name="aboutMe"
+                  />
+                  <ErrorMessage
+                    name="aboutMe"
+                    component="div"
+                    className="error"
+                  />
+                </div>
               </div>
-            </div>
-            <div className="form-row">
-              <div className="col">
-                <label htmlFor="aboutMe">About Me</label>
-                <Field
-                  as="textarea"
-                  className="form-control"
-                  placeholder="Tell something about yourself..."
-                  id="aboutMe"
-                  name="aboutMe"
-                />
-                <ErrorMessage
-                  name="aboutMe"
-                  component="div"
-                  className="error"
-                />
-              </div>
+              {values.userStudent && values.workExperience.length === 0 ? (
+                <p className="userStudent">
+                  <b>
+                    Note: Please update your current status to "Professional" if
+                    you are a recent graduate or wish to include professional
+                    experience.
+                  </b>
+                </p>
+              ) : (
+                <></>
+              )}
             </div>
             {/* <div className="form-row">
               <div className="col">
@@ -437,168 +503,173 @@ function Profile() {
                 />
               </div>
             </div> */}
-
             <h6>Education details</h6>
-            <div className="form-row">
-              <div className="col">
-                <label htmlFor="universityName">School/University *</label>
-                <Field
-                  name="education.0.universityName"
-                  type="text"
-                  className="form-control"
-                  placeholder="School/University"
-                  id="universityName"
-                  required
-                />
-                <ErrorMessage
-                  name="education.0.universityName"
-                  component="div"
-                  className="error"
-                />
-              </div>
-              <div className="col">
-                <label htmlFor="specialization">Specialization *</label>
-                <Field
-                  name="education.0.specialization"
-                  type="text"
-                  className="form-control"
-                  placeholder="Specialization"
-                  required
-                />
-                <ErrorMessage
-                  name="education.0.specialization"
-                  component="div"
-                  className="error"
-                />
-              </div>
-              <div className="col">
-                <label htmlFor="degree">Degree *</label>
-                <Field
-                  name="education.0.degree"
-                  type="text"
-                  className="form-control"
-                  placeholder="Degree"
-                  required
-                />
-                <ErrorMessage
-                  name="education.0.degree"
-                  component="div"
-                  className="error"
-                />
-              </div>
-              <div className="col">
-                <label htmlFor="gradMonth">Grad Month *</label>
-                <Field
-                  as="select"
-                  name="education.0.gradMonth"
-                  className="custom-select"
-                  required
-                >
-                  <option value="" disabled>
-                    Grad Month
-                  </option>
-                  {months.map((month, idx) => (
-                    <option key={idx} value={idx}>
-                      {month}
+            <div className="form-section">
+              <div className="form-row">
+                <div className="col">
+                  <label htmlFor="universityName">School/University *</label>
+                  <Field
+                    name="education.0.universityName"
+                    type="text"
+                    className="form-control"
+                    placeholder="School/University"
+                    id="universityName"
+                  />
+                  <ErrorMessage
+                    name="education.0.universityName"
+                    component="div"
+                    className="error"
+                  />
+                </div>
+                <div className="col">
+                  <label htmlFor="specialization">Specialization *</label>
+                  <Field
+                    name="education.0.specialization"
+                    type="text"
+                    className="form-control"
+                    placeholder="Specialization"
+                  />
+                  <ErrorMessage
+                    name="education.0.specialization"
+                    component="div"
+                    className="error"
+                  />
+                </div>
+                <div className="col">
+                  <label htmlFor="degree">Degree *</label>
+                  <Field
+                    name="education.0.degree"
+                    type="text"
+                    className="form-control"
+                    placeholder="Degree"
+                  />
+                  <ErrorMessage
+                    name="education.0.degree"
+                    component="div"
+                    className="error"
+                  />
+                </div>
+                <div className="col">
+                  <label htmlFor="gradMonth">Grad Month *</label>
+                  <Field
+                    as="select"
+                    name="education.0.gradMonth"
+                    className="custom-select"
+                  >
+                    <option value="" disabled>
+                      Grad Month
                     </option>
-                  ))}
-                </Field>
-                <ErrorMessage
-                  name="education.0.gradMonth"
-                  component="div"
-                  className="error"
-                />
-              </div>
-              <div className="col">
-                <label htmlFor="gradYear">Grad Year *</label>
-                <Field
-                  name="education.0.gradYear"
-                  type="number"
-                  className="form-control"
-                  placeholder="Grad Year"
-                  required
-                />
-                <ErrorMessage
-                  name="education.0.gradYear"
-                  component="div"
-                  className="error"
-                />
+                    {months.map((month, idx) => (
+                      <option key={idx} value={idx}>
+                        {month}
+                      </option>
+                    ))}
+                  </Field>
+                  <ErrorMessage
+                    name="education.0.gradMonth"
+                    component="div"
+                    className="error"
+                  />
+                </div>
+                <div className="col">
+                  <label htmlFor="gradYear">Grad Year *</label>
+                  <Field
+                    name="education.0.gradYear"
+                    type="number"
+                    className="form-control"
+                    placeholder="Grad Year"
+                  />
+                  <ErrorMessage
+                    name="education.0.gradYear"
+                    component="div"
+                    className="error"
+                  />
+                </div>
               </div>
             </div>
-
             {/* Professional details */}
-            <h6>Experience details</h6>
-            {values.workExperience.map((exp, index) => (
-              <div key={index} className="form-row">
-                <div className="col">
-                  <label htmlFor={`workExperience.${index}.companyName`}>
-                    {`Company Name${values.userStudent ? '' : ' *'}`}
-                  </label>
-                  <Field
-                    name={`workExperience.${index}.companyName`}
-                    type="text"
-                    className="form-control"
-                    placeholder="Company"
-                  />
-                  <ErrorMessage
-                    name={`workExperience.${index}.companyName`}
-                    component="div"
-                    className="error"
-                  />
+            {values.userStudent && values.workExperience.length === 0 ? (
+              <></>
+            ) : (
+              <>
+                <h6>Professional details</h6>
+                <div className="form-section">
+                  {(values.workExperience.length > 0
+                    ? values.workExperience
+                    : [{}]
+                  ).map((exp, index) => (
+                    <div key={index} className="form-row">
+                      <div className="col">
+                        <label htmlFor={`workExperience.${index}.companyName`}>
+                          {`Company Name${values.userStudent ? '' : ' *'}`}
+                        </label>
+                        <Field
+                          name={`workExperience.${index}.companyName`}
+                          type="text"
+                          className="form-control"
+                          placeholder="Company"
+                        />
+                        <ErrorMessage
+                          name={`workExperience.${index}.companyName`}
+                          component="div"
+                          className="error"
+                        />
+                      </div>
+                      <div className="col">
+                        <label htmlFor={`workExperience.${index}.role`}>{`Role${
+                          values.userStudent ? '' : ' *'
+                        }`}</label>
+                        <Field
+                          name={`workExperience.${index}.role`}
+                          type="text"
+                          className="form-control"
+                          placeholder="Role"
+                        />
+                        <ErrorMessage
+                          name={`workExperience.${index}.role`}
+                          component="div"
+                          className="error"
+                        />
+                      </div>
+                      <div className="col">
+                        <label htmlFor={`workExperience.${index}.location`}>
+                          {`Location${values.userStudent ? '' : ' *'}`}
+                        </label>
+                        <Field
+                          name={`workExperience.${index}.location`}
+                          type="text"
+                          className="form-control"
+                          placeholder="Location"
+                        />
+                        <ErrorMessage
+                          name={`workExperience.${index}.location`}
+                          component="div"
+                          className="error"
+                        />
+                      </div>
+                      <div className="col">
+                        <label htmlFor={`workExperience.${index}.totalExp`}>
+                          {`Total Experience (years)${
+                            values.userStudent ? '' : ' *'
+                          }`}
+                        </label>
+                        <Field
+                          name={`workExperience.${index}.totalExp`}
+                          type="text"
+                          className="form-control"
+                          placeholder="Total Experience"
+                        />
+                        <ErrorMessage
+                          name={`workExperience.${index}.totalExp`}
+                          component="div"
+                          className="error"
+                        />
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <div className="col">
-                  <label htmlFor={`workExperience.${index}.role`}>{`Role${
-                    values.userStudent ? '' : ' *'
-                  }`}</label>
-                  <Field
-                    name={`workExperience.${index}.role`}
-                    type="text"
-                    className="form-control"
-                    placeholder="Role"
-                  />
-                  <ErrorMessage
-                    name={`workExperience.${index}.role`}
-                    component="div"
-                    className="error"
-                  />
-                </div>
-                <div className="col">
-                  <label htmlFor={`workExperience.${index}.location`}>
-                    {`Location${values.userStudent ? '' : ' *'}`}
-                  </label>
-                  <Field
-                    name={`workExperience.${index}.location`}
-                    type="text"
-                    className="form-control"
-                    placeholder="Location"
-                  />
-                  <ErrorMessage
-                    name={`workExperience.${index}.location`}
-                    component="div"
-                    className="error"
-                  />
-                </div>
-                <div className="col">
-                  <label htmlFor={`workExperience.${index}.totalExp`}>
-                    {`Total Experience (years)${
-                      values.userStudent ? '' : ' *'
-                    }`}
-                  </label>
-                  <Field
-                    name={`workExperience.${index}.totalExp`}
-                    type="text"
-                    className="form-control"
-                    placeholder="Total Experience"
-                  />
-                  <ErrorMessage
-                    name={`workExperience.${index}.totalExp`}
-                    component="div"
-                    className="error"
-                  />
-                </div>
-              </div>
-            ))}
-
+              </>
+            )}
             <div className="form-row mt-3">
               <div className="col">
                 <button

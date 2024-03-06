@@ -73,12 +73,12 @@ function AdminPanel(props) {
       </SideNav>
       <Main expanded={expanded}>
         <Outlet />
+        <div className="copyright-admin-footer">
+          <BiCopyright />
+          &nbsp;
+          {getCurrentYear()}&nbsp;Copyright reserved JJC USA
+        </div>
       </Main>
-      <div className="copyright-admin-footer">
-        <BiCopyright />
-        &nbsp;
-        {getCurrentYear()}&nbsp;Copyright reserved JJC USA
-      </div>
     </div>
   );
 }
