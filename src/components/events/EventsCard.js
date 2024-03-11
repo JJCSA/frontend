@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import './PastEventsCard.scss';
+import './EventsCard.scss';
 import { Button, Modal } from 'react-bootstrap';
-import PastEventsModal from './PastEventsModal';
+import PastEventsModal from './EventsModal';
 
-function PastEventsCard(event_information) {
+function EventsCard(event_information) {
   const [show, setShow] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const img_base = '/events/';
@@ -58,4 +58,4 @@ function PastEventsCard(event_information) {
   );
 }
 
-export default PastEventsCard;
+export default EventsCard;

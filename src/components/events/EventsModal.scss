@@ -82,7 +82,7 @@
     .resources-section {
       .resource-link {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         margin-bottom: 15px;
 
         .icon {
@@ -91,10 +91,12 @@
         }
 
         a {
-          padding: 8px;
+          white-space: normal; /* Allow wrapping within words */
+          word-break: break-all; /* Break at any character, including within words */
           text-decoration: underline;
           color: #007bff;
           font-size: 16px;
+          margin-left: 10px;
         }
       }
     }
