@@ -14,7 +14,6 @@ import GlobalContext from '../../store/GlobalContext';
 function UserNavbar() {
   const signOut = useSignOut();
   const { globalState } = useContext(GlobalContext);
-
   const userDropdown = (
     <Popover>
       <Popover.Content className="user-profile-dropdown-content">
@@ -86,13 +85,21 @@ function UserNavbar() {
           >
             FAQ'S
           </NavHashLink>
+          <NavHashLink
+            to="/events"
+            className="nav-item nav-link active navbarhover px-3"
+            smooth
+            activeClassName="activeLink"
+          >
+            EVENTS
+          </NavHashLink>
         </div>
         <form className="form-inline">
           <Avatar
             imgSrc={
               Object.keys(globalState.profile).length > 0
                 ? globalState.profile.profilePicture
-                : ''
+                : null
             }
           />
           <h6 className="m-3">

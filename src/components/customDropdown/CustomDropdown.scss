@@ -55,12 +55,25 @@
   font-weight: $semiBold;
 
   &:active,
-  &:hover,
   &:focus {
     background-color: $white !important;
     color: black !important;
     box-shadow: none;
     font-weight: $bold !important;
     opacity: 100% !important;
+  }
+
+  &:hover {
+    background-color: $white !important;
+    color: black !important; // Change text color to black on hover
+    box-shadow: none;
+    font-weight: $bold !important;
+    opacity: 100% !important;
+  }
+}
+
+.dropdownMenu .dropdownItem {
+  &:hover {
+    color: black !important; // Increase specificity for hover color
   }
 }
