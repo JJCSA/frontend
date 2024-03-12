@@ -60,7 +60,7 @@
     color: black !important;
     box-shadow: none;
     font-weight: $bold !important;
-    opacity: 100% !important;
+    opacity: 100 !important;
   }
 
   &:hover {
@@ -68,12 +68,6 @@
     color: black !important; // Change text color to black on hover
     box-shadow: none;
     font-weight: $bold !important;
-    opacity: 100% !important;
-  }
-}
-
-.dropdownMenu .dropdownItem {
-  &:hover {
-    color: black !important; // Increase specificity for hover color
+    opacity: 100 !important;
   }
 }

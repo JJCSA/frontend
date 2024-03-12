@@ -96,7 +96,7 @@ function JjcEvents() {
                 video="https://drive.google.com/file/d/1nDVSOpwDl1UKvFqH5stQMpOyvhRHUZZW/view"
                 note="Download the video and play on your device."
                 material="https://drive.google.com/file/d/1U0o544k-xJVwS5Ya_p---sVRzepEcGtU/view"
-                img="Entrepreneur.jpg"
+                img="entrepreneur.jpg"
                 date="18th Feb 2023"
                 speaker="Aditya Sharma"
                 speakerDetails1="CEO and Co-Founder of HiCounselor, Ex-Deloitte &amp; PwC"
