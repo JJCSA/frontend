@@ -1,6 +1,6 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Routes as Switch,
   Route,
   Navigate,
@@ -46,6 +46,7 @@ function Routes() {
   const signOutFunc = useSignOut();
   const [showNavbar, setShowNavbar] = useState(true);
   const [showFooter, setShowFooter] = useState(true);
+  const [redirectPath, setRedirectPath] = useState(null);
 
   const toggleNavbar = toggle => {
     setShowNavbar(toggle);
@@ -170,13 +171,12 @@ function Routes() {
       </Switch>
     );
   }
-
   return (
-    <Router>
+    <BrowserRouter>
       {showNavbar && <Navbar />}
       <div className="APP">{routes}</div>
       {showFooter && <Footer />}
-    </Router>
+    </BrowserRouter>
   );
 }
 
