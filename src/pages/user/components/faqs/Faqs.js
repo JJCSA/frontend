@@ -13,7 +13,7 @@ const Faqs = () => {
             </b>
           </h6>
           <ul>
-            <li className="py-2">
+            <li className="py-2 faq-link">
               <a
                 href="https://docs.google.com/document/d/1ULHlXbBjiMmFGPrpVIhyL0HDyXGapj-645iKK66Qnck/edit?usp=sharing"
                 target="_blank"
@@ -23,7 +23,7 @@ const Faqs = () => {
                 For Students transitioning to USA - Travel Checklist{' '}
               </a>
             </li>
-            <li className="py-2">
+            <li className="py-2 faq-link">
               <a
                 href="https://docs.google.com/document/d/13LEEgoc2qOGUMZC77OhdzR83W-7D-f7l/edit?usp=sharing"
                 target="_blank"
@@ -33,7 +33,7 @@ const Faqs = () => {
                 For Students in Application Phase{' '}
               </a>
             </li>
-            <li className="py-2">
+            <li className="py-2 faq-link">
               <a
                 href="https://docs.google.com/document/d/1rEXpwXxFVEyXWomSoo58e-8YKsjGR91h/edit?usp=sharing"
                 target="_blank"
