@@ -110,7 +110,7 @@ function LandingNavBar() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            JJC Central Board
+            JJC Charitable Trust
           </a>
         </div>
         <form className="form-inline">

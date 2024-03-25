@@ -7,6 +7,54 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <meta name="theme-color" content="#000000" />
+    <meta property="og:title" content="JJC USA" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:description"
+      content="JJC USA is a non-profit organization, a branch of Jain Jagruti Centre Central Board Charitable Trust, formed in August 2019 with a motive to assist Jain community members living in the United States of America"
+    />
+    <meta property="og:image" content="" />
+    <!-- Will be set dynamically -->
+    <meta property="og:url" content="" />
+    <!-- Will be set dynamically -->
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="" />
+    <meta name="twitter:title" content="JJC USA" />
+    <meta
+      name="twitter:description"
+      content="JJC USA is a non-profit organization, a branch of Jain Jagruti Centre Central Board Charitable Trust, formed in August 2019 with a motive to assist Jain community members living in the United States of America"
+    />
+    <meta name="twitter:image" content="" />
+
+    <!-- Add a script to set the host URL and image dynamically -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var ogUrlMeta = document.querySelector('meta[property="og:url"]');
+        var ogImageMeta = document.querySelector('meta[property="og:image"]');
+        var twiiterImageMeta = document.querySelector(
+          'meta[property="twitter:image"]'
+        );
+        var twitterUrl = document.querySelector('meta[property="twitter:url"]');
+
+        if (ogUrlMeta && ogImageMeta && twiiterImageMeta && twitterUrl) {
+          ogUrlMeta.setAttribute('content', window.location.origin);
+          twitterUrl.setAttribute('content', window.location.origin);
+
+          // Set the image dynamically (replace 'your_image_path' with the actual path)
+          var imagePath = 'static/media/together.37630334.png'; // Example path
+          ogImageMeta.setAttribute(
+            'content',
+            window.location.origin + '/' + imagePath
+          );
+          twiiterImageMeta.setAttribute(
+            'content',
+            window.location.origin + '/' + imagePath
+          );
+        }
+      });
+    </script>
     <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/

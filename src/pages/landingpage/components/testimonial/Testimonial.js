@@ -128,7 +128,7 @@ function Testimonial() {
                 time. Again thank you from the bottom of my heart for this
                 initiative.
               </p>
-              <p className="author mt-3">- Dhawani Doshi</p>
+              <p className="author mt-3">- Dhwani Doshi</p>
             </div>
           </div>
           <div className="testimonial-card">

@@ -19,7 +19,7 @@
   &:hover,
   &:focus {
     background-color: $white !important;
-    color: $slateGrey !important;
+    color: black !important;
     border: 2px solid $slateGrey !important;
     box-shadow: none;
     outline: none;
@@ -55,11 +55,19 @@
   font-weight: $semiBold;
 
   &:active,
-  &:hover,
   &:focus {
     background-color: $white !important;
+    color: black !important;
     box-shadow: none;
     font-weight: $bold !important;
-    opacity: 100% !important;
+    opacity: 100 !important;
+  }
+
+  &:hover {
+    background-color: $white !important;
+    color: black !important; // Change text color to black on hover
+    box-shadow: none;
+    font-weight: $bold !important;
+    opacity: 100 !important;
   }
 }

@@ -1,0 +1,57 @@
+.events {
+  .banner {
+    height: 100px;
+    background-color: #415c83;
+
+    .center {
+      text-align: center;
+    }
+
+    h2 {
+      text-align: center;
+      color: #ffffff;
+    }
+  }
+
+  .horizontal-rule {
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+  .horizontal-rule hr {
+    flex: 1;
+    border: none;
+    border-top: 2px solid #fb7d74;
+    /* Customize the line style here */
+  }
+
+  .centered-text {
+    padding: 0 10px;
+    color: #2c5797;
+    font-style: normal;
+    font-weight: 800;
+    font-size: medium;
+    /* Adjust spacing as needed */
+  }
+
+  .past_title {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .ongoing_title {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .upcoming_title {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .event-message {
+    text-align: center;
+    color: #2c5797;
+    font-style: normal;
+    font-weight: 500;
+    font-size: medium;
+  }
+}

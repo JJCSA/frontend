@@ -1,0 +1,134 @@
+.events_modal {
+  overflow-y: auto;
+  max-height: 80vh;
+  border-radius: 15px;
+  overflow-x: hidden;
+
+  .modal-header {
+    position: relative;
+    .img-container {
+      overflow: hidden;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      border: 2px solid black;
+
+      img {
+        width: 100%;
+        height: auto;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+    }
+  }
+
+  .modal-body {
+    padding: 20px;
+
+    .event-details {
+      margin-bottom: 20px;
+
+      .event_title {
+        font-size: 22px;
+        color: #ff3c00;
+        font-weight: 500;
+        margin-bottom: 5px;
+      }
+
+      .date {
+        font-size: 18px;
+        font-weight: 600;
+        color: #2c5797;
+      }
+    }
+
+    .description,
+    .speaker-host,
+    .event_resources {
+      margin-bottom: 20px;
+
+      h5 {
+        font-size: 20px;
+        color: #ff3c00;
+        font-weight: 500;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 16px;
+        font-weight: 500;
+        color: #555;
+        line-height: 1.5;
+      }
+    }
+    .speaker-host {
+      .speaker-details {
+        margin-bottom: 15px;
+      }
+
+      .speaker-name {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .speaker-details1 {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .speaker-details2 {
+        margin-bottom: 5px;
+      }
+    }
+
+    .resources-section {
+      .resource-link {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 15px;
+
+        .icon {
+          font-size: 20px;
+          margin-right: 10px;
+        }
+
+        a {
+          white-space: normal; /* Allow wrapping within words */
+          word-break: break-all; /* Break at any character, including within words */
+          text-decoration: underline;
+          color: #007bff;
+          font-size: 16px;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+
+  // Responsive Styles
+  @media (max-width: 767px) {
+    .event-title {
+      font-size: 24px;
+    }
+
+    .date {
+      font-size: 16px;
+    }
+
+    .description p,
+    .speaker-host p {
+      font-size: 14px;
+    }
+
+    .resources-section .resource-link {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .icon {
+        margin-right: 0;
+        margin-bottom: 5px;
+      }
+
+      a {
+        font-size: 14px;
+      }
+    }
+  }
+}

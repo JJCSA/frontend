@@ -76,7 +76,7 @@ function LandingNavbar() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            JJC CENTRAL BOARD
+            JJC CHARITABLE TRUST
           </NavHashLink>
         </div>
         <form className="form-inline">
