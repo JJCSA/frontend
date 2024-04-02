@@ -13,11 +13,12 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   const [globalState, setGlobalState] = useState({ profile: null });
   const isNonProd = process.env.REACT_APP_NODE_ENV !== 'production';
+  const nonProdEnv = process.env.REACT_APP_NODE_ENV ? process.env.REACT_APP_NODE_ENV : 'local';
 
   return (
     <GlobalContext.Provider value={{ globalState, setGlobalState }}>
       {isNonProd &&
-        <h3>Running application in <b>{process.env.REACT_APP_NODE_ENV}</b> environment.</h3>
+        <h3>Running application in <b>{nonProdEnv}</b> environment.</h3>
       }
       <ToastContainer
         position="top-center"

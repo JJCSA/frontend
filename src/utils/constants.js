@@ -95,8 +95,8 @@ export const development = {
 
 export const local = {
   url: {
-    KEYCLOAK_BASE_URL: 'http://keycloak:8080',
-    API_BASE_URL: 'http://localhost:9080/api',
+    KEYCLOAK_BASE_URL: 'https://backend.stage.jjcusa.org:8080',
+    API_BASE_URL: '/api',
   },
 };
 

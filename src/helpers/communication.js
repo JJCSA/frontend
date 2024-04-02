@@ -7,6 +7,10 @@ function getConfig(token = null, params = null, content = 'application/json') {
       'content-type': content,
       'Access-Control-Allow-Origin': '*',
     },
+    proxy: {
+      host: 'https://backend.stage.jjcusa.org',
+      port: '9080'
+    }
   };
   if (token) {
     conf.headers.Authorization = `${token}`;
