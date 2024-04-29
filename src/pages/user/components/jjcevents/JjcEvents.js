@@ -12,10 +12,21 @@ function JjcEvents() {
             <div className="centered-text upcoming_title">UPCOMING EVENTS</div>
             <hr />
           </div>
-          <p className="event-message">
-            Currently, there are no upcoming events. Please check back later for
-            updates.
-          </p>
+          <div className="row">
+            <div className="col-md-4">
+              <EventsCard
+                title="JJC USA Graduation Ceremony - Virtual Event"
+                description="It is a moment of great pride when you successfully complete your respective Degrees, a testimony of your hard work, courage, and vision. We, at JJC-USA are extremely proud and want to celebrate the success of all recent graduates alongside their family as a virtual graduation walk. The upcoming virtual convocation promises to be more than just a celebration of our graduation; it's an invaluable opportunity to engage with alumni professionals. Through this event, we can connect, seek advice, gain insights, and share experiences with individuals who have walked the path we're embarking on."
+                link="https://docs.google.com/forms/d/e/1FAIpQLSc8nVPq7km3EfqQoszRGaDzlJTrzUNl_2gAEqqklFealKgk8w/viewform?usp=sf_link"
+                img="graduation_ceremony.jpg"
+                date="2nd June 2024"
+                speaker="JJC USA"
+                speakerDetails1=""
+                speakerDetails2=""
+                note="Students who are graduating (class of 2024) use above below link to register"
+              />
+            </div>
+          </div>
         </div>
         <div className="ongoing_events">
           <div className="horizontal-rule">
