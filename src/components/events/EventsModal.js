@@ -23,6 +23,8 @@ function EventsModal(eventInformation) {
           </div>
           <div className="speaker-host">
             {eventInformation.title === "JJC Connect Con'2023" ||
+            eventInformation.title ===
+              'JJC USA Graduation Ceremony - Virtual Event' ||
             eventInformation.title === 'JJC USA Matrimony' ? (
               <h5>Hosted by</h5>
             ) : (
