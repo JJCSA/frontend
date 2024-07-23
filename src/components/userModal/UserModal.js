@@ -53,6 +53,7 @@ const UserModal = props => {
     const params = {
       userId: props.data.id,
       status,
+      ...(status === 'REJECTED' ? {rejectReason: rejectReason} : '')
     };
     const response = await comm.sendPut(
       '/admin/users/status',
