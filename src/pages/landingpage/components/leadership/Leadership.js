@@ -48,7 +48,7 @@ const Leadership = () => {
       Image: Events,
     },
     {
-      Name: 'Kinjal Gala',
+      Name: 'Jash Shah',
       Role: 'Alumni Welfare Lead',
       Image: AlumniWelfare,
     },

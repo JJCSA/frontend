@@ -215,10 +215,6 @@ const Volunteers = () => {
       Image: avater,
     },
     {
-      Name: 'Jash Shah',
-      Image: volunteer25,
-    },
-    {
       Name: 'Jay Shah',
       Image: volunteer5,
     },
@@ -241,6 +237,10 @@ const Volunteers = () => {
     {
       Name: 'Karan Sheth',
       Image: avater,
+    },
+    {
+      Name: 'Kinjal Gala',
+      Image: volunteer25,
     },
     {
       Name: 'Krina Shah',

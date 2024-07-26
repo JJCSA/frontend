@@ -1,7 +1,7 @@
 //Leadership
 export { default as President } from './leadership/Bhavin.jpg';
 export { default as VicePresident } from './leadership/Chintan.png';
-export { default as AlumniWelfare } from './leadership/Kinjal.jpg';
+export { default as AlumniWelfare } from './leadership/Jash.jpg';
 export { default as Events } from './leadership/Janvi.jpg';
 export { default as Marketing } from './leadership/Riya.png';
 export { default as Consultant } from './leadership/Priyal.png';
@@ -37,7 +37,7 @@ export { default as volunteer21 } from './volunteers/Jayshil.jpg';
 export { default as volunteer22 } from './volunteers/Dimpi.png';
 export { default as volunteer23 } from './volunteers/Divita.png';
 export { default as volunteer24 } from './volunteers/Dushyant.png';
-export { default as volunteer25 } from './volunteers/Jash.png';
+export { default as volunteer25 } from './volunteers/Kinjal.jpg';
 export { default as volunteer26 } from './volunteers/Jinali.png';
 export { default as volunteer27 } from './volunteers/Krina.png';
 export { default as volunteer28 } from './volunteers/Ronak.png';
