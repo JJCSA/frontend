@@ -15,15 +15,15 @@ function JjcEvents() {
           <div className="row">
             <div className="col-md-4">
               <EventsCard
-                title="JJC USA Graduation Ceremony - Virtual Event"
-                description="It is a moment of great pride when you successfully complete your respective Degrees, a testimony of your hard work, courage, and vision. We, at JJC-USA are extremely proud and want to celebrate the success of all recent graduates alongside their family as a virtual graduation walk. The upcoming virtual convocation promises to be more than just a celebration of our graduation; it's an invaluable opportunity to engage with alumni professionals. Through this event, we can connect, seek advice, gain insights, and share experiences with individuals who have walked the path we're embarking on."
-                link="https://docs.google.com/forms/d/e/1FAIpQLSc8nVPq7km3EfqQoszRGaDzlJTrzUNl_2gAEqqklFealKgk8w/viewform?usp=sf_link"
-                img="graduation_ceremony.jpg"
-                date="2nd June 2024"
+                title="JJC's 5th Anniversary Celebration"
+                description="This year marks the 5th anniversary of the JJC USA community, a time to celebrate our achievements, growth, and the bonds we've formed along the way. Thank you for being an integral part of the JJC USA community. We look forward to celebrating this milestone with you and creating unforgettable memories together."
+                link=""
+                img="jjc_celebration_5.png"
+                date="10th August 2024"
                 speaker="JJC USA"
                 speakerDetails1=""
                 speakerDetails2=""
-                note="Students who are graduating (class of 2024) use above below link to register"
+                note="Please email on jjcsausa@gmail.com if you have any questions."
               />
             </div>
           </div>
@@ -59,6 +59,19 @@ function JjcEvents() {
           <div className="row">
             <div className="col-md-4">
               <EventsCard
+                title="JJC USA Graduation Ceremony - Virtual Event"
+                description="It is a moment of great pride when you successfully complete your respective Degrees, a testimony of your hard work, courage, and vision. We, at JJC-USA are extremely proud and want to celebrate the success of all recent graduates alongside their family as a virtual graduation walk. The upcoming virtual convocation promises to be more than just a celebration of our graduation; it's an invaluable opportunity to engage with alumni professionals. Through this event, we can connect, seek advice, gain insights, and share experiences with individuals who have walked the path we're embarking on."
+                link="https://docs.google.com/forms/d/e/1FAIpQLSc8nVPq7km3EfqQoszRGaDzlJTrzUNl_2gAEqqklFealKgk8w/viewform?usp=sf_link"
+                img="graduation_ceremony.jpg"
+                date="2nd June 2024"
+                speaker="JJC USA"
+                speakerDetails1=""
+                speakerDetails2=""
+                note="Students who are graduating (class of 2024) use above below link to register"
+              />
+            </div>
+            <div className="col-md-4">
+              <EventsCard
                 title="Demystifying USA's Health Insuarnce"
                 description="Different types of health insurance plans (e.g., HMO, PPO, EPO, HDHP).HMO plans typically require members to select a primary care physician (PCP).PCPs act as gatekeepers, coordinating and authorizing all necessary medical care.PPO plans offer a broader network of healthcare providers.Members can see specialists without referrals and usually have more flexibility in choosing doctors.EPO plans are a hybrid between HMOs and PPOs.Like HMOs, EPOs often do not require referrals to see specialists.HDHPs have higher deductibles and lower premiums compared to traditional plans.  They are often paired with Health Savings Accounts (HSAs) that allow pre-tax contributions for medical expenses."
                 video=" https://youtu.be/CSc1qB4kMOQ?si=v988fEdgGoO-upJy "
@@ -71,7 +84,6 @@ function JjcEvents() {
                 He worked with insurance companies like United Health Care AARP, Farmers and many more"
               />
             </div>
-
             <div className="col-md-4">
               <EventsCard
                 title="JJC Connect Con'2023"
@@ -86,6 +98,8 @@ function JjcEvents() {
                 speaker="JJC USA"
               />
             </div>
+          </div>
+          <div className="row">
             <div className="col-md-4">
               <EventsCard
                 title="First Time Home Buyers Seminar"
