@@ -1,0 +1,34 @@
+.TRUSTEES h5 {
+  text-align: center;
+  color: #2c5797;
+}
+.TRUSTEES p {
+  text-align: center;
+  color: #2c5797;
+}
+.TRUSTEES .trustees-card {
+  border: 1px solid #2c5797;
+  min-height: 360px;
+}
+.TRUSTEES .trustees {
+  border-color: #ff3c00;
+  width: 2rem;
+  margin-top: 0px;
+}
+.TRUSTEES .card-img-top {
+  max-width: 100%;
+  min-height: 300px;
+  max-height: 300px;
+  object-fit: cover;
+  object-position: center;
+}
+.TRUSTEES .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+.TRUSTEES .card-subtitle {
+  font-size: 12px;
+}

@@ -3,7 +3,7 @@ import { useAuthHeader } from 'react-auth-kit';
 import comm from '../../../../helpers/communication';
 import UserStatusCountFormatter from '../../../../components/UserStatusCountFormatter/UserStatusCountFormatter';
 import { DashboardUserStatus } from '../../../../utils/constants';
-import './AdminUserStatusCount.scss';
+import './AdminUserStatusCount.css';
 
 function AdminUserStatusCounts() {
   const [userStatusCounts, setUserStatusCounts] = useState([]);

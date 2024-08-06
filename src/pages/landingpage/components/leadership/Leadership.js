@@ -1,5 +1,5 @@
 import React from 'react';
-import './Leadership.scss';
+import './Leadership.css';
 import { Link } from 'react-router-dom';
 
 import {

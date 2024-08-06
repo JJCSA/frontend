@@ -1,5 +1,5 @@
 import React from 'react';
-import './UserStatusCountFormatter.scss';
+import './UserStatusCountFormatter.css';
 import CountUp from 'react-countup';
 
 const UserStatusCountFormatter = (cell, count) => {

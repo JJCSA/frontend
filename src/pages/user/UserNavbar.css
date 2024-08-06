@@ -1,0 +1,21 @@
+.post-questions-button {
+  border: 1px solid #1e2350;
+  background-color: #1e2350;
+}
+
+.user-profile-dropdown-icon {
+  cursor: pointer;
+}
+
+.user-profile-dropdown-content > div {
+  font-size: medium;
+  cursor: pointer;
+}
+
+.user-profile-dropdown-content > div > a {
+  color: black;
+}
+
+.user-profile-dropdown-content > div:hover {
+  text-decoration: underline;
+}

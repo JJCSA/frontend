@@ -1,0 +1,51 @@
+.JJCSEARCH-MODAL hr {
+  border: 1px solid #1e2350;
+}
+.JJCSEARCH-MODAL .name-container {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  color: #2c5797;
+  text-transform: uppercase;
+}
+.JJCSEARCH-MODAL .location-container {
+  color: #2c5797;
+  text-transform: uppercase;
+}
+.JJCSEARCH-MODAL .location-container img {
+  padding: 3px;
+}
+.JJCSEARCH-MODAL .info-container {
+  width: 100%;
+  background-color: #f6f6f6;
+}
+.JJCSEARCH-MODAL .divOutside {
+  border-bottom: 1px rgba(0, 0, 0, 0.1) solid;
+}
+.JJCSEARCH-MODAL .last {
+  border-bottom: 0px;
+}
+.JJCSEARCH-MODAL .center-align {
+  text-align: center;
+}
+.JJCSEARCH-MODAL .remove-left-padding {
+  padding-left: 0px;
+}
+.JJCSEARCH-MODAL .info-container-headers {
+  margin-left: 2px;
+  color: #ff4020;
+  text-align: center;
+  font-weight: 600;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+.JJCSEARCH-MODAL .info-container-info {
+  margin-left: 5px;
+  color: #2c5797;
+  font-weight: 500;
+  font-size: 15px;
+}
+.JJCSEARCH-MODAL .linkedIn-url {
+  color: #2c5797;
+  word-wrap: break-word;
+}
