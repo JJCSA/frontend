@@ -1,0 +1,53 @@
+.ONBOARDING .card-body .profile-image {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+}
+.ONBOARDING .card-body .type-container {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.ONBOARDING .card-body .type-container.active {
+  border: 1.5px solid #dc3b44;
+}
+.ONBOARDING .card-body .type-container .type-logo {
+  height: 84px;
+}
+.ONBOARDING .card-body .education-container .type-logo {
+  height: 180px;
+  width: 238px;
+}
+.ONBOARDING .card-body .profession-container .type-logo {
+  height: 180px;
+  width: 238px;
+}
+.ONBOARDING .card-footer .buttons {
+  text-align: right;
+}
+.ONBOARDING .card-footer .buttons button {
+  height: 48px;
+  width: 144px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.ONBOARDING .card-footer .buttons .back-button {
+  color: #403f3f;
+  background: transparent;
+  border: 0;
+  margin-right: 16px;
+}
+.ONBOARDING .card-footer .buttons .submit-button {
+  color: white;
+  background: #dc3b44;
+}
+.ONBOARDING .note {
+  color: red;
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: 5px;
+  text-align: left;
+}

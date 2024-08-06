@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
-import './App.scss';
+import './App.css';
 
 import { AuthProvider } from 'react-auth-kit';
 import { ToastContainer } from 'react-toastify';
@@ -16,9 +16,12 @@ function App() {
 
   return (
     <GlobalContext.Provider value={{ globalState, setGlobalState }}>
-      {isNonProd &&
-        <h3>Running application in <b>{process.env.REACT_APP_NODE_ENV}</b> environment.</h3>
-      }
+      {isNonProd && (
+        <h3>
+          Running application in <b>{process.env.REACT_APP_NODE_ENV}</b>{' '}
+          environment.
+        </h3>
+      )}
       <ToastContainer
         position="top-center"
         autoClose={2000}

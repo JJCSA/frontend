@@ -1,5 +1,5 @@
 import React from 'react';
-import './EventsModal.scss';
+import './EventsModal.css';
 
 function EventsModal(eventInformation) {
   const img_base = '/events/';
