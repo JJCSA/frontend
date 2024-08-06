@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { emailIcon, whatsapp } from '../../../../assets/index';
-import './ContactUs.scss';
+import './ContactUs.css';
 import comm from '../../../../helpers/communication';
 import { toast } from 'react-toastify';
 

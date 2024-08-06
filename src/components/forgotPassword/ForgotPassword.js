@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './ForgotPassword.scss';
+import './ForgotPassword.css';
 import { Form, Col, Row, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';

@@ -1,0 +1,19 @@
+.smallavatarContainer {
+  width: 40px;
+  height: 40px;
+}
+.smallavatarContainer img {
+  width: 100%;
+  height: 100%;
+  border: 2px solid #4cb576;
+}
+
+.largeavatarContainer {
+  width: 90px;
+  height: 90px;
+}
+.largeavatarContainer img {
+  width: 100%;
+  height: 100%;
+  border: 2px solid #4cb576;
+}

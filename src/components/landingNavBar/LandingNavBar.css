@@ -1,0 +1,69 @@
+.login-button,
+.post-questions-button {
+  border-radius: 8px;
+  color: white;
+  font-weight: 500;
+}
+
+.donate-button {
+  border: 1px solid #ff4020;
+  border-radius: 8px;
+  color: #ff4020;
+  background-color: white;
+  font-weight: 500;
+}
+
+.login-button {
+  border: 1px solid #ff4020;
+  background-color: #ff4020;
+}
+
+.post-questions-button {
+  border: 1px solid #1e2350;
+  background-color: #1e2350;
+}
+
+.navbar-brand img {
+  height: 80px;
+  /* put value of image height as your need */
+  float: left;
+}
+
+.navbarhover {
+  font-style: normal;
+  font-weight: 500;
+  line-height: 19px;
+}
+
+.navbarhover:hover {
+  cursor: pointer;
+}
+
+.jjclink:hover,
+.jjclink:active,
+.jjclink:link,
+.jjclink:visited {
+  color: black;
+  text-decoration: none;
+}
+
+.jjclink {
+  padding-left: 1rem !important;
+}
+
+.user-profile-dropdown-icon {
+  cursor: pointer;
+}
+
+.user-profile-dropdown-content > div {
+  font-size: medium;
+  cursor: pointer;
+}
+
+.user-profile-dropdown-content > div > a {
+  color: black;
+}
+
+.user-profile-dropdown-content > div:hover {
+  text-decoration: underline;
+}

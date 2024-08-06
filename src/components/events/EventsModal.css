@@ -1,0 +1,113 @@
+.events_modal {
+  overflow-y: auto;
+  max-height: 80vh;
+  border-radius: 15px;
+  overflow-x: hidden;
+}
+.events_modal .modal-header {
+  position: relative;
+}
+.events_modal .modal-header .img-container {
+  overflow: hidden;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border: 2px solid black;
+}
+.events_modal .modal-header .img-container img {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.events_modal .modal-body {
+  padding: 20px;
+}
+.events_modal .modal-body .event-details {
+  margin-bottom: 20px;
+}
+.events_modal .modal-body .event-details .event_title {
+  font-size: 22px;
+  color: #ff3c00;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.events_modal .modal-body .event-details .date {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c5797;
+}
+.events_modal .modal-body .description,
+.events_modal .modal-body .speaker-host,
+.events_modal .modal-body .event_resources {
+  margin-bottom: 20px;
+}
+.events_modal .modal-body .description h5,
+.events_modal .modal-body .speaker-host h5,
+.events_modal .modal-body .event_resources h5 {
+  font-size: 20px;
+  color: #ff3c00;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.events_modal .modal-body .description p,
+.events_modal .modal-body .speaker-host p,
+.events_modal .modal-body .event_resources p {
+  font-size: 16px;
+  font-weight: 500;
+  color: #555;
+  line-height: 1.5;
+}
+.events_modal .modal-body .speaker-host .speaker-details {
+  margin-bottom: 15px;
+}
+.events_modal .modal-body .speaker-host .speaker-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.events_modal .modal-body .speaker-host .speaker-details1 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.events_modal .modal-body .speaker-host .speaker-details2 {
+  margin-bottom: 5px;
+}
+.events_modal .modal-body .resources-section .resource-link {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+.events_modal .modal-body .resources-section .resource-link .icon {
+  font-size: 20px;
+  margin-right: 10px;
+}
+.events_modal .modal-body .resources-section .resource-link a {
+  white-space: normal; /* Allow wrapping within words */
+  word-break: break-all; /* Break at any character, including within words */
+  text-decoration: underline;
+  color: #007bff;
+  font-size: 16px;
+  margin-left: 10px;
+}
+@media (max-width: 767px) {
+  .events_modal .event-title {
+    font-size: 24px;
+  }
+  .events_modal .date {
+    font-size: 16px;
+  }
+  .events_modal .description p,
+  .events_modal .speaker-host p {
+    font-size: 14px;
+  }
+  .events_modal .resources-section .resource-link {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .events_modal .resources-section .resource-link .icon {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+  .events_modal .resources-section .resource-link a {
+    font-size: 14px;
+  }
+}

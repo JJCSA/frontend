@@ -11,7 +11,7 @@ import {
   specialization,
 } from '../../../../assets/index';
 import ImageFormatter from '../../../../components/imageFormatter/ImageFormatter';
-import './JJCSearchModal.scss';
+import './JJCSearchModal.css';
 
 const JJCSearchModal = props => {
   return (

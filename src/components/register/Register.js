@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Register.scss';
+import './Register.css';
 import { Container, Form, Row, Col, InputGroup } from 'react-bootstrap';
 import { Formik, Form as FormikForm } from 'formik';
 import * as Yup from 'yup';

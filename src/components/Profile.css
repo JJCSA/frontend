@@ -1,0 +1,48 @@
+.PROFILE.container {
+  padding: 24px;
+}
+.PROFILE.container .profile-image-container .profile-image {
+  height: 108px;
+  width: 108px;
+}
+.PROFILE.container .container,
+.PROFILE.container label {
+  color: #2e66ba;
+}
+.PROFILE.container .form-control,
+.PROFILE.container .custom-select {
+  margin-bottom: 16px;
+}
+.PROFILE.container .save-button {
+  border: 1px solid #ff3c00;
+  margin-top: 8px;
+  width: 156px;
+  background: #ff4020;
+  color: white;
+  border: none;
+}
+.PROFILE.container .reset-button {
+  margin-top: 8px;
+  width: 156px;
+  background: #e5e9f2;
+  margin-left: 8px;
+  color: black;
+  border: none;
+}
+.PROFILE.container .avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.PROFILE.container .form-section {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid rgb(99, 99, 97);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9; /* Set your desired background color */
+}
+.PROFILE.container .form-control {
+  border: 1px solid rgba(69, 68, 68, 0.6901960784);
+}

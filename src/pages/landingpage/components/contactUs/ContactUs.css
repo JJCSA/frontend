@@ -1,0 +1,33 @@
+.CONTACTUS {
+  padding-top: 3em;
+  margin-top: -2em;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.CONTACTUS .contactUsImage {
+  height: 500px;
+  background-color: #ccc;
+  background: url(../../../../assets/images/ContactUS.svg);
+  background-size: cover;
+  background-position: center;
+}
+.CONTACTUS .contact-us {
+  border-color: #ff3c00;
+  width: 2rem;
+  margin-top: 0px;
+}
+.CONTACTUS .emailInfo {
+  color: black;
+  margin-left: 5px;
+}
+.CONTACTUS .form-style {
+  border-radius: 8px;
+  background-color: #f6f6f6;
+}
+.CONTACTUS .button-style {
+  border: 1px solid #ff4020;
+  border-radius: 8px;
+  color: #ff3c00;
+  background-color: white;
+  font-weight: 500;
+}

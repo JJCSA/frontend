@@ -19,7 +19,7 @@ import UserStatusFormatter from '../userStatusFormatter/UserStatusFormatter';
 import CareerInfo from '../careerInfo/CareerInfo';
 import * as Constants from '../../utils/constants';
 import PhoneNumberFormatter from '../phoneNumberFormatter/PhoneNumberFormatter';
-import './UserModal.scss';
+import './UserModal.css';
 import comm from '../../helpers/communication';
 import GlobalContext from '../../store/GlobalContext';
 

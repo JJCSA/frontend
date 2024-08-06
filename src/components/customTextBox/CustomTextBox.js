@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './CustomTextBox.scss';
+import './CustomTextBox.css';
 
-const CustomTextBox = ({
-  value, label, placeholder, onChange,
-}) => (
+const CustomTextBox = ({ value, label, placeholder, onChange }) => (
   <div className="inputContainer">
     <input
       value={value}

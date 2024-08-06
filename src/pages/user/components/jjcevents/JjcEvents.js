@@ -1,5 +1,5 @@
 import React from 'react';
-import './JjcEvents.scss';
+import './JjcEvents.css';
 import EventsCard from '../../../../components/events/EventsCard';
 
 function JjcEvents() {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import './PrivacyPolicy.scss';
+import './PrivacyPolicy.css';
 import { privacyPolicyBanner } from '../../assets/index';
 
 const PrivacyPolicy = () => {

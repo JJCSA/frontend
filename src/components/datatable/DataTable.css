@@ -1,0 +1,72 @@
+.tableRow {
+  padding: 5px 0px;
+  color: #7b889a;
+  border-top: none;
+  height: 72px;
+}
+.tableRow td {
+  border-top: 0.2px solid #b6c3d1;
+  vertical-align: middle;
+}
+
+.tableRow:nth-last-child(1) td {
+  border-bottom: 0.2px solid #b6c3d1;
+}
+
+.react-bootstrap-table-pagination {
+  padding: 0px 30px;
+}
+
+.my-modal {
+  width: 50vw;
+  max-width: 60vw;
+}
+
+.react-bootstrap-table-pagination-list {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.react-bootstrap-table-pagination-list .page-link {
+  width: 9px;
+  height: 19px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  color: rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  border: none;
+}
+.react-bootstrap-table-pagination-list .page-link:hover {
+  background-color: transparent;
+}
+.react-bootstrap-table-pagination-list .page-link:focus {
+  box-shadow: none;
+}
+.react-bootstrap-table-pagination-list .active .page-link {
+  color: #403f3f;
+  background-color: transparent;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.sizePerPage {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #403f3f;
+}
+.sizePerPage input {
+  margin: 0px 5px;
+  padding: 0px 5px;
+  background: white;
+  border: 1px solid #e9edf5;
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+
+.react-bootstrap-table table {
+  table-layout: auto;
+}

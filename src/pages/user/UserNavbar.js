@@ -8,7 +8,7 @@ import { GoHome } from 'react-icons/go';
 import { FiLogOut } from 'react-icons/fi';
 import Avatar from '../../components/avatar/Avatar';
 import { jjcIcon, UserDropDownIcon } from '../../assets/index';
-import './UserNavbar.scss';
+import './UserNavbar.css';
 import GlobalContext from '../../store/GlobalContext';
 
 function UserNavbar() {

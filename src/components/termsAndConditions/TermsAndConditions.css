@@ -1,0 +1,21 @@
+.TERMSANDCONDITIONS .terms-conditions-container {
+  margin: 0;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.TERMSANDCONDITIONS .terms-conditions-text {
+  margin-top: 2%;
+}
+.TERMSANDCONDITIONS h4 {
+  text-decoration: underline;
+  color: #2c5797;
+}
+.TERMSANDCONDITIONS h5 {
+  color: #2c5797;
+}
+.TERMSANDCONDITIONS .email-text-color {
+  color: #2c5797;
+}
+.TERMSANDCONDITIONS .terms-conditions-date {
+  font-style: italic;
+}

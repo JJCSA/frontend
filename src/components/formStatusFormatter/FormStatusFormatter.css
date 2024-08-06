@@ -1,0 +1,45 @@
+.closedStatusContainer {
+  width: 107px;
+  height: 32px;
+  background: rgba(255, 64, 32, 0.1);
+  border-radius: 5px;
+  padding: 5px 0px 5px 15px;
+}
+.closedStatusContainer span {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  color: #ff4020;
+}
+.closedStatusContainer :nth-child(1) {
+  background-color: #ff4020;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.activeStatusContainer {
+  width: 120px;
+  height: 32px;
+  background: rgba(76, 181, 118, 0.1);
+  border-radius: 5px;
+  padding: 5px 0px 5px 15px;
+}
+.activeStatusContainer span {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  color: #4cb576;
+}
+.activeStatusContainer :nth-child(1) {
+  background-color: #4cb576;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}

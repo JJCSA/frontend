@@ -1,5 +1,5 @@
 import React from 'react';
-import './MissionVision.scss';
+import './MissionVision.css';
 
 const NewMissionVision = () => {
   return (

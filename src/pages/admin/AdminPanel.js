@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { useNavigate, Outlet } from 'react-router-dom';
 import { barChartIcon, userIcon } from '../../assets/index';
 import AdminNavbar from './AdminNavbar';
-import './AdminPanel.scss';
+import './AdminPanel.css';
 
 const Main = styled.main`
   position: relative;

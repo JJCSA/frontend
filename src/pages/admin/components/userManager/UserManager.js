@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthHeader } from 'react-auth-kit';
 import DataTable from '../../../../components/datatable/DataTable';
-import './UserManager.scss';
+import './UserManager.css';
 import { CustomDropdown, CustomTextBox } from '../../../../components';
 import * as Constants from '../../../../utils/constants';
 import { deleteIcon } from '../../../../assets/index';

@@ -2,7 +2,7 @@ import React from 'react';
 import { NavHashLink } from 'react-router-hash-link';
 import { Link } from 'react-router-dom';
 import { jjcIcon } from '../../assets/index';
-import './LandingNavbar.scss';
+import './LandingNavbar.css';
 
 function LandingNavbar() {
   return (

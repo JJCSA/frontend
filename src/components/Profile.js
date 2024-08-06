@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { useAuthHeader } from 'react-auth-kit';
 import GlobalContext from '../store/GlobalContext';
 import comm from '../helpers/communication';
-import './Profile.scss';
+import './Profile.css';
 
 function Profile() {
   const { globalState, setGlobalState } = useContext(GlobalContext);

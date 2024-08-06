@@ -1,5 +1,5 @@
 import React from 'react';
-import './ForgotPasswordMessage.scss';
+import './ForgotPasswordMessage.css';
 import { Form, Col, Row, Container } from 'react-bootstrap';
 
 const ForgotPasswordMessage = () => (

@@ -1,0 +1,21 @@
+.pageHeader-dashboard {
+  height: 72px;
+  padding: 10px;
+  background: white;
+  padding: 20px 30px 20px 30px;
+}
+.pageHeader-dashboard .header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.pageHeader-dashboard h4 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  height: 100%;
+  margin: 0px;
+  vertical-align: middle;
+}

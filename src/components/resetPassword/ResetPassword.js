@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './ResetPassword.scss';
+import './ResetPassword.css';
 import { Form, Col, Row, Container } from 'react-bootstrap';
 import PasswordValidator from 'password-validator';
 import comm from '../../helpers/communication';

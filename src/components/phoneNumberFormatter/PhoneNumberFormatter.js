@@ -1,8 +1,8 @@
 import React from 'react';
 
-const PhoneNumberFormatter = (cell) => {
+const PhoneNumberFormatter = cell => {
   // Ref https://stackoverflow.com/a/8358141
-  const cleaned = (`${cell}`).replace(/\D/g, '');
+  const cleaned = `${cell}`.replace(/\D/g, '');
   const match = cleaned.match(/^(1|91|)?(\d{3})(\d{3})(\d{4})$/);
   let formattedNumber = `${cell}`;
   if (match) {

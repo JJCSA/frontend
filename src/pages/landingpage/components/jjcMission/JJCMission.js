@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './JJCMission.scss';
+import './JJCMission.css';
 import ScrollAnimation from 'react-animate-on-scroll';
 import Typewriter from 'typewriter-effect';
 import {
