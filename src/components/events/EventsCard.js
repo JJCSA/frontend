@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './EventsCard.scss';
+import './EventsCard.css';
 import { Button, Modal } from 'react-bootstrap';
 import PastEventsModal from './EventsModal';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Volunteers.scss';
+import './Volunteers.css';
 import { FaHeart } from 'react-icons/fa';
 import {
   volunteer1,

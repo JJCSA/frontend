@@ -1,0 +1,58 @@
+.count-card {
+  width: 250px;
+  height: 130px;
+  padding: 20px;
+}
+
+.pendingUserStatusContainer {
+  background: rgba(238, 114, 20, 0.75);
+  border-radius: 5px;
+  padding: 25px;
+}
+.pendingUserStatusContainer .card-text {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 22px;
+  color: rgb(238, 114, 20);
+}
+.pendingUserStatusContainer :nth-child(2) {
+  margin-right: 10px;
+}
+
+.newUserStatusContainer {
+  background: rgba(161, 238, 189, 0.8);
+  border-radius: 5px;
+  padding: 25px;
+}
+.newUserStatusContainer :nth-child(2) {
+  margin-right: 10px;
+}
+
+.activeStatusContainer {
+  background: rgba(101, 183, 65, 0.4);
+  border-radius: 5px;
+  padding: 25px;
+  color: black;
+}
+.activeStatusContainer :nth-child(2) {
+  margin-right: 10px;
+}
+
+.totalStatusContainer {
+  background: rgba(12, 53, 106, 0.6);
+  border-radius: 5px;
+  padding: 25px;
+}
+.totalStatusContainer :nth-child(2) {
+  margin-right: 10px;
+}
+
+.rejectedStatusContainer {
+  background: rgba(184, 0, 0, 0.5);
+  border-radius: 5px;
+  padding: 25px;
+}
+.rejectedStatusContainer :nth-child(2) {
+  margin-right: 10px;
+}

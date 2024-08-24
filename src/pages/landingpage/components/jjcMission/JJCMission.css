@@ -1,0 +1,60 @@
+.JJCMISSION {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.JJCMISSION .mission-color {
+  padding-top: 6em;
+  margin-top: 1rem;
+}
+.JJCMISSION .mission-card {
+  border-radius: 8px;
+  transition: transform 0.5s;
+  background: #2c5797;
+  color: white;
+}
+.JJCMISSION .mission-card:hover {
+  transform: scale(1.15);
+  transition: transform 0.5s;
+}
+.JJCMISSION .card_images {
+  width: 100%;
+  height: 7vw;
+  object-fit: contain;
+}
+.JJCMISSION .join-button {
+  color: white !important;
+  background-color: #ff3c00 !important;
+  border-radius: 8px !important;
+}
+.JJCMISSION .join-button:hover {
+  background-color: white !important;
+  color: black !important;
+}
+.JJCMISSION .headtext {
+  font-size: 20px;
+  color: black;
+  font-weight: 600;
+  font-style: normal;
+  text-align: center;
+}
+.JJCMISSION .mission-text {
+  font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  text-align: center;
+}
+@media only screen and (min-width: 576px) {
+  .JJCMISSION #leftpad {
+    padding-left: 89px;
+  }
+}
+@media only screen and (min-width: 356px) and (max-width: 600px) {
+  .JJCMISSION .card_images {
+    display: block !important;
+    width: 100% !important;
+    height: 29vw !important;
+  }
+  .JJCMISSION .mission-card {
+    max-height: 350px !important;
+  }
+}

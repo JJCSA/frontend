@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuthHeader } from 'react-auth-kit';
 import comm from '../../../../helpers/communication';
-import './DownloadData.scss';
+import './DownloadData.css';
 
 const DownloadData = () => {
   const token = useAuthHeader()();
