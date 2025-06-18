@@ -5,7 +5,6 @@ export { default as AlumniWelfare } from './leadership/Alumni.jpeg';
 export { default as Events } from './leadership/Social.jpeg';
 export { default as Marketing } from './leadership/Marketing.jpeg';
 export { default as Consultant } from './volunteers/Priyal.png';
-export { default as Website } from './volunteers/Nishit.jpg';
 export { default as Student } from './volunteers/Ishit.jpg';
 export { default as chiefofstaff } from './volunteers/Darshita.jpg';
 export { default as admin } from './leadership/Admin.jpeg';

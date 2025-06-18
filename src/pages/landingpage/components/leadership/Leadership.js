@@ -9,7 +9,7 @@ import {
   Events,
   Marketing,
   Consultant,
-  Website,
+  // Website,
   Student,
   chiefofstaff,
   admin,
@@ -51,11 +51,6 @@ const Leadership = () => {
       Name: 'Jash Shah',
       Role: 'Alumni Welfare Lead',
       Image: AlumniWelfare,
-    },
-    {
-      Name: 'Nishit Gopani',
-      Role: 'Website Lead',
-      Image: Website,
     },
     {
       Name: 'Riya Shah',
