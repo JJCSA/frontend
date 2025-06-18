@@ -1,15 +1,15 @@
 //Leadership
-export { default as President } from './leadership/Bhavin.jpg';
-export { default as VicePresident } from './leadership/Chintan.png';
-export { default as AlumniWelfare } from './leadership/Jash.jpg';
-export { default as Events } from './leadership/Janvi.jpg';
-export { default as Marketing } from './leadership/Riya.png';
-export { default as Consultant } from './leadership/Priyal.png';
-export { default as Website } from './leadership/Nishit.jpg';
-export { default as Student } from './leadership/Ishit.jpg';
-export { default as chiefofstaff } from './leadership/Darshita.jpg';
-export { default as admin } from './leadership/Hemal.jpg';
-export { default as avater } from './leadership/user.jpg';
+export { default as President } from './leadership/P.jpeg';
+export { default as VicePresident } from './leadership/VP.jpeg';
+export { default as AlumniWelfare } from './leadership/Alumni.jpeg';
+export { default as Events } from './leadership/Social.jpeg';
+export { default as Marketing } from './leadership/Marketing.jpeg';
+export { default as Consultant } from './volunteers/Priyal.png';
+export { default as Website } from './volunteers/Nishit.jpg';
+export { default as Student } from './volunteers/Ishit.jpg';
+export { default as chiefofstaff } from './volunteers/Darshita.jpg';
+export { default as admin } from './leadership/Admin.jpeg';
+export { default as avater } from './volunteers/user.jpg';
 
 // Volunteers
 export { default as volunteer1 } from './volunteers/Aayushi-Shah.jpeg';
@@ -55,6 +55,16 @@ export { default as volunteer39 } from './volunteers/Heet.jpg';
 export { default as volunteer40 } from './volunteers/Hinal-Fifadra.png';
 export { default as volunteer41 } from './volunteers/Dhruvi.png';
 export { default as volunteer42 } from './volunteers/Richa.jpg';
+export { default as volunteer44 } from './volunteers/Bhavin.jpg';
+export { default as volunteer45 } from './volunteers/Chintan.png';
+export { default as volunteer46 } from './volunteers/Darshita.jpg';
+export { default as volunteer47 } from './volunteers/Hemal.jpg';
+export { default as volunteer48 } from './volunteers/Ishit.jpg';
+export { default as volunteer49 } from './volunteers/Janvi.jpg';
+export { default as volunteer50 } from './volunteers/Jash.jpg';
+export { default as volunteer51 } from './volunteers/Nishit.jpg';
+export { default as volunteer52 } from './volunteers/Priyal.png';
+export { default as volunteer53 } from './volunteers/Riya.png';
 
 //JJC History
 export { default as covidassistance } from './covid-assistance.png';
