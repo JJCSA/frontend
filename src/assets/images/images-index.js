@@ -4,9 +4,6 @@ export { default as VicePresident } from './leadership/VP.jpeg';
 export { default as AlumniWelfare } from './leadership/Alumni.jpeg';
 export { default as Events } from './leadership/Social.jpeg';
 export { default as Marketing } from './leadership/Marketing.jpeg';
-export { default as Consultant } from './volunteers/Priyal.png';
-export { default as Student } from './volunteers/Ishit.jpg';
-export { default as chiefofstaff } from './volunteers/Darshita.jpg';
 export { default as admin } from './leadership/Admin.jpeg';
 export { default as avater } from './volunteers/user.jpg';
 

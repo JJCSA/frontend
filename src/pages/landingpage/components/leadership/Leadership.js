@@ -18,19 +18,14 @@ import {
 const Leadership = () => {
   const leadership = [
     {
-      Name: 'Bhavin Shanghvi',
+      Name: 'Dhruv Shah',
       Role: 'President',
       Image: President,
     },
     {
-      Name: 'Chintan Shah',
+      Name: 'Yash Dedhia',
       Role: 'Vice President',
       Image: VicePresident,
-    },
-    {
-      Name: 'Darshita Shah',
-      Role: 'Chief of Staff',
-      Image: chiefofstaff,
     },
     {
       Name: 'Hemal Tolia',
@@ -38,29 +33,19 @@ const Leadership = () => {
       Image: admin,
     },
     {
-      Name: 'Ishit Shah',
-      Role: 'Student Welfare Lead',
-      Image: Student,
-    },
-    {
-      Name: 'Janvi Shah',
-      Role: 'Event Lead',
+      Name: 'Purvansh Jain',
+      Role: 'Social Event Lead',
       Image: Events,
     },
     {
-      Name: 'Jash Shah',
+      Name: 'Brinal Bheda',
       Role: 'Alumni Welfare Lead',
       Image: AlumniWelfare,
     },
     {
-      Name: 'Riya Shah',
+      Name: 'Deep Doshi',
       Role: 'Marketing Lead',
       Image: Marketing,
-    },
-    {
-      Name: 'Priyal Chheda',
-      Role: 'Consultant',
-      Image: Consultant,
     },
   ];
 
