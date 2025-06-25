@@ -1,10 +1,10 @@
 //Leadership
-export { default as President } from './leadership/P.jpeg';
-export { default as VicePresident } from './leadership/VP.jpeg';
-export { default as AlumniWelfare } from './leadership/Alumni.jpeg';
-export { default as Events } from './leadership/Social.jpeg';
-export { default as Marketing } from './leadership/Marketing.jpeg';
-export { default as admin } from './leadership/Admin.jpeg';
+export { default as President } from './leadership/Dhruv.jpeg';
+export { default as VicePresident } from './leadership/Yash.jpeg';
+export { default as AlumniWelfare } from './leadership/Brinal.jpeg';
+export { default as Events } from './leadership/Purvansh.jpeg';
+export { default as Marketing } from './leadership/Deep.jpeg';
+export { default as admin } from './leadership/Hemal.jpeg';
 export { default as avater } from './volunteers/user.jpg';
 
 // Volunteers

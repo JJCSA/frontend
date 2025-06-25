@@ -111,7 +111,7 @@ const Volunteers = () => {
     {
       Name: 'Bhavin Shah',
       Image: volunteer44,
-    }, 
+    },
     {
       Name: 'Bhavishi Jhaveri',
       Image: volunteer36,
@@ -131,7 +131,7 @@ const Volunteers = () => {
     {
       Name: 'Chintan Shah',
       Image: volunteer45,
-    }, 
+    },
     {
       Name: 'Darshan Dedhia',
       Image: avater,
@@ -147,7 +147,7 @@ const Volunteers = () => {
     {
       Name: 'Darshita Shah',
       Image: volunteer46,
-    }, 
+    },
     {
       Name: 'Deshna Shah',
       Image: volunteer2,
@@ -209,10 +209,6 @@ const Volunteers = () => {
       Image: volunteer39,
     },
     {
-      Name: 'Hemal Tolia',
-      Image: volunteer47,
-    }, 
-    {
       Name: 'Hima Doshi',
       Image: avater,
     },
@@ -227,7 +223,7 @@ const Volunteers = () => {
     {
       Name: 'Ishit Shah',
       Image: volunteer48,
-    }, 
+    },
     {
       Name: 'Jagruti Belani',
       Image: avater,
@@ -247,11 +243,11 @@ const Volunteers = () => {
     {
       Name: 'Janvi Shah',
       Image: volunteer49,
-    }, 
+    },
     {
       Name: 'Jash Shah',
       Image: volunteer50,
-    }, 
+    },
     {
       Name: 'Jay Shah',
       Image: volunteer5,
@@ -330,9 +326,9 @@ const Volunteers = () => {
       Image: avater,
     },
     {
-      Name: 'Nishit Shah',
+      Name: 'Nishit Gopani',
       Image: volunteer51,
-    }, 
+    },
     {
       Name: 'Parth Parekh',
       Image: volunteer7,
@@ -342,9 +338,9 @@ const Volunteers = () => {
       Image: avater,
     },
     {
-      Name: 'Priyal Shah',
+      Name: 'Priyal Chheda',
       Image: volunteer52,
-    }, 
+    },
     {
       Name: 'Pujan Sheth',
       Image: volunteer18,
@@ -359,12 +355,8 @@ const Volunteers = () => {
     },
     {
       Name: 'Riya Shah',
-      Image: avater,
-    },
-    {
-      Name: 'Riya Shah',
       Image: volunteer53,
-    }, 
+    },
     {
       Name: 'Romil Shah',
       Image: avater,
