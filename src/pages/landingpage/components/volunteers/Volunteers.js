@@ -46,6 +46,16 @@ import {
   volunteer41,
   volunteer42,
   volunteer43,
+  volunteer44,
+  volunteer45,
+  volunteer46,
+  volunteer47,
+  volunteer48,
+  volunteer49,
+  volunteer50,
+  volunteer51,
+  volunteer52,
+  volunteer53,
 } from '../../../../assets/images/images-index';
 
 const Volunteers = () => {
@@ -99,6 +109,10 @@ const Volunteers = () => {
       Image: avater,
     },
     {
+      Name: 'Bhavin Shah',
+      Image: volunteer44,
+    },
+    {
       Name: 'Bhavishi Jhaveri',
       Image: volunteer36,
     },
@@ -115,6 +129,10 @@ const Volunteers = () => {
       Image: volunteer37,
     },
     {
+      Name: 'Chintan Shah',
+      Image: volunteer45,
+    },
+    {
       Name: 'Darshan Dedhia',
       Image: avater,
     },
@@ -125,6 +143,10 @@ const Volunteers = () => {
     {
       Name: 'Darshit Gandhi',
       Image: volunteer3,
+    },
+    {
+      Name: 'Darshita Shah',
+      Image: volunteer46,
     },
     {
       Name: 'Deshna Shah',
@@ -199,6 +221,10 @@ const Volunteers = () => {
       Image: volunteer40,
     },
     {
+      Name: 'Ishit Shah',
+      Image: volunteer48,
+    },
+    {
       Name: 'Jagruti Belani',
       Image: avater,
     },
@@ -213,6 +239,14 @@ const Volunteers = () => {
     {
       Name: 'Janvi Sakhala',
       Image: avater,
+    },
+    {
+      Name: 'Janvi Shah',
+      Image: volunteer49,
+    },
+    {
+      Name: 'Jash Shah',
+      Image: volunteer50,
     },
     {
       Name: 'Jay Shah',
@@ -292,12 +326,20 @@ const Volunteers = () => {
       Image: avater,
     },
     {
+      Name: 'Nishit Gopani',
+      Image: volunteer51,
+    },
+    {
       Name: 'Parth Parekh',
       Image: volunteer7,
     },
     {
       Name: 'Pooja Shah',
       Image: avater,
+    },
+    {
+      Name: 'Priyal Chheda',
+      Image: volunteer52,
     },
     {
       Name: 'Pujan Sheth',
@@ -313,7 +355,7 @@ const Volunteers = () => {
     },
     {
       Name: 'Riya Shah',
-      Image: avater,
+      Image: volunteer53,
     },
     {
       Name: 'Romil Shah',
