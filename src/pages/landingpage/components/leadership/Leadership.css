@@ -1,0 +1,47 @@
+.LEADERSHIP h5 {
+  text-align: center;
+  color: #2c5797;
+}
+.LEADERSHIP p {
+  text-align: center;
+  color: #2c5797;
+}
+.LEADERSHIP .leadership-card {
+  border: 1px solid #2c5797;
+  min-height: 340px;
+}
+.LEADERSHIP .leadership {
+  border-color: #ff3c00;
+  width: 2rem;
+  margin-top: 0px;
+}
+.LEADERSHIP .card-img-top {
+  max-width: 100%;
+  min-height: 250px;
+  max-height: 250px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%; /* Make the image round */
+}
+.LEADERSHIP .know-more-button {
+  margin-top: 2rem;
+  border-radius: 8px !important;
+  color: white !important;
+  font-weight: 500 !important;
+  border: 1px solid #ff4020 !important;
+  background-color: #ff4020 !important;
+}
+.LEADERSHIP .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+.leadership-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

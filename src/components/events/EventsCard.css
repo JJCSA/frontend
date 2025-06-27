@@ -1,0 +1,96 @@
+.events_modal {
+  height: 100%;
+}
+
+.past_events .card img,
+.ongoing_events .card img,
+.upcoming_events .card img {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+  object-position: top;
+}
+.past_events .card,
+.ongoing_events .card,
+.upcoming_events .card {
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  height: 510px;
+}
+.past_events .card:hover,
+.ongoing_events .card:hover,
+.upcoming_events .card:hover {
+  transform: scale(1.05);
+}
+.past_events .card .card-title,
+.ongoing_events .card .card-title,
+.upcoming_events .card .card-title {
+  margin-bottom: 8px;
+  color: #ff3c00;
+  font-weight: 800;
+}
+.past_events .card .card-date-text,
+.ongoing_events .card .card-date-text,
+.upcoming_events .card .card-date-text {
+  color: #2c5797;
+  font-weight: 700;
+}
+.past_events .card .card-speaker-text,
+.ongoing_events .card .card-speaker-text,
+.upcoming_events .card .card-speaker-text {
+  font-weight: 800;
+}
+.past_events .card .card-description-text,
+.ongoing_events .card .card-description-text,
+.upcoming_events .card .card-description-text {
+  font-weight: 500;
+}
+.past_events button,
+.ongoing_events button,
+.upcoming_events button {
+  background-color: #415c83 !important;
+}
+.past_events p,
+.ongoing_events p,
+.upcoming_events p {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.past_events .btn-primary:focus,
+.ongoing_events .btn-primary:focus,
+.upcoming_events .btn-primary:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.events .past_events .card {
+  width: 400px;
+}
+
+@media (min-width: 300px) and (max-width: 991px) {
+  .modal-body {
+    height: 100%;
+  }
+  .my-modal {
+    width: 90% !important;
+    max-width: 100% !important;
+  }
+  .past_events .card img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    object-position: top;
+  }
+  .events .past_events .card {
+    width: 100%;
+  }
+}

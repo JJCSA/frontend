@@ -3,7 +3,7 @@ import { useAuthUser, useAuthHeader } from 'react-auth-kit';
 import { Formik, Form as FormikForm } from 'formik';
 import comm from '../../helpers/communication';
 import GlobalContext from '../../store/GlobalContext';
-import './Onboarding.scss';
+import './Onboarding.css';
 import {
   Form1,
   Form2,

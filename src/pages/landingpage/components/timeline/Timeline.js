@@ -15,7 +15,7 @@ import {
   mortgage,
   connectCon,
 } from '../../../../assets/images/images-index';
-import './Timeline.scss'; // Import the custom CSS file
+import './Timeline.css'; // Import the custom CSS file
 
 const Timeline = () => {
   const [activeIndex, setActiveIndex] = useState(0); // State to track the active timeline event

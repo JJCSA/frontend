@@ -1,5 +1,5 @@
 import React from 'react';
-import './JjcEvents.scss';
+import './JjcEvents.css';
 import EventsCard from '../../../../components/events/EventsCard';
 
 function JjcEvents() {
@@ -11,21 +11,6 @@ function JjcEvents() {
             <hr />
             <div className="centered-text upcoming_title">UPCOMING EVENTS</div>
             <hr />
-          </div>
-          <div className="row">
-            <div className="col-md-4">
-              <EventsCard
-                title="JJC's 5th Anniversary Celebration"
-                description="This year marks the 5th anniversary of the JJC USA community, a time to celebrate our achievements, growth, and the bonds we've formed along the way. Thank you for being an integral part of the JJC USA community. We look forward to celebrating this milestone with you and creating unforgettable memories together."
-                link=""
-                img="jjc_celebration_5.png"
-                date="10th August 2024"
-                speaker="JJC USA"
-                speakerDetails1=""
-                speakerDetails2=""
-                note="Please email on jjcsausa@gmail.com if you have any questions."
-              />
-            </div>
           </div>
         </div>
         <div className="ongoing_events">
@@ -55,6 +40,21 @@ function JjcEvents() {
             <hr />
             <div className="centered-text past_title">PAST EVENTS</div>
             <hr />
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+              <EventsCard
+                title="JJC's 5th Anniversary Celebration"
+                description="This year marks the 5th anniversary of the JJC USA community, a time to celebrate our achievements, growth, and the bonds we've formed along the way. Thank you for being an integral part of the JJC USA community. We look forward to celebrating this milestone with you and creating unforgettable memories together."
+                link=""
+                img="jjc_celebration_5.png"
+                date="10th August 2024"
+                speaker="JJC USA"
+                speakerDetails1=""
+                speakerDetails2=""
+                note="Please email on jjcsausa@gmail.com if you have any questions."
+              />
+            </div>
           </div>
           <div className="row">
             <div className="col-md-4">

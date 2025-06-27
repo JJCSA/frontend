@@ -1,0 +1,21 @@
+.PRIVACYPOLICY .privacyPolicy-container {
+  margin: 0;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.PRIVACYPOLICY .privacyPolicy-text {
+  margin-top: 2%;
+}
+.PRIVACYPOLICY h4 {
+  text-decoration: underline;
+  color: #2c5797;
+}
+.PRIVACYPOLICY h5 {
+  color: #2c5797;
+}
+.PRIVACYPOLICY .email-text-color {
+  color: #2c5797;
+}
+.PRIVACYPOLICY .privacy-date {
+  font-style: italic;
+}

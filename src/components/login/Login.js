@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useSignIn, useIsAuthenticated } from 'react-auth-kit';
 import { Navigate, Link } from 'react-router-dom';
-import './Login.scss';
+import './Login.css';
 import { Formik, Form as FormikForm } from 'formik';
 import * as Yup from 'yup';
 import { Form, Container, Col, Row, InputGroup } from 'react-bootstrap';

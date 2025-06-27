@@ -1,0 +1,70 @@
+.LOGIN a {
+  color: #ff4020;
+}
+.LOGIN .login-container {
+  margin: 0;
+}
+.LOGIN .login-col {
+  padding: 0;
+}
+.LOGIN .login-box {
+  padding: 10% 13%;
+}
+.LOGIN .main-login-bg {
+  background: whitesmoke;
+}
+.LOGIN .login-form {
+  padding: 6%;
+  border-radius: 5px;
+  background: white;
+  border: 1px solid black;
+}
+.LOGIN .form-control-custom {
+  border: none;
+  background: #efefef;
+}
+.LOGIN .form-control-password {
+  border: none;
+  background: #efefef;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+.LOGIN .password-eye-icon {
+  border: none;
+  background: #efefef;
+  border-top-right-radius: 0.25% !important;
+  border-bottom-right-radius: 0.25% !important;
+}
+.LOGIN .image-col {
+  padding: 0;
+  background: url('../../assets/icons/jjc-login-icon.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.LOGIN .submit-button {
+  border: 1px solid #ff3c00;
+  background: none;
+  color: #ff3c00;
+  width: 100%;
+}
+.LOGIN .submit-button:hover {
+  color: white;
+  background: #ff3c00;
+  border: 1px solid #ff3c00;
+}
+.LOGIN .register-button {
+  border: 1px solid #ff3c00;
+  background: #ff3c00;
+  color: white;
+  width: 100%;
+}
+.LOGIN .register-button:hover {
+  color: white;
+  background: #ff3c00;
+  border: 1px solid #ff3c00;
+}
+@media (max-width: 768px) {
+  .LOGIN .login-box {
+    padding: 2%;
+  }
+}

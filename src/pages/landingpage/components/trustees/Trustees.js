@@ -8,7 +8,7 @@ import {
   Trustee6,
   Trustee7,
 } from '../../../../assets/images/images-index';
-import './Trustees.scss';
+import './Trustees.css';
 
 const Trustees = () => {
   const trustees = [

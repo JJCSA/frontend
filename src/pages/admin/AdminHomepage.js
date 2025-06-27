@@ -1,7 +1,7 @@
 import React from 'react';
 import DownloadData from './components/downloadData/DownloadData';
 import AdminUserStatusCounts from './components/userStatusCount/AdminUserStatusCounts';
-import './AdminHomepage.scss';
+import './AdminHomepage.css';
 
 function AdminHomepage() {
   return (
