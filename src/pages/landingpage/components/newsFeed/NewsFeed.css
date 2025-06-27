@@ -1,0 +1,27 @@
+.NEWSFEED {
+  padding-top: 5em;
+  margin-top: -5em;
+}
+.NEWSFEED .news-feed {
+  border-color: #ff3c00;
+  width: 2rem;
+  margin-top: 0px;
+}
+.NEWSFEED .news-card {
+  border: unset;
+}
+.NEWSFEED .news-card .card-img {
+  height: 100%;
+}
+.NEWSFEED .news-card .card-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+.NEWSFEED .news-card .card-text {
+  font-size: 14px;
+}
+.NEWSFEED .news-card .card-text.read-more {
+  color: #ff3c00;
+  font-weight: bold;
+  cursor: pointer;
+}

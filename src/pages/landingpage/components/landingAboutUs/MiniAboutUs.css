@@ -1,0 +1,50 @@
+@charset "UTF-8";
+.MINIABOUTUS .aboutUsHeading {
+  text-align: center;
+}
+.MINIABOUTUS .text-decor {
+  text-decoration: none !important;
+}
+.MINIABOUTUS .about-us {
+  width: 4rem;
+  border-color: #ff3c00;
+}
+@media only screen and (max-width: 767px) {
+  .MINIABOUTUS .aboutUsImage {
+    height: 300px;
+  }
+  .MINIABOUTUS .knowMoreBox {
+    text-align: center;
+  }
+  .MINIABOUTUS .knowMore {
+    display: inline-block;
+  }
+}
+.MINIABOUTUS blockquote {
+  font-family: 'Open Sans', sans-serif;
+  position: relative;
+  margin: 0.5em;
+  padding: 0.5em 2em 0.5em 3em;
+  font-size: 20px;
+}
+.MINIABOUTUS blockquote:before {
+  font-family: 'Open Sans', sans-serif;
+  position: absolute;
+  font-size: 6em;
+  line-height: 1;
+  top: 0;
+  left: 0;
+  color: #ff4020;
+  content: '“';
+}
+.MINIABOUTUS blockquote:after {
+  font-family: 'Open Sans', sans-serif;
+  position: absolute;
+  float: right;
+  font-size: 6em;
+  line-height: 0.75;
+  right: 0;
+  bottom: -0.5em;
+  color: #ff4020;
+  content: '”';
+}
