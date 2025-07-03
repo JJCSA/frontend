@@ -15,14 +15,7 @@
   width: 2rem;
   margin-top: 0px;
 }
-.LEADERSHIP .card-img-top {
-  max-width: 100%;
-  min-height: 250px;
-  max-height: 250px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 50%; /* Make the image round */
-}
+
 .LEADERSHIP .know-more-button {
   margin-top: 2rem;
   border-radius: 8px !important;
@@ -38,10 +31,13 @@
   align-items: center;
   padding: 10px;
 }
+
 .leadership-image {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 70%; 
+  margin-inline: auto; 
+  margin-block-start: 1.5rem; 
+  
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
 }
