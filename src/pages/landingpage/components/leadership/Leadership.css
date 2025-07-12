@@ -1,15 +1,40 @@
+/* 1. Default styles for mobile (and all screens) */
+.leadership-image {
+  width: 60%; /* Image will be 60% of the card's width */
+  margin-inline: auto; /* A modern way to center it horizontally */
+  margin-block: 1rem; /* Adds space above and below the image */
+
+  /* This creates a responsive, perfect circle */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* 2. Media query for larger screens (laptops/desktops) */
+@media (min-width: 768px) {
+  .leadership-image {
+    /* On large screens, override the responsive size with a fixed size */
+    width: 180px;
+    height: 180px;
+  }
+}
+
+/* --- General Card & Text Styles (Keep these as they are) --- */
 .LEADERSHIP h5 {
   text-align: center;
   color: #2c5797;
 }
+
 .LEADERSHIP p {
   text-align: center;
   color: #2c5797;
 }
+
 .LEADERSHIP .leadership-card {
   border: 1px solid #2c5797;
   min-height: 340px;
 }
+
 .LEADERSHIP .leadership {
   border-color: #ff3c00;
   width: 2rem;
@@ -24,20 +49,11 @@
   border: 1px solid #ff4020 !important;
   background-color: #ff4020 !important;
 }
+
 .LEADERSHIP .card-body {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 10px;
-}
-
-.leadership-image {
-  width: 70%; 
-  margin-inline: auto; 
-  margin-block-start: 1.5rem; 
-  
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 50%;
 }
