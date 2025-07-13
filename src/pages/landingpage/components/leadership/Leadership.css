@@ -1,9 +1,9 @@
 /* 1. Default styles for mobile (and all screens) */
 .leadership-image {
-  width: 60%; /* Image will be 60% of the card's width */
+  width: 100%; /* Image will be 60% of the card's width */
+  height: 100%; /* Maintain aspect ratio */
   margin-inline: auto; /* A modern way to center it horizontally */
-  margin-block: 1rem; /* Adds space above and below the image */
-
+  
   /* This creates a responsive, perfect circle */
   aspect-ratio: 1 / 1;
   object-fit: cover;
@@ -14,8 +14,12 @@
 @media (min-width: 768px) {
   .leadership-image {
     /* On large screens, override the responsive size with a fixed size */
-    width: 180px;
-    height: 180px;
+    width: 100%; /* Image will take full width of the card */
+    height: 100%; /* Maintain aspect ratio */
+    margin-inline: auto; /* Center it horizontally */
+    aspect-ratio: 1 / 1; /* Ensures the image remains a perfect circle */
+    object-fit: cover; /* Ensures the image covers the circle without distortion */
+    border-radius: 50%; /* Keeps the image circular */
   }
 }
 
