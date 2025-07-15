@@ -58,9 +58,8 @@ const Leadership = () => {
               <div className="card mb-4 leadership-card">
                 <img
                   src={list.Image}
-                  className="card-img-top leadership-image"
+                  className="leadership-image"
                   alt={`Leader-${index}`}
-                  style={{ height: '200px', objectFit: 'cover' }}
                 />
                 <div className="card-body">
                   <h5 className="card-title">{list.Name}</h5>
