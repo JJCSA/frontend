@@ -151,6 +151,10 @@ const Volunteers = () => {
       Image: volunteer46,
     },
     {
+      Name: 'Deep Doshi',
+      Image: volunteer55,
+    },
+    {
       Name: 'Deshna Shah',
       Image: volunteer2,
     },
@@ -348,6 +352,10 @@ const Volunteers = () => {
       Image: volunteer18,
     },
     {
+      Name: 'Purvansh Jain',
+      Image: volunteer54,
+    },
+    {
       Name: 'Richa Rajput',
       Image: volunteer42,
     },
@@ -442,14 +450,6 @@ const Volunteers = () => {
     {
       Name: 'Yash',
       Image: avater,
-    },
-    {
-      Name: 'Purvansh Jain',
-      Image: volunteer54,
-    },
-    {
-      Name: 'Deep Doshi',
-      Image: volunteer55,
     },
   ];
   return (
