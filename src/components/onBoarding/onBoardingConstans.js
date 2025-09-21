@@ -168,7 +168,7 @@ export const Form1 = props => {
           </div>
           <div className="form-row mt-2">
             <div className="col">
-              <div class="note">
+              <div className="note">
                 Note: If you are incoming students/professionals from India
                 please use your{' '}
                 <b>

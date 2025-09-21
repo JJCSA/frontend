@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   BrowserRouter,
   Routes as Switch,
@@ -46,7 +46,6 @@ function Routes() {
   const signOutFunc = useSignOut();
   const [showNavbar, setShowNavbar] = useState(true);
   const [showFooter, setShowFooter] = useState(true);
-  const [redirectPath, setRedirectPath] = useState(null);
 
   const toggleNavbar = toggle => {
     setShowNavbar(toggle);

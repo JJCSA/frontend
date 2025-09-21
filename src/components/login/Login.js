@@ -6,9 +6,9 @@ import { Formik, Form as FormikForm } from 'formik';
 import * as Yup from 'yup';
 import { Form, Container, Col, Row, InputGroup } from 'react-bootstrap';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
+import { toast } from 'react-toastify';
 import GlobalContext from '../../store/GlobalContext';
 import { login } from '../UserFunctions';
-import { toast } from 'react-toastify';
 
 const loginSchema = Yup.object().shape({
   username: Yup.string().email('Invalid email address').required('Required'),
@@ -160,7 +160,7 @@ function Login() {
               </Formik>
             </div>
           </div>
-          <Col className="image-col"></Col>
+          <Col className="image-col" />
         </Row>
       </Container>
     </div>

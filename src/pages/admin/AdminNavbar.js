@@ -14,7 +14,7 @@ import GlobalContext from '../../store/GlobalContext';
 function AdminNavbar() {
   const signOut = useSignOut();
   const { globalState } = useContext(GlobalContext);
-  let profile =
+  const profile =
     Object.keys(globalState.profile).length > 0 ? globalState.profile : '';
 
   const userDropdown = (

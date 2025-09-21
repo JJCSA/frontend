@@ -19,11 +19,11 @@ function AdminPanel(props) {
   const [selected, setSelected] = useState('dashboard');
   const [expanded, setExpanded] = useState(false);
 
-  const onSelect = selected => {
+  const onSelect = useCallback(selected => {
     setSelected(selected);
-    const to = '/admin/' + selected;
+    const to = `/admin/${selected}`;
     navigate(to);
-  };
+  });
 
   useEffect(() => {
     props.toggleNavbar(false);
@@ -33,7 +33,7 @@ function AdminPanel(props) {
       props.toggleNavbar(true);
       props.toggleFooter(true);
     };
-  }, [props]);
+  }, [onSelect, props, selected]);
 
   const onToggle = expanded => {
     setExpanded(expanded);

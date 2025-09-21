@@ -5,9 +5,7 @@ import LandingHomepage from '../pages/landingpage/LandingHomepage';
 
 function Landing() {
   const isAuthenticated = useIsAuthenticated();
-  return (
-    <>{isAuthenticated() ? <UserHomepage /> : <LandingHomepage />}</>
-  );
+  return <>{isAuthenticated() ? <UserHomepage /> : <LandingHomepage />}</>;
 }
 
 export default Landing;

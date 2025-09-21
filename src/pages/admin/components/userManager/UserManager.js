@@ -98,7 +98,7 @@ function UserManager() {
       setFetchingUsers(false);
     }
     getUserData();
-  }, []);
+  }, [token]);
 
   /**
    * Function to update Userdata based on particular Id
@@ -132,7 +132,7 @@ function UserManager() {
       newusers.splice(elementsIndexInUsers, 1);
       newfiltered_users.splice(elementsIndexInFilteredUsers, 1);
 
-      //Updating UserRole by SuperAdmin if the user is Active
+      // Updating UserRole by SuperAdmin if the user is Active
     } else if (updated_record.userStatus === Constants.userStatus.ACTIVE) {
       newusers[elementsIndexInUsers] = {
         ...newusers[elementsIndexInUsers],
@@ -188,7 +188,7 @@ function UserManager() {
       return searchTextFilter && userStatus && location && userType;
     });
     setFilteredUsers(filteredList);
-  }, [filters]);
+  }, [filters, users]);
   /**
    * Function to handle text filter
    * @param {The input element} event

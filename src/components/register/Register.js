@@ -5,9 +5,9 @@ import { Formik, Form as FormikForm } from 'formik';
 import * as Yup from 'yup';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router-dom';
-import { register } from '../UserFunctions';
 import { toast } from 'react-toastify';
 import PhoneInput from 'react-phone-input-2';
+import { register } from '../UserFunctions';
 import 'react-phone-input-2/lib/style.css';
 
 const registrationSchema = Yup.object().shape({
@@ -242,7 +242,7 @@ function Register() {
                       <span style={{ color: 'red' }}>*</span>
                     </Form.Label>
                     <PhoneInput
-                      country={'us'}
+                      country="us"
                       value={values.mobileNumber}
                       onChange={phone => {
                         setFieldValue('mobileNumber', `+${phone}`);

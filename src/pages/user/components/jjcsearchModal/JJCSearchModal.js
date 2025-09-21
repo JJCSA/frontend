@@ -13,25 +13,41 @@ import {
 import ImageFormatter from '../../../../components/imageFormatter/ImageFormatter';
 import './JJCSearchModal.css';
 
-const JJCSearchModal = props => {
+// Fix: Destructure 'data' from 'props'
+const JJCSearchModal = ({ data }) => {
+  // Fix: Destructure properties from 'data' for cleaner access
+  const {
+    profilePicture,
+    name,
+    city,
+    state,
+    aboutMe,
+    universityName,
+    specialization: fieldOfStudy, // Renamed to avoid conflict with imported 'specialization' icon
+    workRole,
+    linkedinUrl,
+  } = data;
+
   return (
     <div className="JJCSEARCH-MODAL">
       <Container fluid>
         <Row>
           <Col md={1} className="pl-0 pr-0 pt-1">
             <ImageFormatter
-              cell={props.data.profilePicture}
+              cell={profilePicture} // Used destructured variable
               avatarSize="large"
             />
           </Col>
           <Col md={10} className="mt-3 ml-4">
-            <div className="name-container">{props.data.name}</div>
-            {props.data.city && props.data.state && (
-              <div className="location-container">
-                <img src={locationIcon} alt="Location" />
-                {props.data.city}, {props.data.state}
-              </div>
-            )}
+            <div className="name-container">{name}</div>{' '}
+            {/* Used destructured variable */}
+            {city &&
+              state && ( // Used destructured variables
+                <div className="location-container">
+                  <img src={locationIcon} alt="Location" />
+                  {city}, {state} {/* Used destructured variables */}
+                </div>
+              )}
           </Col>
         </Row>
         <Row>
@@ -44,7 +60,7 @@ const JJCSearchModal = props => {
               </div>
               <div className="mt-3 ml-2 mb-3">
                 <span className="info-container-info">
-                  {props.data.aboutMe}
+                  {aboutMe} {/* Used destructured variable */}
                 </span>
               </div>
             </div>
@@ -60,7 +76,7 @@ const JJCSearchModal = props => {
               </div>
               <div className="mt-3 ml-2 mb-3">
                 <span className="info-container-info">
-                  {props.data.universityName}
+                  {universityName} {/* Used destructured variable */}
                 </span>
               </div>
             </div>
@@ -74,7 +90,7 @@ const JJCSearchModal = props => {
               </div>
               <div className="mt-3 ml-2 mb-3">
                 <span className="info-container-info">
-                  {props.data.specialization}
+                  {fieldOfStudy} {/* Used destructured variable */}
                 </span>
               </div>
             </div>
@@ -88,7 +104,7 @@ const JJCSearchModal = props => {
               </div>
               <div className="mt-3 ml-2 mb-3">
                 <span className="info-container-info">
-                  {props.data.workRole}
+                  {workRole} {/* Used destructured variable */}
                 </span>
               </div>
             </div>
@@ -106,11 +122,11 @@ const JJCSearchModal = props => {
                 <span className="info-container-info">
                   <a
                     className="linkedIn-url"
-                    href={props.data.linkedinUrl}
+                    href={linkedinUrl} // Used destructured variable
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {props.data.linkedinUrl}
+                    {linkedinUrl} {/* Used destructured variable */}
                   </a>
                 </span>
               </div>

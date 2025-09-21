@@ -21,11 +21,11 @@ function UserNavbar() {
         (globalState.profile.userRole === 'ADMIN' ||
           globalState.profile.userRole === 'SUPER_ADMIN') ? (
           <div className="user-dropdown">
-            <GoHome className="user-dropdown-icon" />
-            <Link to="/admin">
+              <GoHome className="user-dropdown-icon" />
+              <Link to="/admin">
               <span onClick={() => document.body.click()}>Admin</span>
             </Link>
-          </div>
+            </div>
         ) : (
           ''
         )}

@@ -1,4 +1,4 @@
-//Leadership
+// Leadership
 export { default as President } from './leadership/Dhruv.jpeg';
 export { default as VicePresident } from './leadership/Yash.jpeg';
 export { default as AlumniWelfare } from './leadership/Brinal.jpeg';
@@ -62,7 +62,7 @@ export { default as volunteer53 } from './volunteers/Riya.png';
 export { default as volunteer54 } from './volunteers/Purvansh.jpeg';
 export { default as volunteer55 } from './volunteers/Deep.jpeg';
 
-//JJC History
+// JJC History
 export { default as covidassistance } from './covid-assistance.png';
 export { default as games } from './bingo.png';
 export { default as graduation } from './graduation.png';
@@ -76,7 +76,7 @@ export { default as immigrant } from './international.png';
 export { default as mortgage } from './mortgage.png';
 export { default as connectCon } from './jjcconnect.png';
 
-//Trustees
+// Trustees
 export { default as Trustee1 } from './trustees/SanjayShah.png';
 export { default as Trustee2 } from './trustees/JitendraKothari.png';
 export { default as Trustee3 } from './trustees/PrafulKamdar.png';

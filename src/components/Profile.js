@@ -421,7 +421,7 @@ function Profile() {
                     onChange={e => {
                       setFieldValue(
                         'userStudent',
-                        e.target.value === 'STUDENT' ? true : false
+                        e.target.value === 'STUDENT'
                       );
                       if (e.target.value === 'STUDENT') {
                         setValidationSchema(validationSchemaWithStudent);
@@ -616,9 +616,9 @@ function Profile() {
                         />
                       </div>
                       <div className="col">
-                        <label htmlFor={`workExperience.${index}.role`}>{`Role${
-                          values.userStudent ? '' : ' *'
-                        }`}</label>
+                        <label htmlFor={`workExperience.${index}.role`}>
+                          {`Role${values.userStudent ? '' : ' *'}`}
+                        </label>
                         <Field
                           name={`workExperience.${index}.role`}
                           type="text"

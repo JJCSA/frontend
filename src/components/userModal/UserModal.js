@@ -53,7 +53,7 @@ const UserModal = props => {
     const params = {
       userId: props.data.id,
       status,
-      ...(status === 'REJECTED' ? {rejectReason: rejectReason} : '')
+      ...(status === 'REJECTED' ? { rejectReason } : ''),
     };
     const response = await comm.sendPut(
       '/admin/users/status',
@@ -377,23 +377,23 @@ const UserModal = props => {
                 globalState.globalState.profile.userRole ===
                   Constants.userTypes.ADMIN) && (
                 <Row>
-                  <div className="info-container mt-1 rounded mb-3">
+                    <div className="info-container mt-1 rounded mb-3">
                     <div className="divOutside">
-                      <div className="mt-3 ml-2 mb-3">
+                        <div className="mt-3 ml-2 mb-3">
                         <img src={AdminIcon} alt="Info" />
                         <span className="info-container-headers">
-                          Assign Regional Contact
+                            Assign Regional Contact
                         </span>
                         <input
-                          type="checkbox"
-                          checked={regionalContact}
-                          className="admin-checkbox"
-                          onChange={e => setRegionalContact(e.target.checked)}
-                        />{' '}
+                            type="checkbox"
+                            checked={regionalContact}
+                            className="admin-checkbox"
+                            onChange={e => setRegionalContact(e.target.checked)}
+                          />{' '}
                       </div>
-                    </div>
+                      </div>
                   </div>
-                </Row>
+                  </Row>
               )}
             {props.data.isRegionalContact !== regionalContact ? (
               <div className="row info-container confirmation_popup">

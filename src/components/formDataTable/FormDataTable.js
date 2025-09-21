@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
-import BootstrapTable from 'react-bootstrap-table-next';
-import paginationFactory from 'react-bootstrap-table2-paginator';
+import {
+  useReactTable,
+  getCoreRowModel,
+  getPaginationRowModel,
+  flexRender,
+} from '@tanstack/react-table';
+// import BootstrapTable from 'react-bootstrap-table-next';
+// import paginationFactory from 'react-bootstrap-table2-paginator';
 import '../datatable/DataTable.css';
 
 class FormDataTable extends Component {
