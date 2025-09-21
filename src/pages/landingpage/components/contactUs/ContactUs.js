@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { toast } from 'react-toastify';
 import { emailIcon, whatsapp } from '../../../../assets/index';
 import './ContactUs.css';
 import comm from '../../../../helpers/communication';
-import { toast } from 'react-toastify';
 
 function ContactUs() {
   const captchaRef = useRef(null);
@@ -11,7 +11,7 @@ function ContactUs() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-  const [errors, setErrors] = useState({});
+  const [, setErrors] = useState({});
 
   const handleNameChange = e => {
     setName(e.target.value);
@@ -98,6 +98,7 @@ function ContactUs() {
                 <div className="row">
                   <div className="col-md-6">
                     <div className="form-group">
+                      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                       <label htmlFor="name">Name</label>{' '}
                       <input
                         type="text"
@@ -109,6 +110,7 @@ function ContactUs() {
                   </div>
                   <div className="col-md-6">
                     <div className="form-group">
+                      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                       <label htmlFor="emailId">Email Id</label>{' '}
                       <input
                         type="email"
@@ -120,6 +122,7 @@ function ContactUs() {
                   </div>
                 </div>
                 <div className="form-group">
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="message">Your Message</label>{' '}
                   <textarea
                     className="form-control form-style"

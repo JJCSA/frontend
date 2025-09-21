@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useAuthHeader } from 'react-auth-kit';
 import comm from '../../../../helpers/communication';
 import './DownloadData.css';

@@ -10,7 +10,19 @@ import {
   EducationLogo,
 } from '../../assets/index';
 
-export const Form1 = props => {
+export const Form1 = ({ values, setFieldValue }) => {
+  const {
+    profilePicture,
+    linkedinUrl,
+    aboutMe,
+    firstName,
+    lastName,
+    email,
+    dateOfBirth,
+    country,
+    state,
+    userStudent,
+  } = values;
   return (
     <div className="card-body">
       <div className="row">
@@ -18,9 +30,7 @@ export const Form1 = props => {
           <img
             className="profile-image mb-2"
             src={
-              props.values.profilePicture !== 'localUrl'
-                ? props.values.profilePicture
-                : DefaultProfile
+              profilePicture !== 'localUrl' ? profilePicture : DefaultProfile
             }
             alt="Profile"
           />
@@ -29,7 +39,7 @@ export const Form1 = props => {
             type="text"
             className="form-control mt-2 mb-2"
             placeholder="Linkedin URL *"
-            value={props.values.linkedinUrl}
+            value={linkedinUrl}
           />
           <ErrorMessage name="linkedinUrl" component="div" className="error" />
 
@@ -38,7 +48,7 @@ export const Form1 = props => {
             as="textarea"
             className="form-control mt-2 mb-2"
             placeholder="About Me *"
-            value={props.values.aboutMe}
+            value={aboutMe}
           />
           <ErrorMessage name="aboutMe" component="div" className="error" />
         </div>
@@ -50,7 +60,7 @@ export const Form1 = props => {
                 type="text"
                 className="form-control"
                 placeholder="First name *"
-                value={props.values.firstName}
+                value={firstName}
                 disabled
               />
             </div>
@@ -60,7 +70,7 @@ export const Form1 = props => {
                 type="text"
                 className="form-control"
                 placeholder="Last name *"
-                value={props.values.lastName}
+                value={lastName}
                 disabled
               />
             </div>
@@ -72,7 +82,7 @@ export const Form1 = props => {
                 type="text"
                 className="form-control mt-2"
                 placeholder="Email Address *"
-                value={props.values.email}
+                value={email}
                 disabled
               />
             </div>
@@ -84,7 +94,7 @@ export const Form1 = props => {
                 type="date"
                 className="form-control"
                 placeholder="DOB *"
-                value={props.values.dateOfBirth}
+                value={dateOfBirth}
               />
               <ErrorMessage
                 name="dateOfBirth"
@@ -128,9 +138,9 @@ export const Form1 = props => {
                 <option value="" disabled>
                   State *
                 </option>
-                {State.getStatesOfCountry(props.values.country).map(state => (
-                  <option key={state.isoCode} value={state.isoCode}>
-                    {state.name}
+                {State.getStatesOfCountry(country).map(stateOption => (
+                  <option key={stateOption.isoCode} value={stateOption.isoCode}>
+                    {stateOption.name}
                   </option>
                 ))}
               </Field>
@@ -143,10 +153,7 @@ export const Form1 = props => {
                 <option value="" disabled>
                   City *
                 </option>
-                {City.getCitiesOfState(
-                  props.values.country,
-                  props.values.state
-                ).map(stateCity => {
+                {City.getCitiesOfState(country, state).map(stateCity => {
                   return (
                     <option key={stateCity.name} value={stateCity.name}>
                       {stateCity.name}
@@ -189,22 +196,22 @@ export const Form1 = props => {
           <div className="row">
             <div
               className={`col-md p-3 m-2 type-container text-center${
-                props.values.userStudent ? ' active' : ''
+                userStudent ? ' active' : ''
               }`}
               role="button"
               tabIndex="0"
-              onClick={() => props.setFieldValue('userStudent', true)}
+              onClick={() => setFieldValue('userStudent', true)}
             >
               <img alt="student-logo" src={StudentLogo} className="type-logo" />
               <div>STUDENT</div>
             </div>
             <div
               className={`col-md p-3 m-2 type-container text-center${
-                props.values.userStudent ? '' : ' active'
+                userStudent ? '' : ' active'
               }`}
               role="button"
               tabIndex="0"
-              onClick={() => props.setFieldValue('userStudent', false)}
+              onClick={() => setFieldValue('userStudent', false)}
             >
               <img alt="prof-logo" src={GraduateLogo} className="type-logo" />
               <div>PROFESSIONAL</div>
@@ -219,6 +226,7 @@ export const Form1 = props => {
                 value="ADMIN"
                 className="form-check-input"
               />
+              {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
               <label className="form-check-label" htmlFor="admin-vol">
                 Admin
               </label>
@@ -230,51 +238,57 @@ export const Form1 = props => {
                 value="ALUMNIWELFARE"
                 className="form-check-input"
               />
+              {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
               <label className="form-check-label" htmlFor="alumni-vol">
                 Alumni welfare
               </label>
             </div>
             <div className="form-check form-check-inline">
-              <Field
-                type="checkbox"
-                name="volunteeringInterest"
-                value="EVENTS"
-                className="form-check-input"
-              />
+              {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
               <label className="form-check-label" htmlFor="events-vol">
+                <Field
+                  type="checkbox"
+                  name="volunteeringInterest"
+                  value="EVENTS"
+                  className="form-check-input"
+                  id="events-vol"
+                />
                 Events
               </label>
             </div>
             <div className="form-check form-check-inline">
-              <Field
-                type="checkbox"
-                name="volunteeringInterest"
-                value="MARKETING"
-                className="form-check-input"
-              />
+              {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
               <label className="form-check-label" htmlFor="marketing-vol">
+                <Field
+                  type="checkbox"
+                  name="volunteeringInterest"
+                  value="MARKETING"
+                  className="form-check-input"
+                />
                 Marketing
               </label>
             </div>
             <div className="form-check form-check-inline">
-              <Field
-                type="checkbox"
-                name="volunteeringInterest"
-                value="STUDENTWELFARE"
-                className="form-check-input"
-              />
+              {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
               <label className="form-check-label" htmlFor="student-vol">
+                <Field
+                  type="checkbox"
+                  name="volunteeringInterest"
+                  value="STUDENTWELFARE"
+                  className="form-check-input"
+                />
                 Student welfare
               </label>
             </div>
             <div className="form-check form-check-inline">
-              <Field
-                type="checkbox"
-                name="volunteeringInterest"
-                value="WEBSITE"
-                className="form-check-input"
-              />
+              {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
               <label className="form-check-label" htmlFor="website-vol">
+                <Field
+                  type="checkbox"
+                  name="volunteeringInterest"
+                  value="WEBSITE"
+                  className="form-check-input"
+                />
                 Website
               </label>
             </div>
@@ -290,7 +304,8 @@ export const Form1 = props => {
   );
 };
 
-export const Form2 = props => {
+export const Form2 = ({ values }) => {
+  const { months, userStudent } = values;
   return (
     <div className="card-body">
       <div className="row">
@@ -342,7 +357,7 @@ export const Form2 = props => {
             <option value="" disabled>
               Grad Month *
             </option>
-            {props.months.map((month, index) => (
+            {months.map((month, index) => (
               <option key={month} value={index}>
                 {month}
               </option>
@@ -380,7 +395,7 @@ export const Form2 = props => {
             name="workExperience[0].companyName"
             type="text"
             className="form-control mt-2"
-            placeholder={`Company Name${props.values.userStudent ? '' : ' *'}`}
+            placeholder={`Company Name${userStudent ? '' : ' *'}`}
           />
 
           <ErrorMessage
@@ -393,7 +408,7 @@ export const Form2 = props => {
             name="workExperience[0].role"
             type="text"
             className="form-control mt-2"
-            placeholder={`Role${props.values.userStudent ? '' : ' *'}`}
+            placeholder={`Role${userStudent ? '' : ' *'}`}
           />
           <ErrorMessage
             name="workExperience[0].role"
@@ -405,7 +420,7 @@ export const Form2 = props => {
             name="workExperience[0].location"
             type="text"
             className="form-control mt-2"
-            placeholder={`Location${props.values.userStudent ? '' : ' *'}`}
+            placeholder={`Location${userStudent ? '' : ' *'}`}
           />
           <ErrorMessage
             name="workExperience[0].location"
@@ -417,9 +432,7 @@ export const Form2 = props => {
             name="workExperience[0].totalExp"
             type="number"
             className="form-control mt-2"
-            placeholder={`Experience (years)${
-              props.values.userStudent ? '' : ' *'
-            }`}
+            placeholder={`Experience (years)${userStudent ? '' : ' *'}`}
           />
           <ErrorMessage
             name="workExperience[0].totalExp"
@@ -435,7 +448,7 @@ export const Form2 = props => {
 export const onBoardingValidationSchema1 = Yup.object().shape({
   linkedinUrl: Yup.string()
     .matches(
-      /(https?)?:?(\/\/)?(([w]{3}||\w\w)\.)?linkedin.com(\w+:{0,1}\w*@)?(\S+)(:([0-9])+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/,
+      /(https?:\/\/)?([\w]{3}|\w\w)?\.linkedin\.com(\/[^\s]*)?/,
       'Must be a valid LinkedIn URL'
     )
     .required('Linkedin URL is required'),

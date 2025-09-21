@@ -1,7 +1,7 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { Country, State, City } from 'country-state-city';
+import { State, City } from 'country-state-city';
 import { toast } from 'react-toastify';
 import { useAuthHeader } from 'react-auth-kit';
 import GlobalContext from '../store/GlobalContext';
@@ -24,16 +24,6 @@ function Profile() {
     'October',
     'November',
     'December',
-  ];
-
-  const volunteeringInterestOptions = [
-    { value: 'ADMIN', label: 'Admin' },
-    { value: 'ALUMNIWELFARE', label: 'Alumni Welfare' },
-    { value: 'EVENTS', label: 'Events ' },
-    { value: 'MARKETING', label: 'Marketing ' },
-    { value: 'STUDENTWELFARE', label: 'Student Welfare ' },
-    { value: 'WEBSITE', label: 'Website ' },
-    // Add more options as needed
   ];
 
   const formatDatePickerInput = dateString => {
@@ -138,13 +128,13 @@ function Profile() {
   });
 
   function toUpperCase(str) {
-    return str.replace(/\w\S*/g, function (txt) {
+    return str.replace(/\w\S*/g, function capitalizeWord(txt) {
       return txt.charAt(0).toUpperCase() + txt.substr(1).toUpperCase();
     });
   }
 
   function toSentenceCase(str) {
-    return str.replace(/\w\S*/g, function (txt) {
+    return str.replace(/\w\S*/g, function sentenceCaseWord(txt) {
       return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
   }
@@ -190,7 +180,7 @@ function Profile() {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {({ values, errors, setFieldValue }) => (
+        {({ values, setFieldValue }) => (
           <Form>
             <div className="form-row">
               <div className="profile-image-container col">
@@ -205,6 +195,7 @@ function Profile() {
             <div className="form-section">
               <div className="form-row">
                 <div className="col">
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="firstName">First Name</label>
                   <Field
                     type="text"
@@ -213,6 +204,7 @@ function Profile() {
                     id="firstName"
                     name="firstName"
                     disabled
+                    aria-disabled="true"
                   />
                   <ErrorMessage
                     name="firstName"
@@ -221,6 +213,7 @@ function Profile() {
                   />
                 </div>
                 <div className="col">
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="lastName">Last Name</label>
                   <Field
                     type="text"
@@ -241,6 +234,7 @@ function Profile() {
               {/* Rest of the form fields */}
               <div className="form-row">
                 <div className="col">
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="email">Email Address</label>
                   <Field
                     type="text"
@@ -257,6 +251,7 @@ function Profile() {
                   />
                 </div>
                 <div className="col">
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="gender">Gender</label>
                   <Field
                     type="text"
@@ -273,6 +268,7 @@ function Profile() {
                   />
                 </div>
                 <div className="col">
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="dateOfBirth">Date of Birth</label>
                   <Field
                     type="date"
@@ -292,6 +288,7 @@ function Profile() {
               </div>
               <div className="form-row">
                 <div className="col">
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="street">Street *</label>
                   <Field
                     type="text"
@@ -310,6 +307,7 @@ function Profile() {
               </div>
               <div className="form-row">
                 <div className="col">
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="country">Country *</label>
                   <Field
                     as="select"
@@ -331,6 +329,7 @@ function Profile() {
                   />
                 </div>
                 <div className="col">
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="state">State *</label>
                   <Field
                     as="select"
@@ -357,6 +356,7 @@ function Profile() {
               </div>
               <div className="form-row">
                 <div className="col">
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="city">City *</label>
                   <Field
                     as="select"
@@ -379,6 +379,7 @@ function Profile() {
                   <ErrorMessage name="city" component="div" className="error" />
                 </div>
                 <div className="col">
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="zip">Zipcode *</label>
                   <Field
                     type="text"
@@ -397,6 +398,7 @@ function Profile() {
             <div className="form-section">
               <div className="form-row">
                 <div className="col">
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="linkedinUrl">LinkedIn URL</label>
                   <Field
                     type="text"
@@ -412,6 +414,7 @@ function Profile() {
                   />
                 </div>
                 <div className="col">
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="userStudent">Current Status *</label>
                   <Field
                     as="select"
@@ -450,6 +453,7 @@ function Profile() {
               </div>
               <div className="form-row">
                 <div className="col">
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="aboutMe">About Me</label>
                   <Field
                     as="textarea"
@@ -468,9 +472,9 @@ function Profile() {
               {values.userStudent && values.workExperience.length === 0 ? (
                 <p className="userStudent">
                   <b>
-                    Note: Please update your current status to "Professional" if
-                    you are a recent graduate or wish to include professional
-                    experience.
+                    Note: Please update your current status to
+                    &quot;Professional&quot; if you are a recent graduate or
+                    wish to include professional experience.
                   </b>
                 </p>
               ) : (
@@ -507,6 +511,7 @@ function Profile() {
             <div className="form-section">
               <div className="form-row">
                 <div className="col">
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="universityName">School/University *</label>
                   <Field
                     name="education.0.universityName"
@@ -522,6 +527,7 @@ function Profile() {
                   />
                 </div>
                 <div className="col">
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="specialization">Specialization *</label>
                   <Field
                     name="education.0.specialization"
@@ -536,6 +542,7 @@ function Profile() {
                   />
                 </div>
                 <div className="col">
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="degree">Degree *</label>
                   <Field
                     name="education.0.degree"
@@ -550,6 +557,7 @@ function Profile() {
                   />
                 </div>
                 <div className="col">
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="gradMonth">Grad Month *</label>
                   <Field
                     as="select"
@@ -560,7 +568,7 @@ function Profile() {
                       Grad Month
                     </option>
                     {months.map((month, idx) => (
-                      <option key={idx} value={idx}>
+                      <option key={month} value={idx}>
                         {month}
                       </option>
                     ))}
@@ -572,6 +580,7 @@ function Profile() {
                   />
                 </div>
                 <div className="col">
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="gradYear">Grad Year *</label>
                   <Field
                     name="education.0.gradYear"
@@ -598,7 +607,7 @@ function Profile() {
                     ? values.workExperience
                     : [{}]
                   ).map((exp, index) => (
-                    <div key={index} className="form-row">
+                    <div key={exp.id} className="form-row">
                       <div className="col">
                         <label htmlFor={`workExperience.${index}.companyName`}>
                           {`Company Name${values.userStudent ? '' : ' *'}`}

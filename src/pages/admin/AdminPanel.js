@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { BiCopyright } from 'react-icons/bi';
 import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import styled from 'styled-components';
@@ -19,9 +19,9 @@ function AdminPanel(props) {
   const [selected, setSelected] = useState('dashboard');
   const [expanded, setExpanded] = useState(false);
 
-  const onSelect = useCallback(selected => {
-    setSelected(selected);
-    const to = `/admin/${selected}`;
+  const onSelect = useCallback(selectedOption => {
+    setSelected(selectedOption);
+    const to = `/admin/${selectedOption}`;
     navigate(to);
   });
 
