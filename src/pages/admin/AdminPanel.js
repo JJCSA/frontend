@@ -14,29 +14,34 @@ const Main = styled.main`
   margin-left: ${props => (props.expanded ? 240 : 64)}px;
 `;
 
-function AdminPanel(props) {
+function AdminPanel({ toggleNavbar, toggleFooter, onSelect: propOnSelect }) {
   const navigate = useNavigate();
   const [selected, setSelected] = useState('dashboard');
   const [expanded, setExpanded] = useState(false);
 
-  const onSelect = useCallback(selectedOption => {
-    setSelected(selectedOption);
-    const to = `/admin/${selectedOption}`;
-    navigate(to);
-  });
+  const onSelect = useCallback(
+    selectedOption => {
+      setSelected(selectedOption);
+      const to = `/admin/${selectedOption}`;
+      navigate(to);
+      // If the prop was passed, call it too (assuming its intent was to notify the parent)
+      if (propOnSelect) propOnSelect(selectedOption);
+    },
+    [navigate, propOnSelect]
+  );
 
   useEffect(() => {
-    props.toggleNavbar(false);
-    props.toggleFooter(false);
+    toggleNavbar(false);
+    toggleFooter(false);
     onSelect(selected);
     return () => {
-      props.toggleNavbar(true);
-      props.toggleFooter(true);
+      toggleNavbar(true);
+      toggleFooter(true);
     };
-  }, [onSelect, props, selected]);
+  }, [onSelect, selected, toggleNavbar, toggleFooter]);
 
-  const onToggle = expanded => {
-    setExpanded(expanded);
+  const onToggle = expandedOption => {
+    setExpanded(expandedOption);
   };
 
   const getCurrentYear = () => {
