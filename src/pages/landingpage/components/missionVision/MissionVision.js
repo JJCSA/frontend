@@ -44,8 +44,8 @@ const NewMissionVision = () => {
               </li>
               <li>
                 Create opportunities for professional growth and career
-                development through events like "alumni symposiums" and "tips to
-                ace your interview," etc.
+                development through events like &quot;alumni symposiums&quot; and &quot;tips to
+                ace your interview,&quot; etc.
               </li>
               <li>
                 Ease transitions for new students coming to the United States of
