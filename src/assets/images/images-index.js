@@ -2,8 +2,6 @@
 export { default as President } from './leadership/Dhruv.jpeg';
 export { default as VicePresident } from './leadership/Yash.jpeg';
 export { default as AlumniWelfare } from './leadership/Brinal.jpeg';
-export { default as Events } from './leadership/Purvansh.jpeg';
-export { default as Marketing } from './leadership/Deep.jpeg';
 export { default as admin } from './leadership/Hemal.jpeg';
 export { default as avater } from './volunteers/user.jpg';
 
@@ -61,6 +59,8 @@ export { default as volunteer50 } from './volunteers/Jash.jpg';
 export { default as volunteer51 } from './volunteers/Nishit.jpg';
 export { default as volunteer52 } from './volunteers/Priyal.png';
 export { default as volunteer53 } from './volunteers/Riya.png';
+export { default as volunteer54 } from './volunteers/Purvansh.jpeg';
+export { default as volunteer55 } from './volunteers/Deep.jpeg';
 
 //JJC History
 export { default as covidassistance } from './covid-assistance.png';

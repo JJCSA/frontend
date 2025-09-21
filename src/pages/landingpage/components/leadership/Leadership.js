@@ -29,19 +29,9 @@ const Leadership = () => {
       Image: admin,
     },
     {
-      Name: 'Purvansh Jain',
-      Role: 'Social Event Lead',
-      Image: Events,
-    },
-    {
       Name: 'Brinal Bheda',
       Role: 'Alumni Welfare Lead',
       Image: AlumniWelfare,
-    },
-    {
-      Name: 'Deep Doshi',
-      Role: 'Marketing Lead',
-      Image: Marketing,
     },
   ];
 
