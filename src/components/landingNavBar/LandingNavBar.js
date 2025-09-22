@@ -138,9 +138,9 @@ function LandingNavBar() {
           <Link to="/profile">Profile</Link>
         </div>
         <hr className="m-0" />
-        <div className="p-1" onClick={signOut}>
+        <button type="button" className="p-1" onClick={signOut}>
           Logout
-        </div>
+        </button>
       </Popover.Content>
     </Popover>
   );

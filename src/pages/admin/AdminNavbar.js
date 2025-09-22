@@ -21,21 +21,27 @@ function AdminNavbar() {
       <Popover.Content className="user-profile-dropdown-content">
         <div className="user-dropdown">
           <GoHome className="user-dropdown-icon" />
-          <Link to="/">
-            <span onClick={() => document.body.click()}>Home</span>
+          <Link to="/" onClick={() => document.body.click()}>
+            Home
           </Link>
         </div>
         <hr className="m-0" />
         <div className="user-dropdown">
           <CgProfile className="user-dropdown-icon" />
-          <Link to="/profile">
-            <span onClick={() => document.body.click()}>Profile</span>
+          <Link to="/profile" onClick={() => document.body.click()}>
+            Profile
           </Link>
         </div>
         <hr className="m-0" />
         <div className="user-dropdown">
           <FiLogOut className="user-dropdown-icon" />
-          <span onClick={signOut}>Logout</span>
+          <button
+            type="button"
+            className="user-dropdown-button"
+            onClick={signOut}
+          >
+            Logout
+          </button>
         </div>
       </Popover.Content>
     </Popover>
