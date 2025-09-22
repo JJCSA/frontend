@@ -331,7 +331,9 @@ function Register() {
                     <Form.Control
                       type="file"
                       name="profPicture"
-                      onChange={e => setFieldValue('profPicture', e.currentTarget.files[0])}
+                      onChange={e => 
+                        setFieldValue('profPicture', e.currentTarget.files[0])
+                      }
                       required
                     />
                   </Form.Group>
