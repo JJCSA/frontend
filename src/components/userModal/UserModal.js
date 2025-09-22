@@ -365,24 +365,24 @@ const UserModal = ({ data, token, onsubmitUpdate }) => {
                 Constants.userTypes.SUPERADMIN ||
                 globalState.globalState.profile.userRole ===
                   Constants.userTypes.ADMIN) && (
-                    <Row>
-                      <div className="info-container mt-1 rounded mb-3">
-                        <div className="divOutside">
-                          <div className="mt-3 ml-2 mb-3">
-                            <img src={AdminIcon} alt="Info" />
-                            <span className="info-container-headers">
-                              Assign Regional Contact
-                            </span>
-                            <input
-                              type="checkbox"
-                              checked={regionalContact}
-                              className="admin-checkbox"
-                              onChange={e => setRegionalContact(e.target.checked)}
-                            />{' '}
-                          </div>
-                        </div>
+                <Row>
+                  <div className="info-container mt-1 rounded mb-3">
+                    <div className="divOutside">
+                      <div className="mt-3 ml-2 mb-3">
+                        <img src={AdminIcon} alt="Info" />
+                        <span className="info-container-headers">
+                          Assign Regional Contact
+                        </span>
+                        <input
+                          type="checkbox"
+                          checked={regionalContact}
+                          className="admin-checkbox"
+                          onChange={e => setRegionalContact(e.target.checked)}
+                        />{' '}
                       </div>
-                    </Row>
+                    </div>
+                  </div>
+                </Row>
               )}
             {data.isRegionalContact !== regionalContact ? (
               <div className="row info-container confirmation_popup">
