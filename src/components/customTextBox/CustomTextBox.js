@@ -20,4 +20,11 @@ CustomTextBox.propTypes = {
   onChange: PropTypes.func,
 };
 
+CustomTextBox.defaultProps = {
+  value: '',
+  label: '',
+  placeholder: '',
+  onChange: () => {},
+};
+
 export default CustomTextBox;

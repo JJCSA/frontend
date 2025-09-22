@@ -43,7 +43,6 @@ function Login() {
             ? 'Please wait until account is approved by Admin'
             : 'Login Failed!'
         );
-        console.log(err);
       })
       .finally(() => {
         setSubmitting(false);

@@ -52,8 +52,7 @@ function DataTable({ data, columns: columnDefs, updateUserData }) {
       dialogClassName="my-modal"
     >
       <Modal.Body>
-        <UserModal data={modalInfo} onsubmitUpdate={updateUserTable}
-        />
+        <UserModal data={modalInfo} onsubmitUpdate={updateUserTable} />
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>

@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useSignOut } from 'react-auth-kit';
-import { OverlayTrigger, Popover, Badge } from 'react-bootstrap';
-import { BsBell } from 'react-icons/bs';
+import { OverlayTrigger, Popover } from 'react-bootstrap';
 import { CgProfile } from 'react-icons/cg';
 import { GoHome } from 'react-icons/go';
 import { FiLogOut } from 'react-icons/fi';

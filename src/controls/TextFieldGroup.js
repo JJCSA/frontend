@@ -6,7 +6,6 @@ const TextFieldGroup = ({
   name,
   placeholder,
   value,
-  label,
   error,
   info,
   type,
@@ -42,7 +41,10 @@ TextFieldGroup.propTypes = {
 };
 
 TextFieldGroup.defaultProps = {
-  type: 'text',
+  placeholder: '',
+  info: '',
+  error: '',
+  disabled: '',
 };
 
 export default TextFieldGroup;

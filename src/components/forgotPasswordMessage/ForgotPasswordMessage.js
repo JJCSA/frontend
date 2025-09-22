@@ -1,6 +1,6 @@
 import React from 'react';
 import './ForgotPasswordMessage.css';
-import { Form, Col, Row, Container } from 'react-bootstrap';
+import { Col, Row, Container } from 'react-bootstrap';
 
 const ForgotPasswordMessage = () => (
   <Container fluid className="ForgotPasswordMessage-container">

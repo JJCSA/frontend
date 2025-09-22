@@ -3,11 +3,17 @@ import './EventsCard.css';
 import { Button, Modal } from 'react-bootstrap';
 import PastEventsModal from './EventsModal';
 
-function EventsCard(eventInformation) {
+function EventsCard({
+  img,
+  title,
+  date,
+  description,
+  speaker,
+  ...eventInformation
+}) {
   const [show, setShow] = useState(false);
-  const [showModal, setShowModal] = useState(false);
   const imgBase = '/events/';
-  const img_src = imgBase + eventInformation.img;
+  const imgSrc = imgBase + img;
   const handleClose = () => {
     setShow(false);
   };
@@ -24,7 +30,14 @@ function EventsCard(eventInformation) {
         dialogClassName="my-modal"
       >
         <Modal.Body>
-          <PastEventsModal {...eventInformation} />
+          <PastEventsModal
+            {...eventInformation}
+            img={img}
+            title={title}
+            date={date}
+            description={description}
+            speaker={speaker}
+          />
         </Modal.Body>
 
         <Modal.Footer>
@@ -41,7 +54,7 @@ function EventsCard(eventInformation) {
     <div>
       {show ? <ModalContent /> : null}
       <div className="card">
-        <img className="card-img-top img-fluid" src={img_src} alt="Card cap" />
+        <img className="card-img-top img-fluid" src={imgSrc} alt="Card cap" />
         <div className="card-body">
           <h6 className="card-title">{eventInformation.title}</h6>
           <p className="card-date-text">{eventInformation.date}</p>
@@ -49,7 +62,11 @@ function EventsCard(eventInformation) {
             {eventInformation.description}
           </p>
           <p className="card-speaker-text">By: {eventInformation.speaker}</p>
-          <button className="btn btn-primary" onClick={handleShow}>
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={handleShow}
+          >
             View More
           </button>
         </div>

@@ -42,7 +42,7 @@ function Register() {
     jainCommunity: '',
   };
   const [showPassword, setShowPassword] = useState(false);
-  const [showError, setShowError] = useState(false);
+  const [, setShowError] = useState(false);
   const [agree, setAgree] = useState(false);
 
   const navigate = useNavigate();
@@ -55,8 +55,9 @@ function Register() {
   };
 
   const handleSubmit = (values, { setSubmitting }) => {
-    delete values.passwordConfirmation;
-    register(values)
+    const submissionValues = { ...values };
+    delete submissionValues.passwordConfirmation;
+    register(submissionValues)
       .then(() => {
         toast.success('Registration successful!');
         navigate('/login');

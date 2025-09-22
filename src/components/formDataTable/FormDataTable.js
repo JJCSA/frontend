@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
-import {
-  useReactTable,
-  getCoreRowModel,
-  getPaginationRowModel,
-  flexRender,
-} from '@tanstack/react-table';
-// import BootstrapTable from 'react-bootstrap-table-next';
-// import paginationFactory from 'react-bootstrap-table2-paginator';
+import BootstrapTable from 'react-bootstrap-table-next';
+import paginationFactory from 'react-bootstrap-table2-paginator';
 import '../datatable/DataTable.css';
 
 class FormDataTable extends Component {
@@ -20,39 +14,38 @@ class FormDataTable extends Component {
     this.handleOnSelectAll = this.handleOnSelectAll.bind(this);
   }
 
-  handleOnSelect = (row, isSelect) => {
+  handleOnSelect(row, isSelect) {
     if (isSelect) {
-      this.setState({
-        selected: [...this.state.selected, row.form_id],
-      });
+      this.setState(prevState => ({
+        selected: [...prevState.selected, row.form_id],
+      }));
     } else {
-      this.setState({
-        selected: this.state.selected.filter(x => x !== row.form_id),
-      });
+      this.setState(prevState => ({
+        selected: prevState.selected.filter(x => x !== row.form_id),
+      }));
     }
-  };
+  }
 
-  handleOnSelectAll = (isSelect, rows) => {
+  handleOnSelectAll(isSelect, rows) {
     const ids = rows.map(r => r.form_id);
     if (isSelect) {
-      this.setState({
-        ...this.state,
+      this.setState(prevState => ({
+        ...prevState,
         selected: ids,
-      });
+      }));
     } else {
-      this.setState({
-        ...this.state,
+      this.setState(prevState => ({
+        ...prevState,
         selected: [],
-      });
+      }));
     }
-  };
+  }
 
   render() {
-    const sizePerPageRenderer = ({
-      options,
-      currSizePerPage,
-      onSizePerPageChange,
-    }) => (
+    const { sizePerPage, selected } = this.state;
+    const { keyField, data, columns } = this.props;
+
+    const sizePerPageRenderer = ({ onSizePerPageChange }) => (
       <span className="sizePerPage">
         Show
         <input
@@ -60,9 +53,9 @@ class FormDataTable extends Component {
           min="10"
           max="50"
           step="5"
-          value={this.state.sizePerPage}
+          value={sizePerPage}
           onChange={e => {
-            this.setState({ sizePerPage: e.target.value });
+            this.setState(() => ({ sizePerPage: e.target.value }));
             onSizePerPageChange(e.target.value);
             e.preventDefault();
           }}
@@ -78,7 +71,7 @@ class FormDataTable extends Component {
     const selectRow = {
       mode: 'checkbox',
       clickToSelect: true,
-      selected: this.state.selected,
+      selected,
       onSelect: this.handleOnSelect,
       onSelectAll: this.handleOnSelectAll,
     };
@@ -88,9 +81,9 @@ class FormDataTable extends Component {
     return (
       <div>
         <BootstrapTable
-          keyField={this.props.keyField}
-          data={this.props.data}
-          columns={this.props.columns}
+          keyField={keyField}
+          data={data}
+          columns={columns}
           bordered={false}
           noDataIndication="Table is Empty"
           rowClasses={rowClasses}

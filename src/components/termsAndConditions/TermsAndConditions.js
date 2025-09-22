@@ -15,41 +15,41 @@ const TermsAndConditions = () => {
             <div className="terms-conditions-page">
               <div id="terms-conditions" className="terms-conditions">
                 <p>
-                  These Terms and Conditions ("Agreement") govern your use of
-                  the JJC USA website ("Website") provided by JJC USA or Jain
-                  Jagruti Centre Central Board Charitable Trust - Mumbai
-                  ("Company," “we," “us," or “our”). By accessing or using the
-                  Website, you agree to be bound by these Terms and Conditions.
-                  If you do not agree with any part of this Agreement, you must
-                  refrain from using the Website. We reserve the right, in our
-                  sole discretion, to make changes or modifications to these
-                  Terms of Use at any time and for any reason. We will alert you
-                  about any changes by updating the “Last updated” date of these
-                  Terms of Use, and you waive any right to receive specific
-                  notice of each such change. Please ensure that you check the
-                  applicable Terms every time you use our site so that you
-                  understand which terms apply. You will be subject to, and will
-                  be deemed to have been made aware of and to have accepted, the
-                  changes in any revised Terms of Use by your continued use of
-                  the site after the date such revised Terms of Use are
-                  posted.The information provided on the site is not intended
-                  for distribution to or use by any person or entity in any
-                  jurisdiction or country where such distribution or use would
-                  be contrary to law or regulation or which would subject us to
-                  any registration requirement within such jurisdiction or
-                  country. Accordingly, those persons who choose to access the
-                  site from other locations do so on their own initiative and
-                  are solely responsible for compliance with local laws, if and
-                  to the extent local laws are applicable. The site is not
-                  tailored to comply with industry-specific regulations (Health
-                  Insurance Portability and Accountability Act (HIPAA), Federal
-                  Information Security Management Act (FISMA), etc.), so if your
-                  interactions would be subjected to such laws, you may not use
-                  this site. You may not use the site in a way that would
-                  violate the Gramm-Leach-Bliley Act (GLBA). The site is
-                  intended for users who are at least 18 years old. Persons
-                  under the age of 18 are not permitted to use or register for
-                  the Site.
+                  These Terms and Conditions (&quot;Agreement&quot;) govern your
+                  use of the JJC USA website (&quot;Website&quot;) provided by
+                  JJC USA or Jain Jagruti Centre Central Board Charitable Trust
+                  - Mumbai (&quot;Company,&quot; “we,&quot; “us,&quot; or
+                  “our”). By accessing or using the Website, you agree to be
+                  bound by these Terms and Conditions. If you do not agree with
+                  any part of this Agreement, you must refrain from using the
+                  Website. We reserve the right, in our sole discretion, to make
+                  changes or modifications to these Terms of Use at any time and
+                  for any reason. We will alert you about any changes by
+                  updating the “Last updated” date of these Terms of Use, and
+                  you waive any right to receive specific notice of each such
+                  change. Please ensure that you check the applicable Terms
+                  every time you use our site so that you understand which terms
+                  apply. You will be subject to, and will be deemed to have been
+                  made aware of and to have accepted, the changes in any revised
+                  Terms of Use by your continued use of the site after the date
+                  such revised Terms of Use are posted.The information provided
+                  on the site is not intended for distribution to or use by any
+                  person or entity in any jurisdiction or country where such
+                  distribution or use would be contrary to law or regulation or
+                  which would subject us to any registration requirement within
+                  such jurisdiction or country. Accordingly, those persons who
+                  choose to access the site from other locations do so on their
+                  own initiative and are solely responsible for compliance with
+                  local laws, if and to the extent local laws are applicable.
+                  The site is not tailored to comply with industry-specific
+                  regulations (Health Insurance Portability and Accountability
+                  Act (HIPAA), Federal Information Security Management Act
+                  (FISMA), etc.), so if your interactions would be subjected to
+                  such laws, you may not use this site. You may not use the site
+                  in a way that would violate the Gramm-Leach-Bliley Act (GLBA).
+                  The site is intended for users who are at least 18 years old.
+                  Persons under the age of 18 are not permitted to use or
+                  register for the Site.
                 </p>
                 <h4>1. Intellectual Property</h4>
                 <p>
@@ -115,11 +115,11 @@ const TermsAndConditions = () => {
                 <p>
                   The Website may allow you to submit or post content, including
                   but not limited to comments, reviews, suggestions, or other
-                  materials ("User Content"). By submitting User Content, you
-                  grant JJC USA a non-exclusive, worldwide, royalty-free license
-                  to use, modify, reproduce, and distribute the User Content for
-                  any purpose related to the Website or JJC USA's or (JJC
-                  Central Board - Mumbai) business.
+                  materials (&quot;User Content&quot;). By submitting User
+                  Content, you grant JJC USA a non-exclusive, worldwide,
+                  royalty-free license to use, modify, reproduce, and distribute
+                  the User Content for any purpose related to the Website or JJC
+                  USA&apos;s or (JJC Central Board - Mumbai) business.
                 </p>
                 <h4>5. User Registration</h4>
                 <p>
@@ -280,10 +280,11 @@ const TermsAndConditions = () => {
                   JJC USA or JJC- Mumbai shall not be liable for any direct,
                   indirect, incidental, consequential, or punitive damages
                   arising out of your use of the Website or any errors,
-                  omissions, interruptions, or delays in the Website's
+                  omissions, interruptions, or delays in the Website&apos;s
                   operation. This includes, but is not limited to, damages for
-                  loss of data, profits, or business opportunities. JJC USA's
-                  liability is limited to the maximum extent permitted by law.
+                  loss of data, profits, or business opportunities. JJC
+                  USA&apos;s liability is limited to the maximum extent
+                  permitted by law.
                 </p>
                 <h4>9. Indemnification</h4>
                 <p>
@@ -434,13 +435,14 @@ const TermsAndConditions = () => {
                 <p>
                   To expedite resolution and control the cost of any dispute,
                   controversy, or claim related to these Terms of Use (each
-                  "Dispute" and collectively, the “Disputes”) brought by either
-                  you or us (individually, a “Party” and collectively, the
-                  “Parties”), the Parties agree to first attempt to negotiate
-                  any Dispute (except those Disputes expressly provided below)
-                  informally for at least thirty (30) days before initiating
-                  arbitration. Such informal negotiations commence upon written
-                  notice from one Party to the other Party.
+                  &quot;Dispute&quot; and collectively, the “Disputes”) brought
+                  by either you or us (individually, a “Party” and collectively,
+                  the “Parties”), the Parties agree to first attempt to
+                  negotiate any Dispute (except those Disputes expressly
+                  provided below) informally for at least thirty (30) days
+                  before initiating arbitration. Such informal negotiations
+                  commence upon written notice from one Party to the other
+                  Party.
                 </p>
                 <h5>Binding Arbitration</h5>
                 <p>
@@ -451,18 +453,18 @@ const TermsAndConditions = () => {
                   WITHOUT THIS PROVISION, YOU WOULD HAVE THE RIGHT TO SUE IN
                   COURT AND HAVE A JURY TRIAL. The arbitration shall be
                   commenced and conducted under the Commercial Arbitration Rules
-                  of the American Arbitration Association ("AAA") and, where
-                  appropriate, the AAA’s Supplementary Procedures for Consumer
-                  Related Disputes ("AAA Consumer Rules"), both of which are
-                  available at the AAA website: www.adr.org. Your arbitration
-                  fees and your share of arbitrator compensation shall be
-                  governed by the AAA Consumer Rules and, where appropriate,
-                  limited by the AAA Consumer Rules. The arbitration may be
-                  conducted in person, through the submission of documents, by
-                  phone, or online. The arbitrator will make a decision in
-                  writing, but need not provide a statement of reasons unless
-                  requested by either Party. The arbitrator must follow
-                  applicable law, and any award may be challenged if the
+                  of the American Arbitration Association (&quot;AAA&quot;) and,
+                  where appropriate, the AAA’s Supplementary Procedures for
+                  Consumer Related Disputes (&quot;AAA Consumer Rules&quot;),
+                  both of which are available at the AAA website: www.adr.org.
+                  Your arbitration fees and your share of arbitrator
+                  compensation shall be governed by the AAA Consumer Rules and,
+                  where appropriate, limited by the AAA Consumer Rules. The
+                  arbitration may be conducted in person, through the submission
+                  of documents, by phone, or online. The arbitrator will make a
+                  decision in writing, but need not provide a statement of
+                  reasons unless requested by either Party. The arbitrator must
+                  follow applicable law, and any award may be challenged if the
                   arbitrator fails to do so. Except where otherwise required by
                   the applicable AAA rules or applicable law, the arbitration
                   will take place in Queens, New York. Except as otherwise

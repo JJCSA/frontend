@@ -2,10 +2,10 @@ import React from 'react';
 import { Link as HashLink } from 'react-scroll';
 import { Link } from 'react-router-dom';
 import { useIsAuthenticated, useSignOut } from 'react-auth-kit';
+import { OverlayTrigger, Popover } from 'react-bootstrap';
 import { jjcIcon, UserDropDownIcon } from '../../assets/index';
 import './LandingNavBar.css';
 import Avatar from '../avatar/Avatar';
-import { OverlayTrigger, Popover } from 'react-bootstrap';
 
 // eslint-disable-next-line react/prop-types
 function LandingNavBar() {

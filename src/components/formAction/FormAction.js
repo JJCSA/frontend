@@ -1,8 +1,8 @@
 import './FormAction.css';
 import React from 'react';
-import { copyIcon, viewIcon } from '../../assets/index.js';
+import { copyIcon, viewIcon } from '../../assets/index';
 
-const FormAction = row => (
+const FormAction = () => (
   <div>
     <img className="iconSpacing" src={copyIcon} alt="Copy" />
     <img className="iconSpacing" src={viewIcon} alt="View" />
