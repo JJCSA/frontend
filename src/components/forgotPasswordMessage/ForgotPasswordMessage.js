@@ -1,6 +1,6 @@
 import React from 'react';
 import './ForgotPasswordMessage.css';
-import { Form, Col, Row, Container } from 'react-bootstrap';
+import { Col, Row, Container } from 'react-bootstrap';
 
 const ForgotPasswordMessage = () => (
   <Container fluid className="ForgotPasswordMessage-container">
@@ -36,7 +36,7 @@ const ForgotPasswordMessage = () => (
           <div className="message-outside-container-2">
             <p className="message-content-2">
               {/* proper email id should be come instead of email_id@gmail.com below */}
-              We have sent you an email to your registered email id. <br></br>
+              We have sent you an email to your registered email id. <br />
               Check your inbox and follow the instructions to reset your account
               password.
             </p>

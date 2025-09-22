@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useSignOut } from 'react-auth-kit';
-import { OverlayTrigger, Popover, Badge } from 'react-bootstrap';
-import { BsBell } from 'react-icons/bs';
+import { OverlayTrigger, Popover } from 'react-bootstrap';
 import { CgProfile } from 'react-icons/cg';
 import { GoHome } from 'react-icons/go';
 import { FiLogOut } from 'react-icons/fi';
@@ -14,7 +13,7 @@ import GlobalContext from '../../store/GlobalContext';
 function AdminNavbar() {
   const signOut = useSignOut();
   const { globalState } = useContext(GlobalContext);
-  let profile =
+  const profile =
     Object.keys(globalState.profile).length > 0 ? globalState.profile : '';
 
   const userDropdown = (
@@ -22,21 +21,27 @@ function AdminNavbar() {
       <Popover.Content className="user-profile-dropdown-content">
         <div className="user-dropdown">
           <GoHome className="user-dropdown-icon" />
-          <Link to="/">
-            <span onClick={() => document.body.click()}>Home</span>
+          <Link to="/" onClick={() => document.body.click()}>
+            Home
           </Link>
         </div>
         <hr className="m-0" />
         <div className="user-dropdown">
           <CgProfile className="user-dropdown-icon" />
-          <Link to="/profile">
-            <span onClick={() => document.body.click()}>Profile</span>
+          <Link to="/profile" onClick={() => document.body.click()}>
+            Profile
           </Link>
         </div>
         <hr className="m-0" />
         <div className="user-dropdown">
           <FiLogOut className="user-dropdown-icon" />
-          <span onClick={signOut}>Logout</span>
+          <button
+            type="button"
+            className="user-dropdown-button"
+            onClick={signOut}
+          >
+            Logout
+          </button>
         </div>
       </Popover.Content>
     </Popover>

@@ -50,12 +50,12 @@ function Testimonial() {
             <div className="testimonial-content">
               <p>
                 JJC has been a game changer for me as a Jain student in the USA.
-                From job assistance to resume building and networking, they've
-                been there every step of the way. Their events tackling various
-                aspects of life in the USA have been invaluable. I'm immensely
-                grateful to JJC for their guidance, which has played a vital
-                role in my personal and professional growth within the Jain
-                community.
+                From job assistance to resume building and networking,
+                they&apos;ve been there every step of the way. Their events
+                tackling various aspects of life in the USA have been
+                invaluable. I&apos;m immensely grateful to JJC for their
+                guidance, which has played a vital role in my personal and
+                professional growth within the Jain community.
               </p>
               <p className="author mt-3">- Harsh Mehta</p>
             </div>
@@ -69,7 +69,7 @@ function Testimonial() {
                 reaching out to JJC turned out to be a game-changer. Their team
                 offered me guidance in creating a professional resume workshop,
                 provided interview tips, and connected me with potential
-                employers.Thanks to JJC's support, I secured a rewarding
+                employers.Thanks to JJC&apos;s support, I secured a rewarding
                 position.
               </p>
               <p className="author mt-3">- Karan Doshi</p>
@@ -152,11 +152,11 @@ function Testimonial() {
                 Being a part of JJC USA has been an enriching experience that I
                 cherish deeply. The warmth and inclusivity of this community
                 make it feel like a second family. Through engaging events and
-                workshops, I've grown as a person, expanding my horizons and
-                embracing diversity. The support and encouragement from fellow
-                members and the committee have been incredible. Joining JJC USA
-                has not only given me wonderful memories but also lifelong
-                friendships.
+                workshops, I&apos;ve grown as a person, expanding my horizons
+                and embracing diversity. The support and encouragement from
+                fellow members and the committee have been incredible. Joining
+                JJC USA has not only given me wonderful memories but also
+                lifelong friendships.
               </p>
               <p className="author mt-3">- Aayushi Vora</p>
             </div>

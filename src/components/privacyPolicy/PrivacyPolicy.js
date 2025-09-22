@@ -22,10 +22,11 @@ const PrivacyPolicy = () => {
                   <h4>Introduction</h4>
                   <p>
                     Jain Jagruti Centre Central Board and its subsidiary, JJC
-                    USA ("Company" or "We"), value your privacy and are
-                    committed to protecting it by adhering to this policy. This
-                    policy outlines the information we may collect from you or
-                    that you provide when visiting our website{' '}
+                    USA (&quot;Company&quot; or &quot;We&quot;), value your
+                    privacy and are committed to protecting it by adhering to
+                    this policy. This policy outlines the information we may
+                    collect from you or that you provide when visiting our
+                    website{' '}
                     <a
                       className="email-text-color"
                       href="http://www.jjcusa.org"
@@ -34,9 +35,9 @@ const PrivacyPolicy = () => {
                     >
                       http://www.jjcusa.org
                     </a>{' '}
-                    (referred to as our "Website"), as well as our practices for
-                    collecting, using, maintaining, protecting, and disclosing
-                    that information.
+                    (referred to as our &quot;Website&quot;), as well as our
+                    practices for collecting, using, maintaining, protecting,
+                    and disclosing that information.
                   </p>
                   <p>
                     This policy applies to information collected through various
@@ -82,9 +83,9 @@ const PrivacyPolicy = () => {
                       Service or parts of our Service.
                     </li>
                     <li>
-                      <strong>Organization</strong> (referred to as "the
-                      Organization," "We," "Us," or "Our" in this Agreement)
-                      refers to JJC USA.
+                      <strong>Organization</strong> (referred to as &quot;the
+                      Organization,&quot; &quot;We,&quot; &quot;Us,&quot; or
+                      &quot;Our&quot; in this Agreement) refers to JJC USA.
                     </li>
                     <li>
                       <strong>Parent Organization</strong> - JJC USA is part of
@@ -157,7 +158,7 @@ const PrivacyPolicy = () => {
                       start year, end year, social media profile information,
                       job title, location, start year, profile picture, and any
                       other identifier by which you may be contacted online or
-                      offline ("personal information").
+                      offline (&quot;personal information&quot;).
                     </li>
                     <li>
                       Usage data collected automatically during your use of the
@@ -169,7 +170,7 @@ const PrivacyPolicy = () => {
                   <p>
                     Usage Data is collected automatically when using the
                     Service. Usage Data may include information such as Your
-                    Device's Internet Protocol address (e.g., IP address),
+                    Device&apos;s Internet Protocol address (e.g., IP address),
                     browser type, browser version, the pages of our Service that
                     You visit, the time and date of Your visit, the time spent
                     on those pages, unique device identifiers, and other
@@ -262,8 +263,9 @@ const PrivacyPolicy = () => {
                       your activity on our Service. Flash Cookies are not
                       managed by the same browser settings as those used for
                       Browser Cookies. For more information on how you can
-                      delete Flash Cookies, please read "Where can I change the
-                      settings for disabling or deleting local shared objects?"
+                      delete Flash Cookies, please read &quot;Where can I change
+                      the settings for disabling or deleting local shared
+                      objects?&quot;
                     </li>
                     <li>
                       <strong>Web beacons:</strong> Certain sections of our
@@ -278,11 +280,12 @@ const PrivacyPolicy = () => {
                     </li>
                   </ul>
                   <p>
-                    Cookies can be "Persistent" or "Session" Cookies. Persistent
-                    Cookies remain on your personal computer or mobile device
-                    when you go offline, while Session Cookies are deleted as
-                    soon as you close your web browser. We use both Session and
-                    Persistent Cookies for the purposes set out below:
+                    Cookies can be &quot;Persistent&quot; or &quot;Session&quot;
+                    Cookies. Persistent Cookies remain on your personal computer
+                    or mobile device when you go offline, while Session Cookies
+                    are deleted as soon as you close your web browser. We use
+                    both Session and Persistent Cookies for the purposes set out
+                    below:
                   </p>
 
                   <ul>
@@ -413,10 +416,10 @@ const PrivacyPolicy = () => {
                   <h4>Transfer of Your Personal Data</h4>
                   <p>
                     Your information, including Personal Data, is processed at
-                    the Organization's operating offices and in any other places
-                    where the parties involved in the processing are located.
-                    This means that this information may be transferred to and
-                    maintained on computers located outside your state,
+                    the Organization&apos;s operating offices and in any other
+                    places where the parties involved in the processing are
+                    located. This means that this information may be transferred
+                    to and maintained on computers located outside your state,
                     province, country, or other governmental jurisdiction where
                     the data protection laws may differ from those in your
                     jurisdiction.
@@ -493,7 +496,9 @@ const PrivacyPolicy = () => {
                     settings or security measures contained on the Website.
                   </p>
 
-                  <h4>Children's Privacy (Children Under the Age of 13)</h4>
+                  <h4>
+                    Children&apos;s Privacy (Children Under the Age of 13)
+                  </h4>
                   <p>
                     Our Website is not intended for children under 13 years of
                     age. No one under the age of 13 may provide any information
@@ -551,11 +556,11 @@ const PrivacyPolicy = () => {
                   <p>
                     We may update our Privacy Policy from time to time. We will
                     notify you of any changes by posting the new Privacy Policy
-                    on this page. We will also update the "Last updated" date at
-                    the top of this Privacy Policy. You are advised to review
-                    this Privacy Policy periodically for any changes. Changes to
-                    this Privacy Policy are effective when they are posted on
-                    this page.
+                    on this page. We will also update the &quot;Last
+                    updated&quot; date at the top of this Privacy Policy. You
+                    are advised to review this Privacy Policy periodically for
+                    any changes. Changes to this Privacy Policy are effective
+                    when they are posted on this page.
                   </p>
 
                   <h4>Contact Us</h4>

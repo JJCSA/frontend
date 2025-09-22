@@ -100,9 +100,11 @@ export const local = {
   },
 };
 
+const environmentConfigs = {
+  production,
+  development,
+};
+
+// Defaults to 'local' if REACT_APP_NODE_ENV is not set or doesn't match
 export const config =
-  process.env.REACT_APP_NODE_ENV === 'production'
-    ? production
-    : process.env.REACT_APP_NODE_ENV === 'development'
-    ? development
-    : local;
+  environmentConfigs[process.env.REACT_APP_NODE_ENV] || local;

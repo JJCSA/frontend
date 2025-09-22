@@ -1,16 +1,16 @@
 import React from 'react';
 import './EventsModal.css';
 
-function EventsModal(eventInformation) {
-  const img_base = '/events/';
-  const img_src = img_base + eventInformation.img;
+function EventsModal({ img, ...eventInformation }) {
+  const imgBase = '/events/';
+  const imgSrc = imgBase + img;
 
   return (
     <div className="events_modal">
       <div className="container-fluid">
         <div className="modal-header">
           <div className="img-container">
-            <img className="img_fluid" src={img_src} alt="Event Image" />
+            <img className="img_fluid" src={imgSrc} alt="Event" />
           </div>
         </div>
         <div className="modal-body">

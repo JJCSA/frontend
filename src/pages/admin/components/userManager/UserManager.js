@@ -14,7 +14,7 @@ function UserManager() {
   const [users, setUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [fetchingUsers, setFetchingUsers] = useState(true);
-  const [error, setError] = useState('');
+  const [error] = useState('');
   const [filters, setFilters] = useState({
     searchText: '',
     userStatusFilter: '',
@@ -90,15 +90,16 @@ function UserManager() {
     async function getUserData() {
       const response = await comm.get('/admin/users', token, null);
       const userList = response.data;
-      userList.map(user => {
-        user.name = `${user.firstName} ${user.lastName}`;
-      });
-      setUsers(userList);
-      setFilteredUsers(userList);
+      const updatedUserList = userList.map(user => ({
+        ...user,
+        name: `${user.firstName} ${user.lastName}`,
+      }));
+      setUsers(updatedUserList);
+      setFilteredUsers(updatedUserList);
       setFetchingUsers(false);
     }
     getUserData();
-  }, []);
+  }, [token]);
 
   /**
    * Function to update Userdata based on particular Id
@@ -106,54 +107,54 @@ function UserManager() {
    * @param {Updated record value} updated_records
    */
 
-  const updateUserData = (user_id, updated_record) => {
+  const updateUserData = (userId, updatedRecord) => {
     const newusers = [...users];
-    const newfiltered_users = [...filteredUsers];
+    const newfilteredUsers = [...filteredUsers];
 
     // Finding the element index of the user_id to update
     const elementsIndexInFilteredUsers = filteredUsers.findIndex(
-      element => element.id === user_id
+      element => element.id === userId
     );
     const elementsIndexInUsers = users.findIndex(
-      element => element.id === user_id
+      element => element.id === userId
     );
 
     // Updating the array based on the status
-    if (updated_record.userStatus === Constants.userStatus.NEWUSER) {
+    if (updatedRecord.userStatus === Constants.userStatus.NEWUSER) {
       newusers[elementsIndexInUsers] = {
         ...newusers[elementsIndexInUsers],
-        userStatus: updated_record.userStatus,
+        userStatus: updatedRecord.userStatus,
       };
-      newfiltered_users[elementsIndexInFilteredUsers] = {
-        ...newfiltered_users[elementsIndexInFilteredUsers],
-        userStatus: updated_record.userStatus,
+      newfilteredUsers[elementsIndexInFilteredUsers] = {
+        ...newfilteredUsers[elementsIndexInFilteredUsers],
+        userStatus: updatedRecord.userStatus,
       };
-    } else if (updated_record.userStatus === Constants.userStatus.REJECTED) {
+    } else if (updatedRecord.userStatus === Constants.userStatus.REJECTED) {
       newusers.splice(elementsIndexInUsers, 1);
-      newfiltered_users.splice(elementsIndexInFilteredUsers, 1);
+      newfilteredUsers.splice(elementsIndexInFilteredUsers, 1);
 
-      //Updating UserRole by SuperAdmin if the user is Active
-    } else if (updated_record.userStatus === Constants.userStatus.ACTIVE) {
+      // Updating UserRole by SuperAdmin if the user is Active
+    } else if (updatedRecord.userStatus === Constants.userStatus.ACTIVE) {
       newusers[elementsIndexInUsers] = {
         ...newusers[elementsIndexInUsers],
-        userRole: updated_record.userRole,
+        userRole: updatedRecord.userRole,
       };
       newusers[elementsIndexInUsers] = {
         ...newusers[elementsIndexInUsers],
-        isRegionalContact: updated_record.isRegionalContact,
+        isRegionalContact: updatedRecord.isRegionalContact,
       };
-      newfiltered_users[elementsIndexInFilteredUsers] = {
-        ...newfiltered_users[elementsIndexInFilteredUsers],
-        userRole: updated_record.userRole,
+      newfilteredUsers[elementsIndexInFilteredUsers] = {
+        ...newfilteredUsers[elementsIndexInFilteredUsers],
+        userRole: updatedRecord.userRole,
       };
-      newfiltered_users[elementsIndexInFilteredUsers] = {
-        ...newfiltered_users[elementsIndexInFilteredUsers],
-        isRegionalContact: updated_record.isRegionalContact,
+      newfilteredUsers[elementsIndexInFilteredUsers] = {
+        ...newfilteredUsers[elementsIndexInFilteredUsers],
+        isRegionalContact: updatedRecord.isRegionalContact,
       };
     }
 
     setUsers(newusers);
-    setFilteredUsers(newfiltered_users);
+    setFilteredUsers(newfilteredUsers);
   };
 
   /**
@@ -188,7 +189,7 @@ function UserManager() {
       return searchTextFilter && userStatus && location && userType;
     });
     setFilteredUsers(filteredList);
-  }, [filters]);
+  }, [filters, users]);
   /**
    * Function to handle text filter
    * @param {The input element} event
@@ -213,7 +214,14 @@ function UserManager() {
   const renderUserTable = () => (
     <div className="pageContent">
       <div className="tableFilterContainer">
-        <img src={deleteIcon} alt="Clear" onClick={clearSearchFilters} />
+        <button
+          type="button"
+          onClick={clearSearchFilters}
+          className="icon-button"
+          aria-label="Clear search filters"
+        >
+          <img src={deleteIcon} alt="" />
+        </button>
         <CustomTextBox
           value={filters.searchText}
           label="searchText"

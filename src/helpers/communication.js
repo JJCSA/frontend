@@ -25,7 +25,7 @@ function buildData(data) {
       formData = new FormData();
       Object.entries(data).forEach(([key, value]) => {
         if (Array.isArray(value)) {
-          value.forEach((arrVal) => {
+          value.forEach(arrVal => {
             if (['number', 'string'].includes(typeof arrVal)) {
               formData.append(`${key}[]`, arrVal);
             } else {
@@ -41,13 +41,22 @@ function buildData(data) {
   return formData;
 }
 
-function sendFormDataPost(route, token = null, data = null, base = 'API_BASE_URL') {
+function sendFormDataPost(
+  route,
+  token = null,
+  data = null,
+  base = 'API_BASE_URL'
+) {
   const formData = buildData(data);
   if (base === 'API_BASE_URL') {
-    return axios.post(config.url[base] + route, formData, getConfig(token, null, 'multipart/form-data'));
+    return axios.post(
+      config.url[base] + route,
+      formData,
+      getConfig(token, null, 'multipart/form-data')
+    );
   }
   const params = new URLSearchParams();
-  Array.from(formData.keys()).forEach((key) => {
+  Array.from(formData.keys()).forEach(key => {
     params.append(key, formData.get(key));
   });
   return axios.post(config.url[base] + route, params);
@@ -70,5 +79,9 @@ function sendDelete(route, token = null, params = null, base = 'API_BASE_URL') {
 }
 
 export default {
-  sendFormDataPost, get, sendPut, sendPost, sendDelete
+  sendFormDataPost,
+  get,
+  sendPut,
+  sendPost,
+  sendDelete,
 };

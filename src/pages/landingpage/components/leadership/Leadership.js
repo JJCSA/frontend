@@ -6,8 +6,6 @@ import {
   President,
   VicePresident,
   AlumniWelfare,
-  Events,
-  Marketing,
   admin,
 } from '../../../../assets/images/images-index';
 

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import './ResetPassword.css';
 import { Form, Col, Row, Container } from 'react-bootstrap';
 import PasswordValidator from 'password-validator';
-import comm from '../../helpers/communication';
 import { toast } from 'react-toastify';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
+import comm from '../../helpers/communication';
 
 const ResetPassword = () => {
   // Strong Password Validation with 8 Letter 1 Uppercase , Lowercase and Number

@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import './CareerInfo.css';
-import { companyIcon, universityIcon } from '../../assets/index.js';
+import { companyIcon, universityIcon } from '../../assets/index';
 
 const CareerInfo = ({
   careerType,
@@ -44,6 +44,14 @@ CareerInfo.propTypes = {
   careerDescription: PropTypes.string,
   careerStart: PropTypes.string,
   careerEnd: PropTypes.string,
+};
+
+CareerInfo.defaultProps = {
+  careerType: '',
+  careerName: '',
+  careerDescription: '',
+  careerStart: '',
+  careerEnd: '',
 };
 
 export default CareerInfo;

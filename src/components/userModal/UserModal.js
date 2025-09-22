@@ -26,21 +26,21 @@ import GlobalContext from '../../store/GlobalContext';
 const ACCEPT = 'Accept';
 const REJECT = 'Reject';
 
-const UserModal = props => {
+const UserModal = ({ data, token, onsubmitUpdate }) => {
   const [status, setStatus] = useState('');
   const [rejectReason, setRejectReason] = useState('');
   const [pendingAction, setPendingAction] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(props.data.userRole === 'ADMIN');
+  const [isAdmin, setIsAdmin] = useState(data.userRole === 'ADMIN');
   const [regionalContact, setRegionalContact] = useState(
-    props.data.isRegionalContact
+    data.isRegionalContact
   );
 
   const globalState = useContext(GlobalContext);
 
-  const changeStatus = status => {
-    setStatus(status);
+  const changeStatus = statusOption => {
+    setStatus(statusOption);
     setPendingAction(true);
-    if (status === ACCEPT) {
+    if (statusOption === ACCEPT) {
       setStatus(Constants.userStatus.NEWUSER);
       setRejectReason('');
     } else {
@@ -50,44 +50,36 @@ const UserModal = props => {
 
   const submitStatusUpdate = async e => {
     e.preventDefault();
-    const params = {
-      userId: props.data.id,
-      status,
-      ...(status === 'REJECTED' ? {rejectReason: rejectReason} : '')
-    };
-    const response = await comm.sendPut(
-      '/admin/users/status',
-      props.token,
-      params
-    );
-    props.onsubmitUpdate({ ...props.data, userStatus: status });
+    // const params = {
+    //   userId: data.id,
+    //   status,
+    //   ...(status === 'REJECTED' ? { rejectReason } : ''),
+    // };
+    // const responseOption = await comm.sendPut(
+    //   '/admin/users/status',
+    //   token,
+    //   params
+    // );
+    onsubmitUpdate({ ...data, userStatus: status });
   };
   const updateUserRole = async e => {
     if (e === 'no') {
-      setIsAdmin(props.data.userRole === 'ADMIN');
+      setIsAdmin(data.userRole === 'ADMIN');
     } else if (e === 'yes') {
-      if (props.data.userRole === 'ADMIN') {
+      if (data.userRole === 'ADMIN') {
         await comm
-          .sendDelete(
-            `/super-admin/user/${props.data.id}/role/ADMIN`,
-            props.token,
-            ''
-          )
+          .sendDelete(`/super-admin/user/${data.id}/role/ADMIN`, token, '')
           .then(() => {
-            props.onsubmitUpdate({ ...props.data, userRole: 'USER' });
+            onsubmitUpdate({ ...data, userRole: 'USER' });
           });
       } else {
         const params = {
           role: 'ADMIN',
         };
         await comm
-          .sendPost(
-            `/super-admin/user/${props.data.id}/role`,
-            props.token,
-            params
-          )
+          .sendPost(`/super-admin/user/${data.id}/role`, token, params)
           .then(() => {
-            props.onsubmitUpdate({ ...props.data, userRole: 'ADMIN' });
+            onsubmitUpdate({ ...data, userRole: 'ADMIN' });
           });
       }
     }
@@ -100,20 +92,20 @@ const UserModal = props => {
       if (regionalContact) {
         await comm
           .sendPost(
-            `/admin/users/${props.data.id}/regional-contact?isRegionalContact=true`,
-            props.token
+            `/admin/users/${data.id}/regional-contact?isRegionalContact=true`,
+            token
           )
           .then(() => {
-            props.onsubmitUpdate({ ...props.data, isRegionalContact: true });
+            onsubmitUpdate({ ...data, isRegionalContact: true });
           });
       } else {
         await comm
           .sendPost(
-            `/admin/users/${props.data.id}/regional-contact?isRegionalContact=false`,
-            props.token
+            `/admin/users/${data.id}/regional-contact?isRegionalContact=false`,
+            token
           )
           .then(() => {
-            props.onsubmitUpdate({ ...props.data, isRegionalContact: false });
+            onsubmitUpdate({ ...data, isRegionalContact: false });
           });
       }
     }
@@ -124,22 +116,19 @@ const UserModal = props => {
       <Container fluid>
         <Row>
           <Col md={2} className="pl-0 pr-0 pt-1">
-            <ImageFormatter
-              cell={props.data.profilePicture}
-              avatarSize="large"
-            />
+            <ImageFormatter cell={data.profilePicture} avatarSize="large" />
           </Col>
           <Col md={6} className="ml-2">
             <Container fluid>
               <Row>
-                <span className="name-container">{props.data.name}</span>
+                <span className="name-container">{data.name}</span>
               </Row>
               <Row>
-                {props.data.city && props.data.state ? (
+                {data.city && data.state ? (
                   <div>
                     <img src={locationIcon} alt="Location" />
                     <span className="info-container-info">
-                      {props.data.city},{props.data.state}
+                      {data.city},{data.state}
                     </span>
                   </div>
                 ) : (
@@ -148,7 +137,7 @@ const UserModal = props => {
               </Row>
               <Row>
                 <div className="mt-1">
-                  {UserStatusFormatter(props.data.userStatus)}
+                  {UserStatusFormatter(data.userStatus)}
                 </div>
               </Row>
             </Container>
@@ -165,11 +154,11 @@ const UserModal = props => {
             <div className="divOutside last">
               <div className="mt-3 ml-2 mb-3">
                 <img src={emailIcon} alt="Email" />
-                <span className="info-container-info"> {props.data.email}</span>
+                <span className="info-container-info"> {data.email}</span>
                 <img src={phoneIcon} alt="Phone" className="ml-5" />
                 <span className="info-container-info">
                   {' '}
-                  {PhoneNumberFormatter(props.data.mobileNumber)}
+                  {PhoneNumberFormatter(data.mobileNumber)}
                 </span>
               </div>
             </div>
@@ -192,7 +181,7 @@ const UserModal = props => {
                   <img src={tickIcon} alt="Tick" />
                   <span className="info-container-info">
                     {' '}
-                    {props.data.contactMethod}
+                    {data.contactMethod}
                   </span>
                   <span className="ml-4" />
                 </>
@@ -212,13 +201,13 @@ const UserModal = props => {
               <div className="mt-3 ml-2 mb-3">
                 <span className="info-container-info">
                   {' '}
-                  {props.data.communityName}
+                  {data.communityName}
                 </span>
               </div>
             </div>
           </div>
         </Row>
-        {props.data.userStatus === Constants.userStatus.PENDING ? (
+        {data.userStatus === Constants.userStatus.PENDING ? (
           <>
             <Row>
               <div className="card border-0 info-container">
@@ -282,18 +271,16 @@ const UserModal = props => {
                   </div>
                   <div className="divOutside">
                     <div className="mt-3 ml-2 mb-3">
-                      {props.data.workExperience.map(
-                        (experience_row, index) => (
-                          <CareerInfo
-                            key={index}
-                            careerType="Experience"
-                            careerName={experience_row.companyName}
-                            careerDescription={experience_row.role}
-                            careerStart={experience_row.location}
-                            careerEnd={experience_row.totalExp}
-                          />
-                        )
-                      )}
+                      {data.workExperience.map((experienceRow, index) => (
+                        <CareerInfo
+                          key={experienceRow.id || index}
+                          careerType="Experience"
+                          careerName={experienceRow.companyName}
+                          careerDescription={experienceRow.role}
+                          careerStart={experienceRow.location}
+                          careerEnd={experienceRow.totalExp}
+                        />
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -311,14 +298,14 @@ const UserModal = props => {
                   </div>
                   <div className="divOutside">
                     <div className="mt-3 ml-2 mb-3">
-                      {props.data.educationList.map((education_row, index) => (
+                      {data.educationList.map((educationRow, index) => (
                         <CareerInfo
-                          key={index}
+                          key={educationRow.id || index}
                           careerType="Education"
-                          careerName={education_row.universityName}
-                          careerDescription={education_row.degree}
-                          careerStart={education_row.gradMonth}
-                          careerEnd={education_row.gradYear}
+                          careerName={educationRow.universityName}
+                          careerDescription={educationRow.degree}
+                          careerStart={educationRow.gradMonth}
+                          careerEnd={educationRow.gradYear}
                         />
                       ))}
                     </div>
@@ -326,8 +313,8 @@ const UserModal = props => {
                 </div>
               </Col>
             </Row>
-            {props.data.userStatus === Constants.userStatus.ACTIVE &&
-              props.data.userRole !== Constants.userTypes.SUPERADMIN &&
+            {data.userStatus === Constants.userStatus.ACTIVE &&
+              data.userRole !== Constants.userTypes.SUPERADMIN &&
               globalState.globalState.profile.userRole ===
                 Constants.userTypes.SUPERADMIN && (
                 <Row>
@@ -349,19 +336,21 @@ const UserModal = props => {
                   </div>
                 </Row>
               )}
-            {(props.data.userRole === 'ADMIN') !== isAdmin ? (
+            {(data.userRole === 'ADMIN') !== isAdmin ? (
               <div className="row info-container confirmation_popup">
                 <span className="info-container-headers">
                   {' '}
                   Are you sure you want to continue?{' '}
                 </span>
                 <button
+                  type="button"
                   className="yes-button"
                   onClick={() => updateUserRole('yes')}
                 >
                   Yes
                 </button>
                 <button
+                  type="button"
                   className="no-button"
                   onClick={() => updateUserRole('no')}
                 >
@@ -371,7 +360,7 @@ const UserModal = props => {
             ) : (
               ''
             )}
-            {props.data.userStatus === Constants.userStatus.ACTIVE &&
+            {data.userStatus === Constants.userStatus.ACTIVE &&
               (globalState.globalState.profile.userRole ===
                 Constants.userTypes.SUPERADMIN ||
                 globalState.globalState.profile.userRole ===
@@ -395,19 +384,21 @@ const UserModal = props => {
                   </div>
                 </Row>
               )}
-            {props.data.isRegionalContact !== regionalContact ? (
+            {data.isRegionalContact !== regionalContact ? (
               <div className="row info-container confirmation_popup">
                 <span className="info-container-headers">
                   {' '}
                   Are you sure you want to continue?{' '}
                 </span>
                 <button
+                  type="button"
                   className="yes-button"
                   onClick={() => updateRegionalContact('yes')}
                 >
                   Yes
                 </button>
                 <button
+                  type="button"
                   className="no-button"
                   onClick={() => updateRegionalContact('no')}
                 >

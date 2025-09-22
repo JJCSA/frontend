@@ -10,25 +10,28 @@ import JJCSearchModal from '../jjcsearchModal/JJCSearchModal';
 import FilterOption from './FilterOption';
 import { regionalContact } from '../../../../assets/index';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
-import 'react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css';
-import 'react-bootstrap-table2-filter/dist/react-bootstrap-table2-filter.min.css';
+
+// import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+// import 'react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css';
+// import 'react-bootstrap-table2-filter/dist/react-bootstrap-table2-filter.min.css';
 import './JJCSearch.css';
 
 function JJCSearch() {
   const [userlist, setUserList] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [sizePerPage, setSizePerPage] = useState(10);
+  const [, setCurrentPage] = useState(1);
+  const [, setSizePerPage] = useState(10);
   const [modalInfo, setModalInfo] = useState({});
-  const [showModal, setShowModal] = useState(false);
+  const [, setShowModal] = useState(false);
   const [show, setShow] = useState(false);
   const [filters, setFilters] = useState(false);
   const token = useAuthHeader()();
+
   const ImageFormatter = cell => {
     const imgLinkRegex = RegExp('(http(s?):)|([/|.|w|s])*.(?:jpg|gif|png)');
     const validImg = imgLinkRegex.test(cell);
     return <Avatar imgSrc={validImg ? cell : ''} avatarSize="small" />;
   };
+
   const columns = [
     {
       dataField: 'userId',
@@ -105,14 +108,15 @@ function JJCSearch() {
     },
   ];
 
-  const handlePageChange = (page, sizePerPage) => {
+  const handlePageChange = page => {
     setCurrentPage(page);
   };
 
-  const handleSizePerPageChange = sizePerPage => {
-    setSizePerPage(sizePerPage);
+  const handleSizePerPageChange = newSizePerPage => {
+    setSizePerPage(newSizePerPage);
     setCurrentPage(1);
   };
+
   const handleClose = () => {
     setShow(false);
   };
@@ -120,9 +124,11 @@ function JJCSearch() {
   const handleShow = () => {
     setShow(true);
   };
+
   const toggleTrueFalse = () => {
     setShowModal(handleShow());
   };
+
   const handleFilterChange = () => {
     setFilters(!filters);
   };
@@ -141,11 +147,12 @@ function JJCSearch() {
     onMouseLeave: e => {
       e.target.parentElement.style.border = '1px solid #dee2e6'; // Restore original border color on leave
     },
-    onClick: (e, row, rowIndex) => {
+    onClick: (e, row) => {
       setModalInfo(row);
       toggleTrueFalse();
     },
   };
+
   const paginationOptions = {
     sizePerPageList: [
       { text: '50', value: 50 },
@@ -157,6 +164,7 @@ function JJCSearch() {
     onPageChange: handlePageChange,
     onSizePerPageChange: handleSizePerPageChange,
   };
+
   const ModalContent = () => (
     <Modal
       size="lg"
@@ -209,17 +217,20 @@ function JJCSearch() {
                 noDataIndication="Table is Empty"
                 rowEvents={rowEvents}
                 rowClasses="clickable-row"
-                onTableChange={(type, { page }) => {
+                onTableChange={(
+                  type,
+                  { page, sizePerPage: tableSizePerPage }
+                ) => {
                   if (type === 'pagination') {
-                    handlePageChange(page, sizePerPage);
+                    handlePageChange(page, tableSizePerPage);
                   } else if (type === 'sizePerPage') {
-                    handleSizePerPageChange(sizePerPage);
+                    handleSizePerPageChange(tableSizePerPage);
                   }
                 }}
               />
             </div>
             {show ? <ModalContent /> : null}
-            <img src={regionalContact} alt="regional-contact" /> {''}
+            <img src={regionalContact} alt="regional-contact" />
             <strong>
               {' '}
               (Regional Contact) : If you require assistance specific to your

@@ -20,7 +20,6 @@ export const register = formData =>
       })
       .catch(err => {
         reject(err);
-        console.log(err);
       });
   });
 

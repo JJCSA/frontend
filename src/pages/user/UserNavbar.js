@@ -22,8 +22,9 @@ function UserNavbar() {
           globalState.profile.userRole === 'SUPER_ADMIN') ? (
           <div className="user-dropdown">
             <GoHome className="user-dropdown-icon" />
-            <Link to="/admin">
-              <span onClick={() => document.body.click()}>Admin</span>
+            {/* FIX: Moved onClick from <span> to <Link> for a11y */}
+            <Link to="/admin" onClick={() => document.body.click()}>
+              <span>Admin</span>
             </Link>
           </div>
         ) : (
@@ -32,14 +33,26 @@ function UserNavbar() {
         <hr className="m-0" />
         <div className="user-dropdown">
           <CgProfile className="user-dropdown-icon" />
-          <Link to="/profile">
-            <span onClick={() => document.body.click()}>Profile</span>
+          {/* FIX: Moved onClick from <span> to <Link> for a11y */}
+          <Link to="/profile" onClick={() => document.body.click()}>
+            <span>Profile</span>
           </Link>
         </div>
         <hr className="m-0" />
-        <div className="user-dropdown">
+        {/* FIX: Added role, tabIndex, and onKeyDown for the Logout action (a11y) */}
+        <div
+          className="user-dropdown"
+          onClick={signOut}
+          role="button"
+          tabIndex={0}
+          onKeyDown={e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              signOut();
+            }
+          }}
+        >
           <FiLogOut className="user-dropdown-icon" />
-          <span onClick={signOut}>Logout</span>
+          <span>Logout</span>
         </div>
       </Popover.Content>
     </Popover>
@@ -83,7 +96,7 @@ function UserNavbar() {
             smooth
             activeClassName="activeLink"
           >
-            FAQ'S
+            FAQ&apos;S
           </NavHashLink>
           <NavHashLink
             to="/events"

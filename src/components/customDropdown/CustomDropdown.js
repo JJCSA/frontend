@@ -21,9 +21,9 @@ const CustomDropdown = ({
           {selectedValue || title}
         </Dropdown.Toggle>
         <Dropdown.Menu className="dropdownMenu">
-          {values.map((value, index) => (
+          {values.map(value => (
             <Dropdown.Item
-              key={index}
+              key={value}
               eventKey={value}
               className="dropdownItem"
             >
@@ -37,11 +37,19 @@ const CustomDropdown = ({
 };
 
 CustomDropdown.propTypes = {
-  values: PropTypes.array.isRequired,
+  values: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  ).isRequired,
   title: PropTypes.string.isRequired,
   onSelectCallback: PropTypes.func,
   filterType: PropTypes.string,
   selectedValue: PropTypes.string,
+};
+
+CustomDropdown.defaultProps = {
+  onSelectCallback: () => {},
+  filterType: '',
+  selectedValue: '',
 };
 
 export default CustomDropdown;

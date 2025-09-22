@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+// import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import './App.css';
 
@@ -9,6 +9,7 @@ import refreshApi from './helpers/refreshApi';
 import GlobalContext from './store/GlobalContext';
 import Routes from './Routes';
 import 'react-toastify/dist/ReactToastify.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [globalState, setGlobalState] = useState({ profile: null });

@@ -49,7 +49,6 @@ import {
   volunteer44,
   volunteer45,
   volunteer46,
-  volunteer47,
   volunteer48,
   volunteer49,
   volunteer50,
@@ -463,7 +462,7 @@ const Volunteers = () => {
           <h6 className="volunteer-text mt-2 mb-5">
             Thank you to all our incredible volunteers! Your unwavering
             dedication and passion have made a significant impact on our
-            organization. We are grateful for the countless hours you've
+            organization. We are grateful for the countless hours you&apos;ve
             devoted. Thank you for being the driving force behind our success.
             We are blessed to have you as part of our volunteer family. Your
             compassion and willingness to help inspire us every day <FaHeart />
